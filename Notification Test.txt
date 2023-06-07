@@ -3,7 +3,7 @@
   i borrow the gui because it's looks cool
 --]]
 
-_G.NotificationText = "There's happy ending on you lie in april"
+
 
 
 
