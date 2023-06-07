@@ -3,10 +3,6 @@
   i borrow the gui because it's looks cool
 --]]
 
-_G.ErrorTrue = false
-
-
-
 local Script_Title = "Notifi"
 
 -- Instances:
