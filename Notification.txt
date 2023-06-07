@@ -563,9 +563,11 @@ local notifitext
 notifitext = addButton(_G.NotificationText, function()
 return
 end)
-
+if _G.ErrorTrue == false then
 notifitext:WaitForChild("Name").TextColor = BrickColor.new(255,255,255)
-
+else
+notifitext:WaitForChild("Name").TextColor = BrickColor.new(255,0,0)
+end
 
 
 
