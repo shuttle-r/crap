@@ -222,9 +222,6 @@ Name_2.TextWrapped = true
 Name_2.TextXAlignment = Enum.TextXAlignment.Left
 Name_2.TextYAlignment = Enum.TextYAlignment.Bottom
 
-UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(180, 180, 180))}
-UIGradient_2.Parent = Button
-
 
 tab.Name = "Tab"
 tab.Visible = false
