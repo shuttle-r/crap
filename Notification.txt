@@ -2,6 +2,7 @@
   GUI MADE BY SPDM TEAM
   i borrow the gui because it's looks cool
 --]]
+_G.NotifiOnScreen = false
 
 local Script_Title = "Notifi"
 
