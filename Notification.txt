@@ -566,7 +566,7 @@ notifitext:WaitForChild("Name").TextColor = BrickColor.new(255,0,0)
 end
 
 
-
+spawn(function()
 Main:TweenSize(
 		UDim2.fromScale(0, 0),
 		Enum.EasingDirection.Out,
@@ -610,7 +610,6 @@ Logo:TweenSize(
 		0.55, true, nil
 	)
 TweenService:Create(Main, TweenInfo.new(0.55, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {BackgroundTransparency = 0.8}):Play()
-spawn(function()
 task.wait(3)
 Segs:Destroy()
 end)
