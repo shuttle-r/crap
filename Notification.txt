@@ -611,5 +611,5 @@ Logo:TweenSize(
 	)
 TweenService:Create(Main, TweenInfo.new(0.55, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {BackgroundTransparency = 0.8}):Play()
 task.wait(3)
-Segs:Destroy()
+Main:Destroy()
 end)
