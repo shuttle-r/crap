@@ -577,12 +577,12 @@ return
 end)
 
 local mirphfront
-mirphfront = addButton("Become frontman",function()
+mirphfront = addButton("Become Guard",function()
 game:GetService("ReplicatedStorage").FrontmanRemotes.BecomeFrontman:InvokeServer(true)
 end)
 
 local mirphguard
-mirphguard = addButton("Become frontman",function()
+mirphguard = addButton("Become Guard",function()
 game:GetService("ReplicatedStorage").GuardRemotes.BecomeGuard:InvokeServer(true)
 end) 
 
