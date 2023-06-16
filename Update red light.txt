@@ -10,7 +10,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/shuttle-r/crap/main/N
   return
 end
 _G.alreadyexec = true
-_G.CTitle = "Squid" 
+_G.CTitle = "Squid game" 
 
 
 
@@ -613,6 +613,7 @@ tp(-313.14785766602, 2.9999992847443, 419.82235717773)
 end)
 
 
+
 local other
 other = addButton("Tug of war", function()
 return
@@ -640,19 +641,106 @@ end)
 
 end, false)
 
-
-
-local comboBox
-comboBox = addComboBox("Select an option", {"Option 1", "Option 2"}, function(selectedOption)
-    if selectedOption == "Option 1" then
-      print("Option 1")
-    end
-    if selectedOption == "Option 2" then
-      print("Option 2")
-    end
-    -- Handle the selected option here
-    -- You can perform any desired actions based on the selected option
+local other
+other = addButton("Glass game", function()
+return
 end)
+other:WaitForChild("Name").TextColor = BrickColor.new(0,255,0)
+
+local nobroke
+nobroke = addToggle("Anti broke glass",function()
+  if Brokev2 == true then 
+		Brokev2 = false 
+	else
+		Brokev2 = true
+		end
+ 
+	if Brokev2 == true then
+        box = Instance.new('Part',workspace)
+box.Name = "WeLoveKids"
+box.Anchored = true
+box.CanCollide = true
+box.Size = Vector3.new(35,0,333)
+box.Position = Vector3.new(-500, 75.506008911133, -337)
+game.Workspace.WeLoveKids.Transparency = 0.2 
+        end
+	if Brokev2 == false then
+    game.Workspace.WeLoveKids:Destroy() 
+    game.Workspace.WeLoveKids:Destroy()
+    game.Workspace.WeLoveKids:Destroy() 
+    game.Workspace.WeLoveKids:Destroy() 
+	end
+end)
+
+local winglass
+winglass = addButton("Auto win glass", function()
+local plr = game:service"Players".LocalPlayer;
+local tween_s = game:service"TweenService";
+local info = TweenInfo.new(3,Enum.EasingStyle.Quad);
+function tp(...)
+   local tic_k = tick(5);
+   local params = {...};
+   local cframe = CFrame.new(params[1],params[2],params[3]);
+   local tween,err = pcall(function()
+       local tween = tween_s:Create(plr.Character["HumanoidRootPart"],info,{CFrame=cframe});
+       tween:Play();
+   end)
+   if not tween then return err end
+end
+tp(-500.35690307617, 78.206008911133, -470.29962158203)
+end)
+
+local nofalldmg
+nofalldmg = addButton("No fall damage", function()
+game.Workspace.Mechanics.Kill:Destroy()
+game.Workspace.Mechanics.Kill2:Destroy()
+end)
+
+local party
+party = addToggle("Party",function()
+ if Brokev2 == true then 
+		Brokev2 = false 
+	else
+		Brokev2 = true
+		end
+	
+	while Brokev2 == true do
+        game:GetService("ReplicatedStorage").FrontmanRemotes.ToggleBridgeLights:FireServer(true)
+wait(0.5)       game:GetService("ReplicatedStorage").FrontmanRemotes.ToggleBridgeLights:FireServer(false)
+        wait(0.5)
+        end
+	if Brokev2 == false then
+	  Brokev2 = false
+	end
+end)
+
+local other
+other = addButton("The punchy thingy idk wtf is that game", function()
+return
+end)
+other:WaitForChild("Name").TextColor = BrickColor.new(0,255,0)
+
+local stayongreen
+stayongreen = addToggle("Stay on green circle", function()
+if stayon == true then
+  stayon = false
+else
+  stayon = true
+end
+
+while stayon == true do
+  wait()
+  game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-314.2951354980469, 3.0858848094940186, 328.0733642578125)
+end
+
+if stayon == false then
+  stayon = false
+end
+  
+
+end, false)
+
+
 
 
 Main:TweenSize(
