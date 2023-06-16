@@ -580,7 +580,7 @@ local redlight
 redlight = addButton("Red light green light", function()
 return
 end)
-other:WaitForChild("Name").TextColor = BrickColor.new(0,255,0)
+redlight:WaitForChild("Name").TextColor = BrickColor.new(0,255,0)
 
 local greenlighg
 greenlighg = addButton("Teleport to the end", function()
