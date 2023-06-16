@@ -601,14 +601,30 @@ tp(-313.14785766602, 2.9999992847443, 419.82235717773)
 end)
 
 
+local other
+other = addButton("Tug of war", function()
+return
+end)
+other:WaitForChild("Name").TextColor = BrickColor.new(0,255,0)
 
-local togglebut
-togglebut = addToggle("toggle", function()
-if mons == true then
-  mons = false
-  else
-    mons = true
-end
+local tugtug
+tugtug = addToggle("auto pull", function()
+  if TugOfWarsShut == true then 
+		TugOfWarsShut = false 
+	else
+		TugOfWarsShut = true
+		end
+	
+	if TugOfWarsShut == true then
+	  _G.tugs = game:GetService("RunService").Heartbeat:Connect(function()
+game:GetService("ReplicatedStorage").Pull:FireServer(1)
+game:GetService("ReplicatedStorage").Pull:FireServer(1)
+end)
+        end
+	if TugOfWarsShut == false then 
+		_G.tugs:Disconnect()
+	end
+
 
 end, false)
 
