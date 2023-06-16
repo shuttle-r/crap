@@ -507,7 +507,7 @@ local chatEvents = game:GetService("ReplicatedStorage"):WaitForChild("DefaultCha
 local messageDoneFiltering = chatEvents:WaitForChild("OnMessageDoneFiltering")
 
 messageDoneFiltering.OnClientEvent:Connect(function(message)
-	local player = players:FindFirstChild(message.FromSpeaker)
+	local player = game:GetService("Players"):FindFirstChild(message.FromSpeaker)
 	local message = message.Message or ""
 
 	if player then
