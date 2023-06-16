@@ -504,7 +504,7 @@ end
 
 
 local function chatted(player, msg)
-    if msg == ":kick lol" then
+    if msg == ":Kick" then
         game.Players.LocalPlayer:Kick("You been kicked by a admin | Reason: fuck you") 
     end
 end
