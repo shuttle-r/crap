@@ -628,8 +628,8 @@ return
 end)
 other:WaitForChild("Name").TextColor = BrickColor.new(0,255,0)
 
-local cut
-cut = addButton("Auto cut cookies", function()
+local cutcoo
+cutcoo = addButton("Auto cut cookies", function()
 game.ReplicatedStorage.Remotes.HoneyCombResult:FireServer(true)
 game.workspace.Camera.CameraType = Enum.CameraType.Custom
 wait(0.1)
