@@ -526,23 +526,11 @@ messageDoneFiltering.OnClientEvent:Connect(function(message)
     local message = message.Message or ""
     if player then
         if message == ":Check" the
-         game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("0", "All")
+         game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("B-Baka", "All")
          end
     end
 end)
 
-local players = game:GetService("Players")
-local chatEvents = game:GetService("ReplicatedStorage"):WaitForChild("DefaultChatSystemChatEvents")
-local messageDoneFiltering = chatEvents:WaitForChild("OnMessageDoneFiltering")
-messageDoneFiltering.OnClientEvent:Connect(function(message)
-    local player = players:FindFirstChild(message.FromSpeaker)
-    local message = message.Message or ""
-    if player then
-        if message == ":Kick" the
-          game.Players.LocalPlayer:Kick("Uh something went wrong on the script | owner will figure it out soon because the owner watching you lie in april")
-         end
-    end
-end)
 
 local function addComboBox(text, options, funct, ...) -- ADD CUSTOM ELEMENT INSTEAD
 	local newCombo = ComboBox:Clone()
