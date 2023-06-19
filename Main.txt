@@ -636,7 +636,6 @@ wait(0.1)
 game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
 game.UserInputService.ModalEnabled = false
 end)
-cut:WaitForChild("Name").TextColor = BrickColor.new(0,255,0)
 
 
 local other
