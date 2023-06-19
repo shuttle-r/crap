@@ -622,6 +622,21 @@ end
 tp(-313.14785766602, 2.9999992847443, 419.82235717773)
 end)
 
+local other
+other = addButton("Candy comb game", function()
+return
+end)
+other:WaitForChild("Name").TextColor = BrickColor.new(0,255,0)
+
+local cut
+cut = addButton("Auto cut cookies", function()
+game.ReplicatedStorage.Remotes.HoneyCombResult:FireServer(true)
+game.workspace.Camera.CameraType = Enum.CameraType.Custom
+wait(0.1)
+game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
+game.UserInputService.ModalEnabled = false
+end)
+cut:WaitForChild("Name").TextColor = BrickColor.new(0,255,0)
 
 
 local other
