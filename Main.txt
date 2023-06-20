@@ -526,7 +526,7 @@ messageDoneFiltering.OnClientEvent:Connect(function(message)
     local message = message.Message or ""
     if player then
         if message == ":Check" then
-         game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("B-Baka", "All")
+         game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(".", "All")
          end
     end
 end)
@@ -605,6 +605,14 @@ other = addButton("Made by: shuFEL", function()
 return
 end)
 other:WaitForChild("Name").TextColor = BrickColor.new(0,255,0)
+
+local other
+other = addButton("numeros123456789 bullying my children", function()
+return
+end)
+other:WaitForChild("Name").TextColor = BrickColor.new(0,255,0)
+
+
 
 local other
 other = addButton("                                               ", function()
