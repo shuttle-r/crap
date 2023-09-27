@@ -1,0 +1,1602 @@
+--[[
+  GUI MADE BY SPDM TEAM
+  i borrow the gui because it's looks cool
+  
+  
+  open sourced because i skid the ai thingy
+--]]
+
+
+_G.ErrorTrue = false
+local successful, errorocurred = pcall(function()
+if _G.alreadyexec == true then
+  spawn(function()
+  _G.NotificationText = "Already executed"
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/shuttle-r/crap/main/Notification.txt",true))()
+  end)
+  return
+end
+_G.alreadyexec = true
+_G.NotificationText = "Getting ready."
+loadstring(game:HttpGet("https://raw.githubusercontent.com/shuttle-r/crap/main/Notification.txt",true))()
+local Script_Title = "Error: 404 Script_Title random string not found!"
+-- Instances:
+local Segs = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local Intro = Instance.new("Frame")
+local UICorner_2 = Instance.new("UICorner")
+local Logo = Instance.new("ImageButton")
+local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+local Title = Instance.new("TextLabel")
+local Menu = Instance.new("ScrollingFrame")
+local UIListLayout = Instance.new("UIListLayout")
+local Toggle = Instance.new("ImageButton")
+local ToggleText = Instance.new("TextBox")
+local UICorner_3 = Instance.new("UICorner")
+local Enabled = Instance.new("Frame")
+local EnabledText = Instance.new("TextBox")
+local UIAspectRatioConstraint_2 = Instance.new("UIAspectRatioConstraint")
+local UICorner_4 = Instance.new("UICorner")
+local Check = Instance.new("Frame")
+local CheckText = Instance.new("TextBox")
+local UIAspectRatioConstraint_3 = Instance.new("UIAspectRatioConstraint")
+local UICorner_5 = Instance.new("UICorner")
+local Name = Instance.new("TextLabel")
+local UIGradient = Instance.new("UIGradient")
+local Button = Instance.new("ImageButton")
+local UICorner_6 = Instance.new("UICorner")
+local Name_2 = Instance.new("TextLabel")
+local UIGradient_2 = Instance.new("UIGradient")
+local tab = Instance.new("Frame")
+local Close = Instance.new("TextButton")
+local ComboElem = Instance.new("ImageButton")
+local UICorner_7 = Instance.new("UICorner")
+local Name_3 = Instance.new("TextLabel")
+local UIGradient_3 = Instance.new("UIGradient")
+local Img = Instance.new("TextLabel")
+local UIAspectRatioConstraint_4 = Instance.new("UIAspectRatioConstraint")
+local ComboBox = Instance.new("ImageButton")
+local UICorner_8 = Instance.new("UICorner")
+local Name_4 = Instance.new("TextLabel")
+local UIGradient_4 = Instance.new("UIGradient")
+local Img_2 = Instance.new("TextLabel")
+local UIAspectRatioConstraint_5 = Instance.new("UIAspectRatioConstraint")
+local IntroText = Instance.new("TextLabel")
+--Properties:
+wait(3)
+Segs.Name = "Segs"
+Segs.Enabled = true
+Segs.ResetOnSpawn = true
+Segs.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Segs.DisplayOrder = 999999999
+
+Main.Name = "Main"
+Main.Parent = Segs
+Main.Active = true
+Main.Draggable = true
+Main.AnchorPoint = Vector2.new(0.5, 0.5)
+Main.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0.5, 0, 0.5, 0) --UDim2.new(0.5, 0, 0.5, 0)
+Main.Size = UDim2.new(0.3, 0, 0.3, 0)
+
+UICorner.CornerRadius = UDim.new(0.1, 0)
+UICorner.Parent = Main
+
+Intro.Name = "Intro"
+Intro.Parent = Main
+Intro.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+Intro.ClipsDescendants = true
+Intro.Size = UDim2.new(1, 0, 1, 0)
+Intro.ZIndex = 2
+
+
+
+
+UICorner_2.CornerRadius = UDim.new(0.1, 0)
+UICorner_2.Parent = Intro
+
+Logo.Parent = Intro
+Logo.AnchorPoint = Vector2.new(0.5, 0.5)
+Logo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Logo.BackgroundTransparency = 1
+Logo.BorderSizePixel = 0
+Logo.Position = UDim2.new(0.5, 0, 0.5, 0)
+Logo.Size = UDim2.new(0.75, 0, 0.75, 0)
+Logo.ZIndex = 2
+Logo.Image = "rbxassetid://475456048"
+Logo.ScaleType = Enum.ScaleType.Fit
+Logo.Active = false
+
+
+
+
+UIAspectRatioConstraint.Parent = Logo
+
+Title.Name = "Title"
+Title.Parent = Main
+Title.AnchorPoint = Vector2.new(1, 0)
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1
+Title.BorderSizePixel = 0
+Title.Position = UDim2.new(0.975, 0, 0.075, 0)
+Title.Size = UDim2.new(0.85, 0, 0.155, 0)
+Title.Font = Enum.Font.TitilliumWeb
+Title.FontFace = Font.new("rbxasset://fonts/families/TitilliumWeb.json", Enum.FontWeight.Bold)
+Title.RichText = true
+Title.Text = Script_Title
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextScaled = true
+Title.TextSize = 14
+Title.TextWrapped = true
+Title.TextXAlignment = Enum.TextXAlignment.Left
+Title.TextYAlignment = Enum.TextYAlignment.Center
+_G.CTitle = "Reach"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/shuttle-r/crap/main/randomizeNonSense.txt",true))()
+Title.Text = _G.words[math.random(1,#_G.words)]
+
+Menu.Name = "Menu"
+Menu.Parent = Main
+Menu.Active = true
+Menu.AnchorPoint = Vector2.new(0.5, 1)
+Menu.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Menu.BackgroundTransparency = 1
+Menu.AutomaticCanvasSize = Enum.AutomaticSize.Y
+Menu.BorderSizePixel = 0
+Menu.Position = UDim2.new(0.5, 0, 0.95, 0)
+Menu.Size = UDim2.new(0.95, 0, 0.65, 0)
+Menu.CanvasSize = UDim2.new(0, 0, 0, 0)
+Menu.ScrollBarImageColor3 = Color3.fromRGB(255, 255, 255)
+Menu.ScrollBarThickness = Menu.AbsoluteSize.X/25
+
+UIListLayout.Parent = Menu
+--UIListLayout.Padding = UDim.new(0.025, 0)
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+Toggle.Name = "Toggle"
+Toggle.Visible = false
+--Toggle.Parent = Segs
+Toggle.BackgroundColor3 = Color3.fromRGB(55, 55, 55)
+Toggle.Size = UDim2.new(0.95, 0, 0, 50)
+UICorner_3.CornerRadius = UDim.new(0.25, 0)
+UICorner_3.Parent = Toggle
+
+
+
+
+Enabled.Name = "Enabled"
+Enabled.Parent = Toggle
+Enabled.AnchorPoint = Vector2.new(1, 0.5)
+Enabled.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Enabled.Position = UDim2.new(0.975, 0, 0.5, 0)
+Enabled.Size = UDim2.new(0.75, 0, 0.75, 0)
+UIAspectRatioConstraint_2.Parent = Enabled
+
+UICorner_4.CornerRadius = UDim.new(0.3, 0)
+UICorner_4.Parent = Enabled
+
+
+
+Check.Name = "Check"
+Check.Parent = Enabled
+Check.AnchorPoint = Vector2.new(0.5, 0.5)
+Check.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Check.Position = UDim2.new(0.5, 0, 0.5, 0)
+Check.Size = UDim2.new(0.65, 0, 0.65, 0)
+UIAspectRatioConstraint_3.Parent = Check
+
+UICorner_5.CornerRadius = UDim.new(0.3, 0)
+UICorner_5.Parent = Check
+
+
+
+Name.Name = "Name"
+Name.Parent = Toggle
+Name.AnchorPoint = Vector2.new(0, 0.5)
+Name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Name.BackgroundTransparency = 1
+Name.BorderSizePixel = 0
+Name.Position = UDim2.new(0.05, 0, 0.5, 0)
+Name.Size = UDim2.new(0.75, 0, 0.8, 0)
+Name.Font = Enum.Font.TitilliumWeb
+Name.Text = "Script"
+Name.TextColor3 = Color3.fromRGB(255, 255, 255)
+Name.TextScaled = true
+Name.TextSize = 14
+Name.TextWrapped = true
+Name.TextXAlignment = Enum.TextXAlignment.Left
+Name.TextYAlignment = Enum.TextYAlignment.Bottom
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(180, 180, 180))}
+UIGradient.Parent = Toggle
+
+Button.Name = "Button"
+--Button.Parent = Segs
+Button.BackgroundColor3 = Color3.fromRGB(55, 55, 55)
+Button.Size = UDim2.new(0.95, 0, 0, 50)
+
+UICorner_6.CornerRadius = UDim.new(0.25, 0)
+UICorner_6.Parent = Button
+
+Name_2.Name = "Name"
+Name_2.Parent = Button
+Name_2.AnchorPoint = Vector2.new(0, 0.5)
+Name_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Name_2.BackgroundTransparency = 1
+Name_2.BorderSizePixel = 0
+Name_2.Position = UDim2.new(0.05, 0, 0.5, 0)
+Name_2.Size = UDim2.new(0.95, 0, 0.82, 0)
+Name_2.Font = Enum.Font.TitilliumWeb
+Name_2.Text = "Enabled"
+Name_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Name_2.TextScaled = true
+Name_2.TextSize = 14
+Name_2.TextWrapped = true
+Name_2.TextXAlignment = Enum.TextXAlignment.Left
+Name_2.TextYAlignment = Enum.TextYAlignment.Bottom
+
+UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(180, 180, 180))}
+UIGradient_2.Parent = Button
+
+tab.Name = "Tab"
+tab.Visible = false
+--tab.Parent = Segs
+tab.BackgroundTransparency = 1
+tab.Size = UDim2.new(0.95, 0, 0.025, 0)
+
+Close.Name = "Close"
+Close.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Close.BackgroundTransparency = 1
+Close.BorderSizePixel = 0
+Close.Position = UDim2.new(0.8, 0, 0.1, 0)
+Close.Size = UDim2.new(0.15, 0, 0.125, 0)
+Close.Font = Enum.Font.FredokaOne
+Close.Text = "X"
+Close.TextColor3 = Color3.fromRGB(255, 0, 0)
+Close.TextScaled = true
+Close.TextSize = 14
+Close.TextWrapped = true
+Close.TextXAlignment = Enum.TextXAlignment.Right
+Close.Parent = Main
+
+ComboElem.Name = "ComboElem"
+ComboElem.BackgroundColor3 = Color3.fromRGB(55, 55, 55)
+ComboElem.Size = UDim2.new(0.95, 0, 0, 50)
+
+UICorner_7.CornerRadius = UDim.new(0.25, 0)
+UICorner_7.Parent = ComboElem
+
+Name_3.Name = "Name"
+Name_3.Parent = ComboElem
+Name_3.AnchorPoint = Vector2.new(0, 0.5)
+Name_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Name_3.BackgroundTransparency = 1
+Name_3.BorderSizePixel = 0
+Name_3.Position = UDim2.new(0.05, 0, 0.5, 0)
+Name_3.Size = UDim2.new(0.75, 0, 0.8, 0)
+Name_3.Font = Enum.Font.TitilliumWeb
+Name_3.Text = "Enabled"
+Name_3.TextColor3 = Color3.fromRGB(255, 0, 0)
+Name_3.TextScaled = true
+Name_3.TextSize = 14
+Name_3.TextWrapped = true
+Name_3.TextXAlignment = Enum.TextXAlignment.Left
+Name_3.TextYAlignment = Enum.TextYAlignment.Bottom
+
+UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(180, 180, 180))}
+UIGradient_3.Rotation = 180
+UIGradient_3.Parent = ComboElem
+
+Img.Name = "Img"
+Img.Parent = ComboElem
+Img.AnchorPoint = Vector2.new(1, 0.5)
+Img.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Img.BackgroundTransparency = 1
+Img.BorderSizePixel = 0
+Img.Position = UDim2.new(0.975, 0, 0.5, 0)
+Img.Rotation = 90
+Img.Size = UDim2.new(0.75, 0, 0.75, 0)
+Img.Font = Enum.Font.FredokaOne
+Img.Text = "^"
+Img.TextColor3 = Color3.fromRGB(255, 255, 255)
+Img.TextScaled = true
+Img.TextSize = 14
+Img.TextWrapped = true
+
+UIAspectRatioConstraint_4.Parent = Img
+
+ComboBox.Name = "ComboBox"
+ComboBox.BackgroundColor3 = Color3.fromRGB(55, 55, 55)
+ComboBox.Size = UDim2.new(0.95, 0, 0, 50)
+
+UICorner_8.CornerRadius = UDim.new(0.25, 0)
+UICorner_8.Parent = ComboBox
+
+Name_4.Name = "Name"
+Name_4.Parent = ComboBox
+Name_4.AnchorPoint = Vector2.new(0, 0.5)
+Name_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Name_4.BackgroundTransparency = 1.000
+Name_4.BorderSizePixel = 0
+Name_4.Position = UDim2.new(0.05, 0, 0.5, 0)
+Name_4.Size = UDim2.new(0.75, 0, 0.8, 0)
+Name_4.Font = Enum.Font.TitilliumWeb
+Name_4.Text = "Enabled"
+Name_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+Name_4.TextScaled = true
+Name_4.TextSize = 14
+Name_4.TextWrapped = true
+Name_4.TextXAlignment = Enum.TextXAlignment.Left
+Name_4.TextYAlignment = Enum.TextYAlignment.Bottom
+
+UIGradient_4.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(180, 180, 180))}
+UIGradient_4.Parent = ComboBox
+
+Img_2.Name = "Img"
+Img_2.Parent = ComboBox
+Img_2.AnchorPoint = Vector2.new(1, 0.5)
+Img_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Img_2.BackgroundTransparency = 1
+Img_2.BorderSizePixel = 0
+Img_2.Rotation = 180
+Img_2.Position = UDim2.new(0.975, 0, 0.5, 0)
+Img_2.Size = UDim2.new(0.75, 0, 0.75, 0)
+Img_2.Font = Enum.Font.FredokaOne
+Img_2.Text = "^"
+Img_2.TextColor3 = Color3.fromRGB(255, 0, 0)
+Img_2.TextScaled = true
+Img_2.TextSize = 14
+Img_2.TextWrapped = true
+
+UIAspectRatioConstraint_5.Parent = Img_2
+
+-- SCRIPT
+
+local TweenService = game:GetService("TweenService")
+Close.MouseButton1Click:Connect(function()
+	Logo.Active = true
+	spawn(function()
+	  wait(0.4)
+	  Title.Text = _G.words[math.random(1,#_G.words)]
+	  end)
+	TweenService:Create(Intro, TweenInfo.new(0.25, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {BackgroundTransparency = 0}):Play()
+
+	task.wait(0.3)
+	Logo:TweenSizeAndPosition(
+		UDim2.fromScale(0.75, 0.75),
+		UDim2.fromScale(0.5, 0.5),
+		Enum.EasingDirection.Out,
+		Enum.EasingStyle.Quad,
+		0.25, true, nil
+	)
+
+	task.wait(0.3)
+	Main:TweenSize(
+		UDim2.fromScale(0.1, 0.175),
+		Enum.EasingDirection.Out,
+		Enum.EasingStyle.Quad,
+		0.25, true, nil
+	)
+
+	task.wait(0.3)
+	for _, obj in pairs(Main:GetChildren()) do
+		if obj:IsA("GuiObject") and obj ~= Intro then
+			obj.Visible = false
+		end
+	end
+
+	TweenService:Create(Logo, TweenInfo.new(0.25, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {ImageTransparency = 0.8}):Play()
+	TweenService:Create(Intro, TweenInfo.new(0.25, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {BackgroundTransparency = 1}):Play()
+	TweenService:Create(Main, TweenInfo.new(0.25, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {BackgroundTransparency = 0.8}):Play()
+	wait(0.1)
+	TweenService:Create(Logo, TweenInfo.new(0.25, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {ImageTransparency = 0.8}):Play()
+end)
+Logo.MouseButton1Click:Connect(function()
+	Logo.Active = false
+	TweenService:Create(Logo, TweenInfo.new(0.25, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {ImageTransparency = 0}):Play()
+	TweenService:Create(Intro, TweenInfo.new(0.25, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {BackgroundTransparency = 0}):Play()
+	TweenService:Create(Main, TweenInfo.new(0.25, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {BackgroundTransparency = 0}):Play()
+
+	task.wait(0.3)
+	Main:TweenSize(
+		UDim2.fromScale(0.3, 0.3),
+		Enum.EasingDirection.Out,
+		Enum.EasingStyle.Quad,
+		0.25, true, nil
+	)
+
+	task.wait(0.3)
+	Logo:TweenSizeAndPosition(
+		UDim2.fromScale(0.175, 0.175),
+		UDim2.fromScale(0.075, 0.15),
+		Enum.EasingDirection.Out,
+		Enum.EasingStyle.Quad,
+		0.25, true, nil
+	)
+
+	for _, obj in pairs(Main:GetChildren()) do
+		if obj:IsA("GuiObject") and obj ~= Intro then
+			obj.Visible = true
+		end
+	end
+
+	task.wait(0.3)
+	TweenService:Create(Intro, TweenInfo.new(0.25, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {BackgroundTransparency = 1}):Play()
+end)
+
+
+
+local function uiparent()
+	local success, parent = pcall(function()
+		return gethui()
+	end)
+
+	if not success then
+		return game:GetService("CoreGui")
+	end
+
+	return parent
+end
+
+local success, err = pcall(function()
+	Segs.Parent = uiparent()
+end)
+
+if not success then
+	Segs.Parent = game:GetService("Players").LocalPlayer.PlayerGui
+end
+
+local element_height = 50*Menu.AbsoluteSize.Y/210
+local elements = 0
+
+local function addSpace(parent)
+	local space = tab:Clone()
+	space.Parent = parent
+	space.LayoutOrder = elements
+	space.Visible = true
+
+elements = elements + 1
+end
+
+local function addToggle(name, funct, enabled, ...)
+	local newTog = Toggle:Clone()
+	local args = {...}
+
+	newTog.MouseButton1Click:Connect(function()
+		enabled = not enabled
+		newTog:WaitForChild("Enabled"):WaitForChild("Check").Visible = enabled
+		funct(enabled, unpack(args))
+	end)
+
+	newTog:WaitForChild("Enabled"):WaitForChild("Check").Visible = enabled
+	newTog:WaitForChild("Name").Text = name
+
+	newTog.Size = UDim2.new(0.95, 0, 0, element_height) -- Y1 = 50 : Y2 = X
+	newTog.Name = name
+	newTog.Parent = Menu
+	newTog.LayoutOrder = elements
+	newTog.Visible = true
+
+	elements = elements + 1
+	addSpace(Menu)
+
+	return newTog
+end-- end
+
+local function addButton(name, funct, ...)
+	local newBut = Button:Clone()
+	local args = {...}
+
+	newBut.MouseButton1Click:Connect(function()
+		funct(unpack(args))
+	end)
+
+	newBut:WaitForChild("Name").Text = name
+	newBut.Size = UDim2.new(0.95, 0, 0, element_height)
+	newBut.Name = name
+	newBut.Parent = Menu
+	newBut.LayoutOrder = elements
+	newBut.Visible = true
+
+	elements = elements + 1
+	addSpace(Menu)
+
+	return newBut
+end
+
+local function addComboBox(text, options, funct, ...) -- ADD CUSTOM ELEMENT INSTEAD
+	local newCombo = ComboBox:Clone()
+	local enabled = false
+	local elems = {}
+	local args = {...}
+
+	local function setBoxState()
+		newCombo:WaitForChild("Img").Rotation = enabled and 0 or 180
+		for _, elem in ipairs(elems) do
+			elem.Visible = enabled
+		end
+	end
+
+	newCombo.MouseButton1Click:Connect(function()
+		enabled = not enabled
+		setBoxState()
+	end)
+
+	newCombo:WaitForChild("Name").Text = text .. ": " .. (#options > 0 and options[1] or "")
+	newCombo.Size = UDim2.new(0.95, 0, 0, element_height)
+	newCombo.Name = #options > 0 and options[1] or ""
+	newCombo.Parent = Menu
+	newCombo.LayoutOrder = elements
+	newCombo.Parent = Menu
+	newCombo.Visible = true
+
+	elements = elements + 1
+  addSpace(Menu)
+
+	for _, name in ipairs(options) do
+		local newElem = ComboElem:Clone()
+		table.insert(elems, newElem)
+
+		newElem.MouseButton1Click:Connect(function()
+			newCombo:WaitForChild("Name").Text = text .. ": " .. name
+			enabled = false
+			setBoxState()
+
+			funct(name, unpack(args))
+		end)
+
+		newElem:WaitForChild("Name").Text = name
+		newElem.Size = UDim2.new(0.95, 0, 0, element_height)
+		newElem.Name = name
+		newElem.Parent = Menu
+		newElem.LayoutOrder = elements
+		newElem.Visible = false
+
+		--elements = elements +	1
+	--	addSpace(Menu)
+	end
+
+	return newCombo
+end
+
+-- Actual Script
+local other
+other = addButton("Idk who made the reach script", function()
+return
+end)
+other:WaitForChild("Name").TextColor = BrickColor.new(0,255,0)
+local other
+other = addButton("Mobile user friendly - made by:shuFEL", function()
+return
+end)
+other:WaitForChild("Name").TextColor = BrickColor.new(0,255,0)
+
+
+local reachsize = 20
+local dmgEnabled = false
+local multiplier = 1
+local visualizerEnabled = true
+local reachType = "Sphere"
+
+local visualizer = Instance.new("Part")
+visualizer.Color = Color3.new(1, 0.968627, 0)
+visualizer.Transparency = VisualizerTransparencyAmount
+visualizer.Anchored = true
+visualizer.CanCollide = false
+visualizer.CastShadow = false
+visualizer.Size = Vector3.new(0.5,0.5,0.5)
+visualizer.BottomSurface = Enum.SurfaceType.Glue
+visualizer.TopSurface = Enum.SurfaceType.Glue
+local TweenService = game:GetService("TweenService")
+local part = visualizer
+local TweeningInformation = TweenInfo.new(
+	1,
+	Enum.EasingStyle.Quad,
+	Enum.EasingDirection.Out,
+	753475938457843579348573,
+	true,
+	0
+)
+ 
+local PartProperties = {
+	Color = Color3.fromRGB(255,0,0)
+}
+ 
+local Tween = TweenService:Create(part,TweeningInformation,PartProperties)
+local config = "Blizzy Config"
+local colorrvalue = 1
+local colorgvalue = 1
+local colorbvalue = 1
+local plr = game.Players.LocalPlayer
+--[[local function onHit(hit,handle)
+	local victim = hit.Parent:FindFirstChildOfClass("Humanoid")
+	if victim and victim.Parent.Name ~= game.Players.LocalPlayer.Name then
+		if dmgEnabled then
+ 
+			for _,v in pairs(hit.Parent:GetChildren()) do
+				if v:IsA("BasePart") then
+					for i = 1, multiplier do
+						firetouchinterest(v,handle,0)
+						firetouchinterest(v,handle,1)
+					end
+				end
+			end
+		else
+			firetouchinterest(hit,handle,0)
+			firetouchinterest(hit,handle,1)
+		end
+	end
+end]]
+local function onHit(hit,handle)
+	local victim = hit.Parent:FindFirstChildWhichIsA("BasePart")
+--	if victim and victim.Parent.Name ~= game.Players.LocalPlayer.Name then
+		if dmgEnabled then
+ 
+			for _,v in pairs(hit.Parent:GetChildren()) do
+				if v:IsA("BasePart") then
+					for i = 1, multiplier do
+						firetouchinterest(v,handle,0)
+						firetouchinterest(v,handle,1)
+					end
+				end
+			end
+		else
+			firetouchinterest(hit,handle,0)
+			firetouchinterest(hit,handle,1)
+		end
+	end
+--end
+
+local function getWhiteList()
+	local wl = {}
+	for _,v in pairs(game.Players:GetPlayers()) do
+		if v ~= plr then
+			local char = v.Character
+			if char then
+				for _,q in pairs(char:GetChildren()) do
+					if q:IsA("BasePart") then
+						table.insert(wl,q)
+					end
+				end
+			end
+		end
+	end
+	return wl
+end
+
+local function findNearestPlayer()
+    local players = game.Players:GetPlayers()
+    local localPlayer = game.Players.LocalPlayer
+    local nearestDistance = math.huge
+    local nearestPlayer = nil
+    
+    for _, player in ipairs(players) do
+        if player ~= localPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") and player.Character.Humanoid.Health ~= 0 and localPlayer.Character:FindFirstChild("HumanoidRootPart") then
+          if ExcludeTeamPlr == true then
+            if player.Team ~= game.Players.LocalPlayer.Team then
+            local distance = (player.Character.HumanoidRootPart.Position - localPlayer.Character.HumanoidRootPart.Position).Magnitude
+             if distance < nearestDistance then
+                nearestDistance = distance
+                nearestPlayer = player
+             end
+             end
+             else
+               local distance = (player.Character.HumanoidRootPart.Position - localPlayer.Character.HumanoidRootPart.Position).Magnitude
+               if distance < nearestDistance then
+                nearestDistance = distance
+                nearestPlayer = player
+             end
+          end
+      end
+    end
+    
+    return nearestPlayer
+end--
+
+
+
+
+
+
+local hitboxez
+hitboxez = addButton("Reach size: " .. reachsize, function()
+return
+end) 
+
+local hitboxadjust
+hitboxadjust = addButton("Increase reach", function()
+reachsize = reachsize + 1
+hitboxez:WaitForChild("Name").Text = "Reach size: " .. reachsize
+end)
+
+local hitboxadjustno
+hitboxadjustno = addButton("Decrease reach", function()
+  if reachsize > 1 then
+reachsize = reachsize - 1
+end
+hitboxez:WaitForChild("Name").Text = "Reach size: " .. reachsize
+end)
+
+local EnableHit
+EnableHit = addToggle("Enabled reach - reach sword", function()
+if Reacheds == true then
+  Reacheds = false
+  else
+  Reacheds = true
+end
+
+if Reacheds == true then
+ _G.reachOn = game:GetService("RunService").Heartbeat:Connect(function()
+local s = plr.Character and plr.Character:FindFirstChildOfClass("Tool")
+	if not s then visualizer.Parent = nil end
+	if s then
+		local handle = s:FindFirstChild("Handle") or s:FindFirstChildOfClass("Part")
+		if handle then
+			if visualizerEnabled then
+				visualizer.Parent = workspace
+			else
+				visualizer.Parent = nil
+			end
+			local reach = tonumber(reachsize)
+ 
+			if reach then
+				if reachType == "Sphere" then
+					if config == "CWare Config" then
+						visualizer.Shape = Enum.PartType.Ball
+						visualizer.Material = Enum.Material.Plastic
+						visualizer.Color = Color3.new(1, 0, 0)
+						visualizer.Transparency = 0.005459344392
+						visualizer.Size = Vector3.new(reach,reach,reach)
+						visualizer.CFrame = handle.CFrame
+						visualizer.CastShadow = false
+						visualizer.Name = math.random()
+					elseif config == "Reset" then
+						visualizer.Shape = Enum.PartType.Ball
+						visualizer.Material = Enum.Material.ForceField
+						visualizer.Color = Color3.new(1, 0.933333, 0)
+						visualizer.Transparency = VisualizerTransparencyAmount
+						visualizer.Size = Vector3.new(reach,reach,reach)
+						visualizer.CFrame = handle.CFrame
+						visualizer.CastShadow = false
+						visualizer.Name = math.random()
+					elseif config == "Blizzy Config" then
+						visualizer.Shape = Enum.PartType.Ball
+						visualizer.Material = Enum.Material.SmoothPlastic
+						visualizer.Color = Color3.new(0.00784314, 0.454902, 1)
+						visualizer.Transparency = 0.4
+						visualizer.Size = Vector3.new(reach,reach,reach)
+						visualizer.CFrame = handle.CFrame
+						visualizer.CastShadow = false
+						visualizer.Name = math.random()
+					elseif config == "Sebs Config" then
+						visualizer.Shape = Enum.PartType.Ball
+						visualizer.Material = Enum.Material.Asphalt
+						visualizer.Color = Color3.new(0.105882, 0.745098, 0.0313725)
+						visualizer.Transparency = 0.8
+						visualizer.Size = Vector3.new(reach,reach,reach)
+						visualizer.CFrame = handle.CFrame
+						visualizer.CastShadow = false
+						visualizer.Name = math.random()
+					end
+					--[[for _,v in pairs(game.Players:GetPlayers()) do
+						local hrp = v.Character and v.Character:FindFirstChild("HumanoidRootPart")
+						if hrp and handle then
+							local mag = (hrp.Position-handle.Position).magnitude
+							if mag <= reach then
+								onHit(hrp,handle)
+							end
+						end
+					end]]
+					for i,v in pairs(game.Workspace:GetDescendants()) do
+					  if v:IsA("Part") then
+					   local mag = (v.Position-handle.Position).Magnitude
+					   if mag <= reach then
+					     onHit(v,handle)
+					   end
+				    end
+					end
+				elseif reachType == "Block" then
+					--[[local origin = (handle.CFrame*CFrame.new(0,0,-2)).p
+					local ray = Ray.new(origin,handle.CFrame.lookVector*-reach)
+					local p,pos = workspace:FindPartOnRayWithWhitelist(ray,getWhiteList())
+					visualizer.Shape = Enum.PartType.Block
+					visualizer.Size = Vector3.new(reach,reach,reach)
+					visualizer.CFrame = handle.CFrame
+					visualizer.CastShadow = false
+					visualizer.Name = math.random()
+					visualizer.Color = Color3.new(colorrvalue,colorgvalue,colorbvalue)
+					visualizer.Transparency = VisualizerTransparencyAmount]]
+					visualizer.Shape = Enum.PartType.Block
+					visualizer.Material = Enum.Material.Plastic
+						visualizer.Color = Color3.new(1, 0, 0)
+						visualizer.Transparency = 0.005459344392
+						visualizer.Size = Vector3.new(reach,reach,reach)
+						visualizer.CFrame = handle.CFrame
+						visualizer.CastShadow = false
+						visualizer.Name = math.random() 
+					if config == "CWare Config" then
+						visualizer.Shape = Enum.PartType.Block
+						visualizer.Material = Enum.Material.Plastic
+						visualizer.Color = Color3.new(1, 0, 0)
+						visualizer.Transparency = 0
+						visualizer.Size = Vector3.new(reach,reach,reach)
+						visualizer.CFrame = handle.CFrame
+						visualizer.CastShadow = false
+						visualizer.Name = math.random()
+					elseif config == "Reset" then
+						visualizer.Shape = Enum.PartType.Block
+						visualizer.Material = Enum.Material.ForceField
+						visualizer.Color = Color3.new(0.984314, 1, 0)
+						visualizer.Transparency = VisualizerTransparencyAmount
+						visualizer.Size = Vector3.new(reach,reach,reach)
+						visualizer.CFrame = handle.CFrame
+						visualizer.CastShadow = false
+						visualizer.Name = math.random()
+					elseif config == "Blizzy Config" then
+						visualizer.Shape = Enum.PartType.Block
+						visualizer.Material = Enum.Material.SmoothPlastic
+						visualizer.Color = Color3.new(0.00784314, 0.454902, 1)
+						visualizer.Transparency = 0.4
+						visualizer.Size = Vector3.new(reach,reach,reach)
+						visualizer.CFrame = handle.CFrame
+						visualizer.CastShadow = false
+						visualizer.Name = math.random()
+					elseif config == "Sebs Config" then
+						visualizer.Shape = Enum.PartType.Block
+						visualizer.Material = Enum.Material.Asphalt
+						visualizer.Color = Color3.new(0.105882, 0.745098, 0.0313725)
+						visualizer.Transparency = 0.8
+						visualizer.Size = Vector3.new(reach,reach,reach)
+						visualizer.CFrame = handle.CFrame
+						visualizer.CastShadow = false
+						visualizer.Name = math.random()
+					end
+					if p then
+						onHit(p,handle)
+					else
+						for _,v in pairs(handle:GetTouchingParts()) do
+							onHit(v,handle)
+						end
+					end
+				end
+			end
+		end
+	end
+	end)
+end
+
+if Reacheds == false then
+  _G.reachOn:Disconnect()
+  end
+
+
+end, false)
+
+local autoclicker
+autoclicker = addToggle("Autoclicker - autoclick the item if nearest enemy is 17 stud", function()
+  if autoc == true then
+    autoc = false
+    else
+      autoc = true
+  end
+  
+  if autoc == true then
+    _G.SwordHeart = game:GetService("RunService").Heartbeat:Connect(function()
+      local nearestPlayer = findNearestPlayer()
+    local localPlayer = game.Players.LocalPlayer
+    local character = localPlayer.Character
+    local humanoidRootPart = character and character:FindFirstChild("HumanoidRootPart")
+
+    if nearestPlayer and humanoidRootPart then
+        local distances = (nearestPlayer.Character.HumanoidRootPart.Position - humanoidRootPart.Position).Magnitude
+        
+        if distances <= 17 then
+        pcall(function()
+        local itemhold = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool")
+				itemhold:Activate()
+        end)
+        end
+    end
+	end)
+    end
+  
+  if autoc == false then
+    _G.SwordHeart:Disconnect()
+  end
+  
+end, false)
+
+
+
+local hithide
+hithide = addToggle("visualizer - hide or not hide your reach thingy", function()
+if visualizerEnableds == false then
+  visualizerEnableds = true
+  else
+  visualizerEnableds = false
+end
+
+if visualizerEnableds == false then
+   visualizerEnabled = false
+end
+
+if visualizerEnableds == true then
+   visualizerEnabled = true
+end
+
+end, true)
+
+local ReachTypeChange
+ReachTypeChange = addComboBox("Reach Shape", {"Sphere", "Block"}, function(selectedOption)
+    if selectedOption == "Sphere" then
+      reachType = "Sphere"
+    end
+    if selectedOption == "Block" then
+      reachType = "Block"
+    end
+end)
+
+local dmg
+dmg = addButton("Damage amplifier",function()
+ return
+end)
+dmg:WaitForChild("Name").TextColor = BrickColor.new(255,0,0)
+
+local dmgStat
+dmgStat = addButton("Damage: ".. multiplier, function()
+return
+end)
+
+
+
+local dmgInc
+dmgInc = addButton("Increase damage", function()
+multiplier = multiplier + 1
+dmgStat:WaitForChild("Name").Text = "Damage: " .. multiplier
+end)
+
+local dmgdec
+dmgdec = addButton("Decrease damage", function()
+  if multiplier > 1 then
+multiplier = multiplier - 1
+end
+dmgStat:WaitForChild("Name").Text = "Damage: " .. multiplier
+end)
+
+local dmgEnableds
+dmgEnableds = addToggle("damage enhance - enhance your damage", function()
+if dmgen == true then
+  dmgen = false
+  else
+  dmgen = true
+end
+  
+  if dmgen == true then
+    dmgEnabled = true
+  end
+  if dmgen == false then
+    dmgEnabled = false
+  end
+end, false)
+
+local other
+other = addButton("aiming stuff",function()
+return
+end)
+other:WaitForChild("Name").TextColor = BrickColor.new(255,0,0)
+
+
+local aimMagStat
+local distanceaim = 10
+local shakeSpeed = 10
+local ShakeCharEnable = false
+aimMagStat = addButton("Aim distance: ".. distanceaim, function()
+  return
+end)
+
+ShakeStat = addButton("Shake Intensity: ".. shakeSpeed, function()
+  return
+end)
+
+
+
+local ExcludeTeamPlr = false
+local ModeCharaim = "YAxisLock"
+local OptimizeIntoSword = true
+local function rotateToNearestPlayer()
+    local localPlayer = game.Players.LocalPlayer
+    local character = localPlayer.Character
+    local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+    local nearestPlayer = findNearestPlayer()
+    
+    if nearestPlayer and humanoidRootPart then
+        local targetPosition = nearestPlayer.Character.HumanoidRootPart.Position
+        local lookVector = (targetPosition - humanoidRootPart.Position).Unit
+        local targetCFrame = nearestPlayer.Character.HumanoidRootPart.CFrame
+        local targetPositionWithOptimize = Vector3.new(targetPosition.X, humanoidRootPart.Position.Y, targetPosition.Z)
+        
+        
+        
+        if ModeCharaim == "FreeAim" then
+            -- FreeAim mode
+            if OptimizeIntoSword == true then
+            humanoidRootPart.CFrame = CFrame.new(humanoidRootPart.Position, targetPosition) * CFrame.Angles(math.rad(0), math.rad(25), math.rad(0))
+            else
+            humanoidRootPart.CFrame = CFrame.new(humanoidRootPart.Position, targetPosition)
+            end
+        elseif ModeCharaim == "YAxisLock" then
+            
+            -- YAxisLock mode
+            if ShakeCharEnable == "ShakeP1" then
+              humanoidRootPart.CFrame = CFrame.new(humanoidRootPart.Position, targetPositionWithOptimize) * CFrame.Angles(math.rad(0), math.rad(10 + shakeSpeed), math.rad(0))
+            elseif ShakeCharEnable == "ShakeP2" then
+              humanoidRootPart.CFrame = CFrame.new(humanoidRootPart.Position, targetPositionWithOptimize) * CFrame.Angles(math.rad(0), math.rad(20 + shakeSpeed), math.rad(0))
+            end
+            
+            if ShakeCharEnable == false then
+                if OptimizeIntoSword == true then
+              humanoidRootPart.CFrame = CFrame.new(humanoidRootPart.Position, targetPositionWithOptimize) * CFrame.Angles(math.rad(0), math.rad(25), math.rad(0))
+                else
+             humanoidRootPart.CFrame = CFrame.new(humanoidRootPart.Position, targetPositionWithOptimize) 
+             end
+            end 
+         end
+    end
+end
+
+
+local magincaim
+magincaim = addButton("Increase distance", function()
+distanceaim = distanceaim + 1
+aimMagStat:WaitForChild("Name").Text = "Aim distance: " .. distanceaim
+end)
+
+local magdecaim
+magdecaim = addButton("Decrease distance", function()
+  if distanceaim > 1 then
+distanceaim = distanceaim - 1
+end
+aimMagStat:WaitForChild("Name").Text = "Aim distance: " .. distanceaim
+end)
+
+local shakeincaim
+shakeincaim = addButton("Increase shake Intensity", function()
+shakeSpeed = math.floor((shakeSpeed + 0.5) * 10^2 + 0.5) / 10^2
+ShakeStat:WaitForChild("Name").Text = "Shake Intensity: " .. shakeSpeed
+end)
+
+local shakedecaim
+shakedecaim = addButton("Decrease shake Intensity", function()
+  if shakeSpeed > 0.5 then
+shakeSpeed = math.floor((shakeSpeed - 0.5) * 10^2 + 0.5) / 10^2
+end
+ShakeStat:WaitForChild("Name").Text = "Shake Intensity: " .. shakeSpeed
+end)
+
+local testaim
+testaim = addToggle("character aim - rotate at nearby Player", function()
+ if TestAimAtPlr == true then
+   TestAimAtPlr = false
+   else
+   TestAimAtPlr = true
+ end
+ 
+
+if TestAimAtPlr == true then
+ _G.testaimHeart = game:GetService("RunService").Heartbeat:Connect(function()
+   pcall(function()
+    local nearestPlayer = findNearestPlayer()
+    local localPlayer = game.Players.LocalPlayer
+    local character = localPlayer.Character
+    local humanoidRootPart = character and character:FindFirstChild("HumanoidRootPart")
+
+    if nearestPlayer and humanoidRootPart then
+        local distances = (nearestPlayer.Character.HumanoidRootPart.Position - humanoidRootPart.Position).Magnitude
+        
+        if distances <= distanceaim then
+            rotateToNearestPlayer()
+        end
+    end
+end)
+ end)
+end
+
+if TestAimAtPlr == false then
+  _G.testaimHeart:Disconnect()
+end
+end, false)
+
+
+
+local testOptimizeSword
+testOptimizeSword = addToggle("Shake Character - shake your character automatically",function()
+  if optiforsowwy == true then
+    optiforsowwy = false
+    else
+    optiforsowwy = true
+end    
+    
+    while optiforsowwy == true do
+      ShakeCharEnable = "ShakeP1"
+      wait()
+      ShakeCharEnable = "ShakeP2"
+      wait()
+    end
+    
+    if optiforsowwy == false then
+      ShakeCharEnable = false
+    end
+end,false)
+
+
+
+
+local testExclude
+testExclude = addToggle("Exclude team - don't rotate at your team", function()
+  if TestEx == true then
+    TestEx = false
+    else
+    TestEx = true
+  end
+  
+  
+  if TestEx == true then
+    ExcludeTeamPlr = true
+  end
+  if TestEx == false then
+  ExcludeTeamPlr = false
+  end
+end, false) 
+
+local AimMode
+AimMode = addComboBox("Mode", {"locked y-axis (recommend)", "360° aim"}, function(selectedMode)
+    if selectedMode == "locked y-axis (recommend)" then
+      ModeCharaim = "YAxisLock"
+    end
+    if selectedMode == "360° aim" then
+      ModeCharaim = "FreeAim"
+    end
+end)
+
+
+
+local other
+local SwitchModeOfTp = "InstantTel"
+local TweenTime = 1.5
+local distanceThreshold = 10
+local SwitchDirectionOfTp = "backward"
+
+local function teleportBehindNearestPlayer()
+
+local localPlayer = game.Players.LocalPlayer
+local character = localPlayer.Character
+local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+local nearestPlayer = findNearestPlayer()
+
+if nearestPlayer and humanoidRootPart then
+local targetPosition = nearestPlayer.Character.HumanoidRootPart.Position
+local playerDirection = nearestPlayer.Character.HumanoidRootPart.CFrame.LookVector
+local backwardDirection = -playerDirection
+local rightDirection = playerDirection:Cross(Vector3.new(0, 1, 0)).Unit
+local leftDirection = -rightDirection
+local upDirection = Vector3.new(0, 1, 0)
+local downDirection = Vector3.new(0, -1, 0)
+
+if SwitchModeOfTp == "InstantTel" then
+if SwitchDirectionOfTp == "backward" then
+humanoidRootPart.CFrame = CFrame.new(targetPosition) * CFrame.new(backwardDirection * 4)
+elseif SwitchDirectionOfTp == "rightDir" then
+humanoidRootPart.CFrame = CFrame.new(targetPosition) * CFrame.new(rightDirection * 4)
+elseif SwitchDirectionOfTp == "leftDir" then
+humanoidRootPart.CFrame = CFrame.new(targetPosition) * CFrame.new(leftDirection * 4)
+elseif SwitchDirectionOfTp == "Updir" then
+humanoidRootPart.CFrame = CFrame.new(targetPosition) * CFrame.new(upDirection * 4)
+elseif SwitchDirectionOfTp == "Downdir" then
+humanoidRootPart.CFrame = CFrame.new(targetPosition) * CFrame.new(downDirection * 4)
+end
+elseif SwitchModeOfTp == "TweenTel" then
+if SwitchDirectionOfTp == "backward" then
+  local TweenBack = TweenService:Create(humanoidRootPart, TweenInfo.new(TweenTime), {CFrame = CFrame.new(targetPosition) * CFrame.new(backwardDirection * 4)})
+TweenBack:Play()
+elseif SwitchDirectionOfTp == "rightDir" then
+local TweenRight = TweenService:Create(humanoidRootPart, TweenInfo.new(TweenTime), {CFrame = CFrame.new(targetPosition) * CFrame.new(rightDirection * 4)})
+TweenRight:Play()
+elseif SwitchDirectionOfTp == "leftDir" then
+local TweenLeft = TweenService:Create(humanoidRootPart, TweenInfo.new(TweenTime), {CFrame = CFrame.new(targetPosition) * CFrame.new(leftDirection * 4)})
+TweenLeft:Play()
+elseif SwitchDirectionOfTp == "Updir" then
+local TweenUp = TweenService:Create(humanoidRootPart, TweenInfo.new(TweenTime), {CFrame = CFrame.new(targetPosition) * CFrame.new(upDirection * 4)})
+TweenUp:Play()
+elseif SwitchDirectionOfTp == "Downdir" then
+local TweenDown = TweenService:Create(humanoidRootPart, TweenInfo.new(TweenTime), {CFrame = CFrame.new(targetPosition) * CFrame.new(downDirection * 4)})
+TweenDown:Play()
+end
+end
+end
+end
+        
+
+
+other = addButton("Tp aura", function()
+  return
+end)
+other:WaitForChild("Name").TextColor = BrickColor.new(255,0,0)
+local TweenOfTpTime
+TweenOfTpTime = addButton("Tween Time: ".. TweenTime .." Second", function()
+  return
+end)  
+local magoftp
+magoftp = addButton("Tpaura magnitude: ".. distanceThreshold,function()
+  return
+end)
+
+local magInc
+magInc = addButton("Increase magnitude", function()
+distanceThreshold = distanceThreshold + 1
+magoftp:WaitForChild("Name").Text = "Tpaura magnitude: " .. distanceThreshold
+end)
+
+local magdec
+magdec = addButton("Decrease magnitude", function()
+  if distanceThreshold > 1 then
+distanceThreshold = distanceThreshold - 1
+end
+magoftp:WaitForChild("Name").Text = "Tpaura magnitude: " .. distanceThreshold
+end)
+
+
+local TweenInc
+TweenInc = addButton("Increase Tween", function()
+TweenTime = math.floor((TweenTime + 0.1) * 10^2 + 0.5) / 10^2
+TweenOfTpTime:WaitForChild("Name").Text = "Tween Time: ".. TweenTime .." Second"
+end)
+
+local Tweendec
+Tweendec = addButton("Decrease Tween", function()
+  if TweenTime > 0.1 then
+TweenTime = math.floor((TweenTime - 0.1) * 10^2 + 0.5) / 10^2
+end
+TweenOfTpTime:WaitForChild("Name").Text = "Tween Time: ".. TweenTime .." Second"
+end)
+
+local Tpaura
+Tpaura = addToggle("Tpaura - teleport behind/left/right/up/down nearest player", function()
+  if tpaurafunc == true then
+    tpaurafunc = false
+    else
+    tpaurafunc = true
+  end
+  
+if tpaurafunc == true then
+   _G.tpaurafucheartbeat = game:GetService("RunService").Heartbeat:Connect(function()
+   pcall(function()
+    local nearestPlayer = findNearestPlayer()
+    local localPlayer = game.Players.LocalPlayer
+    local character = localPlayer.Character
+    local humanoidRootPart = character and character:FindFirstChild("HumanoidRootPart")
+
+    if nearestPlayer and humanoidRootPart then
+        local distance = (nearestPlayer.Character.HumanoidRootPart.Position - humanoidRootPart.Position).Magnitude
+        
+        if distance <= distanceThreshold then
+            teleportBehindNearestPlayer()
+        end
+    end
+end)
+end)
+end
+
+if tpaurafunc == false then
+_G.tpaurafucheartbeat:Disconnect() 
+end
+end)
+ 
+local testExclude
+testExclude = addToggle("Exclude team - don't tp at your team", function()
+  if TestEx == true then
+    TestEx = false
+    else
+    TestEx = true
+  end
+  
+  
+  if TestEx == true then
+    ExcludeTeamPlr = true
+  end
+  if TestEx == false then
+  ExcludeTeamPlr = false
+  end
+end, false)
+
+local TpDir
+TpDir = addComboBox("Tp direction", {"Behind", "Left", "Right", "Up", "Down"}, function(selectedDirection)
+    if selectedDirection == "Behind" then
+      SwitchDirectionOfTp = "backward"
+    end
+    if selectedDirection == "Right" then
+      SwitchDirectionOfTp = "leftDir"
+    end
+    if selectedDirection == "Left" then
+      SwitchDirectionOfTp = "rightDir"
+    end
+    if selectedDirection == "Up" then
+      SwitchDirectionOfTp = "Updir"
+    end
+    if selectedDirection == "Down" then
+      SwitchDirectionOfTp = "Downdir"
+    end
+    -- Handle the selected option here
+    -- You can perform any desired actions based on the selected option
+end)
+local Tpmode
+Tpmode = addComboBox("Mode", {"Instant teleport", "Tween teleport"}, function(selectedModeTp)
+    if selectedModeTp == "Instant teleport" then
+      SwitchModeOfTp = "InstantTel"
+    end
+    if selectedModeTp == "Tween teleport" then
+      SwitchModeOfTp = "TweenTel"
+    end
+    -- Handle the selected option here
+    -- You can perform any desired actions based on the selected option
+end)
+
+
+local others
+others = addButton("auto ai",function()
+  return
+end)
+others:WaitForChild("Name").TextColor = BrickColor.new(255,0,0)
+
+
+local AiMagstatus = 60
+local AiMagstat
+AiMagstat = addButton("Ai auto attack radius: " ..AiMagstatus.. " Stud", function()
+return
+end)
+
+local AiStuff
+getgenv().i_said_right_foot_creep = false
+game:GetService("RunService").Heartbeat:Connect(function()
+
+if i_said_right_foot_creep == true then
+    spawn(function()
+local humanoidRootPart = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+local nearestPlayer = findNearestPlayer()
+    local localPlayer = game.Players.LocalPlayer
+    local character = localPlayer.Character
+    local humanoidRootPart = character and character:FindFirstChild("HumanoidRootPart")
+
+    if nearestPlayer and humanoidRootPart then
+        local distances = (nearestPlayer.Character.HumanoidRootPart.Position - humanoidRootPart.Position).Magnitude
+        
+        if distances <= 17 then
+        pcall(function()
+        local itemhold = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool")
+				itemhold:Activate()
+        end)
+        end
+    end
+local p = game.Players:GetPlayers()
+end)
+end
+end)
+local localPlayer = game:GetService("Players").LocalPlayer
+local currentCamera = game:GetService("Workspace").CurrentCamera
+local mouse = localPlayer:GetMouse()
+
+
+local function getClosestPlayer()
+    local closestPlayer = nil
+    local shortestDistance = AiMagstatus
+
+    for i, v in pairs(game:GetService("Players"):GetPlayers()) do
+        if v.Name ~= localPlayer.Name then
+            if v.Character and v.Character:FindFirstChild("Humanoid") and v.Character.Humanoid.Health ~= 0 and v.Character:FindFirstChild("HumanoidRootPart") and v.Character:FindFirstChild("Head") then
+                if v.Character:FindFirstChildOfClass("ForceField") then
+                    else
+
+
+local ray = Ray.new(v.Character:FindFirstChild("HumanoidRootPart").Position, Vector3.new(0,-100000,0))
+    local Hit = game:GetService("Workspace"):FindPartOnRay(ray, v.Character)
+
+    if Hit then
+
+
+
+                local magnitude = (v.Character.HumanoidRootPart.Position - localPlayer.Character.HumanoidRootPart.Position).magnitude
+
+                if magnitude < shortestDistance then
+                    closestPlayer = v
+                    shortestDistance = magnitude
+                end
+              end         
+		end
+        end
+    end
+end
+    return closestPlayer
+end
+
+
+local stateType = Enum.HumanoidStateType
+
+local character = game.Players.LocalPlayer.Character
+local humanoid = character:WaitForChild("Humanoid")
+
+--humanoid:SetStateEnabled(stateType.FallingDown, false)
+--humanoid:SetStateEnabled(stateType.Ragdoll, false)
+spawn(function()
+while true do
+    wait()
+    spawn(function()
+spawn(function()
+			
+if executed  then 
+    else
+    getgenv().executed = true
+spawn(function()
+
+getgenv().i_said_right_foot_creep = false
+	getgenv().ssss = game.Players.LocalPlayer:GetMouse()
+end)
+end
+
+end)
+if game:GetService("Players").LocalPlayer.Character.PrimaryPart  and getClosestPlayer() ~= nil and i_said_right_foot_creep == true then
+local TargetPart = getClosestPlayer().Character.HumanoidRootPart.Position
+local humanoidRootPart = game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+local Part = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+local RotateX, RotateY, RotateZ = 0, 0, 0
+local humanoidRootPart = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+local nearestPlayer = findNearestPlayer()
+    local localPlayer = game.Players.LocalPlayer
+    local character = localPlayer.Character
+    local humanoidRootPart = character and character:FindFirstChild("HumanoidRootPart")
+
+    if nearestPlayer and humanoidRootPart then
+        local distances = (nearestPlayer.Character.HumanoidRootPart.Position - humanoidRootPart.Position).Magnitude
+        
+        if distances <= 18 then
+        pcall(function()
+        rotateToNearestPlayer()
+        end)
+        end
+    end
+
+local humanoidRootPart = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+local nearestPlayer = findNearestPlayer()
+    local localPlayer = game.Players.LocalPlayer
+    local character = localPlayer.Character
+    local humanoidRootPart = character and character:FindFirstChild("HumanoidRootPart")
+
+    if nearestPlayer and humanoidRootPart then
+       if localPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then 
+       local distancesOfRightR6 = (nearestPlayer.Character:FindFirstChild("Right Arm").Position - humanoidRootPart.Position).Magnitude
+       local distancesOfLeftR6 = (nearestPlayer.Character:FindFirstChild("Left Arm").Position - humanoidRootPart.Position).Magnitude 
+        if distancesOfRightR6 <= AiMagstatus then
+        pcall(function()
+        game:GetService("Players").LocalPlayer.Character.Humanoid:MoveTo(getClosestPlayer().Character.HumanoidRootPart.CFrame * Vector3.new(-3, 0, 0))
+        end)
+        end
+        if distancesOfLeftR6 <= AiMagstatus then
+        pcall(function()
+        game:GetService("Players").LocalPlayer.Character.Humanoid:MoveTo(getClosestPlayer().Character.HumanoidRootPart.CFrame * Vector3.new(0, 0, -3))
+        end)
+        end
+       elseif localPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then
+       local distancesOfRightR15 = (nearestPlayer.Character:FindFirstChild("RightUpperArm").Position - humanoidRootPart.Position).Magnitude
+       local distancesOfLeftR15 = (nearestPlayer.Character:FindFirstChild("LeftUpperArm").Position - humanoidRootPart.Position).Magnitude
+       if distancesOfRightR15 <= AiMagstatus then
+        pcall(function()
+        game:GetService("Players").LocalPlayer.Character.Humanoid:MoveTo(getClosestPlayer().Character.HumanoidRootPart.CFrame * Vector3.new(-3, 0, 0))
+        end)
+        end
+        if distancesOfLeftR15 <= AiMagstatus then
+        pcall(function()
+        game:GetService("Players").LocalPlayer.Character.Humanoid:MoveTo(getClosestPlayer().Character.HumanoidRootPart.CFrame * Vector3.new(0, 0, -3))
+        end)
+        end
+       end
+    end
+
+if getClosestPlayer().Character.Humanoid:GetState() == Enum.HumanoidStateType.Freefall then
+game.Players.LocalPlayer.Character.Humanoid.Jump = true
+end
+               
+
+
+
+		end
+    
+    end)
+end
+end)
+
+--humanoid:SetStateEnabled(stateType.FallingDown, false)
+--humanoid:SetStateEnabled(stateType.Ragdoll, false)
+Aistuff = addToggle("Ai sword - it's bad",function()
+if _G.ActivateAis == true then
+  _G.ActivateAis = false
+  else
+  _G.ActivateAis = true
+end
+
+if _G.ActivateAis == true then
+if i_said_right_foot_creep == false then
+    getgenv().i_said_right_foot_creep = true
+    game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass('Humanoid').AutoRotate = true
+end
+end
+
+if _G.ActivateAis == false then
+if i_said_right_foot_creep == true then
+  getgenv().i_said_right_foot_creep = false
+    game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass('Humanoid').AutoRotate = true 
+end
+end
+end,false)
+
+local magIncAi
+magIncAi = addButton("Increase Ai radius", function()
+AiMagstatus = AiMagstatus + 1
+AiMagstat:WaitForChild("Name").Text = "Ai auto attack radius: " .. AiMagstatus .." Stud"
+end)
+
+local magdecAi
+magdecAi = addButton("Decrease Ai radius", function()
+  if AiMagstatus > 1 then
+AiMagstatus = AiMagstatus - 1
+end
+AiMagstat:WaitForChild("Name").Text = "Ai auto attack radius: " .. AiMagstatus .." Stud"
+end)
+
+
+
+spawn(function()
+_G.NotificationText = "Script has been loaded | made by shuFEL"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/shuttle-r/crap/main/Notification.txt",true))()
+end)
+Main:TweenSize(
+		UDim2.fromScale(0, 0),
+		Enum.EasingDirection.Out,
+		Enum.EasingStyle.Quad,
+		0, true, nil
+	)
+TweenService:Create(Main, TweenInfo.new(0, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {BackgroundTransparency = 0}):Play()
+wait(0.55)
+Main:TweenSize(
+		UDim2.fromScale(0.3, 0.3),
+		Enum.EasingDirection.Out,
+		Enum.EasingStyle.Quad,
+		0.45, true, nil
+	)
+
+
+
+
+task.wait(1.5)
+Logo:TweenSizeAndPosition(
+	UDim2.fromScale(0.175, 0.175),
+	UDim2.fromScale(0.075, 0.15),
+	Enum.EasingDirection.In,
+	Enum.EasingStyle.Quad,
+	0.55, true, nil
+)
+
+task.wait(0.25)
+TweenService:Create(Intro, TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {BackgroundTransparency = 1}):Play()
+TweenService:Create(Main, TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {BackgroundTransparency = 0}):Play()
+end)
+
+while true do
+  wait(3)
+if not successful then
+_G.NotificationText = errorocurred
+_G.ErrorTrue = true
+loadstring(game:HttpGet("https://raw.githubusercontent.com/shuttle-r/crap/main/Notification.txt",true))()
+end
+if successful then
+_G.ErrorTrue = false
+end
+end
