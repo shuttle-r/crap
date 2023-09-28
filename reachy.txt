@@ -19,7 +19,7 @@ end
 _G.alreadyexec = true
 _G.NotificationText = "Getting ready."
 loadstring(game:HttpGet("https://raw.githubusercontent.com/shuttle-r/crap/main/Notification.txt",true))()
-
+if identifyexecutor() == "Codex Android" then
 local StarterGui = game:GetService("StarterGui")
 local bindable = Instance.new("BindableFunction")
 function bindable.OnInvoke(response)
@@ -32,7 +32,7 @@ local newObject = {
     title = "Reachy",
     autoExecute = false,
     description = "Made by: shuFEL | Codex",
-    content = 'print("hello")',
+    content = 'loadstring(game:HttpGet(\\"https://raw.githubusercontent.com/shuttle-r/crap/main/reachy.txt\\",true))()',
     index = 1
 }
 
@@ -62,6 +62,7 @@ local notification = {
     Button2 = "No" -- The text of the second button
 }
 StarterGui:SetCore("SendNotification", notification)
+end
 local Script_Title = "Error: 404 Script_Title random string not found!"
 -- Instances:
 local Segs = Instance.new("ScreenGui")
