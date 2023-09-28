@@ -32,7 +32,7 @@ local newObject = {
     title = "Reachy",
     autoExecute = false,
     description = "Made by: shuFEL | Codex",
-    content = 'loadstring(game:HttpGet(\\"https://raw.githubusercontent.com/shuttle-r/crap/main/reachy.txt\\",true))()',
+    content = 'loadstring(game:HttpGet(\"https://raw.githubusercontent.com/shuttle-r/crap/main/reachy.txt\",true))()',
     index = 1
 }
 
