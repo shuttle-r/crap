@@ -19,7 +19,7 @@ end
 _G.alreadyexec = true
 _G.NotificationText = "Getting ready."
 loadstring(game:HttpGet("https://raw.githubusercontent.com/shuttle-r/crap/main/Notification.txt",true))()
-if identifyexecutor() == "Codex Android" then
+if identifyexecutor() == "Codex" then
 local StarterGui = game:GetService("StarterGui")
 local bindable = Instance.new("BindableFunction")
 function bindable.OnInvoke(response)
