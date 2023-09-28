@@ -19,6 +19,49 @@ end
 _G.alreadyexec = true
 _G.NotificationText = "Getting ready."
 loadstring(game:HttpGet("https://raw.githubusercontent.com/shuttle-r/crap/main/Notification.txt",true))()
+
+local StarterGui = game:GetService("StarterGui")
+local bindable = Instance.new("BindableFunction")
+function bindable.OnInvoke(response)
+  if response == "Yes" then
+    local fileContent = readfile("codexScriptCache.json")
+
+local existingData = game.HttpService:JSONDecode(fileContent)
+
+local newObject = {
+    title = "Reachy",
+    autoExecute = false,
+    description = "Made by: shuFEL | Codex",
+    content = 'print("hello")',
+    index = 1
+}
+
+table.insert(existingData, newObject)
+
+local updatedJsonData = game.HttpService:JSONEncode(existingData)
+writefile("codexScriptCache.json", updatedJsonData) 
+writefile("Agreedthed.txt","UserAgreed")
+wait(1)
+local tpservice = game:GetService("TeleportService")
+local plr = game.Players.LocalPlayer
+
+tpservice:Teleport(game.PlaceId, plr)
+else
+return
+end
+
+end
+
+-- Set the notification parameters
+local notification = {
+    Title = "Codex detected", -- The title of the notification
+    Text = "add this script into your CODEX?", -- The text of the notification
+    Duration = 16, -- The duration of the notification in seconds
+    Callback = bindable, -- The function to call when the user clicks a button
+    Button1 = "Yes", -- The text of the first button
+    Button2 = "No" -- The text of the second button
+}
+StarterGui:SetCore("SendNotification", notification)
 local Script_Title = "Error: 404 Script_Title random string not found!"
 -- Instances:
 local Segs = Instance.new("ScreenGui")
