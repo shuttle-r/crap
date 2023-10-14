@@ -1,0 +1,153 @@
+-- Create a ScreenGui object and parent it to the PlayerGui
+local screenGui = Instance.new ("ScreenGui")
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild ("PlayerGui")
+-- Create a Frame object and parent it to the ScreenGui
+local frame = Instance.new("Frame")
+frame.Parent = screenGui
+local framesmall = Instance.new("ScrollingFrame")
+framesmall.Parent = screenGui
+framesmall.Size = UDim2.new (0.2, 0, 0.3, 0) -- make the frame half the size of the screen
+framesmall.Position = UDim2.new (0.18, 0, 0.3, 0) -- center the frame on the screen
+framesmall.Active = true
+framesmall.BackgroundColor3 = Color3.fromRGB(217,217,217) -- white 
+framesmall.AutomaticCanvasSize = Enum.AutomaticSize.Y
+framesmall.CanvasSize = UDim2.new(0, 0, 0, 0)
+framesmall.ScrollBarImageColor3 = Color3.fromRGB(192,74,192)
+framesmall.ScrollBarThickness = framesmall.AbsoluteSize.X/15
+framesmall.BackgroundTransparency = 0
+-- Set the size and position of the frame using UDim2
+frame.Size = UDim2.new (0.4, 0, 0.7, 0) -- make the frame half the size of the screen
+frame.Position = UDim2.new (0.45, 0, 0.11, 0) -- center the frame on the screen
+
+
+-- Set the background color and border color of the frame
+frame.BackgroundColor3 = Color3.fromRGB(217,217,217) -- white
+local uiStroke = Instance.new("UIStroke")
+uiStroke.Parent = frame
+uiStroke.Color = Color3.fromRGB(192,74,192)
+uiStroke.Thickness = 1.5
+uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+
+-- Set the corner radius of the frame using UICorner
+local uiCorner = Instance.new ("UICorner")
+uiCorner.Parent = frame
+uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
+
+local uiStroke = Instance.new("UIStroke")
+uiStroke.Parent = framesmall
+uiStroke.Color = Color3.fromRGB(192,74,192)
+uiStroke.Thickness = 1.5
+uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+
+-- Set the corner radius of the frame using UICorner
+local uiCorner = Instance.new ("UICorner")
+uiCorner.Parent = framesmall
+uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
+
+
+local element_height_for_smallframe = 50*framesmall.AbsoluteSize.Y/210
+local element_height_for_frame = 50*frame.AbsoluteSize.Y/210
+local elements = 0
+
+local tab = Instance.new("Frame")
+tab.Name = "Tab"
+tab.Visible = false
+tab.BackgroundTransparency = 1
+tab.Size = UDim2.new(0.95, 0, 0.025, 0)
+
+local function addSpace(parent)
+	local space = tab:Clone()
+	space.Parent = parent
+	space.LayoutOrder = elements
+	space.Visible = true
+
+elements = elements + 1
+end
+
+
+
+
+-- Create three TextButton objects and parent them to the framesmall
+local ButtonForSmallFrame = Instance.new("TextButton")
+ButtonForSmallFrame.Text = " " -- set the text to "Home"
+ButtonForSmallFrame.TextColor3 = Color3.fromRGB(166,70,173) -- set the text color to white
+ButtonForSmallFrame.BackgroundTransparency = 1
+ButtonForSmallFrame.TextSize = 8
+
+local uiCorner = Instance.new ("UICorner")
+uiCorner.Parent = ButtonForSmallFrame
+uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
+
+
+
+
+local ButtonForFrame = Instance.new("TextButton")
+ButtonForFrame.Text = " " -- set the text to "Home"
+ButtonForFrame.TextColor3 = Color3.fromRGB(166,70,173)
+ButtonForFrame.BackgroundColor3 = Color3.fromRGB(200,128,206)
+ButtonForFrame.BackgroundTransparency = 0
+ButtonForFrame.TextSize = 9
+
+local uiCorner = Instance.new ("UICorner")
+uiCorner.Parent = ButtonForFrame
+uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
+
+local UIListLayout = Instance.new("UIListLayout")
+UIListLayout.Parent = framesmall
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+
+
+local function addButtonOnSmallFrame(name, funct, ...)
+	local newBut = ButtonForSmallFrame:Clone()
+	local args = {...}
+
+	newBut.MouseButton1Click:Connect(function()
+		funct(unpack(args))
+	end)
+
+	newBut.Text = name
+	newBut.Size = UDim2.new(0.95, 0, 0, element_height_for_smallframe)
+	newBut.Name = name
+	newBut.Parent = framesmall
+	newBut.LayoutOrder = elements
+	newBut.Visible = true
+
+	elements = elements + 1
+	addSpace(framesmall)
+
+	return newBut
+end
+
+local function addButtonOnFrame(name, funct, ...)
+	local newBut = ButtonForFrame:Clone()
+	local args = {...}
+
+	newBut.MouseButton1Click:Connect(function()
+		funct(unpack(args))
+	end)
+
+	newBut.Text = name
+	newBut.Size = UDim2.new(1.00, 0, 0, element_height_for_frame)
+	newBut.Name = name
+	newBut.Parent = frame
+	newBut.LayoutOrder = elements
+	newBut.Visible = true
+
+	elements = elements + 1
+	addSpace(frame)
+
+	return newBut
+end
+
+
+
+local test1
+test1 = addButtonOnSmallFrame("destroy me", function()
+ test1:Destroy()
+end)
+
+local test1j
+test1j = addButtonOnFrame("test",function()
+  print("")
+end)
