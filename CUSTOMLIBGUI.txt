@@ -157,7 +157,7 @@ local newBut = frame:Clone()
 	newBut.Visible = true -- Assuming this script is a child of the GUI frame
 	-- Create an X button and insert it into the ScreenGui
 local xButton = Instance.new("TextButton")
-xButton.Parent = newBut
+xButton.Parent = screenGui
 xButton.Text = "X"
 xButton.Name = "xButton"
 xButton.Size = UDim2.new(0, 50, 0, 50) -- Change the size as you wish
@@ -168,7 +168,7 @@ xButton.Active = true
 xButton.Selectable = true
 -- Create a Y button and insert it into the ScreenGui
 local yButton = Instance.new("TextButton")
-yButton.Parent = newBut
+yButton.Parent = screenGui
 yButton.Text = "Y"
 yButton.Name = "yButton"
 yButton.Size = UDim2.new(0, 50, 0, 50) -- Change the size as you wish
