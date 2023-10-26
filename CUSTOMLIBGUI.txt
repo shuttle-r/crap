@@ -14,6 +14,16 @@ framesmall.CanvasSize = UDim2.new(0, 0, 0, 0)
 framesmall.ScrollBarImageColor3 = Color3.fromRGB(192,74,192)
 framesmall.ScrollBarThickness = framesmall.AbsoluteSize.X/15
 framesmall.BackgroundTransparency = 0
+local uiStroke = Instance.new("UIStroke")
+uiStroke.Parent = framesmall
+uiStroke.Color = Color3.fromRGB(192,74,192)
+uiStroke.Thickness = 1.5
+uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+
+-- Set the corner radius of the frame using UICorner
+local uiCorner = Instance.new ("UICorner")
+uiCorner.Parent = framesmall
+uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
 
 
 
@@ -36,16 +46,6 @@ uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
 
 -- Set the background color and border color of the frame
 
-local uiStroke = Instance.new("UIStroke")
-uiStroke.Parent = framesmall
-uiStroke.Color = Color3.fromRGB(192,74,192)
-uiStroke.Thickness = 1.5
-uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-
--- Set the corner radius of the frame using UICorner
-local uiCorner = Instance.new ("UICorner")
-uiCorner.Parent = framesmall
-uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
 
 
 local element_height_for_smallframe = 50*framesmall.AbsoluteSize.Y/210
@@ -147,6 +147,7 @@ end
 
 local test1
 test1 = addButtonOnSmallFrame("add gui", function()
+  
 local newBut = frame:Clone()
 	newBut.Size = UDim2.new(0.7, 0, 0, 0.4)
 	newBut.Position = UDim2.new(0.45, 0, 0.11, 0)
