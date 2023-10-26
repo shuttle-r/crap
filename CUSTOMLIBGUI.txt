@@ -2,8 +2,7 @@
 local screenGui = Instance.new ("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild ("PlayerGui")
 -- Create a Frame object and parent it to the ScreenGui
-local frame = Instance.new("Frame")
-frame.Parent = screenGui
+
 local framesmall = Instance.new("ScrollingFrame")
 framesmall.Parent = screenGui
 framesmall.Size = UDim2.new (0.2, 0, 0.3, 0) -- make the frame half the size of the screen
@@ -15,12 +14,13 @@ framesmall.CanvasSize = UDim2.new(0, 0, 0, 0)
 framesmall.ScrollBarImageColor3 = Color3.fromRGB(192,74,192)
 framesmall.ScrollBarThickness = framesmall.AbsoluteSize.X/15
 framesmall.BackgroundTransparency = 0
+
+
+
 -- Set the size and position of the frame using UDim2
+local frame = Instance.new("Frame")
 frame.Size = UDim2.new (0.4, 0, 0.7, 0) -- make the frame half the size of the screen
-frame.Position = UDim2.new (0.45, 0, 0.11, 0) -- center the frame on the screen
-
-
--- Set the background color and border color of the frame
+-- center the frame on the screen
 frame.BackgroundColor3 = Color3.fromRGB(217,217,217) -- white
 local uiStroke = Instance.new("UIStroke")
 uiStroke.Parent = frame
@@ -32,6 +32,9 @@ uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 local uiCorner = Instance.new ("UICorner")
 uiCorner.Parent = frame
 uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
+
+
+-- Set the background color and border color of the frame
 
 local uiStroke = Instance.new("UIStroke")
 uiStroke.Parent = framesmall
@@ -144,10 +147,19 @@ end
 
 local test1
 test1 = addButtonOnSmallFrame("add gui", function()
- 
+local newBut = frame:Clone()
+	
+
+	newBut.Text = name
+	newBut.Size = UDim2.new(0.7, 0, 0, 0.4)
+	newBut.Position = UDim2.new(0.45, 0, 0.11, 0) 
+	newBut.Name = name
+	newBut.Parent = frame
+	newBut.LayoutOrder = elements
+	newBut.Visible = true
+
+
+	return newBut
 end)
 
-local test1j
-test1j = addButtonOnFrame("test",function()
-  print("")
-end)
+
