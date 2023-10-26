@@ -1,6 +1,7 @@
 -- Create a ScreenGui object and parent it to the PlayerGui
 local screenGui = Instance.new ("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild ("PlayerGui")
+screenGui.Name = "Customgui"
 -- Create a Frame object and parent it to the ScreenGui
 
 local framesmall = Instance.new("ScrollingFrame")
@@ -179,7 +180,7 @@ yButton.Selectable = true
 
 while true do wait()
   local ea = frame:FindFirstChild("xButton")
-  newBut.Size = UDim2.new(0, ea.Position.X, 0, ea.Position.Y)
+  game:GetService("Players").LocalPlayer.PlayerGui.Customgui.test11.Size = UDim2.new(0, ea.Position.X, 0, ea.Position.Y)
 end
 
 end)
