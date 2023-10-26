@@ -177,14 +177,12 @@ yButton.BackgroundColor3 = Color3.new(0, 1, 0) -- Change the color as you wish
 yButton.Draggable = true
 yButton.Active = true
 yButton.Selectable = true
-local xpos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.frame.xButton.Position.X
-print(xpos)
-local ypos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui
 
-while true do wait()
-  --local ea = frame:FindFirstChild("xButton")
-  game:GetService("Players").LocalPlayer.PlayerGui.Customgui.test11.Size = UDim2.new(0, xpos, 0, 20)
---  xButton.Position = UDim2.new(0.5, newBut.Position.X.Offset, 0.5, newBut.Position.Y.Offset)
+while true do wait(1)
+local xpos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.test11.xButton.Position.X
+local ypos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui
+game:GetService("Players").LocalPlayer.PlayerGui.Customgui.test11.Size = UDim2.new(0, xpos, 0, 20)
+print(xpos)
 end
 
 end)
