@@ -33,6 +33,9 @@ local frame = Instance.new("Frame")
 frame.Size = UDim2.new (0.4, 0, 0.7, 0) -- make the frame half the size of the screen
 -- center the frame on the screen
 frame.BackgroundColor3 = Color3.fromRGB(217,217,217) -- white
+frame.Draggable = true
+frame.Active = true
+frame.Selectable = true
 local uiStroke = Instance.new("UIStroke")
 uiStroke.Parent = frame
 uiStroke.Color = Color3.fromRGB(192,74,192)
@@ -150,7 +153,6 @@ local test1
 test1 = addButtonOnSmallFrame("add gui", function()
  
 local newBut = frame:Clone()
-  newBut.Name = "test11"
 	newBut.Size = UDim2.new(0, 50, 0, 50)
 	newBut.Position = UDim2.new(0.45, 0, 0.11, 0)
 	newBut.Parent = screenGui
@@ -180,14 +182,14 @@ yButton.Selectable = true
 local xpos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.xButton.Position.X.Offset
 local ypos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.yButton.Position.Y.Offset
 xButton.MouseButton1Click:Connect(function()
-	xpos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.xButton.Position.X
+	xpos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.xButton.Position.X.Offset
 	game:GetService("Players").LocalPlayer.PlayerGui.Customgui.test11.Size = UDim2.fromOffset(xpos,ypos)
 
 	end)
 
 
 yButton.MouseButton1Click:Connect(function()
-    ypos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.yButton.Position.Y
+    ypos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.yButton.Position.Y.Offset
 		game:GetService("Players").LocalPlayer.PlayerGui.Customgui.test11.Size = UDim2.fromOffset(xpos,ypos)
 	end)
 
