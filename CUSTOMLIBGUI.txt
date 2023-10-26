@@ -151,8 +151,7 @@ local newBut = frame:Clone()
 	newBut.Size = UDim2.new(0.7, 0, 0, 0.4)
 	newBut.Position = UDim2.new(0.45, 0, 0.11, 0)
 	newBut.Parent = screenGui
-	newBut.Visible = true
-local frame = newBut -- Assuming this script is a child of the GUI frame
+	newBut.Visible = true -- Assuming this script is a child of the GUI frame
 local xButton = frame:FindFirstChild("XButton") -- Replace with your button names
 local yButton = frame:FindFirstChild("YButton")
 
