@@ -178,11 +178,17 @@ yButton.Draggable = true
 yButton.Active = true
 yButton.Selectable = true
 
-while true do wait(1)
-local xpos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.test11.xButton.Position.X
-local ypos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui
-game:GetService("Players").LocalPlayer.PlayerGui.Customgui.test11.Size = UDim2.new(0, xpos, 0, 20)
-print(xpos)
-end
+xButton.MouseButton1Click:Connect(function()
+		local xpos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.test11.xButton.Position.X
+	game:GetService("Players").LocalPlayer.PlayerGui.Customgui.test11.Size = UDim2.new(0, xpos, 0, 0)
+
+	end)
+
+
+yButton.MouseButton1Click:Connect(function()
+		local ypos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.test11.yButton.Position.Y
+		game:GetService("Players").LocalPlayer.PlayerGui.Customgui.test11.Size = UDim2.new(0, 0, 0, ypos)
+	end)
+
 
 end)
