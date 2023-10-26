@@ -147,14 +147,32 @@ end
 
 local test1
 test1 = addButtonOnSmallFrame("add gui", function()
-  
+ 
 local newBut = frame:Clone()
 	newBut.Size = UDim2.new(0.7, 0, 0, 0.4)
 	newBut.Position = UDim2.new(0.45, 0, 0.11, 0)
 	newBut.Parent = screenGui
 	newBut.Visible = true -- Assuming this script is a child of the GUI frame
-local xButton = frame:FindFirstChild("XButton") -- Replace with your button names
-local yButton = frame:FindFirstChild("YButton")
+	-- Create an X button and insert it into the ScreenGui
+local xButton = Instance.new("TextButton")
+xButton.Parent = newBut
+xButton.Text = "X"
+xButton.Name = "xButton"
+xButton.Size = UDim2.new(0, 50, 0, 50) -- Change the size as you wish
+xButton.Position = UDim2.new(0.5, -25, 0.5, -25) -- Change the position as you wish
+xButton.BackgroundColor3 = Color3.new(1, 0, 0) -- Change the color as you wish
+
+-- Create a Y button and insert it into the ScreenGui
+local yButton = Instance.new("TextButton")
+yButton.Parent = newBut
+yButton.Text = "Y"
+yButton.Name = "yButton"
+yButton.Size = UDim2.new(0, 50, 0, 50) -- Change the size as you wish
+yButton.Position = UDim2.new(0.5, 25, 0.5, -25) -- Change the position as you wish
+yButton.BackgroundColor3 = Color3.new(0, 1, 0) -- Change the color as you wish
+ local frame = newBut
+local xButton = frame:FindFirstChild("xButton") -- Replace with your button names
+local yButton = frame:FindFirstChild("yButton")
 
 local isDragging = false
 local startPos
