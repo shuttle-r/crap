@@ -177,18 +177,25 @@ yButton.BackgroundColor3 = Color3.new(0, 1, 0) -- Change the color as you wish
 yButton.Draggable = true
 yButton.Active = true
 yButton.Selectable = true
-
+local xpos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.test11.xButton.Position.X.Offset
+local ypos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.test11.yButton.Position.Y.Offset
 xButton.MouseButton1Click:Connect(function()
-		local xpos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.test11.xButton.Position.X
+	xpos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.test11.xButton.Position.X
 	game:GetService("Players").LocalPlayer.PlayerGui.Customgui.test11.Size = UDim2.new(0, xpos, 0, 0)
 
 	end)
 
 
 yButton.MouseButton1Click:Connect(function()
-		local ypos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.test11.yButton.Position.Y
-		game:GetService("Players").LocalPlayer.PlayerGui.Customgui.test11.Size = UDim2.new(0, 0, 0, ypos)
+    ypos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.test11.yButton.Position.Y
+		game:GetService("Players").LocalPlayer.PlayerGui.Customgui.test11.Size = UDim2.fromOffset(xpos,ypos)
+		--UDim2.fromOffset(xOffset, yOffset) == UDim2.new(0, xOffset, 0, yOffset)
 	end)
+
+
+
+
+
 
 
 end)
