@@ -176,11 +176,10 @@ yButton.Draggable = true
 yButton.Active = true
 yButton.Selectable = true
 
-xButton.MouseButton1Click:Connect(function()
-		xButton.Size = newBut.Size
-end)
-yButton.MouseButton1Click:Connect(function()
-		print(newBut.Size)
- end)
+while true do wait()
+  local ea = frame:FindFirstChild("xButton")
+  newBut.Size = UDim2.new(0, ea.Position.X.Offset, 0, ea.Position.Y.Offset)
+  
 
 end)
+
