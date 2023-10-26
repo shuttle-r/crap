@@ -179,7 +179,7 @@ yButton.Selectable = true
 while true do wait()
   local ea = frame:FindFirstChild("xButton")
   newBut.Size = UDim2.new(0, ea.Position.X.Offset, 0, ea.Position.Y.Offset)
-  
+end
 
 end)
 
