@@ -143,8 +143,8 @@ end
 
 
 local test1
-test1 = addButtonOnSmallFrame("destroy me", function()
- test1:Destroy()
+test1 = addButtonOnSmallFrame("add gui", function()
+ 
 end)
 
 local test1j
