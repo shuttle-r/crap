@@ -177,11 +177,10 @@ yButton.Active = true
 yButton.Selectable = true
 
 xButton.MouseButton1Click:Connect(function()
-		newBut.Size = xButton.Size
+		
 end)
 yButton.MouseButton1Click:Connect(function()
 		funct(unpack(args))
-
  end)
 
 
