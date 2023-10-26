@@ -152,10 +152,8 @@ local newBut = frame:Clone()
 
 	newBut.Text = name
 	newBut.Size = UDim2.new(0.7, 0, 0, 0.4)
-	newBut.Position = UDim2.new(0.45, 0, 0.11, 0) 
-	newBut.Name = name
-	newBut.Parent = frame
-	newBut.LayoutOrder = elements
+	newBut.Position = UDim2.new(0.45, 0, 0.11, 0)
+	newBut.Parent = screenGui
 	newBut.Visible = true
 
 
