@@ -181,7 +181,7 @@ local xpos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.test11.x
 local ypos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.test11.yButton.Position.Y.Offset
 xButton.MouseButton1Click:Connect(function()
 	xpos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.test11.xButton.Position.X
-	game:GetService("Players").LocalPlayer.PlayerGui.Customgui.test11.Size = UDim2.new(0, xpos, 0, 0)
+	game:GetService("Players").LocalPlayer.PlayerGui.Customgui.test11.Size = UDim2.fromOffset(xpos,ypos)
 
 	end)
 
@@ -189,7 +189,6 @@ xButton.MouseButton1Click:Connect(function()
 yButton.MouseButton1Click:Connect(function()
     ypos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.test11.yButton.Position.Y
 		game:GetService("Players").LocalPlayer.PlayerGui.Customgui.test11.Size = UDim2.fromOffset(xpos,ypos)
-		--UDim2.fromOffset(xOffset, yOffset) == UDim2.new(0, xOffset, 0, yOffset)
 	end)
 
 
