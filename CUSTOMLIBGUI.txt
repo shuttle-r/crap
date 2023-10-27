@@ -189,7 +189,7 @@ print(1)
 while true do wait()
 	xpos = localpl.Customgui.xButton.Position.X.Offset
   ypos = localpl.Customgui.yButton.Position.Y.Offset
-	localpl.Customgui,newBut.Size = UDim2.fromOffset(xpos,ypos)
+	game:GetService("Players").LocalPlayer.PlayerGui.Customgui,newBut.Size = UDim2.fromOffset(xpos,ypos)
 end
 
 
