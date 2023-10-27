@@ -182,11 +182,14 @@ yButton.Active = true
 yButton.Selectable = true
 local xpos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.xButton.Position.X.Offset
 local ypos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.yButton.Position.Y.Offset
-
+local localpl = game:GetService("Players").LocalPlayer.PlayerGui
+print(newBut.Size)
+wait(2)
+print(1)
 while true do wait()
-	xpos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.xButton.Position.X.Offset
-  ypos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.yButton.Position.Y.Offset
-	game:GetService("Players").LocalPlayer.PlayerGui.Customgui.test.Size = UDim2.fromOffset(xpos,ypos)
+	xpos = localpl.Customgui.xButton.Position.X.Offset
+  ypos = localpl.Customgui.yButton.Position.Y.Offset
+	localpl.Customgui,newBut.Size = UDim2.fromOffset(xpos,ypos)
 end
 
 
