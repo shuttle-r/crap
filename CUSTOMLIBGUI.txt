@@ -167,7 +167,7 @@ local framesYes = frame:Clone()
 local xButton = Instance.new("TextButton")
 xButton.Parent = screenGui
 xButton.Text = "X"
-xButton.Name = "xButton"
+xButton.Name = RandomizeToStribg
 xButton.Size = UDim2.new(0, 50, 0, 50) -- Change the size as you wish
 xButton.Position = UDim2.new(0.5, -25, 0.5, -25) -- Change the position as you wish
 xButton.BackgroundColor3 = Color3.new(1, 0, 0) -- Change the color as you wish
@@ -178,7 +178,7 @@ xButton.Selectable = true
 local yButton = Instance.new("TextButton")
 yButton.Parent = screenGui
 yButton.Text = "Y"
-yButton.Name = "yButton"
+yButton.Name = RandomizeToStribg
 yButton.Size = UDim2.new(0, 50, 0, 50) -- Change the size as you wish
 yButton.Position = UDim2.new(0.5, 25, 0.5, -25) -- Change the position as you wish
 yButton.BackgroundColor3 = Color3.new(0, 1, 0) -- Change the color as you wish
@@ -197,13 +197,9 @@ local localpl = game:GetService("Players").LocalPlayer.PlayerGui
 local heartMoce = game:GetService("RunService").heartbeat:Connect(function()
 	xpos = localpl.Customgui.xButton.Position.X.Offset
   ypos = localpl.Customgui.yButton.Position.Y.Offset
-  
   -- Get the new button by its id and change its size
 	game:GetService("Players").LocalPlayer.PlayerGui.Customgui[RandomizeToStribg].Size = UDim2.fromOffset(xpos,ypos)
 end)
-
-
-
 
 
 
