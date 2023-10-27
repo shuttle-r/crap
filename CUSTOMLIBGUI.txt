@@ -153,7 +153,7 @@ local test1
 test1 = addButtonOnSmallFrame("add gui", function()
  
  
-local RanomName = math.random(1,999)
+local RanomName = math.random(1,999999)
  local RandomizeKey = {RanomName}
  local RandomizeToStribg = tostring(RandomizeKey)
 
@@ -192,18 +192,15 @@ local xpos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.xButton.
 local ypos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.yButton.Position.Y.Offset
 local localpl = game:GetService("Players").LocalPlayer.PlayerGui
 
-print(framesYes.Size)
-wait(2)
-print(1)
 
 
-while true do wait()
+local heartMoce = game:GetService("RunService").heartbeat:Connect(function()
 	xpos = localpl.Customgui.xButton.Position.X.Offset
   ypos = localpl.Customgui.yButton.Position.Y.Offset
   
   -- Get the new button by its id and change its size
 	game:GetService("Players").LocalPlayer.PlayerGui.Customgui[RandomizeToStribg].Size = UDim2.fromOffset(xpos,ypos)
-end
+end)
 
 
 
