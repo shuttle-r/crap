@@ -195,25 +195,22 @@ local heartMoce = game:GetService("RunService").heartbeat:Connect(function()
   ypos = localpl.Customgui["Y"..RandomizeToStribg].Position.Y.Offset
 	game:GetService("Players").LocalPlayer.PlayerGui.Customgui[RandomizeToStribg].Size = UDim2.fromOffset(xpos,ypos)
 end)
+local infoGate = game:GetService("Players").LocalPlayer.PlayerGui.Customgui[RandomizeToStribg]
 
+while true do wait(1)
 _G.GuiInfo = {
-local xButton = Instance.new("TextButton"),
-xButton.Parent = screenGui,
-xButton.Text = "X",
-xButton.Name = "X"..RandomizeToStribg,
-xButton.Size = UDim2.new(0, 50, 0, 50), -- Change the size as you wish
-xButton.Position = UDim2.new(0.5, -25, 0.5, -25), -- Change the position as you wish
-xButton.BackgroundColor3 = Color3.new(1, 0, 0), -- Change the color as you wish
-xButton.Draggable = true,
-xButton.Active = true,
-xButton.Selectable = true,
+  infoGate = infoGate,
+  Parent = infoGate.Parent,
+  Name = infoGate.Name,
+  Size = infoGate.Size,
+  Position = infoGate.Position,
+  BackgroundColor3 = infoGate.BackgroundColor3,
+  Draggable = true,
+  Active = true,
+  Selectable = true,
+  
 }
-
-
-print(GuiInfo)
-
-
-
+end
 end)
 
 
