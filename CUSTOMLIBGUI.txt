@@ -198,7 +198,7 @@ end)
 local infoGate = game:GetService("Players").LocalPlayer.PlayerGui.Customgui[RandomizeToStribg]
 
 while true do wait(1)
-_G.GuiInfo[RandomizeToStribg] = {
+_G.GuiInfo = {
   infoGate = infoGate,
   Parent = infoGate.Parent,
   Name = infoGate.Name,
@@ -233,7 +233,7 @@ end
 
 
 
-print(tableToString(_G.GuiInfo[RandomizeToStribg]))
+print(tableToString(_G.GuiInfo))
 
 
 end)
