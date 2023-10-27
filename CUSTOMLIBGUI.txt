@@ -152,12 +152,17 @@ end
 local test1
 test1 = addButtonOnSmallFrame("add gui", function()
  
-local newBut = frame:Clone()
-  newBut.Name = "test"
-	newBut.Size = UDim2.new(0, 50, 0, 50)
-	newBut.Position = UDim2.new(0.45, 0, 0.11, 0)
-	newBut.Parent = screenGui
-	newBut.Visible = true -- Assuming this script is a child of the GUI frame
+ 
+local RanomName = math.random(1,999)
+ local RandomizeKey = {RanomName}
+ local RandomizeToStribg = tostring(RandomizeKey)
+
+local framesYes = frame:Clone()
+  framesYes.Name =  RandomizeToStribg
+	framesYes.Size = UDim2.new(0, 50, 0, 50)
+	framesYes.Position = UDim2.new(0.45, 0, 0.11, 0)
+	framesYes.Parent = screenGui
+	framesYes.Visible = true -- Assuming this script is a child of the GUI frame
 	-- Create an X button and insert it into the ScreenGui
 local xButton = Instance.new("TextButton")
 xButton.Parent = screenGui
@@ -182,22 +187,22 @@ yButton.Active = true
 yButton.Selectable = true
 
 -- Get the id of the new button
-local newButId = newBut.Id
 
 local xpos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.xButton.Position.X.Offset
 local ypos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.yButton.Position.Y.Offset
 local localpl = game:GetService("Players").LocalPlayer.PlayerGui
 
-print(newBut.Size)
+print(framesYes.Size)
 wait(2)
 print(1)
+
 
 while true do wait()
 	xpos = localpl.Customgui.xButton.Position.X.Offset
   ypos = localpl.Customgui.yButton.Position.Y.Offset
   
   -- Get the new button by its id and change its size
-	game:GetService("Players").LocalPlayer.PlayerGui.Customgui[Game:GetInstanceById(newButId)].Size = UDim2.fromOffset(xpos,ypos)
+	game:GetService("Players").LocalPlayer.PlayerGui.Customgui[RandomizeToStribg].Size = UDim2.fromOffset(xpos,ypos)
 end
 
 
