@@ -186,20 +186,18 @@ yButton.Draggable = true
 yButton.Active = true
 yButton.Selectable = true
 
--- Get the id of the new button
-
 local xpos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui["X"..RandomizeToStribg].Position.X.Offset
 local ypos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui["Y"..RandomizeToStribg].Position.Y.Offset
 local localpl = game:GetService("Players").LocalPlayer.PlayerGui
 
-
-
 local heartMoce = game:GetService("RunService").heartbeat:Connect(function()
 	xpos = localpl.Customgui["X"..RandomizeToStribg].Position.X.Offset
   ypos = localpl.Customgui["Y"..RandomizeToStribg].Position.Y.Offset
-  -- Get the new button by its id and change its size
 	game:GetService("Players").LocalPlayer.PlayerGui.Customgui[RandomizeToStribg].Size = UDim2.fromOffset(xpos,ypos)
 end)
+
+
+
 
 
 
