@@ -180,17 +180,27 @@ yButton.BackgroundColor3 = Color3.new(0, 1, 0) -- Change the color as you wish
 yButton.Draggable = true
 yButton.Active = true
 yButton.Selectable = true
+
+-- Get the id of the new button
+local newButId = newBut.Id
+
 local xpos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.xButton.Position.X.Offset
 local ypos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui.yButton.Position.Y.Offset
 local localpl = game:GetService("Players").LocalPlayer.PlayerGui
+
 print(newBut.Size)
 wait(2)
 print(1)
+
 while true do wait()
 	xpos = localpl.Customgui.xButton.Position.X.Offset
   ypos = localpl.Customgui.yButton.Position.Y.Offset
-	game:GetService("Players").LocalPlayer.PlayerGui.Customgui,newBut.Size = UDim2.fromOffset(xpos,ypos)
+  
+  -- Get the new button by its id and change its size
+	game:GetService("Players").LocalPlayer.PlayerGui.Customgui[Game:GetInstanceById(newButId)].Size = UDim2.fromOffset(xpos,ypos)
 end
+
+
 
 
 
