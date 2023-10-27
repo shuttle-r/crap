@@ -233,7 +233,7 @@ end
 
 
 
-print(tableToString(GuiInfo))
+print(tableToString(_G.GuiInfo))
 
 
 end)
