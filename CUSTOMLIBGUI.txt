@@ -323,6 +323,9 @@ uiStroke.Parent = SaveBb
 uiStroke.Color = Color3.fromRGB(192,74,192)
 uiStroke.Thickness = 1.5
 uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+local uiCorner = Instance.new ("UICorner")
+uiCorner.Parent = SaveBb
+uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
 SaveBb.MouseButton1Click:Connect(function()
 	local TextIntoGui = ({
 	  "local Framed = Instance.new(\"Frame\")",
@@ -344,9 +347,12 @@ SaveBb.MouseButton1Click:Connect(function()
 	})
 	setclipboard(tableToString(TextIntoGui))
 	end)
--- Set the corner radius of the frame2 using UICorner
-local uiCorner = Instance.new ("UICorner")
-uiCorner.Parent = SaveBb
-uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
- 
 
+local test3
+test3 = addButtonOnSmallFrame("clear gui", function()
+for _,v in pairs(game:GetService("Players").LocalPlayer.Players.PlayerGui.Customgui:GetChildren()) do
+if (string.sub(string.lower(v.Name),1,string.len("Spearer"))) == string.lower("Spearer") then
+v:Destroy()
+end
+end
+end)
