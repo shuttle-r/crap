@@ -100,6 +100,7 @@ local function toggleGuiVisibility()
        local tween = game:GetService("TweenService"):Create(v, tweenInfo, {Size = targetSize})
        tween:Play()
        if v:IsA("TextButton") or v:IsA("TextLabel") then
+         wait(0.6)
        v.Visible = false
        end 
        end
@@ -111,6 +112,9 @@ local function toggleGuiVisibility()
       local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
       local tween = game:GetService("TweenService"):Create(v, tweenInfo, {Size = originalSizes[v.Name]})
       tween:Play()
+      if v:IsA("TextButton") or v:IsA("TextLabel") then
+       v.Visible = true
+       end 
         end
         end
     end
