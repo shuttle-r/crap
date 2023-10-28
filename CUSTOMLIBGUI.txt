@@ -296,10 +296,10 @@ function tableToString(tbl)
     local str = ""
     for k, v in pairs(tbl) do
         if type(v) == "table" then
-            str = str .. string.rep("  ") .. k .. ":\n"
+            str = str .. k .. "\n"
             str = str .. tableToString(v)
         else
-            str = str .. string.rep("  ") .. k .. ": " .. tostring(v) .. "\n"
+            str = str .. k .. tostring(v) .. "\n"
         end
     end
     return str
