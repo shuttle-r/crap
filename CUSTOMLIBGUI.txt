@@ -84,14 +84,14 @@ uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
 local guiHidden = false
 local slideDuration = 0.5 -- Animation duration in seconds
 local slidePosition = UDim2.new(0, 0, 0, 0) -- Target position when visible
-local hiddenPosition = UDim2.new(0, 0, 39, 0) -- Target position when hidden
+local hiddenPosition = UDim2.new(0, 0, 1, 0) -- Target position when hidden
 
 local function toggleGuiVisibility()
     guiHidden = not guiHidden
 
     if guiHidden then
      for i,v in pairs(screenGui:GetChildren()) do
-       if v ~= screenGui.NoHide then -- Change this line
+       if v ~= screenGui.noHide then -- Change this line
         v:TweenPosition(hiddenPosition, Enum.EasingDirection.Out, Enum.EasingStyle.Quad, slideDuration, true)
         end
         end
