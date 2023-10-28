@@ -64,8 +64,9 @@ uiCorner.Parent = frame2
 uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
 
 
-local HideBut = Instance.new("Frame")
+local HideBut = Instance.new("TextButton")
 HideBut.Parent = screenGui
+HideBut.Text = "H"
 HideBut.Position = UDim2.new(0.449999988, -220, 0.109999999, -65)
 HideBut.Size = UDim2.new(0, 29, 0, 27) -- make the HideBut half the size of the screen
 HideBut.BackgroundColor3 = Color3.fromRGB(217,217,217) -- white
@@ -79,7 +80,24 @@ uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 local uiCorner = Instance.new ("UICorner")
 uiCorner.Parent = HideBut
 uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
+local guiHidden = false
+local slideDuration = 0.5 -- Animation duration in seconds
+local slidePosition = UDim2.new(0, 0, 0, 0) -- Target position when visible
+local hiddenPosition = UDim2.new(0, 0, 1, 0) -- Target position when hidden
 
+-- Function to toggle the visibility of the GUI with a slide animation
+local function toggleGuiVisibility()
+    guiHidden = not guiHidden
+
+    if guiHidden then
+        screenGui:TweenPosition(hiddenPosition, Enum.EasingDirection.Out, Enum.EasingStyle.Quad, slideDuration, true)
+    else
+        screenGui:TweenPosition(slidePosition, Enum.EasingDirection.Out, Enum.EasingStyle.Quad, slideDuration, true)
+    end
+end
+
+-- Connect the button click event to the function
+HideBut.MouseButton1Click:Connect(toggleGuiVisibility)
 
 -- Set the background color and border color of the frame
 local SaveBb = Instance.new("TextButton")
