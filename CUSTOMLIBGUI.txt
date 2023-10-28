@@ -356,3 +356,20 @@ v:Destroy()
 end
 end
 end)
+
+local Framed = Instance.new("Frame")
+Framed.Parent = screenGui 
+Framed.Size = UDim2.new(0, 152, 0, -76)
+Framed.Position = UDim2.new(0.5, -19, 0, 25)
+Framed.BackgroundColor3 = Color3.fromRGB(217,217,217)
+Draggable = true
+Active = true
+Selectable = true
+local uiStroke = Instance.new("UIStroke")
+uiStroke.Parent = Framed
+uiStroke.Color = Color3.fromRGB(192,74,192)
+uiStroke.Thickness = 1.5
+uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+local uiCorner = Instance.new("UICorner")
+uiCorner.Parent = Framed
+uiCorner.CornerRadius = UDim.new (0.1, 0)
