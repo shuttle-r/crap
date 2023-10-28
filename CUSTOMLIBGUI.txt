@@ -304,17 +304,7 @@ _G.GuiInfo = {
   Selectable = true,
 }
 
-_G.GuiInfoPlainText = {
-  infoGate,
-  infoGate.Parent,
-  infoGate.Name,
-  infoGate.Size,
-  infoGate.Position,
-  infoGate.BackgroundColor3,
-  Draggable = true,
-  Active = true,
-  Selectable = true,
-}
+
 end
 end)
 
@@ -343,20 +333,3 @@ frame2.Text = tableToString(_G.GuiInfo)
 
 end)
 
-local test3
-test3 = addButtonOnSmallFrame("info gui plain", function()
-  function tableToString(tbl, indent)
-    indent = indent or 0
-    local str = ""
-    for k, v in pairs(tbl) do
-        if type(v) == "table" then
-            str = str .. string.rep("  ", indent) .. k .. ":\n"
-            str = str .. tableToString(v, indent + 1)
-        else
-            str = str .. string.rep("  ", indent) .. k .. ": " .. tostring(v) .. "\n"
-        end
-    end
-    return str
-end 
-  frame2.Text = tableToString(_G.GuiInfoPlainText)
-end)
