@@ -277,8 +277,8 @@ _G.GuiInfo = {
   infoGate = infoGate,
   Parent = infoGate.Parent,
   Name = infoGate.Name,
-  Size = "UDim2.new(0,"..tostring(infoGate.Size.X.Offset)..", 0,"..tostring(infoGate.Size.Y.Offset)..")",  -- Change this line
-  Position = "UDim2.new(0.5,"..tostring(infoGate.Position.X.Offset)..", 0,"..tostring(infoGate.Position.Y.Offset)..")", -- Change this lines
+  Size = "UDim2.new(0, "..tostring(infoGate.Size.X.Offset)..", 0, "..tostring(infoGate.Size.Y.Offset)..")",  -- Change this line
+  Position = "UDim2.new(0.5, "..tostring(infoGate.Position.X.Offset)..", 0, "..tostring(infoGate.Position.Y.Offset)..")", -- Change this lines
   BackgroundColor3 = infoGate.BackgroundColor3,
   Draggable = true,
   Active = true,
@@ -330,8 +330,12 @@ SaveBb.MouseButton1Click:Connect(function()
 	local TextIntoGui = ({
 	  "local Framed = Instance.new(\"Frame\")",
 	  "Framed.Parent = screenGui ",
-	  "Framed.Size = ".._G.GuiInfo.Size
-	  
+	  "Framed.Size = ".._G.GuiInfo.Size,
+	  "Framed.Position = ".._G.GuiInfo.Position,
+	  "Framed.BackgroundColor3 = ",
+	  "Draggable = true",
+    "Active = true",
+    "Selectable = true",
 	})
 	print(tableToString(TextIntoGui))
 	end)
