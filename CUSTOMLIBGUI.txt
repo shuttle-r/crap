@@ -66,7 +66,7 @@ uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
 
 -- Set the background color and border color of the frame
 local SaveBb = Instance.new("TextButton")
-SaveBb.Parent = frame2
+SaveBb.Parent = screenGui
 SaveBb.Text = "S"
 SaveBb.Name = "SaveBut"
 SaveBb.Size = UDim2.new(0, 46, 0, 23) -- Change the size as you wish
