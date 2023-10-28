@@ -86,19 +86,18 @@ local slideDuration = 0.5 -- Animation duration in seconds
 local slidePosition = UDim2.new(0, 0, 0, 0) -- Target position when visible
 local hiddenPosition = UDim2.new(0, 0, 39, 0) -- Target position when hidden
 
--- Function to toggle the visibility of the GUI with a slide animation
 local function toggleGuiVisibility()
     guiHidden = not guiHidden
 
     if guiHidden then
      for i,v in pairs(screenGui:GetChildren()) do
-       if screenGui ~= screenGui.NoHide then
+       if v ~= screenGui.NoHide then -- Change this line
         v:TweenPosition(hiddenPosition, Enum.EasingDirection.Out, Enum.EasingStyle.Quad, slideDuration, true)
         end
         end
     else
         for i,v in pairs(screenGui:GetChildren()) do
-        v:TweenPosition(hiddenPosition, Enum.EasingDirection.Out, Enum.EasingStyle.Quad, slideDuration, true)
+        v:TweenPosition(slidePosition, Enum.EasingDirection.Out, Enum.EasingStyle.Quad, slideDuration, true) -- Change this line
         end
     end
 end
