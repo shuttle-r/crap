@@ -293,7 +293,6 @@ local infoGate = game:GetService("Players").LocalPlayer.PlayerGui.Customgui[Rand
 
 while true do wait(1)
 _G.GuiInfo = {
-  Instance = Instance.new("Frame"),
   infoGate = infoGate,
   Parent = infoGate.Parent,
   Name = infoGate.Name,
@@ -306,7 +305,6 @@ _G.GuiInfo = {
 }
 
 _G.GuiInfoPlainText = {
-  Instance.new("Frame"),
   infoGate,
   infoGate.Parent,
   infoGate.Name,
@@ -347,5 +345,18 @@ end)
 
 local test3
 test3 = addButtonOnSmallFrame("info gui plain", function()
+  function tableToString(tbl, indent)
+    indent = indent or 0
+    local str = ""
+    for k, v in pairs(tbl) do
+        if type(v) == "table" then
+            str = str .. string.rep("  ", indent) .. k .. ":\n"
+            str = str .. tableToString(v, indent + 1)
+        else
+            str = str .. string.rep("  ", indent) .. k .. ": " .. tostring(v) .. "\n"
+        end
+    end
+    return str
+end 
   frame2.Text = tableToString(_G.GuiInfoPlainText)
 end)
