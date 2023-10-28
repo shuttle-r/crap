@@ -332,7 +332,7 @@ SaveBb.MouseButton1Click:Connect(function()
 	  "Framed.Parent = screenGui ",
 	  "Framed.Size = ".._G.GuiInfo.Size,
 	  "Framed.Position = ".._G.GuiInfo.Position,
-	  "Framed.BackgroundColor3 = ",
+	  "Framed.BackgroundColor3 = Color3.fromRGB(217,217,217)",
 	  "Draggable = true",
     "Active = true",
     "Selectable = true",
