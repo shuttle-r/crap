@@ -50,7 +50,7 @@ uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
 local frame2 = Instance.new("Frame")
 frame2.Parent = screenGui
 frame2.Position = UDim2.new(0.449999988, -35 ,0.109999999, 210)
-frame2.Size = UDim2.new(0, 293, 0, 196) -- make the frame2 half the size of the screen
+frame2.Size = UDim2.new(0, 293, 0, -196) -- make the frame2 half the size of the screen
 frame2.BackgroundColor3 = Color3.fromRGB(217,217,217) -- white
 local uiStroke = Instance.new("UIStroke")
 uiStroke.Parent = frame2
@@ -65,6 +65,23 @@ uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
 
 
 -- Set the background color and border color of the frame
+local SaveBb = Instance.new("TextButton")
+SaveBb.Parent = frame2
+SaveBb.Text = "S"
+SaveBb.Name = SaveBut
+SaveBb.Size = UDim2.new(0, 46, 0, 23) -- Change the size as you wish
+SaveBb.Position = UDim2.new(0.499999988, 191, 0.109999999, 170) -- Change the position as you wish
+SaveBb.BackgroundColor3 = Color3.new(0, 1, 0) -- Change the color as you wish
+local uiStroke = Instance.new("UIStroke")
+uiStroke.Parent = SaveBb
+uiStroke.Color = Color3.fromRGB(192,74,192)
+uiStroke.Thickness = 1.5
+uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+
+-- Set the corner radius of the frame2 using UICorner
+local uiCorner = Instance.new ("UICorner")
+uiCorner.Parent = SaveBb
+uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
 
 
 
