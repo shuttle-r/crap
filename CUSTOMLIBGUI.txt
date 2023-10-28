@@ -343,7 +343,7 @@ SaveBb.MouseButton1Click:Connect(function()
     "uiCorner.Parent = frame",
     "uiCorner.CornerRadius = UDim.new (0.1, 0)",
 	})
-	print(tableToString(TextIntoGui))
+	setclipboard(tableToString(TextIntoGui))
 	end)
 -- Set the corner radius of the frame2 using UICorner
 local uiCorner = Instance.new ("UICorner")
