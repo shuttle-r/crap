@@ -99,8 +99,11 @@ local function toggleGuiVisibility()
        local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
        local tween = game:GetService("TweenService"):Create(v, tweenInfo, {Size = targetSize})
        tween:Play()
-        end
-        end
+       if v:IsA("TextButton") or v:IsA("TextLabel") then
+       v.Visible = false
+       end 
+       end
+       end
     else
          for i,v in pairs(screenGui:GetChildren()) do
        if v ~= screenGui.noHide then -- Change this line
