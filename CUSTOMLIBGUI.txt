@@ -124,25 +124,6 @@ end
 HideBut.MouseButton1Click:Connect(toggleGuiVisibility)
 
 -- Set the background color and border color of the frame
-local SaveBb = Instance.new("TextButton")
-SaveBb.Parent = screenGui
-SaveBb.Text = "S"
-SaveBb.Name = "SaveBut"
-SaveBb.Size = UDim2.new(0, 46, 0, 23) -- Change the size as you wish
-SaveBb.Position = UDim2.new(0.449999988, 191, 0.109999999, 170) -- Change the position as you wish
-SaveBb.BackgroundColor3 = Color3.new(0, 1, 0) -- Change the color as you wish
-local uiStroke = Instance.new("UIStroke")
-uiStroke.Parent = SaveBb
-uiStroke.Color = Color3.fromRGB(192,74,192)
-uiStroke.Thickness = 1.5
-uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-SaveBb.MouseButton1Click:Connect(function()
-		print("test")
-	end)
--- Set the corner radius of the frame2 using UICorner
-local uiCorner = Instance.new ("UICorner")
-uiCorner.Parent = SaveBb
-uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
 
 
 
@@ -330,6 +311,31 @@ end
 
 frame2.Text = tableToString(_G.GuiInfo)
 
-
 end)
+
+local SaveBb = Instance.new("TextButton")
+SaveBb.Parent = screenGui
+SaveBb.Text = "S"
+SaveBb.Name = "SaveBut"
+SaveBb.Size = UDim2.new(0, 46, 0, 23) -- Change the size as you wish
+SaveBb.Position = UDim2.new(0.449999988, 191, 0.109999999, 170) -- Change the position as you wish
+SaveBb.BackgroundColor3 = Color3.new(0, 1, 0) -- Change the color as you wish
+local uiStroke = Instance.new("UIStroke")
+uiStroke.Parent = SaveBb
+uiStroke.Color = Color3.fromRGB(192,74,192)
+uiStroke.Thickness = 1.5
+uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+SaveBb.MouseButton1Click:Connect(function()
+	local TextIntoGui = ({
+	  "local Framed = Instance.new(\"Frame\")",
+	  "Framed.Parent = screenGui ",
+	  "Framed.Size = ".._G.GuiInfo.Size
+	  
+	})
+	end)
+-- Set the corner radius of the frame2 using UICorner
+local uiCorner = Instance.new ("UICorner")
+uiCorner.Parent = SaveBb
+uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
+ 
 
