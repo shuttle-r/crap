@@ -277,13 +277,16 @@ _G.GuiInfo = {
   infoGate = infoGate,
   Parent = infoGate.Parent,
   Name = infoGate.Name,
-  Size = infoGate.Size,
-  Position = infoGate.Position,
+  Size = infoGate.Size.X.Offset, infoGate.Size.Y.Offset,
+  Position = infoGate.Position.X.Offset, infoGate.Position.Y.Offset,
   BackgroundColor3 = infoGate.BackgroundColor3,
   Draggable = true,
   Active = true,
   Selectable = true,
 }
+
+--print(size.X.Scale, size.X.Offset, size.Y.Scale, size.Y.Offset) -- This will print the scale and offset values for the X and Y dimensions of the size
+--print(position.X.Scale, position.X.Offset, position.Y.Scale, position.Y.Offset) -- This will print the scale and offset values for the X and Y dimensions of the position
 
 
 end
