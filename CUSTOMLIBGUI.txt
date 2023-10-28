@@ -66,6 +66,7 @@ uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
 
 local HideBut = Instance.new("TextButton")
 HideBut.Parent = screenGui
+HideBut.Name = "noHide"
 HideBut.Text = "H"
 HideBut.Position = UDim2.new(0.449999988, -220, 0.109999999, -65)
 HideBut.Size = UDim2.new(0, 29, 0, 27) -- make the HideBut half the size of the screen
@@ -83,19 +84,21 @@ uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
 local guiHidden = false
 local slideDuration = 0.5 -- Animation duration in seconds
 local slidePosition = UDim2.new(0, 0, 0, 0) -- Target position when visible
-local hiddenPosition = UDim2.new(0, 0, 1, 0) -- Target position when hidden
+local hiddenPosition = UDim2.new(0, 0, 39, 0) -- Target position when hidden
 
 -- Function to toggle the visibility of the GUI with a slide animation
 local function toggleGuiVisibility()
     guiHidden = not guiHidden
 
     if guiHidden then
-     for i,v in pairs(screenGui:GetDescendants()) do
-        v.TweenPosition(hiddenPosition, Enum.EasingDirection.Out, Enum.EasingStyle.Quad, slideDuration, true)
+     for i,v in pairs(screenGui:GetChildren()) do
+       if screenGui ~= screenGui.NoHide then
+        v:TweenPosition(hiddenPosition, Enum.EasingDirection.Out, Enum.EasingStyle.Quad, slideDuration, true)
+        end
         end
     else
-        for i,v in pairs(screenGui:GetDescendants()) do
-        v.TweenPosition(hiddenPosition, Enum.EasingDirection.Out, Enum.EasingStyle.Quad, slideDuration, true)
+        for i,v in pairs(screenGui:GetChildren()) do
+        v:TweenPosition(hiddenPosition, Enum.EasingDirection.Out, Enum.EasingStyle.Quad, slideDuration, true)
         end
     end
 end
