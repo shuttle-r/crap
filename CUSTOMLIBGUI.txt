@@ -334,12 +334,12 @@ SaveBb.MouseButton1Click:Connect(function()
     "Active = true",
     "Selectable = true",
     "local uiStroke = Instance.new(\"UIStroke\")",
-    "uiStroke.Parent = frame",
+    "uiStroke.Parent = Framed",
     "uiStroke.Color = Color3.fromRGB(192,74,192)",
     "uiStroke.Thickness = 1.5",
     "uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border",
     "local uiCorner = Instance.new(\"UICorner\")",
-    "uiCorner.Parent = frame",
+    "uiCorner.Parent = Framed",
     "uiCorner.CornerRadius = UDim.new (0.1, 0)",
 	})
 	setclipboard(tableToString(TextIntoGui))
