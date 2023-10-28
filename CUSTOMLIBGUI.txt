@@ -90,9 +90,13 @@ local function toggleGuiVisibility()
     guiHidden = not guiHidden
 
     if guiHidden then
-        screenGui:TweenPosition(hiddenPosition, Enum.EasingDirection.Out, Enum.EasingStyle.Quad, slideDuration, true)
+     for i,v in pairs(screenGui:GetDescendants()) do
+        v.TweenPosition(hiddenPosition, Enum.EasingDirection.Out, Enum.EasingStyle.Quad, slideDuration, true)
+        end
     else
-        screenGui:TweenPosition(slidePosition, Enum.EasingDirection.Out, Enum.EasingStyle.Quad, slideDuration, true)
+        for i,v in pairs(screenGui:GetDescendants()) do
+        v.TweenPosition(hiddenPosition, Enum.EasingDirection.Out, Enum.EasingStyle.Quad, slideDuration, true)
+        end
     end
 end
 
