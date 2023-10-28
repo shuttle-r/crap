@@ -293,6 +293,7 @@ local infoGate = game:GetService("Players").LocalPlayer.PlayerGui.Customgui[Rand
 
 while true do wait(1)
 _G.GuiInfo = {
+  Instance = Instance.new("Frame"),
   infoGate = infoGate,
   Parent = infoGate.Parent,
   Name = infoGate.Name,
@@ -302,7 +303,19 @@ _G.GuiInfo = {
   Draggable = true,
   Active = true,
   Selectable = true,
-  
+}
+
+_G.GuiInfoPlainText = {
+  Instance.new("Frame"),
+  infoGate,
+  infoGate.Parent,
+  infoGate.Name,
+  infoGate.Size.Offset,
+  infoGate.Position.Offset,
+  infoGate.BackgroundColor3,
+  Draggable = true,
+  Active = true,
+  Selectable = true,
 }
 end
 end)
@@ -330,4 +343,9 @@ end
 frame2.Text = tableToString(_G.GuiInfo)
 
 
+end)
+
+local test3
+test3 = addButtonOnSmallFrame("info gui plain", function()
+  frame2.Text = tableToString(_G.GuiInfoPlainText)
 end)
