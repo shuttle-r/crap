@@ -351,7 +351,7 @@ SaveBb.MouseButton1Click:Connect(function()
 local test3
 test3 = addButtonOnSmallFrame("clear gui", function()
 for _,v in pairs(game:GetService("Players").LocalPlayer.Players.PlayerGui.Customgui:GetChildren()) do
-if (string.sub(string.lower(v.Name),1,string.len("Spearer"))) == string.lower("Spearer") then
+if (string.sub(string.lower(v.Name),1,string.len("Table"))) == string.lower("Table") then
 v:Destroy()
 end
 end
