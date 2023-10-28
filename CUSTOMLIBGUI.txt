@@ -83,8 +83,7 @@ uiCorner.Parent = HideBut
 uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
 local guiHidden = false
 local slideDuration = 0.5 -- Animation duration in seconds
-local slidePosition = UDim2.new(0, 0, 0, 0) -- Target position when visible
-local hiddenPosition = UDim2.new(0, 0, 1, 0) -- Target position when hidden
+local targetSize = UDim2.new(0.01, 0, 0.01, 0) -- Target position when visible
 
 local function toggleGuiVisibility()
     guiHidden = not guiHidden
@@ -92,7 +91,9 @@ local function toggleGuiVisibility()
     if guiHidden then
      for i,v in pairs(screenGui:GetChildren()) do
        if v ~= screenGui.noHide then -- Change this line
-        v:TweenPosition(hiddenPosition, Enum.EasingDirection.Out, Enum.EasingStyle.Quad, slideDuration, true)
+       local tweenInfo = TweenInfo.new(2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+       local tween = game:GetService("TweenService"):Create(gui, tweenInfo, {Size = targetSize})
+       tween:Play()
         end
         end
     else
