@@ -292,7 +292,7 @@ end)
 local test2
 test2 = addButtonOnSmallFrame("View gui", function()
   -- Function to convert a table to a plain text string
-function tableToString(tbl, indent)
+function tableToString(tbl)
     local str = ""
     for k, v in pairs(tbl) do
         if type(v) == "table" then
