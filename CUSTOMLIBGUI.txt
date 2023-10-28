@@ -299,7 +299,7 @@ function tableToString(tbl)
             str = str .. "\n"
             str = str .. tableToString(v)
         else
-            str = str .. tostring(v) .. "\n"
+            str = str  .. tostring(v) .. "\n"
         end
     end
     return str
