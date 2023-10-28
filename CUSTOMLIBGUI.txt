@@ -334,7 +334,7 @@ SaveBb.MouseButton1Click:Connect(function()
 	  "Framed.Size = ".._G.GuiInfo.Size
 	  
 	})
-	print(TextIntoGui)
+	print(tableToString(TextIntoGui))
 	end)
 -- Set the corner radius of the frame2 using UICorner
 local uiCorner = Instance.new ("UICorner")
