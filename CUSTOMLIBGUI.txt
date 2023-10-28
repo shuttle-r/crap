@@ -41,8 +41,6 @@ uiStroke.Parent = frame
 uiStroke.Color = Color3.fromRGB(192,74,192)
 uiStroke.Thickness = 1.5
 uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-
--- Set the corner radius of the frame using UICorner
 local uiCorner = Instance.new ("UICorner")
 uiCorner.Parent = frame
 uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
@@ -336,6 +334,14 @@ SaveBb.MouseButton1Click:Connect(function()
 	  "Draggable = true",
     "Active = true",
     "Selectable = true",
+    local uiStroke = Instance.new("UIStroke")
+    uiStroke.Parent = frame
+    uiStroke.Color = Color3.fromRGB(192,74,192)
+    uiStroke.Thickness = 1.5
+    uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+    local uiCorner = Instance.new ("UICorner")
+    uiCorner.Parent = frame
+    uiCorner.CornerRadius = UDim.new (0.1, 0)
 	})
 	print(tableToString(TextIntoGui))
 	end)
