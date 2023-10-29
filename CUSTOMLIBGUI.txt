@@ -220,61 +220,7 @@ end
 
 
 
---[[local test1
-test1 = addButtonOnSmallFrame("add gui", function()
- 
- 
-local RanomName = math.random(1,999999)
- local RandomizeKey = {RanomName}
- local RandomizeToStribg = tostring(RandomizeKey)
 
-local framesYes = frame:Clone()
-  framesYes.Name =  RandomizeToStribg
-	framesYes.Size = UDim2.new(0, 50, 0, 50)
-	framesYes.Position = UDim2.new(0.45, 0, 0.11, 0)
-	framesYes.Parent = screenGui
-	framesYes.Visible = true -- Assuming this script is a child of the GUI frame
-	-- Create an X button and insert it into the ScreenGui
-local xButton = Instance.new("TextButton")
-xButton.Parent = screenGui
-xButton.Text = "X"
-xButton.Name = "X"..RandomizeToStribg
-xButton.Size = UDim2.new(0, 50, 0, 50) -- Change the size as you wish
-xButton.Position = UDim2.new(0.5, -25, 0.5, -25) -- Change the position as you wish
-xButton.BackgroundColor3 = Color3.new(1, 0, 0) -- Change the color as you wish
-xButton.Draggable = true
-xButton.Active = true
-xButton.Selectable = true
--- Create a Y button and insert it into the ScreenGui
-local yButton = Instance.new("TextButton")
-yButton.Parent = screenGui
-yButton.Text = "Y"
-yButton.Name = "Y"..RandomizeToStribg
-yButton.Size = UDim2.new(0, 50, 0, 50) -- Change the size as you wish
-yButton.Position = UDim2.new(0.5, 25, 0.5, -25) -- Change the position as you wish
-yButton.BackgroundColor3 = Color3.new(0, 1, 0) -- Change the color as you wish
-yButton.Draggable = true
-yButton.Active = true
-yButton.Selectable = true
-
-local xpos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui["X"..RandomizeToStribg].Position.X.Offset
-local ypos = game:GetService("Players").LocalPlayer.PlayerGui.Customgui["Y"..RandomizeToStribg].Position.Y.Offset
-local localpl = game:GetService("Players").LocalPlayer.PlayerGui
-
-local heartMoce = game:GetService("RunService").heartbeat:Connect(function()
-	xpos = localpl.Customgui["X"..RandomizeToStribg].Position.X.Offset
-  ypos = localpl.Customgui["Y"..RandomizeToStribg].Position.Y.Offset
-	game:GetService("Players").LocalPlayer.PlayerGui.Customgui[RandomizeToStribg].Size = UDim2.fromOffset(xpos,ypos)
-end)
-local infoGate = game:GetService("Players").LocalPlayer.PlayerGui.Customgui[RandomizeToStribg]
-  
-while true do wait(0.2)
-  -- Store the original UDim2 values
-_G.originalSize = infoGate.Size
-_G.originalPosition = infoGate.Position
-end
-end)
-]]
 local Framed = Instance.new("TextButton")
 Framed.Parent = frame2
 Framed.Text = "Add Frame"
@@ -293,8 +239,6 @@ local uiCorner = Instance.new("UICorner")
 uiCorner.Parent = Framed
 uiCorner.CornerRadius = UDim.new (0.1, 0)
 Framed.MouseButton1Click:Connect(function()
-		
- 
 local RanomName = math.random(1,999999)
  local RandomizeKey = {RanomName}
  local RandomizeToStribg = tostring(RandomizeKey)
@@ -345,6 +289,15 @@ _G.originalSize = infoGate.Size
 _G.originalPosition = infoGate.Position
 end
 end) 
+
+
+
+
+
+
+
+
+
 
 function tableToString(tbl)
     local str = ""
