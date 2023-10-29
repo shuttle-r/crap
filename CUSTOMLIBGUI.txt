@@ -334,8 +334,11 @@ SaveBb.MouseButton1Click:Connect(function()
 local BADCHAR = "{"
 local BADCHAR2 = "}"
 local substringToReplace = "}, {"
+local replacementString = "replacement1"
+
 local substringToReplace2 = "), ("
- 
+local replacementString2 = "replacement2"
+
 	local TextIntoGui = ({
 	  "local Framed = Instance.new(\"Frame\")",
 	  "Framed.Parent = screenGui ",
@@ -365,12 +368,10 @@ local function replaceSpecificSubstring(inputString, substringToReplace, replace
 end
 
 
-for i, str in ipairs(TextIntoGui) do
-    TextIntoGui[i] = replaceSpecificSubstring(str, substringToReplace, ", ")
-end
 
 for i, str in ipairs(TextIntoGui) do
-    TextIntoGui[i] = replaceSpecificSubstring(str, substringToReplace2, ", ")
+    TextIntoGui[i] = replaceSpecificSubstring(str, substringToReplace, replacementString)
+    TextIntoGui[i] = replaceSpecificSubstring(myTable[i], substringToReplace2, replacementString2)
 end
 
 for i, str in ipairs(TextIntoGui) do
