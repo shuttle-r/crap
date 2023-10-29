@@ -60,6 +60,23 @@ local uiCorner = Instance.new ("UICorner")
 uiCorner.Parent = frame2
 uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
 
+local Framed = Instance.new("Frame")
+Framed.Parent = frame
+Framed.Size = UDim2.new(0, 144, 0, 19)
+Framed.Position = UDim2.new(0.449999988, -112, 0.109999999, -5)
+Framed.BackgroundColor3 = Color3.fromRGB(217,217,217)
+Draggable = true
+Active = true
+Selectable = true
+local uiStroke = Instance.new("UIStroke")
+uiStroke.Parent = Framed
+uiStroke.Color = Color3.fromRGB(192,74,192)
+uiStroke.Thickness = 1.5
+uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+local uiCorner = Instance.new("UICorner")
+uiCorner.Parent = Framed
+uiCorner.CornerRadius = UDim.new (0.1, 0)
+
 
 local HideBut = Instance.new("TextButton")
 HideBut.Parent = screenGui
