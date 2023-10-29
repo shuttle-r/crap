@@ -293,9 +293,7 @@ end
 end)
 
 
-local test2
-test2 = addButtonOnSmallFrame("View gui", function()
-  -- Function to convert a table to a plain text string
+
 function tableToString(tbl)
     local str = ""
     for k, v in pairs(tbl) do
@@ -308,12 +306,6 @@ function tableToString(tbl)
     end
     return str
 end
-
-
-
-frame2.Text = tableToString(_G.GuiInfo)
-
-end)
 
 local SaveBb = Instance.new("TextButton")
 SaveBb.Parent = screenGui
@@ -383,9 +375,4 @@ end
 
 	setclipboard(tableToString(TextIntoGui))
 	end)
-
-local test3
-test3 = addButtonOnSmallFrame("view gui code", function()
-print("test")
-end)
 
