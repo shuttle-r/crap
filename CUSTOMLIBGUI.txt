@@ -511,10 +511,10 @@ end
 local Editor
 Editor = addButtonOnSmallFrame("Editor", function()
   Framed.Visible = true
-  AddButtonFramed = true
+  AddButtonFramed.Visible = true
 end)
 local FontAndColor
 FontAndColor = addButtonOnSmallFrame("Font and Color", function()
   Framed.Visible = false
-  AddButtonFramed = false
+  AddButtonFramed.Visible = false
 end)
