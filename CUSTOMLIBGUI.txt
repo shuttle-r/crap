@@ -337,7 +337,6 @@ local function replaceSpecificSubstring(inputString, substringToReplace, replace
     local escapedSubstring = string.gsub(substringToReplace, "([%(%)%.%%%+%-%*%?%[%^%$])", "%%%1")
     return string.gsub(inputString, escapedSubstring, replacement)
 end
-
 for i, str in ipairs(TextIntoGui) do
     TextIntoGui[i] = replaceSpecificSubstring(str, substringToReplace, replacementString)
     TextIntoGui[i] = replaceSpecificSubstring(TextIntoGui[i], substringToReplace2, replacementString2)
