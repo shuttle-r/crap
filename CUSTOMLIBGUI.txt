@@ -269,8 +269,8 @@ local heartMoce = game:GetService("RunService").heartbeat:Connect(function()
 	game:GetService("Players").LocalPlayer.PlayerGui.Customgui[RandomizeToStribg].Size = UDim2.fromOffset(xpos,ypos)
 end)
 local infoGate = game:GetService("Players").LocalPlayer.PlayerGui.Customgui[RandomizeToStribg]
- local originalSize = infoGate.Size
- local originalPosition = infoGate.Position 
+ _G.originalSize = infoGate.Size
+ _G.originalPosition = infoGate.Position 
 while true do wait(1)
   -- Store the original UDim2 values
 
@@ -333,8 +333,8 @@ SaveBb.MouseButton1Click:Connect(function()
 	local TextIntoGui = ({
 	  "local Framed = Instance.new(\"Frame\")",
 	  "Framed.Parent = screenGui ",
-    "Framed.Size = "..originalSize,
-    "Framed.Position = "..originalPosition,
+    "Framed.Size = ".._G.originalSize,
+    "Framed.Position = ".._G.originalPosition,
 	  "Framed.BackgroundColor3 = Color3.fromRGB(217,217,217)",
 	  "Draggable = true",
     "Active = true",
