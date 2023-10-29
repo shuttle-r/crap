@@ -276,9 +276,6 @@ _G.originalSize = infoGate.Size
 _G.originalPosition = infoGate.Position
 end
 end)
-
-
-
 function tableToString(tbl)
     local str = ""
     for k, v in pairs(tbl) do
@@ -312,7 +309,6 @@ local BADCHAR = "{"
 local BADCHAR2 = "}"
 local substringToReplace = "}, {"
 local replacementString = ", "
-
 local substringToReplace2 = "), ("
 local replacementString2 = ", "
 
@@ -337,27 +333,21 @@ local replacementString2 = ", "
 	local function replaceCharacter(inputString, charToReplace, replacement)
     return string.gsub(inputString, charToReplace, replacement)
 end
--- Function to replace the specific substring
 local function replaceSpecificSubstring(inputString, substringToReplace, replacement)
-    -- Escape special characters in the substring
     local escapedSubstring = string.gsub(substringToReplace, "([%(%)%.%%%+%-%*%?%[%^%$])", "%%%1")
     return string.gsub(inputString, escapedSubstring, replacement)
 end
-
-
 
 for i, str in ipairs(TextIntoGui) do
     TextIntoGui[i] = replaceSpecificSubstring(str, substringToReplace, replacementString)
     TextIntoGui[i] = replaceSpecificSubstring(TextIntoGui[i], substringToReplace2, replacementString2)
 end
-
 for i, str in ipairs(TextIntoGui) do
     TextIntoGui[i] = replaceCharacter(str, BADCHAR, "(")
 end 
 for i, str in ipairs(TextIntoGui) do
     TextIntoGui[i] = replaceCharacter(str, BADCHAR2, ")")
 end 
-
 	setclipboard(tableToString(TextIntoGui))
 	end)
 
