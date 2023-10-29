@@ -333,7 +333,8 @@ uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
 SaveBb.MouseButton1Click:Connect(function()
 local BADCHAR = "{"
 local BADCHAR2 = "}"
-local substringToReplace = '"}, {"'
+local substringToReplace = "}, {"
+local substringToReplace2 = "), ("
  
 	local TextIntoGui = ({
 	  "local Framed = Instance.new(\"Frame\")",
@@ -358,12 +359,18 @@ local substringToReplace = '"}, {"'
 end
 -- Function to replace the specific substring
 local function replaceSpecificSubstring(inputString, substringToReplace, replacement)
-    return string.gsub(inputString, substringToReplace, replacement)
+    -- Escape special characters in the substring
+    local escapedSubstring = string.gsub(substringToReplace, "([%(%)%.%%%+%-%*%?%[%^%$])", "%%%1")
+    return string.gsub(inputString, escapedSubstring, replacement)
 end
 
 
 for i, str in ipairs(TextIntoGui) do
-    TextIntoGui[i] = replaceSpecificSubstring(str, substringToReplace, ",")
+    TextIntoGui[i] = replaceSpecificSubstring(str, substringToReplace, ", ")
+end
+
+for i, str in ipairs(TextIntoGui) do
+    TextIntoGui[i] = replaceSpecificSubstring(str, substringToReplace2, ", ")
 end
 
 for i, str in ipairs(TextIntoGui) do
