@@ -269,16 +269,18 @@ local heartMoce = game:GetService("RunService").heartbeat:Connect(function()
 	game:GetService("Players").LocalPlayer.PlayerGui.Customgui[RandomizeToStribg].Size = UDim2.fromOffset(xpos,ypos)
 end)
 local infoGate = game:GetService("Players").LocalPlayer.PlayerGui.Customgui[RandomizeToStribg]
- _G.originalSize = infoGate.Size
- _G.originalPosition = infoGate.Position 
+  
 while true do wait(1)
   -- Store the original UDim2 values
-
+_G.originalSize = infoGate.Size
+_G.originalPosition = infoGate.Position
 
 _G.GuiInfo = {
   infoGate = infoGate,
   Parent = infoGate.Parent,
   Name = infoGate.Name,
+  Size = _G.originalSize,
+  Position = _G.originalPosition,
   BackgroundColor3 = infoGate.BackgroundColor3,
   Draggable = true,
   Active = true,
