@@ -271,12 +271,13 @@ end)
 local infoGate = game:GetService("Players").LocalPlayer.PlayerGui.Customgui[RandomizeToStribg]
 
 while true do wait(1)
+  -- Store the original UDim2 values
+
+
 _G.GuiInfo = {
   infoGate = infoGate,
   Parent = infoGate.Parent,
   Name = infoGate.Name,
-  Size = "UDim2.new("..tostring(infoGate.Size.X.Scale)..", "..tostring(infoGate.Size.X.Offset)..", "..tostring(infoGate.Size.Y.Scale)..", "..tostring(infoGate.Size.Y.Offset)..")",  -- Change this line
-  Position = "UDim2.new("..tostring(infoGate.Position.X.Scale)..", "..tostring(infoGate.Position.X.Offset)..", "..tostring(infoGate.Position.X.Scale)..", "..tostring(infoGate.Position.Y.Offset)..")", -- Change this lines
   BackgroundColor3 = infoGate.BackgroundColor3,
   Draggable = true,
   Active = true,
@@ -327,11 +328,13 @@ local uiCorner = Instance.new ("UICorner")
 uiCorner.Parent = SaveBb
 uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
 SaveBb.MouseButton1Click:Connect(function()
+   local originalSize = infoGate.Size
+   local originalPosition = infoGate.Position 
 	local TextIntoGui = ({
 	  "local Framed = Instance.new(\"Frame\")",
 	  "Framed.Parent = screenGui ",
-	  "Framed.Size = ".._G.GuiInfo.Size,
-	  "Framed.Position = ".._G.GuiInfo.Position,
+    "Framed.Size = originalSize",
+    "Framed.Position = originalPosition",
 	  "Framed.BackgroundColor3 = Color3.fromRGB(217,217,217)",
 	  "Draggable = true",
     "Active = true",
