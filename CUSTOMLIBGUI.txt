@@ -274,21 +274,6 @@ while true do wait(1)
   -- Store the original UDim2 values
 _G.originalSize = infoGate.Size
 _G.originalPosition = infoGate.Position
-
-_G.GuiInfo = {
-  infoGate = infoGate,
-  Parent = infoGate.Parent,
-  Name = infoGate.Name,
-  Size = _G.originalSize,
-  Position = _G.originalPosition,
-  BackgroundColor3 = infoGate.BackgroundColor3,
-  Draggable = true,
-  Active = true,
-  Selectable = true,
-}
-
-
-
 end
 end)
 
