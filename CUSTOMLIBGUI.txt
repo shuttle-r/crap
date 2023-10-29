@@ -276,7 +276,7 @@ end
 end)
 
 local Framed = Instance.new("TextButton")
-Framed.Parent = frame
+Framed.Parent = frame2
 Framed.Size = "Add Frame"
 Framed.Size = UDim2.new(0, 144, 0, 19)
 Framed.Position = UDim2.new(0.449999988, -112, 0.109999999, -5)
