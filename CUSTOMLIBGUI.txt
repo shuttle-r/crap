@@ -333,8 +333,8 @@ SaveBb.MouseButton1Click:Connect(function()
 	local TextIntoGui = ({
 	  "local Framed = Instance.new(\"Frame\")",
 	  "Framed.Parent = screenGui ",
-    "Framed.Size = ".._G.originalSize,
-    "Framed.Position = ".._G.originalPosition,
+    "Framed.Size = "..tostring(_G.originalSize),
+    "Framed.Position = "..tostring(_G.originalPosition),
 	  "Framed.BackgroundColor3 = Color3.fromRGB(217,217,217)",
 	  "Draggable = true",
     "Active = true",
