@@ -420,6 +420,8 @@ local replacementString = ", "
 local substringToReplace2 = "), ("
 local replacementString2 = ", "
 
+
+if GuiForFrame == true then
 	local TextIntoGui = ({
 	  "local Framed = Instance.new(\"Frame\")",
 	  "Framed.Parent = screenGui ",
@@ -456,6 +458,46 @@ for i, str in ipairs(TextIntoGui) do
     TextIntoGui[i] = replaceCharacter(str, BADCHAR2, ")")
 end 
 	setclipboard(tableToString(TextIntoGui))
+elseif GuiForButton == true then
+    local TextIntoGui = ({
+	  "local Framed = Instance.new(\"TextButton\")",
+	  "Framed.Parent = screenGui ",
+    "Framed.Size = UDim2.new"..tostring(_G.originalSize),
+    "Framed.Position = UDim2.new"..tostring(_G.originalPosition),
+	  "Framed.BackgroundColor3 = Color3.fromRGB(217,217,217)",
+	  "Draggable = true",
+    "Active = true",
+    "Selectable = true",
+    "local uiStroke = Instance.new(\"UIStroke\")",
+    "uiStroke.Parent = Framed",
+    "uiStroke.Color = Color3.fromRGB(192,74,192)",
+    "uiStroke.Thickness = 1.5",
+    "uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border",
+    "local uiCorner = Instance.new(\"UICorner\")",
+    "uiCorner.Parent = Framed",
+    "uiCorner.CornerRadius = UDim.new (0.1, 0)",
+	})
+	local function replaceCharacter(inputString, charToReplace, replacement)
+    return string.gsub(inputString, charToReplace, replacement)
+end
+local function replaceSpecificSubstring(inputString, substringToReplace, replacement)
+    local escapedSubstring = string.gsub(substringToReplace, "([%(%)%.%%%+%-%*%?%[%^%$])", "%%%1")
+    return string.gsub(inputString, escapedSubstring, replacement)
+end
+for i, str in ipairs(TextIntoGui) do
+    TextIntoGui[i] = replaceSpecificSubstring(str, substringToReplace, replacementString)
+    TextIntoGui[i] = replaceSpecificSubstring(TextIntoGui[i], substringToReplace2, replacementString2)
+end
+for i, str in ipairs(TextIntoGui) do
+    TextIntoGui[i] = replaceCharacter(str, BADCHAR, "(")
+end 
+for i, str in ipairs(TextIntoGui) do
+    TextIntoGui[i] = replaceCharacter(str, BADCHAR2, ")")
+end 
+	setclipboard(tableToString(TextIntoGui))
+end
+
+
 	end)
 
 
