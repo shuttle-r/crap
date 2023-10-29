@@ -331,7 +331,8 @@ local uiCorner = Instance.new ("UICorner")
 uiCorner.Parent = SaveBb
 uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
 SaveBb.MouseButton1Click:Connect(function()
- 
+local BADCHAR = "{"
+local BADCHAR2 = "}"
 	local TextIntoGui = ({
 	  "local Framed = Instance.new(\"Frame\")",
 	  "Framed.Parent = screenGui ",
@@ -353,8 +354,11 @@ SaveBb.MouseButton1Click:Connect(function()
 	local function replaceCharacter(inputString, charToReplace, replacement)
     return string.gsub(inputString, charToReplace, replacement)
 end
-for i, str in ipairs(myTable) do
-    myTable[i] = replaceCharacter(str, BADCHAR, "replacement_string")
+for i, str in ipairs(TextIntoGui) do
+    TextIntoGui[i] = replaceCharacter(str, BADCHAR, "(")
+end 
+for i, str in ipairs(TextIntoGui) do
+    TextIntoGui[i] = replaceCharacter(str, BADCHAR2, ")")
 end 
 
 	setclipboard(tableToString(TextIntoGui))
