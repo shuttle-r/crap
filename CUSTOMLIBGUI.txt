@@ -367,8 +367,7 @@ uiCorner.CornerRadius = UDim.new (0.1, 0)
 
 
 function TouchLongPress(TouchPositions, state, gameProcessedEvent)
-  _G.number = _G.number + 1
-  Framed.Text = _G.number
+  ypos = ypos + 1
 end
 UpPos.TouchLongPress:Connect(TouchLongPress)
 
@@ -393,8 +392,7 @@ uiCorner.CornerRadius = UDim.new (0.1, 0)
 
 
 function TouchLongPress(TouchPositions, state, gameProcessedEvent)
-  _G.number = _G.number - 1
-  Framed.Text = _G.number
+  xpos = xpos - 1
 end
 
 DownPos.TouchLongPress:Connect(TouchLongPress)
