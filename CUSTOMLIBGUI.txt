@@ -270,7 +270,7 @@ local heartMoce = game:GetService("RunService").heartbeat:Connect(function()
 end)
 local infoGate = game:GetService("Players").LocalPlayer.PlayerGui.Customgui[RandomizeToStribg]
   
-while true do wait(1)
+while true do wait(0.2)
   -- Store the original UDim2 values
 _G.originalSize = infoGate.Size
 _G.originalPosition = infoGate.Position
