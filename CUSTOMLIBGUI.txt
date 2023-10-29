@@ -373,3 +373,11 @@ end
 	setclipboard(tableToString(TextIntoGui))
 	end)
 
+
+
+
+
+local Editor
+Editor = addButtonOnSmallFrame("Editor", function()
+  Framed.Visible = true
+end)
