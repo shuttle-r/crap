@@ -370,7 +370,7 @@ end)
  
 local UpPos = Instance.new("TextButton")
 UpPos.Parent = frame2
-UpPos.Name = "X"..RandomizeToStribg
+UpPos.Name = "X".._G.OutsideAccForRandomizeString
 UpPos.Text = "up"
 UpPos.Size = UDim2.new(0, 42, 0, 42)
 UpPos.Position = UDim2.new(0.449999988, -3, 0.109999999, -9)
@@ -395,7 +395,7 @@ UpPos.TouchLongPress:Connect(TouchLongPress)
 
 local DownPos = Instance.new("TextButton")
 DownPos.Parent = frame2
-DownPos.Name = "down"..RandomizeToStribg
+DownPos.Name = "down".._G.OutsideAccForRandomizeString
 DownPos.Text = "Down"
 DownPos.Size = UDim2.new(0, 42, 0, 42)
 DownPos.Position = UDim2.new(0.449999988, -3, 0.109999999, 45)
@@ -425,7 +425,7 @@ DownPos.TouchLongPress:Connect(TouchLongPress)
 local LeftPos = Instance.new("TextButton")
 LeftPos.Parent = frame2
 LeftPos.Text = "Left"
-LeftPos.Name = "Ef"..RandomizeToStribg
+LeftPos.Name = "Ef".._G.OutsideAccForRandomizeString
 LeftPos.Size = UDim2.new(0, 42, 0, 42)
 LeftPos.Position = UDim2.new(0.449999988, -57, 0.109999999, 45)
 LeftPos.BackgroundColor3 = Color3.fromRGB(217,217,217)
@@ -448,7 +448,7 @@ LeftPos.TouchLongPress:Connect(TouchLongPress)
 local RightPos = Instance.new("TextButton")
 RightPos.Parent = frame2
 RightPos.Pare = "Right"
-RightPos.Name = "hj"..RandomizeToStribg
+RightPos.Name = "hj".._G.OutsideAccForRandomizeString
 RightPos.Size = UDim2.new(0, 42, 0, 42)
 RightPos.Position = UDim2.new(0.449999988, 51, 0.109999999, 45)
 RightPos.BackgroundColor3 = Color3.fromRGB(217,217,217)
