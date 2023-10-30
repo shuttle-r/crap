@@ -468,6 +468,7 @@ function TouchLongPress(TouchPositions, state, gameProcessedEvent)
 end
 RightPos.TouchLongPress:Connect(TouchLongPress)
 
+-- Create a text button
 local DropDownSelect = Instance.new("TextButton")
 DropDownSelect.Parent = frame2
 DropDownSelect.Text = "Parent Gui:"
@@ -477,6 +478,8 @@ DropDownSelect.BackgroundColor3 = Color3.fromRGB(217,217,217)
 Draggable = true
 Active = true
 Selectable = true
+
+-- Add some visual effects
 local uiStroke = Instance.new("UIStroke")
 uiStroke.Parent = DropDownSelect
 uiStroke.Color = Color3.fromRGB(192,74,192)
@@ -485,6 +488,59 @@ uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 local uiCorner = Instance.new("UICorner")
 uiCorner.Parent = DropDownSelect
 uiCorner.CornerRadius = UDim.new (0.1, 0)
+
+-- Create a scrolling frame inside the text button
+local DropDownFrame = Instance.new("ScrollingFrame")
+DropDownFrame.Parent = DropDownSelect
+DropDownFrame.Size = UDim2.new(1, 0, 4, 0) -- Adjust the size as you like
+DropDownFrame.Position = UDim2.new(0, 0, 1, 0) -- Position it below the text button
+DropDownFrame.BackgroundTransparency = 1 -- Make it invisible
+DropDownFrame.Visible = false -- Hide it by default
+DropDownFrame.ScrollBarThickness = 0 -- Remove the scroll bar
+
+-- Create a UI list layout inside the scrolling frame
+local DropDownLayout = Instance.new("UIListLayout")
+DropDownLayout.Parent = DropDownFrame
+DropDownLayout.SortOrder = Enum.SortOrder.LayoutOrder -- Sort the options by layout order
+
+-- Create some options for the drop-down menu
+local Option1 = Instance.new("TextButton")
+Option1.Parent = DropDownFrame
+Option1.Text = "Option 1"
+Option1.Size = UDim2.new(1, 0, 0, 16) -- Adjust the size as you like
+Option1.BackgroundColor3 = Color3.fromRGB(217,217,217)
+Option1.LayoutOrder = 1 -- Set the layout order
+
+local Option2 = Option1:Clone() -- Clone the first option and change the properties
+Option2.Parent = DropDownFrame
+Option2.Text = "Option 2"
+Option2.LayoutOrder = 2
+
+local Option3 = Option1:Clone()
+Option3.Parent = DropDownFrame
+Option3.Text = "Option 3"
+Option3.LayoutOrder = 3
+
+-- Add some functionality to the options
+Option1.MouseButton1Click:Connect(function()
+    print("You selected option 1") -- Do something when option 1 is clicked
+end)
+
+Option2.MouseButton1Click:Connect(function()
+    print("You selected option 2") -- Do something when option 2 is clicked
+end)
+
+Option3.MouseButton1Click:Connect(function()
+    print("You selected option 3") -- Do something when option 3 is clicked
+end)
+
+-- Add some functionality to the text button
+local IsOpen = false -- A variable to keep track of the drop-down menu state
+
+DropDownSelect.MouseButton1Click:Connect(function()
+    IsOpen = not IsOpen -- Toggle the state
+    DropDownFrame.Visible = IsOpen -- Show or hide the drop-down menu based on the state
+end)
 
 
 
