@@ -516,23 +516,15 @@ Option2.Parent = DropDownFrame
 Option2.Text = "Option 2"
 Option2.LayoutOrder = 2
 
-local Option3 = Option1:Clone()
-Option3.Parent = DropDownFrame
-Option3.Text = "Option 3"
-Option3.LayoutOrder = 3
-
 -- Add some functionality to the options
 Option1.MouseButton1Click:Connect(function()
-    print("You selected option 1") -- Do something when option 1 is clicked
+    print("Test") -- Do something when option 1 is clicked
 end)
 
 Option2.MouseButton1Click:Connect(function()
-    print("You selected option 2") -- Do something when option 2 is clicked
+    print("test") -- Do something when option 2 is clicked
 end)
 
-Option3.MouseButton1Click:Connect(function()
-    print("You selected option 3") -- Do something when option 3 is clicked
-end)
 
 -- Add some functionality to the text button
 local IsOpen = false -- A variable to keep track of the drop-down menu state
