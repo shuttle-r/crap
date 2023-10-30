@@ -602,9 +602,17 @@ local Editor
 Editor = addButtonOnSmallFrame("Editor", function()
   Framed.Visible = true
   AddButtonFramed.Visible = true
+  LeftPos.Visible = false
+  RightPos.Visible = false 
+  UpPos.Visible = false
+  DownPos.Visible = false
 end)
 local FontAndColor
 FontAndColor = addButtonOnSmallFrame("Size/Position", function()
   Framed.Visible = false
   AddButtonFramed.Visible = false
+  LeftPos.Visible = true
+  RightPos.Visible = true 
+  UpPos.Visible = true
+  DownPos.Visible = true
 end)
