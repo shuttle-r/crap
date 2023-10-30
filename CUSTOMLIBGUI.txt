@@ -67,6 +67,7 @@ local frame2 = Instance.new("ScrollingFrame")
 frame2.Parent = screenGui
 frame2.Position = UDim2.new(0.449999988, -35 ,0.109999999, 210)
 frame2.Size = UDim2.new(0, 293, 0, -196) -- make the frame2 half the size of the screen
+frame2.Active = true
 frame2.BackgroundColor3 = Color3.fromRGB(217,217,217) -- white
 frame2.AutomaticCanvasSize = Enum.AutomaticSize.Y
 frame2.CanvasSize = UDim2.new(0, 0, 0, 0)
