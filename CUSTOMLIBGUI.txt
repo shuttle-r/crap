@@ -447,7 +447,7 @@ LeftPos.TouchLongPress:Connect(TouchLongPress)
  
 local RightPos = Instance.new("TextButton")
 RightPos.Parent = frame2
-RightPos.Parent = "Right"
+RightPos.Text = "Right"
 RightPos.Name = "hj".._G.OutsideAccForRandomizeString
 RightPos.Size = UDim2.new(0, 42, 0, 42)
 RightPos.Position = UDim2.new(0.449999988, 51, 0.109999999, 45)
@@ -470,10 +470,10 @@ RightPos.TouchLongPress:Connect(TouchLongPress)
 
 spawn(function()
   while true do wait()
-  UpPos.Name = UpPos.Name
-  DownPos.Name = DownPos.Name
-  LeftPos.Name = LeftPos.Name
-  RightPos.Name = RightPos.Name
+  UpPos.Name = "X".._G.OutsideAccForRandomizeString
+  DownPos.Name = "down".._G.OutsideAccForRandomizeString
+  LeftPos.Name = "Ef".._G.OutsideAccForRandomizeString
+  RightPos.Name = "hj".._G.OutsideAccForRandomizeString
   end
 end)
 
