@@ -1,11 +1,11 @@
--- Create a frame2 object and parent it to the PlayerGui
-local frame2 = Instance.new ("frame2")
-frame2.Parent = game.Players.LocalPlayer:WaitForChild ("PlayerGui")
-frame2.Name = "Customgui"
--- Create a Frame object and parent it to the frame2
+-- Create a screenGui object and parent it to the PlayerGui
+local screenGui = Instance.new ("ScreenGui")
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild ("PlayerGui")
+screenGui.Name = "Customgui"
+-- Create a Frame object and parent it to the screenGui
 
 local framesmall = Instance.new("ScrollingFrame")
-framesmall.Parent = frame2
+framesmall.Parent = screenGui
 framesmall.Size = UDim2.new (0.2, 0, 0.3, 0) -- make the frame half the size of the screen
 framesmall.Position = UDim2.new (0.18, 0, 0.3, 0) -- center the frame on the screen
 framesmall.Active = true
@@ -64,7 +64,7 @@ uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
 
 
 local frame2 = Instance.new("Frame")
-frame2.Parent = frame2
+frame2.Parent = screenGui
 frame2.Position = UDim2.new(0.449999988, -35 ,0.109999999, 210)
 frame2.Size = UDim2.new(0, 293, 0, -196) -- make the frame2 half the size of the screen
 frame2.BackgroundColor3 = Color3.fromRGB(217,217,217) -- white
@@ -79,7 +79,7 @@ uiCorner.Parent = frame2
 uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
 
 local HideBut = Instance.new("TextButton")
-HideBut.Parent = frame2
+HideBut.Parent = screenGui
 HideBut.Name = "noHide"
 HideBut.Text = "H"
 HideBut.Position = UDim2.new(0.449999988, -220, 0.109999999, -65)
@@ -106,8 +106,8 @@ local function toggleGuiVisibility()
     guiHidden = not guiHidden
 
     if guiHidden then
-     for i,v in pairs(frame2:GetChildren()) do
-       if v ~= frame2.noHide then -- Change this line
+     for i,v in pairs(screenGui:GetChildren()) do
+       if v ~= screenGui.noHide then -- Change this line
        -- Store the original size of the element in the table
        originalSizes[v.Name] = v.Size
        local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
@@ -120,8 +120,8 @@ local function toggleGuiVisibility()
        end
        end
     else
-         for i,v in pairs(frame2:GetChildren()) do
-       if v ~= frame2.noHide then -- Change this line
+         for i,v in pairs(screenGui:GetChildren()) do
+       if v ~= screenGui.noHide then -- Change this line
        -- Tween the size of the GUI back to the original value stored in the table
       local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
       local tween = game:GetService("TweenService"):Create(v, tweenInfo, {Size = originalSizes[v.Name]})
@@ -268,7 +268,7 @@ local framesYes = frame:Clone()
   framesYes.Name =  RandomizeToStribg
 	framesYes.Size = UDim2.new(0, 50, 0, 50)
 	framesYes.Position = UDim2.new(0.45, 0, 0.11, 0)
-	framesYes.Parent = frame2
+	framesYes.Parent = screenGui
 	framesYes.Visible = true -- Assuming this script is a child of the GUI frame
 
 local infoGate = game:GetService("Players").LocalPlayer.PlayerGui.Customgui[RandomizeToStribg]
@@ -337,7 +337,7 @@ local frameButYes = frameButton:Clone()
   frameButYes.Name =  RandomizeToStribg
 	frameButYes.Size = UDim2.new(0, 50, 0, 50)
 	frameButYes.Position = UDim2.new(0.45, 0, 0.11, 0)
-	frameButYes.Parent = frame2
+	frameButYes.Parent = screenGui
 	frameButYes.Visible = true -- Assuming this script is a child of the GUI frame
 	
 	
@@ -347,7 +347,7 @@ local ypos = 0
 local localpl = game:GetService("Players").LocalPlayer.PlayerGui
  
 local UpPos = Instance.new("TextButton")
-UpPos.Parent = frame
+UpPos.Parent = frame2
 UpPos.Name = "X"..RandomizeToStribg
 UpPos.Text = "up"
 UpPos.Size = UDim2.new(0, 42, 0, 42)
@@ -372,7 +372,7 @@ end
 UpPos.TouchLongPress:Connect(TouchLongPress)
 
 local DownPos = Instance.new("TextButton")
-DownPos.Parent = frame
+DownPos.Parent = frame2
 DownPos.Name = "down"..RandomizeToStribg
 DownPos.Text = "Down"
 DownPos.Size = UDim2.new(0, 42, 0, 42)
@@ -401,7 +401,7 @@ DownPos.TouchLongPress:Connect(TouchLongPress)
 
 
 local LeftPos = Instance.new("TextButton")
-LeftPos.Parent = frame
+LeftPos.Parent = frame2
 LeftPos.Name = "Ef"..RandomizeToStribg
 LeftPos.Size = UDim2.new(0, 42, 0, 42)
 LeftPos.Position = UDim2.new(0.449999988, -57, 0.109999999, 45)
@@ -424,7 +424,7 @@ end
 LeftPos.TouchLongPress:Connect(TouchLongPress)
  
 local RightPos = Instance.new("TextButton")
-RightPos.Parent = frame
+RightPos.Parent = frame2
 RightPos.Name = "hj"..RandomizeToStribg
 RightPos.Size = UDim2.new(0, 42, 0, 42)
 RightPos.Position = UDim2.new(0.449999988, 51, 0.109999999, 45)
@@ -485,7 +485,7 @@ function tableToString(tbl)
 end
 
 local SaveBb = Instance.new("TextButton")
-SaveBb.Parent = frame2
+SaveBb.Parent = screenGui
 SaveBb.Text = "S"
 SaveBb.Name = "SaveBut"
 SaveBb.Size = UDim2.new(0, 46, 0, 23) -- Change the size as you wish
@@ -511,7 +511,7 @@ local replacementString2 = ", "
 if GuiForFrame == true then
 	local TextIntoGui = ({
 	  "local Framed = Instance.new(\"Frame\")",
-	  "Framed.Parent = frame2",
+	  "Framed.Parent = screenGui",
     "Framed.Size = UDim2.new"..tostring(_G.originalSize),
     "Framed.Position = UDim2.new"..tostring(_G.originalPosition),
 	  "Framed.BackgroundColor3 = Color3.fromRGB(217,217,217)",
@@ -548,7 +548,7 @@ end
 elseif GuiForButton == true then
     local TextIntoGui = ({
 	  "local Framed = Instance.new(\"TextButton\")",
-	  "Framed.Parent = frame2",
+	  "Framed.Parent = screenGui",
     "Framed.Size = UDim2.new"..tostring(_G.originalSize),
     "Framed.Position = UDim2.new"..tostring(_G.originalPosition),
 	  "Framed.BackgroundColor3 = Color3.fromRGB(217,217,217)",
@@ -597,7 +597,7 @@ Editor = addButtonOnSmallFrame("Editor", function()
   AddButtonFramed.Visible = true
 end)
 local FontAndColor
-FontAndColor = addButtonOnSmallFrame("Font and Color", function()
+FontAndColor = addButtonOnSmallFrame("Size/Position", function()
   Framed.Visible = false
   AddButtonFramed.Visible = false
 end)
