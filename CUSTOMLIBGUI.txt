@@ -506,7 +506,7 @@ DropDownLayout.SortOrder = Enum.SortOrder.LayoutOrder -- Sort the options by lay
 -- Create some options for the drop-down menu
 local Option1 = Instance.new("TextButton")
 Option1.Parent = DropDownFrame
-Option1.Text = "Option 1"
+Option1.Text = _G.OutsideAccForRandomizeString
 Option1.Size = UDim2.new(1, 0, 0, 16) -- Adjust the size as you like
 Option1.BackgroundColor3 = Color3.fromRGB(217,217,217)
 Option1.LayoutOrder = 1 -- Set the layout order
