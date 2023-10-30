@@ -603,6 +603,10 @@ end
 
 
 local Editor
+LeftPos.Visible = false
+RightPos.Visible = false 
+UpPos.Visible = false
+DownPos.Visible = false
 Editor = addButtonOnSmallFrame("Editor", function()
   Framed.Visible = true
   AddButtonFramed.Visible = true
