@@ -342,9 +342,31 @@ local frameButYes = frameButton:Clone()
 	
 	
 	
-	local xpos = 0
-local ypos = 0
+_G.xpos = 5
+_G.ypos = 5
 local localpl = game:GetService("Players").LocalPlayer.PlayerGui
+
+	
+
+
+
+
+
+local heartMoce = game:GetService("RunService").heartbeat:Connect(function()
+	game:GetService("Players").LocalPlayer.PlayerGui.Customgui[RandomizeToStribg].Size = UDim2.fromOffset(xpos,ypos)
+end)
+local infoGate = game:GetService("Players").LocalPlayer.PlayerGui.Customgui[RandomizeToStribg]
+  
+while true do wait(0.2)
+  -- Store the original UDim2 values
+_G.originalSize = infoGate.Size
+_G.originalPosition = infoGate.Position
+end
+end) 
+
+
+
+
  
 local UpPos = Instance.new("TextButton")
 UpPos.Parent = frame2
@@ -367,7 +389,7 @@ uiCorner.CornerRadius = UDim.new (0.1, 0)
 
 
 function TouchLongPress(TouchPositions, state, gameProcessedEvent)
-  ypos = ypos + 1
+  _G.ypos = _G.ypos + 1
 end
 UpPos.TouchLongPress:Connect(TouchLongPress)
 
@@ -392,7 +414,7 @@ uiCorner.CornerRadius = UDim.new (0.1, 0)
 
 
 function TouchLongPress(TouchPositions, state, gameProcessedEvent)
-  xpos = xpos - 1
+  _G.ypos = _G.ypos - 1
 end
 
 DownPos.TouchLongPress:Connect(TouchLongPress)
@@ -402,6 +424,7 @@ DownPos.TouchLongPress:Connect(TouchLongPress)
 
 local LeftPos = Instance.new("TextButton")
 LeftPos.Parent = frame2
+LeftPos.Text = "Left"
 LeftPos.Name = "Ef"..RandomizeToStribg
 LeftPos.Size = UDim2.new(0, 42, 0, 42)
 LeftPos.Position = UDim2.new(0.449999988, -57, 0.109999999, 45)
@@ -418,13 +441,13 @@ local uiCorner = Instance.new("UICorner")
 uiCorner.Parent = LeftPos
 uiCorner.CornerRadius = UDim.new (0.1, 0)
 function TouchLongPress(TouchPositions, state, gameProcessedEvent)
-  _G.number = _G.number + 1
-  Framed.Text = _G.number
+  _G.xpos = _G.xpos - 1
 end
 LeftPos.TouchLongPress:Connect(TouchLongPress)
  
 local RightPos = Instance.new("TextButton")
 RightPos.Parent = frame2
+RightPos.Pare = "Right"
 RightPos.Name = "hj"..RandomizeToStribg
 RightPos.Size = UDim2.new(0, 42, 0, 42)
 RightPos.Position = UDim2.new(0.449999988, 51, 0.109999999, 45)
@@ -441,32 +464,9 @@ local uiCorner = Instance.new("UICorner")
 uiCorner.Parent = RightPos
 uiCorner.CornerRadius = UDim.new (0.1, 0)
 function TouchLongPress(TouchPositions, state, gameProcessedEvent)
-  _G.number = _G.number + 1
-  Framed.Text = _G.number
+  _G.xpos = _G.xpos + 1
 end
 RightPos.TouchLongPress:Connect(TouchLongPress)
-
-	
-
-
-
-
-
-local heartMoce = game:GetService("RunService").heartbeat:Connect(function()
-	game:GetService("Players").LocalPlayer.PlayerGui.Customgui[RandomizeToStribg].Size = UDim2.fromOffset(xpos,ypos)
-end)
-local infoGate = game:GetService("Players").LocalPlayer.PlayerGui.Customgui[RandomizeToStribg]
-  
-while true do wait(0.2)
-  -- Store the original UDim2 values
-_G.originalSize = infoGate.Size
-_G.originalPosition = infoGate.Position
-end
-end) 
-
-
-
-
 
 
 
