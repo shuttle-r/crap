@@ -539,6 +539,7 @@ end)
 
 spawn(function()
   while true do wait()
+    Option1.Text = _G.OutsideAccForRandomizeString
   UpPos.Name = "X".._G.OutsideAccForRandomizeString
   DownPos.Name = "down".._G.OutsideAccForRandomizeString
   LeftPos.Name = "Ef".._G.OutsideAccForRandomizeString
