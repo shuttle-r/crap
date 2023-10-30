@@ -672,21 +672,21 @@ LeftPos.Visible = false
 RightPos.Visible = false 
 UpPos.Visible = false
 DownPos.Visible = false
-DropDownFrame.Visible = false
+DropDownSelect.Visible = false
 Editor = addButtonOnSmallFrame("Editor", function()
   Framed.Visible = true
-  AddButtonFramed.Visible = true
+  AddButtonFrame.Visible = true
   LeftPos.Visible = false
   RightPos.Visible = false 
   UpPos.Visible = false
   DownPos.Visible = false
-  DropDownFrame.Visible = false
+  DropDownSelect.Visible = false
 end)
 local FontAndColor
 FontAndColor = addButtonOnSmallFrame("Size/Position", function()
   Framed.Visible = false
   AddButtonFramed.Visible = false
-  DropDownFrame.Visible = true
+  DropDownSelect.Visible = true
   LeftPos.Visible = true
   RightPos.Visible = true 
   UpPos.Visible = true
