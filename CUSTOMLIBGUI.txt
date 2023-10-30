@@ -238,7 +238,7 @@ local function addButtonOnFrame(name, funct, ...)
 end
 
 
-
+_G.OutsideAccForRandomizeString = "0"
 local GuiForFrame = false
 local GuiForButton = false
 local Framed = Instance.new("TextButton")
