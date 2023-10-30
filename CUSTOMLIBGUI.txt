@@ -470,7 +470,7 @@ RightPos.TouchLongPress:Connect(TouchLongPress)
 
 local DropDownSelect = Instance.new("TextButton")
 DropDownSelect.Parent = frame2
-
+DropDownSelect.Text = "Parent Gui:"
 DropDownSelect.Size = UDim2.new(0, 177, 0, 16)
 DropDownSelect.Position = UDim2.new(0.449999988, -71, 0.109999999, 92)
 DropDownSelect.BackgroundColor3 = Color3.fromRGB(217,217,217)
