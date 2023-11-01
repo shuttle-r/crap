@@ -387,6 +387,24 @@ local uiCorner = Instance.new("UICorner")
 uiCorner.Parent = UpPos
 uiCorner.CornerRadius = UDim.new (0.1, 0)
 
+local Whatgui = Instance.new("Frame")
+Whatgui.Parent = screenGui
+Whatgui.Text = _G.OutsideAccForRandomizeString
+Whatgui.Size = UDim2.new(0, 160, 0, 26)
+Whatgui.Position = UDim2.new(0.449999988, -24, 0.109999999, 170)
+Whatgui.BackgroundColor3 = Color3.fromRGB(217,217,217)
+Draggable = true
+Active = true
+Selectable = true
+local uiStroke = Instance.new("UIStroke")
+uiStroke.Parent = Whatgui
+uiStroke.Color = Color3.fromRGB(192,74,192)
+uiStroke.Thickness = 1.5
+uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+local uiCorner = Instance.new("UICorner")
+uiCorner.Parent = Whatgui
+uiCorner.CornerRadius = UDim.new (0.1, 0)
+
 
 function TouchLongPress(TouchPositions, state, gameProcessedEvent)
   _G.ypos = _G.ypos + 1
