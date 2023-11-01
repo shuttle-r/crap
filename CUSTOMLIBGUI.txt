@@ -422,7 +422,7 @@ uiCorner.CornerRadius = UDim.new (0.1, 0)
 
 
 function TouchLongPress(TouchPositions, state, gameProcessedEvent)
-  _G.ypos = _G.ypos + 1
+  _G.ypos = _G.ypos - 1
 end
 UpPos.TouchLongPress:Connect(TouchLongPress)
 
@@ -447,7 +447,7 @@ uiCorner.CornerRadius = UDim.new (0.1, 0)
 
 
 function TouchLongPress(TouchPositions, state, gameProcessedEvent)
-  _G.ypos = _G.ypos - 1
+  _G.ypos = _G.ypos + 1
 end
 
 DownPos.TouchLongPress:Connect(TouchLongPress)
