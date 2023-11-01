@@ -387,7 +387,7 @@ local uiCorner = Instance.new("UICorner")
 uiCorner.Parent = UpPos
 uiCorner.CornerRadius = UDim.new (0.1, 0)
 
-local Whatgui = Instance.new("Frame")
+local Whatgui = Instance.new("TextLabel")
 Whatgui.Parent = screenGui
 Whatgui.Text = _G.OutsideAccForRandomizeString
 Whatgui.Size = UDim2.new(0, 160, 0, 26)
