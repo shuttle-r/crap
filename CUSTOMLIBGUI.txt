@@ -107,9 +107,9 @@ local function toggleGuiVisibility()
 
     if guiHidden then
      for i,v in pairs(screenGui:GetDescendants()) do
+       pcall(function()
        if v ~= screenGui.noHide then
-       if v ~= v:IsA("UICorner") then
-       if v ~= v:IsA("UIStroke")  then
+
        -- Store the original size of the element in the table
        originalSizes[v.Name] = v.Size
        local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
@@ -119,29 +119,30 @@ local function toggleGuiVisibility()
          wait(0.6)
        v.Visible = false
        end 
+
+
        end
-       end
-       end
+       end)
        end
     else
          for i,v in pairs(screenGui:GetDescendants()) do
+       pcall(function()
        if v ~= screenGui.noHide then
-       if v ~= v:IsA("UICorner") then
-       if v ~= v:IsA("UIStroke")  then -- Change this line
+
        -- Tween the size of the GUI back to the original value stored in the table
       local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
       local tween = game:GetService("TweenService"):Create(v, tweenInfo, {Size = originalSizes[v.Name]})
       tween:Play()
       if v:IsA("TextButton") or v:IsA("TextLabel") then
        v.Visible = true
-       end 
-        end
-       end
-       end
-    end
-    end
-end
 
+       end
+       end
+       end)
+        end
+  
+end
+end
 -- Connect the button click event to the function
 HideBut.MouseButton1Click:Connect(toggleGuiVisibility)
 
@@ -550,6 +551,8 @@ Option1.Size = UDim2.new(1, 0, 0, 16) -- Adjust the size as you like
 Option1.BackgroundColor3 = Color3.fromRGB(217,217,217)
 Option1.LayoutOrder = 1 -- Set the layout order
 
+spawn(function()
+  while true do wait()
 for i, child in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Customgui:GetChildren()) do
     -- Create a new option for each child
     
@@ -562,7 +565,8 @@ for i, child in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Customgui
     newOption.Text = child.Name -- Set the text of the option to the child's name
     newOption.LayoutOrder = i + 2 -- Set the layout order for each option
 end
-
+end
+end)
 
 
 
