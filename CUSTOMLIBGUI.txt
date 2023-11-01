@@ -538,25 +538,26 @@ DropDownLayout.SortOrder = Enum.SortOrder.LayoutOrder -- Sort the options by lay
 
 -- Create some options for the drop-down menu
 local Option1 = Instance.new("TextButton")
-Option1.Parent = DropDownFrame
-Option1.Text = "test"
 Option1.Size = UDim2.new(1, 0, 0, 16) -- Adjust the size as you like
 Option1.BackgroundColor3 = Color3.fromRGB(217,217,217)
 Option1.LayoutOrder = 1 -- Set the layout order
 
-local Option2 = Option1:Clone() -- Clone the first option and change the properties
-Option2.Parent = DropDownFrame
-Option2.Text = "Option 2"
-Option2.LayoutOrder = 2
+for i, child in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Customgui:GetChildren()) do
+    -- Create a new option for each child
+    
+    local newOption = Option1:Clone()
+    newOption.MouseButton1Click:Connect(function()
+    local infoGate = game:GetService("Players").LocalPlayer.PlayerGui.Customgui[_G.OutsideAccForRandomizeString]
+ 
+    end)
+    newOption.Parent = DropDownFrame
+    newOption.Text = child.Name -- Set the text of the option to the child's name
+    newOption.LayoutOrder = i + 2 -- Set the layout order for each option
+end
 
--- Add some functionality to the options
-Option1.MouseButton1Click:Connect(function()
-    print("Test") -- Do something when option 1 is clicked
-end)
 
-Option2.MouseButton1Click:Connect(function()
-    print("test") -- Do something when option 2 is clicked
-end)
+
+
 
 
 -- Add some functionality to the text button
