@@ -517,9 +517,7 @@ DropDownSelect.Text = "Parent Gui:"
 DropDownSelect.Size = UDim2.new(0, 177, 0, 16)
 DropDownSelect.Position = UDim2.new(0.449999988, -71, 0.109999999, 92)
 DropDownSelect.BackgroundColor3 = Color3.fromRGB(217,217,217)
-Draggable = true
-Active = true
-Selectable = true
+
 
 -- Add some visual effects
 local uiStroke = Instance.new("UIStroke")
@@ -536,10 +534,13 @@ local DropDownFrame = Instance.new("ScrollingFrame")
 DropDownFrame.Parent = DropDownSelect
 DropDownFrame.Size = UDim2.new(1, 0, 4, 0) -- Adjust the size as you like
 DropDownFrame.Position = UDim2.new(0, 0, 1, 0) -- Position it below the text button
-DropDownFrame.BackgroundTransparency = 1 -- Make it invisible
-DropDownFrame.Visible = false -- Hide it by default
-DropDownFrame.ScrollBarThickness = 0 -- Remove the scroll bar
-
+DropDownFrame.Active = true
+DropDownFrame.BackgroundColor3 = Color3.fromRGB(217,217,217) -- white 
+DropDownFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
+DropDownFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+DropDownFrame.ScrollBarImageColor3 = Color3.fromRGB(192,74,192)
+DropDownFrame.ScrollBarThickness = DropDownFrame.AbsoluteSize.X/15
+DropDownFrame.BackgroundTransparency = 0
 -- Create a UI list layout inside the scrolling frame
 local DropDownLayout = Instance.new("UIListLayout")
 DropDownLayout.Parent = DropDownFrame
@@ -551,11 +552,9 @@ Option1.Size = UDim2.new(1, 0, 0, 16) -- Adjust the size as you like
 Option1.BackgroundColor3 = Color3.fromRGB(217,217,217)
 Option1.LayoutOrder = 1 -- Set the layout order
 
-spawn(function()
-  while true do wait()
+local function refresh()
 for i, child in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Customgui:GetChildren()) do
     -- Create a new option for each child
-    
     local newOption = Option1:Clone()
     newOption.MouseButton1Click:Connect(function()
     local ParentTo = game:GetService("Players").LocalPlayer.PlayerGui.Customgui[_G.OutsideAccForRandomizeString]
@@ -566,11 +565,11 @@ for i, child in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Customgui
     newOption.LayoutOrder = i + 1 -- Set the layout order for each option
 end
 end
-end)
 
 
-
-
+spawn(function()
+ refresh()
+ end)
 
 -- Add some functionality to the text button
 local IsOpen = false -- A variable to keep track of the drop-down menu state
