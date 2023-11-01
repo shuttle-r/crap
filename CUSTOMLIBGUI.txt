@@ -563,7 +563,7 @@ for i, child in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Customgui
     end)
     newOption.Parent = DropDownFrame
     newOption.Text = child.Name -- Set the text of the option to the child's name
-    newOption.LayoutOrder = i + 2 -- Set the layout order for each option
+    newOption.LayoutOrder = i + 1 -- Set the layout order for each option
 end
 end
 end)
