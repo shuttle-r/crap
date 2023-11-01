@@ -560,7 +560,7 @@ for i, child in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Customgui
     newOption.Text = child.Name -- Set the text of the option to the child's name
     newOption.MouseButton1Click:Connect(function()
     local ParentTo = game:GetService("Players").LocalPlayer.PlayerGui.Customgui[_G.OutsideAccForRandomizeString]
-    ParentTo.Parent = ParentTo[child.Name]
+    ParentTo.Parent = game:GetService("Players").LocalPlayer.PlayerGui.Customgui[child.Name]
     end)
     newOption.LayoutOrder = i + 1 -- Set the layout order for each option
 end
