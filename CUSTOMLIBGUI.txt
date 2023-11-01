@@ -107,13 +107,13 @@ local function toggleGuiVisibility()
 
     if guiHidden then
      for i,v in pairs(screenGui:GetDescendants()) do
-       if v ~= screenGui.noHide then -- Change this line
+       if v ~= screenGui.noHide or v ~= UICorner or v ~= UIStroke  then -- Change this line
        -- Store the original size of the element in the table
        originalSizes[v.Name] = v.Size
        local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
        local tween = game:GetService("TweenService"):Create(v, tweenInfo, {Size = targetSize})
        tween:Play()
-       if v:IsA("TextButton") or v:IsA("TextLabel") then
+       if v:IsA("TextButton") or v:IsA("TextLabel")  then
          wait(0.6)
        v.Visible = false
        end 
