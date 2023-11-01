@@ -532,7 +532,7 @@ uiCorner.CornerRadius = UDim.new (0.1, 0)
 -- Create a scrolling frame inside the text button
 local DropDownFrame = Instance.new("ScrollingFrame")
 DropDownFrame.Parent = DropDownSelect
-DropDownFrame.Size = UDim2.new(1, 0, 4, 0) -- Adjust the size as you like
+DropDownFrame.Size = UDim2.new(1, 0, 2, 0) -- Adjust the size as you like
 DropDownFrame.Position = UDim2.new(0, 0, 1, 0) -- Position it below the text button
 DropDownFrame.Active = true
 DropDownFrame.BackgroundColor3 = Color3.fromRGB(217,217,217) -- white 
