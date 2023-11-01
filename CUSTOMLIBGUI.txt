@@ -263,7 +263,7 @@ Framed.MouseButton1Click:Connect(function()
 local RanomName = math.random(1,999999)
  local RandomizeKey = {RanomName}
  local RandomizeToStribg = tostring(RandomizeKey)
-
+_G.OutsideAccForRandomizeString = RandomizeToStribg
 local framesYes = frame:Clone()
   framesYes.Name =  RandomizeToStribg
 	framesYes.Size = UDim2.new(0, 50, 0, 50)
