@@ -121,7 +121,7 @@ local function toggleGuiVisibility()
        end
     else
          for i,v in pairs(screenGui:GetDescendants()) do
-       if v ~= screenGui.noHide then -- Change this line
+       if v ~= screenGui.noHthe or v ~= UICorner or v ~= UIStroke  then -- Change this line
        -- Tween the size of the GUI back to the original value stored in the table
       local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
       local tween = game:GetService("TweenService"):Create(v, tweenInfo, {Size = originalSizes[v.Name]})
