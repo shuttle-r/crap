@@ -301,6 +301,7 @@ while true do wait(0.2)
   -- Store the original UDim2 values
 _G.originalSize = infoGate.Size
 _G.originalPosition = infoGate.Position
+_G.originalParent = infoGate.Parent
 end
 end) 
 
@@ -385,6 +386,7 @@ while true do wait(0.2)
   -- Store the original UDim2 values
 _G.originalSize = infoGate.Size
 _G.originalPosition = infoGate.Position
+_G.originalParent = infoGate.Parent
 end
 end) 
 
@@ -633,7 +635,7 @@ local replacementString2 = ", "
 if GuiForFrame == true then
 	local TextIntoGui = ({
 	  "local Framed = Instance.new(\"Frame\")",
-	  "Framed.Parent = screenGui",
+	  "Framed.Parent = "..tostring(_G.originalParent),
     "Framed.Size = UDim2.new"..tostring(_G.originalSize),
     "Framed.Position = UDim2.new"..tostring(_G.originalPosition),
 	  "Framed.BackgroundColor3 = Color3.fromRGB(217,217,217)",
@@ -670,7 +672,7 @@ end
 elseif GuiForButton == true then
     local TextIntoGui = ({
 	  "local Framed = Instance.new(\"TextButton\")",
-	  "Framed.Parent = screenGui",
+	  "Framed.Parent = "..tostring(_G.originalParent),
     "Framed.Size = UDim2.new"..tostring(_G.originalSize),
     "Framed.Position = UDim2.new"..tostring(_G.originalPosition),
 	  "Framed.BackgroundColor3 = Color3.fromRGB(217,217,217)",
