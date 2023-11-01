@@ -547,8 +547,8 @@ for i, child in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Customgui
     
     local newOption = Option1:Clone()
     newOption.MouseButton1Click:Connect(function()
-    local infoGate = game:GetService("Players").LocalPlayer.PlayerGui.Customgui[_G.OutsideAccForRandomizeString]
- 
+    local ParentTo = game:GetService("Players").LocalPlayer.PlayerGui.Customgui[_G.OutsideAccForRandomizeString]
+    print(ParentTo.Parent)
     end)
     newOption.Parent = DropDownFrame
     newOption.Text = child.Name -- Set the text of the option to the child's name
