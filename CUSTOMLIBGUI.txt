@@ -270,7 +270,22 @@ local framesYes = frame:Clone()
 	framesYes.Position = UDim2.new(0.45, 0, 0.11, 0)
 	framesYes.Parent = screenGui
 	framesYes.Visible = true -- Assuming this script is a child of the GUI frame
+	
+	
+	
+_G.xpos = 5
+_G.ypos = 5
+local localpl = game:GetService("Players").LocalPlayer.PlayerGui
 
+	
+
+
+
+
+
+local heartMoce = game:GetService("RunService").heartbeat:Connect(function()
+	game:GetService("Players").LocalPlayer.PlayerGui.Customgui[RandomizeToStribg].Size = UDim2.fromOffset(_G.xpos,_G.ypos)
+end)
 local infoGate = game:GetService("Players").LocalPlayer.PlayerGui.Customgui[RandomizeToStribg]
   
 while true do wait(0.2)
