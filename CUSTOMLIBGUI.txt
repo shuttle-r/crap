@@ -445,7 +445,22 @@ local uiCorner = Instance.new("UICorner")
 uiCorner.Parent = ColorChanger
 uiCorner.CornerRadius = UDim.new (0.1, 0)
 
-
+local ColorApply = Instance.new("TextButton")
+ColorApply.Parent = frame2
+ColorApply.Size = UDim2.new(0, 46, 0, 26)
+ColorApply.Position = UDim2.new(0.449999988, -9, 0.109999999, 35)
+ColorApply.BackgroundColor3 = Color3.fromRGB(217,217,217)
+local uiStroke = Instance.new("UIStroke")
+uiStroke.Parent = ColorApply
+uiStroke.Color = Color3.fromRGB(192,74,192)
+uiStroke.Thickness = 1.5
+uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+local uiCorner = Instance.new("UICorner")
+uiCorner.Parent = ColorApply
+uiCorner.CornerRadius = UDim.new (0.1, 0)
+ColorApply.MouseButton1Click:Connect(function()
+  
+end) 
 
 
 -- Create a scrolling frame inside the text button
