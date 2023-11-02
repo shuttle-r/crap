@@ -639,3 +639,13 @@ FontAndColor = addButtonOnSmallFrame("Size/Position", function()
   UpPos.Visible = true
   DownPos.Visible = true
 end)
+local GuiColor
+GuiColor = addButtonOnSmallFrame("Color",function()
+  Framed.Visible = false
+  AddButtonFramed.Visible = false
+  DropDownSelect.Visible = falss
+  LeftPos.Visible = false
+  RightPos.Visible = false
+  UpPos.Visible = false
+  DownPos.Visible = false
+end)
