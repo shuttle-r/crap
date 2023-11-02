@@ -234,36 +234,6 @@ _G.originalParent = infoGate.Parent
 end
 end) 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 local AddButtonFramed = Instance.new("TextButton")
 AddButtonFramed.Parent = frame2 
 AddButtonFramed.Text = "Add Button"
