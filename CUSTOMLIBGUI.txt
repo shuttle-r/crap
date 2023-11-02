@@ -65,6 +65,7 @@ uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
 
 local frame2 = Instance.new("Frame")
 frame2.Parent = screenGui
+frame2.Name = "frame2"
 frame2.Position = UDim2.new(0.449999988, -35 ,0.109999999, 0)
 frame2.Size = UDim2.new(0, 313, 0, 210) -- make the frame2 half the size of the screen
 frame2.BackgroundColor3 = Color3.fromRGB(217,217,217) -- white
@@ -429,6 +430,26 @@ uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 local uiCorner = Instance.new("UICorner")
 uiCorner.Parent = DropDownSelect
 uiCorner.CornerRadius = UDim.new (0.1, 0)
+
+local ColorChanger = Instance.new("TextBox")
+ColorChanger.Parent = Frame
+ColorChanger.Size = UDim2.new(0, 157, 0, 31)
+ColorChanger.Position = UDim2.new(0.449999988, -66, 0.109999999, -7)
+ColorChanger.BackgroundColor3 = Color3.fromRGB(217,217,217)
+Draggable = true
+Active = true
+Selectable = true
+local uiStroke = Instance.new("UIStroke")
+uiStroke.Parent = ColorChanger
+uiStroke.Color = Color3.fromRGB(192,74,192)
+uiStroke.Thickness = 1.5
+uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+local uiCorner = Instance.new("UICorner")
+uiCorner.Parent = ColorChanger
+uiCorner.CornerRadius = UDim.new (0.1, 0)
+
+
+
 
 -- Create a scrolling frame inside the text button
 local DropDownFrame = Instance.new("ScrollingFrame")
