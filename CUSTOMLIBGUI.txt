@@ -432,7 +432,7 @@ uiCorner.Parent = DropDownSelect
 uiCorner.CornerRadius = UDim.new (0.1, 0)
 
 local ColorChanger = Instance.new("TextBox")
-ColorChanger.Parent = Frame
+ColorChanger.Parent = frame2
 ColorChanger.Size = UDim2.new(0, 157, 0, 31)
 ColorChanger.Position = UDim2.new(0.449999988, -66, 0.109999999, -7)
 ColorChanger.BackgroundColor3 = Color3.fromRGB(217,217,217)
