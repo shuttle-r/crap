@@ -252,6 +252,7 @@ _G.ypos = 5
 local localpl = game:GetService("Players").LocalPlayer.PlayerGui
 
 local heartMoce = game:GetService("RunService").heartbeat:Connect(function()
+  game:GetService("Players").LocalPlayer.PlayerGui.Customgui[RandomizeToStribg].BackgroundColor3 = _G.ColorValue
 	game:GetService("Players").LocalPlayer.PlayerGui.Customgui[RandomizeToStribg].Size = UDim2.fromOffset(_G.xpos,_G.ypos)
 end)
 local infoGate = game:GetService("Players").LocalPlayer.PlayerGui.Customgui[RandomizeToStribg]
