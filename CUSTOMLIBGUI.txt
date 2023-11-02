@@ -4,6 +4,9 @@ screenGui.Parent = game.Players.LocalPlayer:WaitForChild ("PlayerGui")
 screenGui.Name = "Customgui"
 -- Create a Frame object and parent it to the screenGui
 
+
+
+
 local framesmall = Instance.new("ScrollingFrame")
 framesmall.Parent = screenGui
 framesmall.Size = UDim2.new (0.2, 0, 0.3, 0) -- make the frame half the size of the screen
@@ -78,6 +81,39 @@ uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 local uiCorner = Instance.new ("UICorner")
 uiCorner.Parent = frame2
 uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
+
+local ColorChanger = Instance.new("TextBox")
+ColorChanger.Parent = frame2
+ColorChanger.Text = "0,0,0"
+ColorChanger.Size = UDim2.new(0, 157, 0, 31)
+ColorChanger.Position = UDim2.new(0.449999988, -66, 0.109999999, -7)
+ColorChanger.BackgroundColor3 = Color3.fromRGB(217,217,217)
+local uiStroke = Instance.new("UIStroke")
+uiStroke.Parent = ColorChanger
+uiStroke.Color = Color3.fromRGB(192,74,192)
+uiStroke.Thickness = 1.5
+uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+local uiCorner = Instance.new("UICorner")
+uiCorner.Parent = ColorChanger
+uiCorner.CornerRadius = UDim.new (0.1, 0)
+
+local ColorApply = Instance.new("TextButton")
+ColorApply.Parent = frame2
+ColorApply.Size = UDim2.new(0, 46, 0, 26)
+ColorApply.Position = UDim2.new(0.449999988, -9, 0.109999999, 35)
+ColorApply.BackgroundColor3 = Color3.fromRGB(217,217,217)
+local uiStroke = Instance.new("UIStroke")
+uiStroke.Parent = ColorApply
+uiStroke.Color = Color3.fromRGB(192,74,192)
+uiStroke.Thickness = 1.5
+uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+local uiCorner = Instance.new("UICorner")
+uiCorner.Parent = ColorApply
+uiCorner.CornerRadius = UDim.new (0.1, 0)
+ColorApply.MouseButton1Click:Connect(function()
+  
+end) 
+
 
 
 local element_height_for_smallframe = 50*framesmall.AbsoluteSize.Y/210
@@ -431,36 +467,6 @@ local uiCorner = Instance.new("UICorner")
 uiCorner.Parent = DropDownSelect
 uiCorner.CornerRadius = UDim.new (0.1, 0)
 
-local ColorChanger = Instance.new("TextBox")
-ColorChanger.Parent = frame2
-ColorChanger.Size = UDim2.new(0, 157, 0, 31)
-ColorChanger.Position = UDim2.new(0.449999988, -66, 0.109999999, -7)
-ColorChanger.BackgroundColor3 = Color3.fromRGB(217,217,217)
-local uiStroke = Instance.new("UIStroke")
-uiStroke.Parent = ColorChanger
-uiStroke.Color = Color3.fromRGB(192,74,192)
-uiStroke.Thickness = 1.5
-uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-local uiCorner = Instance.new("UICorner")
-uiCorner.Parent = ColorChanger
-uiCorner.CornerRadius = UDim.new (0.1, 0)
-
-local ColorApply = Instance.new("TextButton")
-ColorApply.Parent = frame2
-ColorApply.Size = UDim2.new(0, 46, 0, 26)
-ColorApply.Position = UDim2.new(0.449999988, -9, 0.109999999, 35)
-ColorApply.BackgroundColor3 = Color3.fromRGB(217,217,217)
-local uiStroke = Instance.new("UIStroke")
-uiStroke.Parent = ColorApply
-uiStroke.Color = Color3.fromRGB(192,74,192)
-uiStroke.Thickness = 1.5
-uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-local uiCorner = Instance.new("UICorner")
-uiCorner.Parent = ColorApply
-uiCorner.CornerRadius = UDim.new (0.1, 0)
-ColorApply.MouseButton1Click:Connect(function()
-  
-end) 
 
 
 -- Create a scrolling frame inside the text button
