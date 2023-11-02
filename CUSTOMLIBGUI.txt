@@ -100,6 +100,7 @@ uiCorner.CornerRadius = UDim.new (0.1, 0)
 _G.ColorValue = ColorChanger.Text
 local ColorApply = Instance.new("TextButton")
 ColorApply.Parent = frame2
+ColorApply.Text = "Apply"
 ColorApply.Size = UDim2.new(0, 46, 0, 26)
 ColorApply.Position = UDim2.new(0.449999988, -9, 0.109999999, 35)
 ColorApply.BackgroundColor3 = Color3.fromRGB(217,217,217)
