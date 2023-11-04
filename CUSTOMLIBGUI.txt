@@ -673,7 +673,7 @@ FontAndColor = addButtonOnSmallFrame("Size/Position", function()
   ColorApply.Visible = false
 end)
 local GuiColor
-GuiColor = addButtonOnSmallFrame("Color",function()
+GuiColor = addButtonOnSmallFrame("Design",function()
   Framed.Visible = false
   AddButtonFramed.Visible = false
   ColorChanger.Visible = true
