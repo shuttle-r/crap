@@ -82,25 +82,7 @@ local uiCorner = Instance.new ("UICorner")
 uiCorner.Parent = frame2
 uiCorner.CornerRadius = UDim.new (0.1, 0) -- make the corners rounded by 10%
 
-local ColorChanger = Instance.new("TextBox")
-ColorChanger.Parent = frame2
-ColorChanger.Text = "0,0,0"
-ColorChanger.Size = UDim2.new(0, 157, 0, 31)
-ColorChanger.Position = UDim2.new(0.449999988, -66, 0.109999999, -7)
-ColorChanger.BackgroundColor3 = Color3.fromRGB(217,217,217)
-local uiStroke = Instance.new("UIStroke")
-uiStroke.Parent = ColorChanger
-uiStroke.Color = Color3.fromRGB(192,74,192)
-uiStroke.Thickness = 1.5
-uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-local uiCorner = Instance.new("UICorner")
-uiCorner.Parent = ColorChanger
-uiCorner.CornerRadius = UDim.new (0.1, 0)
-spawn(function()
-  while true do wait()
-_G.ColorValue = ColorChanger.Text
-  end
-end)
+
 
 
 local element_height_for_smallframe = 50*framesmall.AbsoluteSize.Y/210
@@ -238,7 +220,6 @@ _G.ypos = 5
 local localpl = game:GetService("Players").LocalPlayer.PlayerGui
 
 local heartMoce = game:GetService("RunService").heartbeat:Connect(function()
-  game:GetService("Players").LocalPlayer.PlayerGui.Customgui[RandomizeToStribg].BackgroundColor3 = Color3.fromRGB(_G.ColorValue)
 	game:GetService("Players").LocalPlayer.PlayerGui.Customgui[RandomizeToStribg].Size = UDim2.fromOffset(_G.xpos,_G.ypos)
 end)
 local infoGate = game:GetService("Players").LocalPlayer.PlayerGui.Customgui[RandomizeToStribg]
