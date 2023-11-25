@@ -1,0 +1,37 @@
+--google palm--
+print("sendping")
+local Players = game:GetService("Players");
+local HttpService = game:GetService("HttpService");
+local LocalPlayer = Players.LocalPlayer;
+local RequestFunctiom = request;
+local function MakeRequest(Prompt)
+    local success, response = pcall(function()
+        return RequestFunctiom({
+           Url = "https://generativelanguage.googleapis.com/v1beta3/models/text-bison-001:generateText?key=$AIzaSyDB6_AEJ27k_0727IGFq2b2uF32dh4AVrU",
+            Method = "POST",
+            Headers = {
+                ["Content-Type"] = "application/json",
+            },
+            Body = HttpService:JSONEncode({
+            prompt = {
+                 text = Prompt,
+                },
+            temperature = 1.0,
+            candidate_count = 3,
+            max_output_tokens = 32,
+            stop_sequences = {"Human:", " AI:"},
+            })
+        })
+    end)
+end
+
+local Mess = "Hey!"
+print("MakeRequest sending")
+MakeRequest("Human:"..Mess.."\n\nAI:")
+local Response = " " .. string.gsub(HttpService:JSONDecode(response.Body).candidates[1].output, "\n", " ")
+print("sending in 2 sec")
+wait(2)
+print("sended")
+print(Response)
+
+
