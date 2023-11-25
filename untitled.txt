@@ -18,8 +18,8 @@ local function MakeRequest(Prompt)
                 },
             temperature = 1.0,
             candidate_count = 3,
-            max_output_tokens = 32,
-            stop_sequences = {"Human:", " AI:"},
+            max_output_tokens = 64,
+         --   stop_sequences = {"Human:", " AI:"},
             })
         })
     end)
