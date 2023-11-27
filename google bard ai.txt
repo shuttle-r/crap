@@ -1,0 +1,83 @@
+local screenGui = Instance.new ("ScreenGui")
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild ("PlayerGui")
+screenGui.Name = "screenGui"
+local Players = game:GetService("Players");
+local HttpService = game:GetService("HttpService");
+local LocalPlayer = Players.LocalPlayer;
+local RequestFunctiom = request;
+local function MakeRequest(Prompt)
+    local success, response = pcall(function()
+        return RequestFunctiom({
+           Url = "https://generativelanguage.googleapis.com/v1beta2/models/text-bison-001:generateText?key=AIzaSyAoW8y4IQXnyDn7PT5qA4TxULfIO3gwpoA",
+            Method = "POST",
+            Headers = {
+                ["Content-Type"] = "application/json",
+            },
+            Body = HttpService:JSONEncode({
+            prompt = {
+              text = Prompt
+            },
+            temperature = 0.7,
+            candidateCount = 1,
+            topP = 0.95,
+            topK = 5,
+            maxOutputTokens = 100,
+            stopSequences = {"Human:", "Ai:"},
+            })
+        })
+    end)
+    return response
+end
+
+local Response = "Please send your responses"
+
+local Typer = Instance.new("TextBox")
+Typer.Parent = screenGui
+Typer.Size = UDim2.new(0, 174, 0, 33)
+Typer.Position = UDim2.new(0.449999988, 109, 0.109999999, -38)
+Typer.BackgroundColor3 = Color3.fromRGB(217,217,217)
+local uiStroke = Instance.new("UIStroke")
+uiStroke.Parent = Typer
+uiStroke.Color = Color3.fromRGB(192,74,192)
+uiStroke.Thickness = 1.5
+uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+local uiCorner = Instance.new("UICorner")
+uiCorner.Parent = Typer
+uiCorner.CornerRadius = UDim.new (0.1, 0)
+
+local Framed = Instance.new("TextLabel")
+Framed.Parent = screenGui
+Framed.Size = UDim2.new(0, 239, 0, 106)
+Framed.Text = Response
+Framed.Position = UDim2.new(0.449999988, -210, 0.109999999, -64)
+Framed.TextScaled = true
+Framed.BackgroundColor3 = Color3.fromRGB(217,217,217)
+local uiStroke = Instance.new("UIStroke")
+uiStroke.Parent = Framed
+uiStroke.Color = Color3.fromRGB(192,74,192)
+uiStroke.Thickness = 1.5
+uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+local uiCorner = Instance.new("UICorner")
+uiCorner.Parent = Framed
+uiCorner.CornerRadius = UDim.new (0.1, 0)
+
+local sender = Instance.new("TextButton")
+sender.Parent = screenGui
+sender.Text = "Send"
+sender.Size = UDim2.new(0, 62, 0, 31)
+sender.Position = UDim2.new(0.449999988, 211, 0.109999999, 15)
+sender.BackgroundColor3 = Color3.fromRGB(217,217,217)
+local uiStroke = Instance.new("UIStroke")
+uiStroke.Parent = sender
+uiStroke.Color = Color3.fromRGB(192,74,192)
+uiStroke.Thickness = 1.5
+uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+local uiCorner = Instance.new("UICorner")
+uiCorner.Parent = sender
+uiCorner.CornerRadius = UDim.new (0.1, 0)
+sender.MouseButton1Click:Connect(function()
+local HttpRequest = MakeRequest("Human: "..Typer.Text.."\n\nAI:");
+Framed.Text = "Wait"
+Response = "Ai: " .. string.gsub(HttpService:JSONDecode(HttpRequest.Body).candidates[1].output, "\n", " ")
+Framed.Text = Response
+end) 
