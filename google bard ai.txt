@@ -8,7 +8,7 @@ local RequestFunctiom = request;
 local function MakeRequest(Prompt)
     local success, response = pcall(function()
         return RequestFunctiom({
-           Url = "https://generativelanguage.googleapis.com/v1beta2/models/text-bison-001:generateText?key=AIzaSyAoW8y4IQXnyDn7PT5qA4TxULfIO3gwpoA",
+           Url = "https://generativelanguage.googleapis.com/v1beta2/models/text-bison-001:generateText?key=KEY",
             Method = "POST",
             Headers = {
                 ["Content-Type"] = "application/json",
