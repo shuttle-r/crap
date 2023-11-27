@@ -1,8 +1,5 @@
 --google palm--
 --roblox lua
-print("wait 10 second")
-task.wait(10)
-print("ready!")
 
 local Players = game:GetService("Players");
 local HttpService = game:GetService("HttpService");
