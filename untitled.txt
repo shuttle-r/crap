@@ -1,8 +1,9 @@
 --google palm--
+--roblox lua
 local Players = game:GetService("Players");
 local HttpService = game:GetService("HttpService");
 local LocalPlayer = Players.LocalPlayer;
-local RequestFunctiom = request;
+local RequestFunctiom = syn.request or request;
 local function MakeRequest(Prompt)
     local success, response = pcall(function()
         return RequestFunctiom({
@@ -12,23 +13,31 @@ local function MakeRequest(Prompt)
                 ["Content-Type"] = "application/json",
             },
             Body = HttpService:JSONEncode({
-            prompt = "hey\n\n",
-            model_name = "models/text-bison-001",
+            prompt = {
+            text = Prompt,
+            },
             temperature = 0.7,
-            candidate_count = 1,
-            top_k = 40,
-            top_p = 0.95,
-            max_output_tokens = 1024,
-            stop_sequences = {"Human:", "Ai:"},
+            candidateCount = 1,
+            topK = 40,
+            topP = 0.95,
+            maxOutputTokens = 64,
             })
         })
     end)
+    task.wait(6)
+    print(response.candidates.output)
+    print(response.candidates[1].output)
 end
+local Message = "hey"
 print("MakeRequest sending")
-MakeRequest()
+print("test1")
+MakeRequest("Human: " .. Message .. "\n\nAI:");
+task.wait(5)
+print("tes2")
+local HttpRequest = MakeRequest("Human: " .. Message .. "\n\nAI:");
 print("MakeRequest requesting")
-local Response = " " .. string.gsub(HttpService:JSONDecode(response.Body).candidates[1].output, "\n", " ")
-print("sended")--THIS TOO
+task.wait(3)
+local Response =  ". " .. string.sub(HttpService:JSONDecode(HttpRequest["Body"]).candidates, 2);
 print(Response)
 
 
