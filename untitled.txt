@@ -1,43 +1,42 @@
 --google palm--
 --roblox lua
+print("wait 10 second")
+task.wait(10)
+print("ready!")
+
 local Players = game:GetService("Players");
 local HttpService = game:GetService("HttpService");
 local LocalPlayer = Players.LocalPlayer;
-local RequestFunctiom = syn.request or request;
+local RequestFunctiom = request;
 local function MakeRequest(Prompt)
     local success, response = pcall(function()
         return RequestFunctiom({
-           Url = "https://generativelanguage.googleapis.com/v1beta3/models/text-bison-001:generateText?key=AIzaSyAoW8y4IQXnyDn7PT5qA4TxULfIO3gwpoA",
+           Url = "https://generativelanguage.googleapis.com/v1beta2/models/text-bison-001:generateText?key=AIzaSyAoW8y4IQXnyDn7PT5qA4TxULfIO3gwpoA",
             Method = "POST",
             Headers = {
                 ["Content-Type"] = "application/json",
             },
             Body = HttpService:JSONEncode({
             prompt = {
-            text = Prompt,
+              text = Prompt
             },
             temperature = 0.7,
             candidateCount = 1,
-            topK = 40,
             topP = 0.95,
-            maxOutputTokens = 64,
+            topK = 5,
+            maxOutputTokens = 100,
+            stopSequences = {"Human:", "Ai:"},
             })
         })
     end)
-    task.wait(6)
-    print(response.candidates.output)
-    print(response.candidates[1].output)
+    print(response)
+    return response
 end
-local Message = "hey"
 print("MakeRequest sending")
 print("test1")
-MakeRequest("Human: " .. Message .. "\n\nAI:");
-task.wait(5)
-print("tes2")
-local HttpRequest = MakeRequest("Human: " .. Message .. "\n\nAI:");
-print("MakeRequest requesting")
-task.wait(3)
-local Response =  ". " .. string.sub(HttpService:JSONDecode(HttpRequest["Body"]).candidates, 2);
+local HttpRequest = MakeRequest("Human: Hello how are you today \n\nAI:");
+--wait(3) -- if this added the local Response will errored the error is "attempt to index nil with the Body"
+local Response =  ". " .. string.sub(HttpService:JSONDecode(HttpRequest["Body"]).candidates[1].output, 2);
 print(Response)
 
 
