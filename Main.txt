@@ -772,7 +772,7 @@ wait(0.5)       game:GetService("ReplicatedStorage").FrontmanRemotes.ToggleBridg
 end)
 
 local other
-other = addButton("The punchy thingy idk wtf is that game", function()
+other = addButton("Squid game", function()
 return
 end)
 other:WaitForChild("Name").TextColor = BrickColor.new(0,255,0)
