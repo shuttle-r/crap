@@ -1,6 +1,6 @@
 -- Create a screenGui object and parent it to the PlayerGui
 local screenGui = Instance.new ("ScreenGui")
-screenGui.Parent = game.Players.LocalPlayer:WaitForChild ("PlayerGui")
+screenGui.Parent = game:WaitForChild ("CoreGui")
 screenGui.Name = "Customgui"
 -- Create a Frame object and parent it to the screenGui
 
