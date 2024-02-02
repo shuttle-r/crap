@@ -619,7 +619,6 @@ Editor = addButtonOnSmallFrame("Editor", function()
   UpPos.Visible = false
   DownPos.Visible = false
   DropDownSelect.Visible = false
-  ColorChanger.Visible = false
   
 end)
 local FontAndColor
@@ -631,7 +630,6 @@ FontAndColor = addButtonOnSmallFrame("Size/Position", function()
   RightPos.Visible = true 
   UpPos.Visible = true
   DownPos.Visible = true
-  ColorChanger.Visible = false
 end)
 local GuiColor
 GuiColor = addButtonOnSmallFrame("Design",function()
