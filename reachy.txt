@@ -716,7 +716,7 @@ local function findNearestPlayer()
     local nearestPlayer = nil
     
     for _, player in ipairs(players) do
-        if player ~= localPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") and player.Character.Humanoid.Health ~= 0 and localPlayer.Character:FindFirstChild("HumanoidRootPart") then
+        if player ~= localPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") and player.Character:FindFirstChild("Humanoid").Health ~= 0 and localPlayer.Character:FindFirstChild("HumanoidRootPart") then
           if ExcludeTeamPlr == true then
             if player.Team ~= game.Players.LocalPlayer.Team then
             local distance = (player.Character.HumanoidRootPart.Position - localPlayer.Character.HumanoidRootPart.Position).Magnitude
