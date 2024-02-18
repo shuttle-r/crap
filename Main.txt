@@ -10,7 +10,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/shuttle-r/crap/main/N
   return
 end
 _G.alreadyexec = true
-_G.CTitle = "Squid game" 
+_G.CTitle = "RLGL" 
 
 
 
