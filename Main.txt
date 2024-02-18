@@ -698,6 +698,40 @@ end)
 
 end, false)
 
+local kicker
+local TeamNum = 1
+kicker = addButton("Kick Team "..TeamNum , function()
+local args = {
+    [1] = {
+        [1] = "Team"..TeamNum,
+        [2] = "Team"..TeamNum
+    }
+}
+game:GetService("ReplicatedStorage"):WaitForChild("FrontmanRemotes"):WaitForChild("SelectMatch"):FireServer(unpack(args))
+end)
+
+local KickerSe
+KickerSe = addComboBox("-", {"Team 1", "Team 2" , "Team 3" , "Team 4"}, function(selectNum)
+    if selectNum == "Team 1" then
+      TeamNum = 1
+      kicker.Text = "Kick Team "..tostring(TeamNum)
+    end
+    if selectNum == "Team 2" then
+      TeamNum = 2
+kicker.Text = "Kick Team "..tostring(TeamNum)
+    end
+    if selectNum == "Team 3" then
+      TeamNum = 3
+kicker.Text = "Kick Team "..tostring(TeamNum)
+    end
+    if selectNum == "Team 4" then
+      TeamNum = 4
+kicker.Text = "Kick Team "..tostring(TeamNum)
+    end
+    -- Handle the selected option here
+    -- You can perform any desired actions based on the selected option
+end)
+
 local other
 other = addButton("Glass game", function()
 return
