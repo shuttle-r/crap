@@ -8,6 +8,7 @@ local screenGui = Instance.new ("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild ("PlayerGui")
 screenGui.Name = "Windows11Attem"
 screenGui.ResetOnSpawn = false
+
 local MainGui = Instance.new("ImageLabel")
 MainGui.Parent = screenGui
 MainGui.Name = "MainGui"
