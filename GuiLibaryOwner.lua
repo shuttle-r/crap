@@ -285,3 +285,51 @@ MainGui.Visible = true
 end)
 
 
+local test1
+test1 = addClickyOne("Gay", function()
+print("Test")  
+end, "That's gay bro")
+local test1
+test1 = addClickyOne("Gay", function()
+print("Test")  
+end, "That's gay bro")
+local test1
+test1 = addClickyOne("Gay", function()
+print("Test")  
+end, "That's gay bro")
+local test1
+test1 = addClickyOne("Gay", function()
+print("Test")  
+end, "That's gay bro")
+local test1
+test1 = addClickyOne("Gay", function()
+print("Test")  
+end, "That's gay bro")
+local test1
+test1 = addClickyOne("Gay", function()
+print("Test")  
+end, "That's gay bro")
+local test1
+test1 = addClickyOne("Gay", function()
+print("Test")  
+end, "That's gay bro")
+local test1
+test1 = addClickyOne("Gay", function()
+print("Test")  
+end, "That's gay bro")
+local test1
+test1 = addClickyOne("Gay", function()
+print("Test")  
+end, "That's gay bro")
+local test1
+test1 = addClickyOne("Gay", function()
+print("Test")  
+end, "That's gay bro")
+local test1
+test1 = addClickyOne("Gay", function()
+print("Test")  
+end, "That's gay bro")
+local test1
+test1 = addClickyOne("Gay", function()
+print("Test")  
+end, "That's gay bro")
