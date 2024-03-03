@@ -3,6 +3,7 @@ Based On windows gui thingy
 very bad design
 MADE BY:SHUFEL
 ]]
+_G.WindowsNamed = "Unknown gui"
 local screenGui = Instance.new ("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild ("PlayerGui")
 screenGui.Name = "Windows11Attem"
