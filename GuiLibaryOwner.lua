@@ -124,7 +124,7 @@ end
 
 local MainGuiNamed = Instance.new("TextLabel")
 MainGuiNamed.Parent = MainGui
-MainGuiNamed.Name = "NameApp"
+MainGuiNamed.Name = _G.WindowsNamed
 MainGuiNamed.Size = UDim2.new(0, 52, 0, 12)
 MainGuiNamed.Position = UDim2.new(0.449999988, -130, 0.109999999, -8)
 MainGuiNamed.BackgroundTransparency = 1
