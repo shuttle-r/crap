@@ -284,8 +284,3 @@ MainGui.Visible = true
 end)
 
 
-local test1
-test1 = addClickyOne("AgGLij", function()
-  print("Tes")
-end)
-wait(0.2)
