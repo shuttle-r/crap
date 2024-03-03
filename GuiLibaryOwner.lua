@@ -131,7 +131,7 @@ MainGuiNamed.Position = UDim2.new(0.449999988, -130, 0.109999999, -8)
 MainGuiNamed.BackgroundTransparency = 1
 MainGuiNamed.Text = _G.WindowsNamed
 MainGuiNamed.TextSize = 8
-
+MainGuiNamed.TextXAlignment = 0
 
 
 local XExit = Instance.new("ImageButton")
