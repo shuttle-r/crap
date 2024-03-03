@@ -130,7 +130,7 @@ MainGuiNamed.Name = _G.WindowsNamed
 MainGuiNamed.Size = UDim2.new(0, 52, 0, 12)
 MainGuiNamed.Position = UDim2.new(0.449999988, -130, 0.109999999, -8)
 MainGuiNamed.BackgroundTransparency = 1
-MainGuiNamed.Text = "App Name"
+MainGuiNamed.Text = _G.WindowsNamed
 MainGuiNamed.TextSize = 8
 
 local XExit = Instance.new("ImageButton")
