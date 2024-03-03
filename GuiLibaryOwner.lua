@@ -280,8 +280,3 @@ for i,v in pairs(object:GetDescendants()) do
 end
 MainGui.Visible = true
 end)
-
-local Test1
-Test1 = addClickyOne("This is function name" , function()
-print("This is where you put the scrioty")
-end, "Your Description. leaving this will make a pre type word")
