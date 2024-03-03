@@ -282,3 +282,4 @@ for i,v in pairs(object:GetDescendants()) do
 end
 MainGui.Visible = true
 end)
+wait(0.2)
