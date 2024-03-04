@@ -285,6 +285,6 @@ end
 MainGui.Visible = true
 end)
 local AutoCred
-AutoCred = addClickyOne("Made by: ", function()
-  
+AutoCred = addClickyOne("Made by: shuFEL", function()
+return 
 end, "shuFEL is very handsome man;>")
