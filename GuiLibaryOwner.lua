@@ -162,6 +162,7 @@ for i,v in pairs(WhiteVox:GetDescendants()) do
   end
 end
 for i,v in pairs(object:GetDescendants()) do
+  v.Yesir.Transparency = 0
     spawn(function()
     pcall(function()
     local tween = TweenService:Create(v, tweenInfo, {ImageTransparency = targetImageTransparency})
