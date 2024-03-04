@@ -284,7 +284,43 @@ for i,v in pairs(object:GetDescendants()) do
 end
 MainGui.Visible = true
 end)
+local function hslToRgb(h, s, l)
+    local r, g, b
+    if s == 0 then
+        r, g, b = l, l, l -- achromatic
+    else
+        local function hue2rgb(p, q, t)
+            if t < 0 then t = t + 1 end
+            if t > 1 then t = t - 1 end
+            if t < 1/6 then return p + (q - p) * 6 * t end
+            if t < 1/2 then return q end
+            if t < 2/3 then return p + (q - p) * (2/3 - t) * 6 end
+            return p
+        end
+        local q = l < 0.5 and l * (1 + s) or l + s - l * s
+        local p = 2 * l - q
+        r = hue2rgb(p, q, h + 1/3)
+        g = hue2rgb(p, q, h)
+        b = hue2rgb(p, q, h - 1/3)
+    end
+    return Color3.new(r, g, b)
+end
 local AutoCred
 AutoCred = addClickyOne("Made by: shuFEL", function()
 return 
 end, "shuFEL is very handsome man;>")
+
+local hue = 0
+local saturation = 1
+local lightness = 0.5
+spawn(function()
+while true do
+    local color = hslToRgb(hue, saturation, lightness)
+    AutoCred.Color = color
+    hue = hue + 0.01
+    if hue > 1 then
+        hue = hue - 1
+    end
+    wait(0.1)
+end
+end)
