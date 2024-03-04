@@ -238,6 +238,7 @@ Yesir.Size = UDim2.new(0, 31, 0, 24)
 Yesir.Text = "_"
 Yesir.Position = UDim2.new(0.449999988, -262, 0.109999999, -10)
 Yesir.BackgroundColor3 = Color3.fromRGB(217, 217, 217)
+Yesir.Transparency = 1
 Draggable = true
 Active = true
 Selectable = true
