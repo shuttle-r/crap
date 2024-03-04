@@ -4,7 +4,6 @@ very bad design
 MADE BY:SHUFEL
 ]]
 
-_G.WindowsNamed = "Testing"
 local screenGui = Instance.new ("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild ("PlayerGui")
 screenGui.Name = "Windows11Attem"
