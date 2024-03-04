@@ -306,7 +306,7 @@ local function hslToRgb(h, s, l)
     return Color3.new(r, g, b)
 end
 local AutoCred
-AutoCred = addClickyOne("Made by: shuFEL", function()
+AutoCred = addClickyOne("Made by:shuFEL", function()
 return 
 end, "shuFEL is very handsome man;>")
 
