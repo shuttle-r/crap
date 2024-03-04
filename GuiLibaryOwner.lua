@@ -152,6 +152,7 @@ MiniExit.BackgroundTransparency = 1
 local object = screenGui
 local TweenService = game:GetService("TweenService")
 MiniExit.MouseButton1Click:Connect(function()
+screenGui.Yesir.Transparency = 0
 local targetImageTransparency = 1
 local targetTextTransparency = 1
 local targetBackgroundTransparency = 1
@@ -162,7 +163,6 @@ for i,v in pairs(WhiteVox:GetDescendants()) do
   end
 end
 for i,v in pairs(object:GetDescendants()) do
-  screenGui.Yesir.Transparency = 0
     spawn(function()
     pcall(function()
     local tween = TweenService:Create(v, tweenInfo, {ImageTransparency = targetImageTransparency})
