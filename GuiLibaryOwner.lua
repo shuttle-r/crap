@@ -315,7 +315,7 @@ local lightness = 0.5
 spawn(function()
 while true do
     local color = hslToRgb(hue, saturation, lightness)
-    AutoCred.Color = color
+    AutoCred.TextColor = color
     hue = hue + 0.01
     if hue > 1 then
         hue = hue - 1
