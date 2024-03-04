@@ -251,6 +251,7 @@ local uiCorner = Instance.new("UICorner")
 uiCorner.Parent = Yesir
 uiCorner.CornerRadius = UDim.new (0.1, 0)
 Yesir.MouseButton1Click:Connect(function()
+Yesir.Transparency = 1
 local targetImageTransparency = 0
 local targetTextTransparency = 0
 local targetBackgroundTransparency = 0
