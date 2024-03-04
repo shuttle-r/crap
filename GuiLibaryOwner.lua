@@ -313,6 +313,7 @@ local hue = 0
 local saturation = 1
 local lightness = 0.5
 spawn(function()
+  wait(1)
 while true do
     local color = hslToRgb(hue, saturation, lightness)
     AutoCred.TextColor = color
