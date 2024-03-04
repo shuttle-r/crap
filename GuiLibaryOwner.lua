@@ -284,4 +284,7 @@ for i,v in pairs(object:GetDescendants()) do
 end
 MainGui.Visible = true
 end)
-
+local AutoCred
+AutoCred = addClickyOne("Made by: ", function()
+  
+end, "shuFEL is very handsome man;>")
