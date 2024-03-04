@@ -90,7 +90,6 @@ BoxedFrameText.Size = UDim2.new(0, 90, 0, 13)
 BoxedFrameText.Position = UDim2.new(0.449999988, -83, 0.109999999, 3)
 BoxedFrameText.BackgroundTransparency = 1
 BoxedFrameText.TextXAlignment = 0
-BoxedFrameText.TextTruncate = 1
 local DescriptionText = Instance.new("TextLabel")
 DescriptionText.Parent = BoxedFrame
 DescriptionText.Name = "DescriptionText"
@@ -306,7 +305,7 @@ local function hslToRgb(h, s, l)
     return Color3.new(r, g, b)
 end
 local AutoCred
-AutoCred = addClickyOne("Made by:shuFEL", function()
+AutoCred = addClickyOne("Made by: shuFEL", function()
 return 
 end, "shuFEL is very handsome man;>")
 
