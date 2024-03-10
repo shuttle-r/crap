@@ -283,4 +283,4 @@ end)
 local AutoCred
 AutoCred = addClickyOne("Made by: shuFEL", function()
 return 
-end, "shuFEL is very handsome man;>")
+end, "Owner")
