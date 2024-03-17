@@ -56,12 +56,35 @@ local screenGui = Instance.new ("ScreenGui")
 screenGui.Name = "Windows11Attem"
 screenGui.ResetOnSpawn = false
 wait(1)
+
+--checking if customassets is waked up or exist (sometimes the executor you using kinda stupid)
+TextStatus.Text = "Checking getcustomasset()..."
+wait(0.2)
+if Customassetswakeup or getcustomasset() then
+  TextStatus.Text = "(Success) getcustomasset is existed and waked up"
+  else
+  TextStatus.Text = "(Failed) getcustomasset is not existed and failed to waked up"
+  return
+end
+wait(0.6)
+  TextStatus.Text = "Moving the gui in a safe place..."
+wait(0.6)
 local success, err = pcall(function()
 	screenGui.Parent = SystemBlock()
 end)
 if not success then
 	screenGui.Parent = game:GetService("Players").LocalPlayer.PlayerGui
+  TextStatus.Text = "(Failed) The gui is not in a safe place..."
+  wait(0.6)
+elseif success then
+  TextStatus.Text = "(Success) The gui is in a safe place..."
+  wait(0.6)
 end
+
+wait(0.6)
+TextStatus.Text = "Launching..."
+wait(0.5)
+
 
 local MainGui = Instance.new("ImageLabel")
 MainGui.Parent = screenGui
