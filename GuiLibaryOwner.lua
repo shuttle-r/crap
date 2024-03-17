@@ -84,7 +84,7 @@ end
 wait(0.6)
 Customassetswakeup:Destroy()
 TextStatus.Text = "Clearing trash..."
-wait(0.6)
+wait(1)
 TextStatus.Text = "Launching..."
 wait(0.5)
 LoaderPackageWindows11AttemCodeSixOneNine:Destroy()
