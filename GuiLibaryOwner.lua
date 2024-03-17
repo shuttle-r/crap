@@ -87,7 +87,7 @@ TextStatus.Text = "Clearing trash..."
 wait(0.6)
 TextStatus.Text = "Launching..."
 wait(0.5)
-LoaderPackageWindows11AttemCodeSixOneNine:Destroy
+LoaderPackageWindows11AttemCodeSixOneNine:Destroy()
 
 
 local MainGui = Instance.new("ImageLabel")
