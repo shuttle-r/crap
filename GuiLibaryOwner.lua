@@ -109,16 +109,12 @@ local goal = {
 -- Create the tween
 local tween = TweenService:Create(BackGroundOpening, tweenInfo, goal)
 
--- Connect the callback function to the Tween's Completed event
-tween.Completed:Connect(function()
-  wait(2)
-  LoaderPackageWindows11AttemCodeSixOneNine:Destroy()
-end)
 
 -- Play the tween
 tween:Play()
 repeat task.wait() until tween.Completed
 wait(2)
+LoaderPackageWindows11AttemCodeSixOneNine:Destroy()
 
 
 
