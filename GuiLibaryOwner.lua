@@ -50,7 +50,7 @@ TextStatus.Parent = BackGroundOpening
 TextStatus.Size = UDim2.new(0, 151, 0, 21)
 TextStatus.Position = UDim2.new(0.449999988, -66, 0.109999999, 64)
 TextStatus.BackgroundTransparency = 1
-TextStatus.Text = "Nothing is happening."
+TextStatus.Text = "Getting ready."
 TextStatus.TextScaled = true
 
 local screenGui = Instance.new ("ScreenGui")
