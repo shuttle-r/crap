@@ -69,7 +69,7 @@ if Customassetswakeup or getcustomasset() then
 end
 wait(0.6)
   TextStatus.Text = "Moving the gui in a safe place..."
-wait(0.6)
+wait(0.3)
 local success, err = pcall(function()
 	screenGui.Parent = SystemBlock()
 end)
