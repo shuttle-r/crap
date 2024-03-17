@@ -52,7 +52,7 @@ TextStatus.Position = UDim2.new(0.449999988, -66, 0.109999999, 64)
 TextStatus.BackgroundTransparency = 1
 TextStatus.Text = "Getting ready."
 TextStatus.TextScaled = true
-
+TextStatus.RichText = true
 local screenGui = Instance.new ("ScreenGui")
 screenGui.Name = "Windows11Attem"
 screenGui.ResetOnSpawn = false
