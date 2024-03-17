@@ -3,12 +3,65 @@ Based On windows gui thingy
 very bad design
 MADE BY:SHUFEL
 ]]
+
+--protection v1
+local function SystemBlock()
+	local success, parent = pcall(function()
+		return gethui()
+	end)
+
+	if not success then
+		return game:GetService("CoreGui")
+	end
+
+	return parent
+end
+
+local LoaderPackageWindows11AttemCodeSixOneNine = Instance.new ("ScreenGui")
+LoaderPackageWindows11AttemCodeSixOneNine.Parent = game:GetService("CoreGui")
+LoaderPackageWindows11AttemCodeSixOneNine.Name = "LoaderPackageWindows11Attem"
+LoaderPackageWindows11AttemCodeSixOneNine.ResetOnSpawn = false
+
+local Customassetswakeup = Instance.new("ImageLabel")
+Customassetswakeup.Size = UDim2.new(0, 0, 0, 0)
+Customassetswakeup.Position = UDim2.new(0.449999988, -68, 0.109999999, 49)
+Customassetswakeup.BackgroundTransparency = 1
+Customassetswakeup.Image = getcustomasset("Ima/Background.png")
+
+local BackGroundOpening = Instance.new("ImageLabel")
+BackGroundOpening.Parent = LoaderPackageWindows11AttemCodeSixOneNine
+BackGroundOpening.Name = "OpenLoad"
+BackGroundOpening.Size = UDim2.new(0, 198, 0, 119)
+BackGroundOpening.Position = UDim2.new(0.449999988, -68, 0.109999999, 49)
+BackGroundOpening.BackgroundTransparency = 1
+BackGroundOpening.Image = getcustomasset("Ima/Background.png")
+
+local TextBig = Instance.new("TextLabel")
+TextBig.Parent = BackGroundOpening
+TextBig.Text = "Welcome!"
+TextBig.Size = UDim2.new(0, 169, 0, 39)
+TextBig.TextSize = 25
+TextBig.Font = 2
+TextBig.Position = UDim2.new(0.449999988, -75, 0.109999999, 1)
+TextBig.BackgroundTransparency = 1
+
+local TextStatus = Instance.new("TextLabel")
+TextStatus.Parent = BackGroundOpening
+TextStatus.Size = UDim2.new(0, 151, 0, 21)
+TextStatus.Position = UDim2.new(0.449999988, -66, 0.109999999, 64)
+TextStatus.BackgroundTransparency = 1
+TextStatus.Text = "Nothing is happening."
+
 local screenGui = Instance.new ("ScreenGui")
-screenGui.Parent = game.Players.LocalPlayer:WaitForChild ("PlayerGui")
 screenGui.Name = "Windows11Attem"
 screenGui.ResetOnSpawn = false
-
-
+wait(1)
+local success, err = pcall(function()
+	screenGui.Parent = SystemBlock()
+end)
+if not success then
+	screenGui.Parent = game:GetService("Players").LocalPlayer.PlayerGui
+end
 
 local MainGui = Instance.new("ImageLabel")
 MainGui.Parent = screenGui
