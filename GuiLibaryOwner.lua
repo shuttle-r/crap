@@ -93,7 +93,7 @@ local TweenService = game:GetService("TweenService")
 
 -- Create a TweenInfo object
 local tweenInfo = TweenInfo.new(
-    2, -- Time in seconds
+    1, -- Time in seconds
     Enum.EasingStyle.Quad, -- Easing style of the tween
     Enum.EasingDirection.Out, -- Easing direction of the tween
     0, -- Number of times to repeat
@@ -103,7 +103,7 @@ local tweenInfo = TweenInfo.new(
 
 -- Define the properties you want to tween
 local goal = {
-    Size = UDim2.new(0, 333, 0, 213) -- New size (relative to parent)
+    Size = UDim2.new(0, 333, 0, 213), -- New size (relative to parent)
     Position = UDim2.new(0.449999988, -121, 0.109999999, 0)
 }
 
