@@ -56,7 +56,7 @@ TextStatus.TextScaled = true
 local screenGui = Instance.new ("ScreenGui")
 screenGui.Name = "Windows11Attem"
 screenGui.ResetOnSpawn = false
-wait(1)
+wait(3)
 
 --checking if customassets is waked up or exist (sometimes the executor you using kinda stupid)
 TextStatus.Text = "Checking getcustomasset()..."
