@@ -61,7 +61,7 @@ wait(2)
 --checking if customassets is waked up or exist (sometimes the executor you using kinda stupid)
 TextStatus.Text = "Checking getcustomasset()..."
 wait(0.2)
-if Customassetswakeup or getcustomasset() then
+if Customassetswakeup and getcustomasset() then
  TextStatus.Text = "<font color=\"#00ff2f\">(Success)</font> getcustomasset is existed and waked up"
   else
   TextStatus.Text = "<font color=\"#ff1a1a\">(Failed)</font> getcustomasset is not existed and failed to waked up"
