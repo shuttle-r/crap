@@ -93,7 +93,7 @@ local TweenService = game:GetService("TweenService")
 
 -- Create a TweenInfo object
 local tweenInfo = TweenInfo.new(
-    1, -- Time in seconds
+    2, -- Time in seconds
     Enum.EasingStyle.Elastic, -- Easing style of the tween
     Enum.EasingDirection.Out, -- Easing direction of the tween
     0, -- Number of times to repeat
