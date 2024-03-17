@@ -8,6 +8,13 @@ screenGui.Parent = game.Players.LocalPlayer:WaitForChild ("PlayerGui")
 screenGui.Name = "Windows11Attem"
 screenGui.ResetOnSpawn = false
 
+local Customassetswakeup = Instance.new("ImageLabel")
+Customassetswakeup.Size = UDim2.new(0, 0, 0, 0)
+Customassetswakeup.Position = UDim2.new(0.449999988, -68, 0.109999999, 49)
+Customassetswakeup.BackgroundTransparency = 1
+Customassetswakeup.Image = getcustomasset("Ima/Player.png")
+
+
 local MainGui = Instance.new("ImageLabel")
 MainGui.Parent = screenGui
 MainGui.Name = "MainGui"
