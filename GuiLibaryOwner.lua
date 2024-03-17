@@ -38,7 +38,7 @@ BackGroundOpening.Image = getcustomasset("Ima/Background.png")
 
 local TextBig = Instance.new("TextLabel")
 TextBig.Parent = BackGroundOpening
-TextBig.Text = "Welcome!"
+TextBig.Text = "Hello!"
 TextBig.Size = UDim2.new(0, 169, 0, 39)
 TextBig.TextSize = 25
 TextBig.Font = 2
@@ -82,8 +82,12 @@ elseif success then
 end
 
 wait(0.6)
+Customassetswakeup:Destroy()
+TextStatus.Text = "Clearing trash..."
+wait(0.6)
 TextStatus.Text = "Launching..."
 wait(0.5)
+LoaderPackageWindows11AttemCodeSixOneNine:Destroy
 
 
 local MainGui = Instance.new("ImageLabel")
