@@ -103,7 +103,7 @@ local tweenInfo = TweenInfo.new(
 
 -- Define the properties you want to tween
 local goal = {
-    Size = UDim2.new(1, 0, 1, 0) -- New size (relative to parent)
+    Size = UDim2.new(0, 333, 0, 213) -- New size (relative to parent)
 }
 
 -- Create the tween
