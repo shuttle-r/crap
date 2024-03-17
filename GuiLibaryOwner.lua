@@ -117,6 +117,8 @@ end)
 
 -- Play the tween
 tween:Play()
+repeat task.wait() until tween.Completed
+wait(2)
 
 
 
