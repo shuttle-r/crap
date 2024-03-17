@@ -88,7 +88,37 @@ TextStatus.Text = "Clearing trash..."
 wait(1)
 TextStatus.Text = "Launching..."
 wait(0.5)
-LoaderPackageWindows11AttemCodeSixOneNine:Destroy()
+-- Get the TweenService
+local TweenService = game:GetService("TweenService")
+
+-- Create a TweenInfo object
+local tweenInfo = TweenInfo.new(
+    2, -- Time in seconds
+    Enum.EasingStyle.Quad, -- Easing style of the tween
+    Enum.EasingDirection.Out, -- Easing direction of the tween
+    0, -- Number of times to repeat
+    false, -- Should the tween reverse
+    0 -- Delay time
+)
+
+-- Define the properties you want to tween
+local goal = {
+    Size = UDim2.new(0, 333, 0, 213) -- New size (relative to parent)
+}
+
+-- Create the tween
+local tween = TweenService:Create(BackGroundOpening, tweenInfo, goal)
+
+-- Connect the callback function to the Tween's Completed event
+tween.Completed:Connect(function()
+  wait(2)
+  LoaderPackageWindows11AttemCodeSixOneNine:Destroy()
+end)
+
+-- Play the tween
+tween:Play()
+
+
 
 
 local MainGui = Instance.new("ImageLabel")
