@@ -87,7 +87,7 @@ Customassetswakeup:Destroy()
 TextStatus.Text = "Clearing trash..."
 wait(1)
 TextStatus.Text = "Launching..."
-wait(0.5)
+wait(1)
 -- Get the TweenService
 local TweenService = game:GetService("TweenService")
 
