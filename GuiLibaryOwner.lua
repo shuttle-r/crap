@@ -127,7 +127,8 @@ MainGui.Size = UDim2.new(0, 333, 0, 213)
 MainGui.Position = UDim2.new(0.449999988, -121, 0.109999999, 0)
 MainGui.Image = getcustomasset("Ima/Background.png")
 MainGui.BackgroundTransparency = 1
-
+MainGui.Draggable = true
+MainGui.Active = true
 
  
 local WhiteVox = Instance.new("ScrollingFrame")
