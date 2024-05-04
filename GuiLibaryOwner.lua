@@ -234,6 +234,59 @@ end)
 	return newBut
 end
 
+local TypableBoxed = Instance.new("TextButton")
+TypableBoxed.Size = UDim2.new(0, 256, 0, 28)
+TypableBoxed.Text = ""
+TypableBoxed.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+local uiStroke = Instance.new("UIStroke")
+uiStroke.Parent = TypableBoxed
+uiStroke.Color = Color3.fromRGB(223,223,223)
+uiStroke.Thickness = 0.4
+uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+local uiCorner = Instance.new("UICorner")
+uiCorner.Parent = TypableBoxed
+uiCorner.CornerRadius = UDim.new (0.05, 0)
+local TypableBoxedText = Instance.new("TextLabel")
+TypableBoxedText.Parent = TypableBoxed
+TypableBoxedText.Name = "TypableBoxedText"
+TypableBoxedText.Text = "function name"
+TypableBoxedText.Size = UDim2.new(0, 90, 0, 13)
+TypableBoxedText.Position = UDim2.new(0.449999988, -83, 0.109999999, 3)
+TypableBoxedText.BackgroundTransparency = 1
+TypableBoxedText.TextXAlignment = 0
+local TypableBoxedDescTxt = Instance.new("TextBox")
+TypableBoxedDescTxt.Parent = TypableBoxed
+TypableBoxedDescTxt.Name = "TypableBoxedDescTxt"
+TypableBoxedDescTxt.Text = "Type anything here"
+TypableBoxedDescTxt.Size = UDim2.new(0, 170, 0, 13)
+TypableBoxedDescTxt.Position = UDim2.new(0.449999988, -83, 0.429999999, 4)
+TypableBoxedDescTxt.BackgroundTransparency = 1
+TypableBoxedDescTxt.TextColor3 = Color3.fromRGB(128, 128, 128)
+TypableBoxedDescTxt.TextXAlignment = 0
+TypableBoxedDescTxt.TextTruncate = 1
+TypableBoxedDescTxt.TextSize = 6
+function addTypableOne(name, funct, desc, ...)
+  
+	local newBut = TypableBoxed:Clone()
+	local args = {...}
+
+	newBut.MouseButton1Click:Connect(function()
+		funct(unpack(args))
+	end)
+pcall(function()
+	newBut.TypableBoxedText.Text = name
+	newBut.Name = name
+	newBut.Parent = WhiteVox
+	newBut.LayoutOrder = elements
+	newBut.Visible = true
+	newBut.TypableBoxedDescTxt.Text = desc
+end)
+  elements = elements + 1
+	addSpace(WhiteVox)
+
+	return newBut
+end
+
 local MainGuiNamed = Instance.new("TextLabel")
 MainGuiNamed.Parent = MainGui
 MainGuiNamed.Name = _G.WindowsNamed
