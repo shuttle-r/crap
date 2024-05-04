@@ -193,7 +193,6 @@ uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 local uiCorner = Instance.new("UICorner")
 uiCorner.Parent = BoxedFrame
 uiCorner.CornerRadius = UDim.new (0.05, 0)
-
 local BoxedFrameText = Instance.new("TextLabel")
 BoxedFrameText.Parent = BoxedFrame
 BoxedFrameText.Name = "BoxedFrameText"
