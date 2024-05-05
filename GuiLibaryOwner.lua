@@ -319,11 +319,11 @@ ToggleDescText.TextColor3 = Color3.fromRGB(128, 128, 128)
 ToggleDescText.TextXAlignment = 0
 ToggleDescText.TextTruncate = 1
 ToggleDescText.TextSize = 6
-function addToggleOne(name, funct, desc, ...)
+function addToggleOne(name, funct, desc, OnOrOffOne, ...)
   
 	local newBut = ToggleFrame:Clone()
 	local args = {...}
-  local ifOnThen = false
+  local ifOnThen = OnOrOffOne
 	newBut.MouseButton1Click:Connect(function()
 	  if ifOnThen == true then
 	    ifOnThen = false
