@@ -323,7 +323,7 @@ function addToggleOne(name, funct, desc, ...)
   
 	local newBut = ToggleFrame:Clone()
 	local args = {...}
-
+  local ifOnThen = false
 	newBut.MouseButton1Click:Connect(function()
 	  if ifOnThen == true then
 	    ifOnThen = false
