@@ -343,7 +343,7 @@ end)
   elements = elements + 1
 	addSpace(WhiteVox)
 
-	return newBut, EnNab
+	return newBut
 end
 
 
