@@ -323,13 +323,11 @@ function addToggleOne(name, funct, desc, EnNab, ...)
   
 	local newBut = ToggleFrame:Clone()
 	local args = {...}
-  local ifOnThen = OnOrOffOne
 	newBut.MouseButton1Click:Connect(function()
 	  EnNab = not EnNab
-	  if ifOnThen == true then
+	  if EnNab then
 	    newBut.ToggleFrameText.TextColor3 = Color3.fromRGB(0,1,0)
-	  end
-	  if ifOnThen == false then
+else
 	    newBut.ToggleFrameText.TextColor3 = Color3.fromRGB(1,0,0)
 	  end
 		funct(unpack(args))
