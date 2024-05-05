@@ -319,7 +319,7 @@ ToggleDescText.TextColor3 = Color3.fromRGB(128, 128, 128)
 ToggleDescText.TextXAlignment = 0
 ToggleDescText.TextTruncate = 1
 ToggleDescText.TextSize = 6
-function addToggleOne(name, funct, desc, EnNab, ...)
+--[[function addToggleOne(name, funct, desc, EnNab, ...)
   
 	local newBut = ToggleFrame:Clone()
 	local args = {...}
@@ -344,7 +344,42 @@ end)
 	addSpace(WhiteVox)
 
 	return newBut
+end]]
+
+
+function addToggleOne(name, funct, desc, EnNab, ...)
+  local newBut = ToggleFrame:Clone()
+  local args = {...}
+  local toggleData = {Button = newBut, EnNab = EnNab} -- Create a table to hold the button and its state
+
+  local function updateButtonColor()
+    if toggleData.EnNab then
+      toggleData.Button:WaitForChild("ToggleFrameText").TextColor3 = Color3.fromRGB(0, 255, 0) -- Green when enabled
+    else
+      toggleData.Button:WaitForChild("ToggleFrameText").TextColor3 = Color3.fromRGB(255, 0, 0) -- Red when disabled
+    end
+  end
+
+  newBut.MouseButton1Click:Connect(function()
+    toggleData.EnNab = not toggleData.EnNab
+    updateButtonColor()
+    funct(toggleData.EnNab, unpack(args))
+  end)
+
+pcall(function()
+	newBut.ToggleFrameText.Text = name
+	newBut.Name = name
+	newBut.Parent = WhiteVox
+	newBut.LayoutOrder = elements
+	newBut.Visible = true
+	newBut.ToggleDescText.Text = desc
+end)
+  updateButtonColor() -- Update color based on initial EnNab state
+
+  return toggleData -- Return the table with the button and the state
 end
+
+
 
 
 local MainGuiNamed = Instance.new("TextLabel")
