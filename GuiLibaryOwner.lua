@@ -345,7 +345,7 @@ end)
   elements = elements + 1
 	addSpace(WhiteVox)
 
-	return newBut, ifOnThen
+	return newBut
 end
 
 
