@@ -288,7 +288,70 @@ end)
 end
 
 
- 
+local ToggleFrame = Instance.new("TextButton")
+ToggleFrame.Size = UDim2.new(0, 256, 0, 28)
+ToggleFrame.Text = ""
+ToggleFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+local uiStroke = Instance.new("UIStroke")
+uiStroke.Parent = ToggleFrame
+uiStroke.Color = Color3.fromRGB(223,223,223)
+uiStroke.Thickness = 0.4
+uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+local uiCorner = Instance.new("UICorner")
+uiCorner.Parent = ToggleFrame
+uiCorner.CornerRadius = UDim.new (0.05, 0)
+local ToggleFrameText = Instance.new("TextLabel")
+ToggleFrameText.Parent = ToggleFrame
+ToggleFrameText.Name = "ToggleFrameText"
+ToggleFrameText.Text = "function name"
+ToggleFrameText.Size = UDim2.new(0, 90, 0, 13)
+ToggleFrameText.Position = UDim2.new(0.449999988, -83, 0.109999999, 3)
+ToggleFrameText.BackgroundTransparency = 1
+ToggleFrameText.TextXAlignment = 0
+local ToggleDescText = Instance.new("TextLabel")
+ToggleDescText.Parent = ToggleFrame
+ToggleDescText.Name = "ToggleDescText"
+ToggleDescText.Text = "This function does something cool"
+ToggleDescText.Size = UDim2.new(0, 170, 0, 13)
+ToggleDescText.Position = UDim2.new(0.449999988, -83, 0.429999999, 4)
+ToggleDescText.BackgroundTransparency = 1
+ToggleDescText.TextColor3 = Color3.fromRGB(128, 128, 128)
+ToggleDescText.TextXAlignment = 0
+ToggleDescText.TextTruncate = 1
+ToggleDescText.TextSize = 6
+function addToggleOne(name, funct, desc, ...)
+  
+	local newBut = ToggleFrame:Clone()
+	local args = {...}
+
+	newBut.MouseButton1Click:Connect(function()
+	  if ifOnThen == true then
+	    ifOnThen = false
+	    else
+	    ifOnThen = true
+	  end
+	  if ifOnThen == true then
+	    newBut.ToggleFrameText.TextColor3 = Color3.fromRGB(0,1,0)
+	  end
+	  if ifOnThen == false then
+	    newBut.ToggleFrameText.TextColor3 = Color3.fromRGB(1,0,0)
+	  end
+		funct(unpack(args))
+	end)
+pcall(function()
+	newBut.ToggleFrameText.Text = name
+	newBut.Name = name
+	newBut.Parent = WhiteVox
+	newBut.LayoutOrder = elements
+	newBut.Visible = true
+	newBut.ToggleDescText.Text = desc
+end)
+  elements = elements + 1
+	addSpace(WhiteVox)
+
+	return newBut, ifOnThen
+end
+
 
 local MainGuiNamed = Instance.new("TextLabel")
 MainGuiNamed.Parent = MainGui
