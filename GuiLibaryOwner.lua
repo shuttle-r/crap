@@ -326,9 +326,9 @@ function addToggleOne(name, funct, desc, EnNab, ...)
 	newBut.MouseButton1Click:Connect(function()
 	  EnNab = not EnNab
 	  if EnNab then
-	    newBut:WaitForChild("ToggleFrameText").TextColor3 = Color3.fromRGB(0,1,0)
+	    newBut:WaitForChild("ToggleFrameText").TextColor3 = Color3.fromRGB(0,255,0)
       else
-	    newBut:WaitForChild("ToggleFrameText").TextColor3 = Color3.fromRGB(1,0,0)
+	    newBut:WaitForChild("ToggleFrameText").TextColor3 = Color3.fromRGB(255,0,0)
 	  end
 		funct(EnNab, unpack(args))
 	end)
