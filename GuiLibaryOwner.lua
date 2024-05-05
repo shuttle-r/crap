@@ -56,7 +56,6 @@ TextStatus.RichText = true
 local screenGui = Instance.new ("ScreenGui")
 screenGui.Name = "Windows11Attem"
 screenGui.ResetOnSpawn = false
-screenGui.ZIndex = math.huge
 wait(0.7)
 
 --checking if customassets is waked up or exist (sometimes the executor you using kinda stupid)
