@@ -327,10 +327,10 @@ function addToggleOne(name, funct, desc, EnNab, ...)
 	  EnNab = not EnNab
 	  if EnNab then
 	    newBut.ToggleFrameText.TextColor3 = Color3.fromRGB(0,1,0)
-else
+      else
 	    newBut.ToggleFrameText.TextColor3 = Color3.fromRGB(1,0,0)
 	  end
-		funct(unpack(args))
+		funct(EnNab, unpack(args))
 	end)
 pcall(function()
 	newBut.ToggleFrameText.Text = name
