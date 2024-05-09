@@ -391,7 +391,7 @@ local function addComboBox(text, options, funct, ...) -- ADD CUSTOM ELEMENT INST
 	local args = {...}
 
 	local function setBoxState()
-		newCombo:Selection_BoxDesc.Rotation = enabled and 0 or 180
+		newCombo.Selection_BoxDesc.Rotation = enabled and 0 or 180
 		for _, elem in ipairs(elems) do
 			elem.Visible = enabled
 		end
