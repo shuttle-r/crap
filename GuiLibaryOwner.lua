@@ -375,8 +375,8 @@ Selection_BoxText.BackgroundTransparency = 1
 Selection_BoxText.TextXAlignment = 0
 local Selection_BoxDesc = Instance.new("TextLabel")
 Selection_BoxDesc.Parent = Selection_Box
-Selection_BoxDesc.Name = "Selection_BoxDesc"
-Selection_BoxDesc.Text = "This function does something cool"
+Selection_BoxDesc.Name = "^"
+Selection_BoxDesc.Text = "^"
 Selection_BoxDesc.Size = UDim2.new(0, 170, 0, 13)
 Selection_BoxDesc.Position = UDim2.new(0.449999988, -83, 0.429999999, 4)
 Selection_BoxDesc.BackgroundTransparency = 1
@@ -391,7 +391,7 @@ local function addComboBox(text, options, funct, ...) -- ADD CUSTOM ELEMENT INST
 	local args = {...}
 
 	local function setBoxState()
-		newCombo:WaitForChild("Img").Rotation = enabled and 0 or 180
+		newCombo:Selection_BoxDesc.Rotation = enabled and 0 or 180
 		for _, elem in ipairs(elems) do
 			elem.Visible = enabled
 		end
