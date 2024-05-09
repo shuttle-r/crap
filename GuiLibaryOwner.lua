@@ -288,6 +288,7 @@ end)
 end
 
 
+
 local ToggleFrame = Instance.new("TextButton")
 ToggleFrame.Size = UDim2.new(0, 256, 0, 28)
 ToggleFrame.Text = ""
@@ -319,34 +320,6 @@ ToggleDescText.TextColor3 = Color3.fromRGB(128, 128, 128)
 ToggleDescText.TextXAlignment = 0
 ToggleDescText.TextTruncate = 1
 ToggleDescText.TextSize = 6
---[[function addToggleOne(name, funct, desc, EnNab, ...)
-  
-	local newBut = ToggleFrame:Clone()
-	local args = {...}
-	newBut.MouseButton1Click:Connect(function()
-	  EnNab = not EnNab
-	  if EnNab then
-	    newBut:WaitForChild("ToggleFrameText").TextColor3 = Color3.fromRGB(0,255,0)
-      else
-	    newBut:WaitForChild("ToggleFrameText").TextColor3 = Color3.fromRGB(255,0,0)
-	  end
-		funct(EnNab, unpack(args))
-	end)
-pcall(function()
-	newBut.ToggleFrameText.Text = name
-	newBut.Name = name
-	newBut.Parent = WhiteVox
-	newBut.LayoutOrder = elements
-	newBut.Visible = true
-	newBut.ToggleDescText.Text = desc
-end)
-  elements = elements + 1
-	addSpace(WhiteVox)
-
-	return newBut
-end]]
-
-
 function addToggleOne(name, funct, desc, EnNab, ...)
   local newBut = ToggleFrame:Clone()
   local args = {...}
@@ -379,6 +352,92 @@ end)
   return toggleData -- Return the table with the button and the state
 end
 
+
+local Selection_Box = Instance.new("TextButton")
+Selection_Box.Size = UDim2.new(0, 256, 0, 28)
+Selection_Box.Text = ""
+Selection_Box.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+local uiStroke = Instance.new("UIStroke")
+uiStroke.Parent = Selection_Box
+uiStroke.Color = Color3.fromRGB(223,223,223)
+uiStroke.Thickness = 0.4
+uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+local uiCorner = Instance.new("UICorner")
+uiCorner.Parent = Selection_Box
+uiCorner.CornerRadius = UDim.new (0.05, 0)
+local Selection_BoxText = Instance.new("TextLabel")
+Selection_BoxText.Parent = Selection_Box
+Selection_BoxText.Name = "Selection_BoxText"
+Selection_BoxText.Text = "function name"
+Selection_BoxText.Size = UDim2.new(0, 90, 0, 13)
+Selection_BoxText.Position = UDim2.new(0.449999988, -83, 0.109999999, 3)
+Selection_BoxText.BackgroundTransparency = 1
+Selection_BoxText.TextXAlignment = 0
+local Selection_BoxDesc = Instance.new("TextLabel")
+Selection_BoxDesc.Parent = Selection_Box
+Selection_BoxDesc.Name = "Selection_BoxDesc"
+Selection_BoxDesc.Text = "This function does something cool"
+Selection_BoxDesc.Size = UDim2.new(0, 170, 0, 13)
+Selection_BoxDesc.Position = UDim2.new(0.449999988, -83, 0.429999999, 4)
+Selection_BoxDesc.BackgroundTransparency = 1
+Selection_BoxDesc.TextColor3 = Color3.fromRGB(128, 128, 128)
+Selection_BoxDesc.TextXAlignment = 0
+Selection_BoxDesc.TextTruncate = 1
+Selection_BoxDesc.TextSize = 6
+local function addComboBox(text, options, funct, ...) -- ADD CUSTOM ELEMENT INSTEAD
+	local newCombo = Selection_Box:Clone()
+	local enabled = false
+	local elems = {}
+	local args = {...}
+
+	local function setBoxState()
+		newCombo:WaitForChild("Img").Rotation = enabled and 0 or 180
+		for _, elem in ipairs(elems) do
+			elem.Visible = enabled
+		end
+	end
+
+	newCombo.MouseButton1Click:Connect(function()
+		enabled = not enabled
+		setBoxState()
+	end)
+
+	newCombo:WaitForChild("Name").Text = text .. ": " .. (#options > 0 and options[1] or "")
+	newCombo.Size = UDim2.new(0.95, 0, 0, element_height)
+	newCombo.Name = #options > 0 and options[1] or ""
+	newCombo.Parent = Menu
+	newCombo.LayoutOrder = elements
+	newCombo.Parent = Menu
+	newCombo.Visible = true
+
+	elements = elements + 1
+  addSpace(Menu)
+
+	for _, name in ipairs(options) do
+		local newElem = ComboElem:Clone()
+		table.insert(elems, newElem)
+
+		newElem.MouseButton1Click:Connect(function()
+			newCombo:WaitForChild("Name").Text = text .. ": " .. name
+			enabled = false
+			setBoxState()
+
+			funct(name, unpack(args))
+		end)
+
+		newElem:WaitForChild("Name").Text = name
+		newElem.Size = UDim2.new(0.95, 0, 0, element_height)
+		newElem.Name = name
+		newElem.Parent = Menu
+		newElem.LayoutOrder = elements
+		newElem.Visible = false
+
+		--elements = elements +	1
+	--	addSpace(Menu)
+	end
+
+	return newCombo
+end
 
 
 
