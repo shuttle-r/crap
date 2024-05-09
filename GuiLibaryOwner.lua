@@ -424,7 +424,7 @@ function addComboBox(text, options, funct, ...) -- ADD CUSTOM ELEMENT INSTEAD
 		setBoxState()
 	end)
 
-	newCombo:WaitForChild("Name").Text = text .. ": " .. (#options > 0 and options[1] or "")
+	newCombo.Selection_BoxInsideText.Text = text .. ": " .. (#options > 0 and options[1] or "")
 	newCombo.Name = #options > 0 and options[1] or ""
 	newCombo.Parent = WhiteVox
 	newCombo.LayoutOrder = elements
