@@ -406,7 +406,7 @@ Selection_BoxInsideText.Size = UDim2.new(0, 90, 0, 13)
 Selection_BoxInsideText.Position = UDim2.new(0.449999988, -83, 0.109999999, 3)
 Selection_BoxInsideText.BackgroundTransparency = 1
 Selection_BoxInsideText.TextXAlignment = 0
-local function addComboBox(text, options, funct, ...) -- ADD CUSTOM ELEMENT INSTEAD
+function addComboBox(text, options, funct, ...) -- ADD CUSTOM ELEMENT INSTEAD
 	local newCombo = Selection_Box:Clone()
 	local enabled = false
 	local elems = {}
