@@ -384,60 +384,30 @@ Selection_BoxDesc.TextColor3 = Color3.fromRGB(128, 128, 128)
 Selection_BoxDesc.TextXAlignment = 0
 Selection_BoxDesc.TextTruncate = 1
 Selection_BoxDesc.TextSize = 6
-local function addComboBox(text, options, funct, ...) -- ADD CUSTOM ELEMENT INSTEAD
-	local newCombo = Selection_Box:Clone()
-	local enabled = false
-	local elems = {}
-	local args = {...}
 
-	local function setBoxState()
-		newCombo.Selection_BoxDesc.Rotation = enabled and 0 or 180
-		for _, elem in ipairs(elems) do
-			elem.Visible = enabled
-		end
-	end
+-- Dropdown menu items
 
-	newCombo.MouseButton1Click:Connect(function()
-		enabled = not enabled
-		setBoxState()
-	end)
+-- Function to toggle dropdown
+function toggleDropdown(NameText, listdown)
+local dropdownItems = {listdown}
 
-	newCombo:WaitForChild("Name").Text = text .. ": " .. (#options > 0 and options[1] or "")
-	newCombo.Size = UDim2.new(0.95, 0, 0, element_height)
-	newCombo.Name = #options > 0 and options[1] or ""
-	newCombo.Parent = Menu
-	newCombo.LayoutOrder = elements
-	newCombo.Parent = Menu
-	newCombo.Visible = true
+    for i, item in ipairs(dropdownItems) do
+        local button = Instance.new("TextButton")
+        button.Size = UDim2.new(0, 256, 0, 28)
+        button.Position = UDim2.new(0, 0, 0, 28 * i)
+        button.Text = item
+        button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        button.Parent = Selection_Box
 
-	elements = elements + 1
-  addSpace(Menu)
-
-	for _, name in ipairs(options) do
-		local newElem = ComboElem:Clone()
-		table.insert(elems, newElem)
-
-		newElem.MouseButton1Click:Connect(function()
-			newCombo:WaitForChild("Name").Text = text .. ": " .. name
-			enabled = false
-			setBoxState()
-
-			funct(name, unpack(args))
-		end)
-
-		newElem:WaitForChild("Name").Text = name
-		newElem.Size = UDim2.new(0.95, 0, 0, element_height)
-		newElem.Name = name
-		newElem.Parent = Menu
-		newElem.LayoutOrder = elements
-		newElem.Visible = false
-
-		--elements = elements +	1
-	--	addSpace(Menu)
-	end
-
-	return newCombo
+        button.MouseButton1Click:Connect(function()
+            Selection_BoxText.Text = item -- Update the text to the selected item
+            -- Close the dropdown here
+        end)
+    end
 end
+
+-- Connect the toggle function to the Selection_Box click
+Selection_Box.MouseButton1Click:Connect(toggleDropdown)
 
 
 
