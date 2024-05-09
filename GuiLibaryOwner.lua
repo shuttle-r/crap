@@ -385,30 +385,79 @@ Selection_BoxDesc.TextXAlignment = 0
 Selection_BoxDesc.TextTruncate = 1
 Selection_BoxDesc.TextSize = 6
 
--- Dropdown menu items
 
--- Function to toggle dropdown
-function toggleDropdown(NameText, listdown)
-local dropdownItems = {listdown}
+local Selection_BoxInside = Instance.new("TextButton")
+Selection_BoxInside.Size = UDim2.new(0, 256, 0, 28)
+Selection_BoxInside.Text = ""
+Selection_BoxInside.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+local uiStroke = Instance.new("UIStroke")
+uiStroke.Parent = Selection_BoxInside
+uiStroke.Color = Color3.fromRGB(223,223,223)
+uiStroke.Thickness = 0.4
+uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+local uiCorner = Instance.new("UICorner")
+uiCorner.Parent = Selection_BoxInside
+uiCorner.CornerRadius = UDim.new (0.05, 0)
+local Selection_BoxInsideText = Instance.new("TextLabel")
+Selection_BoxInsideText.Parent = Selection_BoxInside
+Selection_BoxInsideText.Name = "Selection_BoxInsideText"
+Selection_BoxInsideText.Text = "function name"
+Selection_BoxInsideText.Size = UDim2.new(0, 90, 0, 13)
+Selection_BoxInsideText.Position = UDim2.new(0.449999988, -83, 0.109999999, 3)
+Selection_BoxInsideText.BackgroundTransparency = 1
+Selection_BoxInsideText.TextXAlignment = 0
+local function addComboBox(text, options, funct, ...) -- ADD CUSTOM ELEMENT INSTEAD
+	local newCombo = Selection_Box:Clone()
+	local enabled = false
+	local elems = {}
+	local args = {...}
 
-    for i, item in ipairs(dropdownItems) do
-        local button = Instance.new("TextButton")
-        button.Size = UDim2.new(0, 256, 0, 28)
-        button.Position = UDim2.new(0, 0, 0, 28 * i)
-        button.Text = item
-        button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        button.Parent = Selection_Box
+	local function setBoxState()
+		newCombo.Selection_BoxDesc.Rotation = enabled and 0 or 180
+		for _, elem in ipairs(elems) do
+			elem.Visible = enabled
+		end
+	end
 
-        button.MouseButton1Click:Connect(function()
-            Selection_BoxText.Text = item -- Update the text to the selected item
-            -- Close the dropdown here
-        end)
-    end
+	newCombo.MouseButton1Click:Connect(function()
+		enabled = not enabled
+		setBoxState()
+	end)
+
+	newCombo:WaitForChild("Name").Text = text .. ": " .. (#options > 0 and options[1] or "")
+	newCombo.Name = #options > 0 and options[1] or ""
+	newCombo.Parent = WhiteVox
+	newCombo.LayoutOrder = elements
+	newCombo.Parent = WhiteVox
+	newCombo.Visible = true
+
+	elements = elements + 1
+  addSpace(Menu)
+
+	for _, name in ipairs(options) do
+		local newElem = Selection_BoxInside:Clone()
+		table.insert(elems, newElem)
+
+		newElem.MouseButton1Click:Connect(function()
+			newCombo.Selection_BoxInsideText.Text = text .. ": " .. name
+			enabled = false
+			setBoxState()
+
+			funct(name, unpack(args))
+		end)
+
+		newElem.Selection_BoxInsideText.Text = name
+		newElem.Name = name
+		newElem.Parent = WhiteVox
+		newElem.LayoutOrder = elements
+		newElem.Visible = false
+
+		--elements = elements +	1
+	--	addSpace(Menu)
+	end
+
+	return newCombo
 end
-
--- Connect the toggle function to the Selection_Box click
-Selection_Box.MouseButton1Click:Connect(toggleDropdown)
-
 
 
 local MainGuiNamed = Instance.new("TextLabel")
