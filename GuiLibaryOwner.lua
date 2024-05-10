@@ -375,8 +375,8 @@ Selection_BoxText.BackgroundTransparency = 1
 Selection_BoxText.TextXAlignment = 0
 local Selection_BoxDesc = Instance.new("TextLabel")
 Selection_BoxDesc.Parent = Selection_Box
-Selection_BoxDesc.Name = "^"
-Selection_BoxDesc.Text = "^"
+Selection_BoxDesc.Name = "Open/Close"
+Selection_BoxDesc.Text = "Dropdown menu"
 Selection_BoxDesc.Size = UDim2.new(0, 170, 0, 13)
 Selection_BoxDesc.Position = UDim2.new(0.449999988, -83, 0.429999999, 4)
 Selection_BoxDesc.BackgroundTransparency = 1
@@ -407,14 +407,13 @@ Selection_BoxInsideText.Position = UDim2.new(0.449999988, -83, 0.109999999, 3)
 Selection_BoxInsideText.BackgroundTransparency = 1
 Selection_BoxInsideText.TextXAlignment = 0
 function addComboBox(text, options, funct, ...) -- ADD CUSTOM ELEMENT INSTEAD
-  pcall(function()
 	local newCombo = Selection_Box:Clone()
 	local enabled = false
 	local elems = {}
 	local args = {...}
 
 	local function setBoxState()
-		newCombo.Selection_BoxDesc.Rotation = enabled and 0 or 180
+--		newCombo.Selection_BoxDesc.Rotation = enabled and 0 or 180
 		for _, elem in ipairs(elems) do
 			elem.Visible = enabled
 		end
@@ -425,7 +424,7 @@ function addComboBox(text, options, funct, ...) -- ADD CUSTOM ELEMENT INSTEAD
 		setBoxState()
 	end)
 
-	newCombo.Selection_BoxInsideText.Text = text .. ": " .. (#options > 0 and options[1] or "")
+	newCombo:WaitForChild("Selection_BoxText").Text = text .. ": " .. (#options > 0 and options[1] or "")
 	newCombo.Name = #options > 0 and options[1] or ""
 	newCombo.Parent = WhiteVox
 	newCombo.LayoutOrder = elements
@@ -434,13 +433,13 @@ function addComboBox(text, options, funct, ...) -- ADD CUSTOM ELEMENT INSTEAD
 
 	elements = elements + 1
   addSpace(Menu)
-
+--discard
 	for _, name in ipairs(options) do
 		local newElem = Selection_BoxInside:Clone()
 		table.insert(elems, newElem)
 
 		newElem.MouseButton1Click:Connect(function()
-			newCombo.Selection_BoxInsideText.Text = text .. ": " .. name
+			newCombo.Selection_BoxText.Text = text .. ": " .. name
 			enabled = false
 			setBoxState()
 
@@ -458,7 +457,6 @@ function addComboBox(text, options, funct, ...) -- ADD CUSTOM ELEMENT INSTEAD
 	end
 
 	return newComb
-	end)
 end
 
 
