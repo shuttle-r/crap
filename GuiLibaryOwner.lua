@@ -114,7 +114,7 @@ local tween = TweenService:Create(BackGroundOpening, tweenInfo, goal)
 -- Play the tween
 tween:Play()
 repeat task.wait() until tween.Completed
-wait(2)
+wait(0.2)
 LoaderPackageWindows11AttemCodeSixOneNine:Destroy()
 
 
