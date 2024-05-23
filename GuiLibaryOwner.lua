@@ -67,27 +67,27 @@ if Customassetswakeup and getcustomasset("Ima/Background.png") then
   TextStatus.Text = "<font color=\"#ff1a1a\">(Failed)</font> getcustomasset is not existed and failed to waked up"
   return
 end
-wait(0.2)
+wait(0.1)
   TextStatus.Text = "Moving the gui in a safe place..."
-wait(0.3)
+wait(0.1)
 local success, err = pcall(function()
 	screenGui.Parent = SystemBlock()
 end)
 if not success then
 	screenGui.Parent = game:GetService("Players").LocalPlayer.PlayerGui
   TextStatus.Text = "<font color=\"#ff1a1a\">(Failed)</font> The gui is not in a safe place..."
-  wait(0.2)
+  wait(0.1)
 elseif success then
   TextStatus.Text = "<font color=\"#00ff2f\">(Success)</font> The gui is in a safe place..."
-  wait(0.2)
+  wait(0.1)
 end
 
-wait(0.2)
+wait(0.1)
 Customassetswakeup:Destroy()
 TextStatus.Text = "Clearing trash..."
 wait(0.2)
 TextStatus.Text = "Launching..."
-wait(1)
+wait(0.3)
 -- Get the TweenService
 local TweenService = game:GetService("TweenService")
 
