@@ -493,7 +493,7 @@ screenGui.Yesir.Transparency = 0
 local targetImageTransparency = 1
 local targetTextTransparency = 1
 local targetBackgroundTransparency = 1
-local tweenInfo = TweenInfo.new(0.5)
+local tweenInfo = TweenInfo.new(0.01)
 for i,v in pairs(WhiteVox:GetDescendants()) do
   if v.Name == "UIStroke" then
     v.Transparency = 1
