@@ -3,7 +3,7 @@
   i borrow the gui because it's looks cool
 --]]
 _G.NotifiOnScreen = false
-
+_G.NotificationText = "Test"
 local Script_Title = "Notifi"
 
 -- Instances:
