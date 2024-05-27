@@ -724,10 +724,11 @@ TweenService:Create(Intro, TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.Easing
 TweenService:Create(Main, TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {BackgroundTransparency = 0}):Play()
 end)--checking error
 
-
+spawn(function()
 while true do
   task.wait(1)
 if not success then
 notify(err, true)
 end
 end
+end)
