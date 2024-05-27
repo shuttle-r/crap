@@ -491,7 +491,7 @@ end
 
 
 
-local function addToggle(name, funct, Loopspeed, enabled, ...)
+function addToggle(name, funct, Loopspeed, enabled, ...)
 	local newTog = Toggle:Clone()
 	local args = {...}
 	newTog.MouseButton1Click:Connect(function()
@@ -516,7 +516,7 @@ local function addToggle(name, funct, Loopspeed, enabled, ...)
 end-- end
 
 
-local function addTextbox(name, funct,...)
+function addTextbox(name, funct,...)
 	local newBox = TextBoxMain:Clone()
 	local args = {...}
 	newBox.MouseButton1Click:Connect(function()
@@ -539,7 +539,7 @@ end-- end
 
 
 
-local function addButton(name, funct, ...)
+function addButton(name, funct, ...)
 	local newBut = Button:Clone()
 	local args = {...}
 
@@ -571,7 +571,7 @@ end
 
 
 
-local function addComboBox(text, options, funct, ...) -- ADD CUSTOM ELEMENT INSTEAD
+function addComboBox(text, options, funct, ...) -- ADD CUSTOM ELEMENT INSTEAD
 	local newCombo = ComboBox:Clone()
 	local enabled = false
 	local elems = {}
