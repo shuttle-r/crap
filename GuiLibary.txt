@@ -668,7 +668,7 @@ end)
 -- Actual Script
 --example:
 local other
-other = addButton("button", function()
+other = addButton("Made by: shuFEL", function()
 return
 end)
 other:WaitForChild("Name").TextColor = BrickColor.new(0,255,0)
@@ -678,38 +678,7 @@ other = addButton("                                               ", function()
 return
 end)
 
-local buttont
-buttont = addButton("button that errors", function()
-error("error detetcted")
-end)
 
-local texttext
-texttext = addTextbox("Test", function()
-  notify("yes", false)
-end)
- 
-
-
-local togglebut
-togglebut = addToggle("toggle", function()
-error("this is good loop")
---the number 1 is a second so every 1 second it's loop
-end, false)
-
-
-
-
-local comboBox
-comboBox = addComboBox("Select an option", {"Option 1", "Option 2"}, function(selectedOption)
-    if selectedOption == "Option 1" then
-      print("Option 1")
-    end
-    if selectedOption == "Option 2" then
-      print("Option 2")
-    end
-    -- Handle the selected option here
-    -- You can perform any desired actions based on the selected option
-end)
 
 
 
