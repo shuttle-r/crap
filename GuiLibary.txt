@@ -539,6 +539,7 @@ function refreshPlayersList()
         end)
         checkerIfPlayerOnWhite(player.Name, button)
     end
+    return button
 end
 
 
