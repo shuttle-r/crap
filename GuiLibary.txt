@@ -529,13 +529,15 @@ function refreshPlayersList()
 
     -- Create new sound buttons
     for _, player in pairs(game.Players:GetPlayers()) do
-        local button = addAllPlayers(player, function(selectedPlayer)
+        local button 
+        button = addAllPlayers(player, function(selectedPlayer)
             local playerName = selectedPlayer.Name
             if _G.WHITELISTED[playerName] then
                 _G.WHITELISTED[playerName] = nil
             else
                 _G.WHITELISTED[playerName] = true
             end
+        checkerIfPlayerOnWhite(player.Name, button)
         end)
         checkerIfPlayerOnWhite(player.Name, button)
     end
