@@ -506,18 +506,26 @@ end
 
 -- Define the whitelist table
 local whitelist = {}
+
 -- Add functions to handle player joining and leaving
 local Players = game:GetService("Players")
+
 local function onPlayerAdded(player)
     whitelist[player.Name] = false -- Players are not whitelisted by default
     updateDropdown() -- Update the dropdown to reflect the new player
 end
+
 local function onPlayerRemoving(player)
     whitelist[player.Name] = nil -- Remove player from whitelist
     updateDropdown() -- Update the dropdown to reflect the removed player
 end
+
 Players.PlayerAdded:Connect(onPlayerAdded)
 Players.PlayerRemoving:Connect(onPlayerRemoving)
+
+-- Elements table to store dropdown elements
+local elems = {}
+
 -- Function to update the dropdown menu
 local function updateDropdown()
     -- Clear current dropdown elements
@@ -591,6 +599,8 @@ function addList(text, options, funct, ...) -- ADD CUSTOM ELEMENT INSTEAD
 
     return newCombo
 end
+
+-- Example usage
 
 
 local function refreshSoundButtons()
