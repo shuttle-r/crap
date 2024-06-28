@@ -536,7 +536,9 @@ function refreshPlayersList()
                 _G.WHITELISTED[playerName] = nil
             else
                 _G.WHITELISTED[playerName] = true
+                
             end
+_G.WHITELISTED = _G.WHITELISTED
             checkerIfPlayerOnWhite(playerName, button)
         end)
         checkerIfPlayerOnWhite(player.Name, button)
