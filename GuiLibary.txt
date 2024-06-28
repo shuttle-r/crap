@@ -1,3 +1,4 @@
+
 --[[
   GUI MADE BY SPDM TEAM
   i borrow the gui because it's looks cool
@@ -489,28 +490,37 @@ local function addSpace(parent)
 elements = elements + 1
 end
 
+_G.WHITELISTED = {
+    ["redter01"] = true,
+    ["regs_eggs"] = true,
+}
+
+
 local soundButtons = {}
-local function addAllPlayers(sound, funct)
+
+local function addAllPlayers(player, funct)
     local newButton = Button:Clone()
     newButton.Size = UDim2.new(0.95, 0, 0, element_height)
-    newButton.Name = sound.Name
+    newButton.Name = player.Name
     newButton.Parent = Menu
     newButton.LayoutOrder = elements
     elements = elements + 1
-    newButton:FindFirstChild("Name").Text = sound.Name
+    newButton:FindFirstChild("Name").Text = player.Name
     newButton.MouseButton1Click:Connect(function()
-        funct(sound)
+        funct(player)
     end)
     table.insert(soundButtons, newButton)
     return newButton
 end
+
 function checkerIfPlayerOnWhite(name, par)
-    if _G.WHITELISTED[name] == true then
-    par:FindFirstChild("Name").TextColor3 = Color3.fromRGB(0,255,0)
-    elseif not _G.WHITELISTED[name] == true then  
-    par:FindFirstChild("Name").TextColor3 = Color3.fromRGB(255,0,0)
+    if _G.WHITELISTED[name] then
+        par:FindFirstChild("Name").TextColor3 = Color3.fromRGB(0, 255, 0)
+    else
+        par:FindFirstChild("Name").TextColor3 = Color3.fromRGB(255, 0, 0)
     end
 end
+
 function refreshPlayersList()
     -- Remove all existing sound buttons
     for _, button in ipairs(soundButtons) do
@@ -519,23 +529,19 @@ function refreshPlayersList()
     soundButtons = {}
 
     -- Create new sound buttons
-    local blacklist = {}
-    for _, v in pairs(game.Players:GetPlayers()) do
-            local BackPortAdd
-            BackPortAdd = addAllPlayers(v, function(selectedSound)
-              if _G.WHITELISTED[selectedSound] == nil then
-                  _G.WHITELISTED[selectedSound] = true
-                checkerIfPlayerOnWhite(selectedSound, BackPortAdd)
-              else
-                _G.WHITELISTED[selectedSound] = nil
-                checkerIfPlayerOnWhite(selectedSound, BackPortAdd)
-              end
-            end)
-checkerIfPlayerOnWhite(v, BackPortAdd)
-_G.WHITELISTED = _G.WHITELISTED
+    for _, player in pairs(game.Players:GetPlayers()) do
+        local button = addAllPlayers(player, function(selectedPlayer)
+            local playerName = selectedPlayer.Name
+            if _G.WHITELISTED[playerName] then
+                _G.WHITELISTED[playerName] = nil
+            else
+                _G.WHITELISTED[playerName] = true
+            end
+            checkerIfPlayerOnWhite(playerName, button)
+        end)
+        checkerIfPlayerOnWhite(player.Name, button)
     end
 end
-
 
 
 function addToggle(name, funct, Loopspeed, enabled, ...)
@@ -751,7 +757,6 @@ end)--checking error
 
 spawn(function()
 while true do
-
   task.wait(1)
 if not success then
 notify(err, true)
