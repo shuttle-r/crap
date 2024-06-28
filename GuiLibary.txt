@@ -523,6 +523,7 @@ function refreshPlayersList()
     for _, v in pairs(game.Players:GetPlayers()) do
             local BackPortAdd
             BackPortAdd = addAllPlayers(v, function(selectedSound)
+              print(selectedSound)
               if _G.WHITELISTED[selectedSound] == nil then
                   _G.WHITELISTED[selectedSound] = true
                 checkerIfPlayerOnWhite(selectedSound, BackPortAdd)
