@@ -489,6 +489,48 @@ local function addSpace(parent)
 elements = elements + 1
 end
 
+soundButtons = {}
+local function addSoundButton(sound, funct)
+    local newButton = Button:Clone()
+    newButton.Size = UDim2.new(0.95, 0, 0, element_height)
+    newButton.Name = sound.Name
+    newButton.Parent = Menu
+    newButton.LayoutOrder = elements
+    elements = elements + 1
+    newButton:FindFirstChild("Name").Text = sound.Name
+    newButton.MouseButton1Click:Connect(function()
+        funct(sound)
+    end)
+    table.insert(soundButtons, newButton)
+end
+local function refreshSoundButtons()
+    -- Remove all existing sound buttons
+    for _, button in ipairs(soundButtons) do
+        button:Destroy()
+    end
+    soundButtons = {}
+
+    -- Create new sound buttons
+    local blacklist = {
+      Climbing = true,
+      Died = true,
+      GettingUp = true,
+      Swimming = true,
+      Jumping = true,
+      Landing = true,
+      Splash = true,
+      FreeFalling = true,
+      Running = true,
+    }
+    for _, sound in ipairs(workspace:GetDescendants()) do
+        if sound:IsA("Sound") and not blacklist[sound.Name] then
+            addSoundButton(sound, function(selectedSound)
+                selectedSound:Play()
+            end)
+        end
+    end
+end
+
 
 
 function addToggle(name, funct, Loopspeed, enabled, ...)
