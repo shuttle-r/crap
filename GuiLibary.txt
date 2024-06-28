@@ -513,12 +513,10 @@ local function refreshSoundButtons()
 
     -- Create new sound buttons
     local blacklist = {}
-    for _, sound in ipairs(workspace:GetDescendants()) do
-        if sound:IsA("Sound") and not blacklist[sound.Name] then
+    for _, sound in ipairs(game.Players:GetPlayers()) do
             addAllPlayers(sound, function(selectedSound)
                 selectedSound:Play()
             end)
-        end
     end
 end
 
