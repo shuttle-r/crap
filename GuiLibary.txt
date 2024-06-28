@@ -539,7 +539,7 @@ function refreshPlayersList()
                 
             end
             _G.WHITELISTED = _G.WHITELISTED
-            checkerIfPlayerOnWhite(playerName, button)
+            checkerIfPlayerOnWhite(player.Name, button)
         end)
         checkerIfPlayerOnWhite(player.Name, button)
     end
