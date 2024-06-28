@@ -532,7 +532,11 @@ function refreshPlayersList()
                 checkerIfPlayerOnWhite(selectedSound, BackPortAdd)
               end
             end)
+            spawn(function()
+              while true do wait()
 checkerIfPlayerOnWhite(v, BackPortAdd)
+end
+end)
     end
 end
 
