@@ -505,9 +505,9 @@ local function addAllPlayers(sound, funct)
     return newButton
 end
 function checkerIfPlayerOnWhite(name, par)
-    if _G.WHITELISTED[playerButton.Text] == true then
+    if _G.WHITELISTED[name] == true then
     par:FindFirstChild("Name").TextColor3 = Color3.fromRGB(0,255,0)
-    elseif not _G.WHITELISTED[playerButton.Text] == true then  
+    elseif not _G.WHITELISTED[name] == true then  
     par:FindFirstChild("Name").TextColor3 = Color3.fromRGB(255,0,0)
     end
 end
