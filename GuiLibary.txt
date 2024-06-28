@@ -538,7 +538,6 @@ function addList(text, options, funct, ...) -- ADD CUSTOM ELEMENT INSTEAD
 
 		newElem.MouseButton1Click:Connect(function()
 			newCombo:WaitForChild("Name").Text = text .. ": " .. name
-			enabled = false
 			setBoxState()
 local ComboSuccess, ComboErrorOut = pcall(function()
     funct(name, unpack(args)) 
