@@ -490,7 +490,7 @@ elements = elements + 1
 end
 
 soundButtons = {}
-local function addSoundButton(sound, funct)
+local function addAllPlayers(sound, funct)
     local newButton = Button:Clone()
     newButton.Size = UDim2.new(0.95, 0, 0, element_height)
     newButton.Name = sound.Name
@@ -524,7 +524,7 @@ local function refreshSoundButtons()
     }
     for _, sound in ipairs(workspace:GetDescendants()) do
         if sound:IsA("Sound") and not blacklist[sound.Name] then
-            addSoundButton(sound, function(selectedSound)
+            addAllPlayers(sound, function(selectedSound)
                 selectedSound:Play()
             end)
         end
