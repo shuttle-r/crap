@@ -18,7 +18,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/shuttle-r/crap/main/N
 end
 local success, err = pcall(function()
   
-_G.CTitle = "GuiLib"
+--_G.CTitle = "GuiLib"
 local alreadyexec
 if alreadyexec == true then
   notify("The script is already executed",false)--cringe moment
