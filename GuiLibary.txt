@@ -515,7 +515,7 @@ function refreshSoundButtons()
     local blacklist = {}
     for _, sound in ipairs(game.Players:GetPlayers()) do
             addAllPlayers(sound, function(selectedSound)
-                selectedSound:Play()
+                return selectedSound
             end)
     end
 end
