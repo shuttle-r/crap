@@ -557,7 +557,6 @@ function addToggle(name, funct, Loopspeed, enabled, ...)
 	return newTog
 end-- end
 
-
 function addTextbox(name, funct,...)
 	local newBox = TextBoxMain:Clone()
 	local args = {...}
@@ -577,9 +576,6 @@ function addTextbox(name, funct,...)
 
 	return newBox
 end-- end
-
-
-
 
 function addButton(name, funct, ...)
 	local newBut = Button:Clone()
@@ -606,12 +602,6 @@ function addButton(name, funct, ...)
 
 	return newBut
 end
-
-
-
-
-
-
 
 function addComboBox(text, options, funct, ...) -- ADD CUSTOM ELEMENT INSTEAD
 	local newCombo = ComboBox:Clone()
