@@ -532,6 +532,7 @@ function refreshPlayersList()
               end
             end)
 checkerIfPlayerOnWhite(v, BackPortAdd)
+_G.WHITELISTED = _G.WHITELISTED
     end
 end
 
