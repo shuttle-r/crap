@@ -522,7 +522,6 @@ function checkerIfPlayerOnWhite(name, par)
 end
 
 function refreshPlayersList()
-    -- Remove all existing sound buttons
     for _, button in ipairs(soundButtons) do
         button:Destroy()
     end
