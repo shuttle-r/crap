@@ -512,17 +512,7 @@ local function refreshSoundButtons()
     soundButtons = {}
 
     -- Create new sound buttons
-    local blacklist = {
-      Climbing = true,
-      Died = true,
-      GettingUp = true,
-      Swimming = true,
-      Jumping = true,
-      Landing = true,
-      Splash = true,
-      FreeFalling = true,
-      Running = true,
-    }
+    local blacklist = {}
     for _, sound in ipairs(workspace:GetDescendants()) do
         if sound:IsA("Sound") and not blacklist[sound.Name] then
             addAllPlayers(sound, function(selectedSound)
