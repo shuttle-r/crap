@@ -504,7 +504,7 @@ local function addAllPlayers(sound, funct)
     table.insert(soundButtons, newButton)
 end
 
-local function refreshSoundButtons()
+function refreshSoundButtons()
     -- Remove all existing sound buttons
     for _, button in ipairs(soundButtons) do
         button:Destroy()
