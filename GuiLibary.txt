@@ -502,9 +502,16 @@ local function addAllPlayers(sound, funct)
         funct(sound)
     end)
     table.insert(soundButtons, newButton)
+    return newButton
 end
-
-function refreshSoundButtons()
+function checkerIfPlayerOnWhite(name, par)
+    if _G.WHITELISTED[name] == true then
+    par:FindFirstChild("Name").TextColor3 = Color3.fromRGB(0,255,0)
+    else  
+    par:FindFirstChild("Name").TextColor3 = Color3.fromRGB(255,0,0)
+    end
+end
+function refreshPlayersList()
     -- Remove all existing sound buttons
     for _, button in ipairs(soundButtons) do
         button:Destroy()
@@ -513,10 +520,18 @@ function refreshSoundButtons()
 
     -- Create new sound buttons
     local blacklist = {}
-    for _, sound in ipairs(game.Players:GetPlayers()) do
-            addAllPlayers(sound, function(selectedSound)
-                return selectedSound
+    for _, v in pairs(game.Players:GetPlayers()) do
+            local BackPortAdd
+            BackPortAdd = addAllPlayers(v, function(selectedSound)
+              if _G.WHITELISTED[selectedSound] == nil then
+                  _G.WHITELISTED[selectedSound] = true
+                checkerIfPlayerOnWhite(selectedSound, BackPortAdd)
+              else
+                _G.WHITELISTED[selectedSound] = nil
+                checkerIfPlayerOnWhite(selectedSound, BackPortAdd)
+              end
             end)
+checkerIfPlayerOnWhite(v, BackPortAdd)
     end
 end
 
@@ -686,18 +701,6 @@ end)
 
 
 
--- Actual Script
---example:
-local other
-other = addButton("Made by: shuFEL", function()
-return
-end)
-other:WaitForChild("Name").TextColor = BrickColor.new(0,255,0)
-
-local other
-other = addButton("                                               ", function()
-return
-end)
 
 
 
@@ -747,6 +750,7 @@ end)--checking error
 
 spawn(function()
 while true do
+
   task.wait(1)
 if not success then
 notify(err, true)
