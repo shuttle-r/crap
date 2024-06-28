@@ -503,6 +503,7 @@ local function addAllPlayers(sound, funct)
     end)
     table.insert(soundButtons, newButton)
 end
+
 function addList(text, options, funct, ...) -- ADD CUSTOM ELEMENT INSTEAD
 	local newCombo = ComboBox:Clone()
 	local enabled = false
