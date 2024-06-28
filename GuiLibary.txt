@@ -592,10 +592,7 @@ function addList(text, options, funct, ...) -- ADD CUSTOM ELEMENT INSTEAD
     return newCombo
 end
 
--- Example usage
-addList("Whitelist", {}, function(name)
-    print(name .. " toggled whitelist status.")
-end)
+
 local function refreshSoundButtons()
     -- Remove all existing sound buttons
     for _, button in ipairs(soundButtons) do
