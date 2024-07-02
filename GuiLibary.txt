@@ -545,28 +545,30 @@ end
 
 
 function addToggle(name, funct, Loopspeed, enabled, ...)
-	local newTog = Toggle:Clone()
-	local args = {...}
-	newTog.MouseButton1Click:Connect(function()
-		enabled = not enabled
-		newTog:WaitForChild("Enabled"):WaitForChild("Check").Visible = enabled
-      funct(unpack(args))
-	end)
+    local newTog = Toggle:Clone()
+    local args = {...}
+    newTog.MouseButton1Click:Connect(function()
+        enabled = not enabled
+        newTog:WaitForChild("Enabled"):WaitForChild("Check").Visible = enabled
+        funct(enabled, unpack(args))  -- Pass the enabled state as the first argument
+    end)
 
-	newTog:WaitForChild("Enabled"):WaitForChild("Check").Visible = enabled
-	newTog:WaitForChild("Name").Text = name
+    newTog:WaitForChild("Enabled"):WaitForChild("Check").Visible = enabled
+    newTog:WaitForChild("Name").Text = name
 
-	newTog.Size = UDim2.new(0.95, 0, 0, element_height) -- Y1 = 50 : Y2 = X
-	newTog.Name = name
-	newTog.Parent = Menu
-	newTog.LayoutOrder = elements
-	newTog.Visible = true
+    newTog.Size = UDim2.new(0.95, 0, 0, element_height) -- Adjust size as needed
+    newTog.Name = name
+    newTog.Parent = Menu
+    newTog.LayoutOrder = elements
+    newTog.Visible = true
 
-	elements = elements + 1
-	addSpace(Menu)
+    elements = elements + 1
+    addSpace(Menu)
 
-	return newTog
-end-- end
+    return newTog
+end
+
+-- Example usage
 
 function addTextbox(name, funct,...)
 	local newBox = TextBoxMain:Clone()
