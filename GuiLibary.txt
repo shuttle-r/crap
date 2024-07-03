@@ -543,7 +543,19 @@ function refreshPlayersList()
     end
 end
 function manualcallwhitelist(whowhite)
-datasharebut.MouseButton1Click:Fire()
+    for _, player in pairs(game.Players:GetPlayers()) do
+         local button
+         button = datasharebut
+            local playerName = selectedPlayer.Name
+            if _G.WHITELISTED[playerName] then
+                _G.WHITELISTED[playerName] = nil
+            else
+                _G.WHITELISTED[playerName] = true
+            end
+        checkerIfPlayerOnWhite(player.Name, button)
+      datasharebut = button
+        checkerIfPlayerOnWhite(player.Name, button)
+    end
 end
 function manualcallunwhitelist(whowhite)
 
