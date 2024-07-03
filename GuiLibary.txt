@@ -3,7 +3,7 @@
   GUI MADE BY SPDM TEAM
   i borrow the gui because it's looks cool
 --]]
-print("guilib v1.1")
+print("guilib v1.2")
 
 
 local function notify(txt,Errored)
