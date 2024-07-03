@@ -514,7 +514,6 @@ local function addAllPlayers(player, funct)
 end
  local button 
 function checkerIfPlayerOnWhite(name, par)
-  button = nil
     if _G.WHITELISTED[name] then
         par:FindFirstChild("Name").TextColor3 = Color3.fromRGB(0, 255, 0)
     else
