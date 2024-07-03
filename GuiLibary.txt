@@ -545,10 +545,12 @@ end
 function manualcallwhitelist(whowhite)
 _G.WHITELISTED[whowhite] = true
  checkerIfPlayerOnWhite(whowhite, datasharebut)
+ refreshPlayersList()
 end
 function manualcallunwhitelist(whowhite)
 _G.WHITELISTED[whowhite] = nil
  checkerIfPlayerOnWhite(whowhite, datasharebut)
+ refreshPlayersList()
 end
 
 function addToggle(name, funct, Loopspeed, enabled, ...)
