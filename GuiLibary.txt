@@ -543,7 +543,7 @@ function refreshPlayersList()
     end
 end
 function manualcallwhitelist(whowhite)
-
+datasharebut.MouseButton1Click:Fire()
 end
 function manualcallunwhitelist(whowhite)
 
