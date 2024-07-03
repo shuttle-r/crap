@@ -533,15 +533,14 @@ function refreshPlayersList()
             local playerName = selectedPlayer.Name
             if _G.WHITELISTED[playerName] then
                 _G.WHITELISTED[playerName] = nil
-        checkerIfPlayerOnWhite(player.Name, _G.PlayersButtonWhute)
             else
                 _G.WHITELISTED[playerName] = true
-        checkerIfPlayerOnWhite(player.Name, _G.PlayersButtonWhute)
             end
         checkerIfPlayerOnWhite(player.Name, _G.PlayersButtonWhute)
         end)
         checkerIfPlayerOnWhite(player.Name, _G.PlayersButtonWhute)
     end
+    refreshPlayersList()
 end
 function manualcallwhitelist(whowhite)
   _G.WHITELISTED[whowhite] = true
