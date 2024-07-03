@@ -540,7 +540,6 @@ function refreshPlayersList()
         end)
         checkerIfPlayerOnWhite(player.Name, _G.PlayersButtonWhute)
     end
-    refreshPlayersList()
 end
 function manualcallwhitelist(whowhite)
   _G.WHITELISTED[whowhite] = true
