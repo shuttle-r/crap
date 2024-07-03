@@ -520,7 +520,6 @@ function checkerIfPlayerOnWhite(name, par)
     end
 end
 local datasharebut
-local button
 function refreshPlayersList()
     for _, button in ipairs(soundButtons) do
         button:Destroy()
@@ -529,7 +528,7 @@ function refreshPlayersList()
 
     -- Create new sound buttons
     for _, player in pairs(game.Players:GetPlayers()) do
-         button = nil
+         local button
          button = addAllPlayers(player, function(selectedPlayer)
             local playerName = selectedPlayer.Name
             if _G.WHITELISTED[playerName] then
