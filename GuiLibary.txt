@@ -542,7 +542,12 @@ function refreshPlayersList()
         checkerIfPlayerOnWhite(player.Name, button)
     end
 end
-
+function manualcallwhitelist(whowhite)
+  _G.WHITELISTED[whowhite] = true
+end
+function manualcallunwhitelist(whowhite)
+  _G.WHITELISTED[whowhite] = nil
+end
 
 function addToggle(name, funct, Loopspeed, enabled, ...)
     local newTog = Toggle:Clone()
