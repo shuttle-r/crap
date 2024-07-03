@@ -522,6 +522,7 @@ function checkerIfPlayerOnWhite(name, par)
 end
 
 function refreshPlayersList()
+  button = nil
     for _, button in ipairs(soundButtons) do
         button:Destroy()
     end
