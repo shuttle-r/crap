@@ -3,7 +3,7 @@
   GUI MADE BY SPDM TEAM
   i borrow the gui because it's looks cool
 --]]
-print("guilib v1.2")
+print("guilib v1.1.2")
 
 
 local function notify(txt,Errored)
@@ -519,7 +519,7 @@ function checkerIfPlayerOnWhite(name, par)
         par:FindFirstChild("Name").TextColor3 = Color3.fromRGB(255, 0, 0)
     end
 end
-
+_G.PlayersButtonWhute = "Nil"
 function refreshPlayersList()
     for _, button in ipairs(soundButtons) do
         button:Destroy()
