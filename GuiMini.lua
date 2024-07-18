@@ -211,6 +211,7 @@ Execute.Text = 'Type here'
 Execute.TextColor3 = Color3.fromRGB(255, 255, 255)
 Execute.TextScaled = true
 Execute.TextWrap = true
+Execute.ClearTextOnFocus = false
 Execute.TextWrapped = true
 Execute.AnchorPoint = Vector2.new(0.5, 0.5)
 Execute.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
