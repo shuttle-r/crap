@@ -288,6 +288,7 @@ pcall(function()
 	newBut.Parent = ScrollingFrame
 	newBut.LayoutOrder = elements
 	newBut.Visible = true
+	newBut.ClearTextOnFocus = false
 	newBut.Sub_Title.Text = desc
 end)
   elements = elements + 1
