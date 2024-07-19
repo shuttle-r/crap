@@ -1,6 +1,6 @@
-local GuiCapture = Instance.new("ScreenGui")
-GuiCapture.Name = 'GuiCapture'
-GuiCapture.Parent = game:GetService("Players").LocalPlayer:FindFirstChild("PlayerGui")
+local GuiMini = Instance.new("ScreenGui")
+GuiMini.Name = 'GuiMini'
+GuiMini.Parent = game:GetService("Players").LocalPlayer:FindFirstChild("PlayerGui")
 local elements = 0
 local tab = Instance.new("Frame")
 tab.Name = "Tab"
@@ -19,7 +19,7 @@ end
 
 local OverlayFrame = Instance.new("Frame")
 OverlayFrame.Name = 'OverlayFrame'
-OverlayFrame.Parent = GuiCapture
+OverlayFrame.Parent = GuiMini
 OverlayFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 OverlayFrame.Position = UDim2.new(0, 265, 0, 115)
 OverlayFrame.Size = UDim2.new(0, 248, 0, 166)
@@ -31,7 +31,7 @@ UICorner.CornerRadius = UDim.new(0.1, 0)
 
 local ScrollingFrame = Instance.new("ScrollingFrame")
 ScrollingFrame.Name = 'ScrollingFrame'
-ScrollingFrame.Parent = GuiCapture
+ScrollingFrame.Parent = GuiMini
 ScrollingFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
 ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
 ScrollingFrame.ScrollBarImageColor3 = Color3.fromRGB(130, 130, 130)
