@@ -7,6 +7,47 @@ tab.Name = "Tab"
 tab.Visible = false
 tab.BackgroundTransparency = 1
 tab.Size = UDim2.new(0.95, 0, 0.025, 0)
+local function makeDraggable(object)
+	local dragging = false
+	local relative = nil
+
+	local offset = Vector2.zero
+	local screenGui = object:FindFirstAncestorWhichIsA("ScreenGui")
+	if screenGui and screenGui.IgnoreGuiInset then
+		offset = offset + guiService:GetGuiInset()
+	end
+
+	object.InputBegan:Connect(function(input, processed)
+		if processed then return end
+
+		local inputType = input.UserInputType.Name
+		if inputType == "MouseButton1" or inputType == "Touch" then
+			relative = object.AbsolutePosition + object.AbsoluteSize * object.AnchorPoint - userInputService:GetMouseLocation()
+			dragging = true
+		end
+	end)
+
+	local inputEnded = userInputService.InputEnded:Connect(function(input)
+		if not dragging then return end
+
+		local inputType = input.UserInputType.Name
+		if inputType == "MouseButton1" or inputType == "Touch" then
+			dragging = false
+		end
+	end)
+
+	local renderStepped = runService.RenderStepped:Connect(function()
+		if dragging then
+			local position = userInputService:GetMouseLocation() + relative + offset
+			object.Position = UDim2.fromOffset(position.X, position.Y)
+		end
+	end)
+
+	object.Destroying:Connect(function()
+		inputEnded:Disconnect()
+		renderStepped:Disconnect()
+	end)
+end
 
 local function addSpace(parent)
 	local space = tab:Clone()
