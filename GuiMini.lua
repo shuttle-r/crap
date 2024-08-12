@@ -68,6 +68,7 @@ OverlayFrame.Parent = GuiMini
 OverlayFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 OverlayFrame.Position = UDim2.new(0, 265, 0, 115)
 OverlayFrame.Size = UDim2.new(0, 248, 0, 166)
+OverlayFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 makeDraggable(OverlayFrame)
 local UICorner = Instance.new("UICorner")
 UICorner.Name = 'UICorner'
