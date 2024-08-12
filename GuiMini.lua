@@ -64,7 +64,7 @@ OverlayFrame.Parent = GuiMini
 OverlayFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 OverlayFrame.Position = UDim2.new(0, 265, 0, 115)
 OverlayFrame.Size = UDim2.new(0, 248, 0, 166)
-
+makeDraggable(OverlayFrame)
 local UICorner = Instance.new("UICorner")
 UICorner.Name = 'UICorner'
 UICorner.Parent = OverlayFrame
@@ -83,7 +83,10 @@ ScrollingFrame.BackgroundColor3 = Color3.fromRGB(217, 217, 217)
 ScrollingFrame.BackgroundTransparency = 1
 ScrollingFrame.Position = UDim2.new(0, 389, 0, 198)
 ScrollingFrame.Size = UDim2.new(0, 248, 0, 166)
-
+local ScrollDraggerF = OverlayFrame
+ScrollDraggerF:GetPropertyChangedSignal("Position"):Connect(function()
+ScrollingFrame.Position = ScrollDraggerF.Position
+end)
 
 local ButtonUI = Instance.new("Frame")
 ButtonUI.Name = 'ButtonUI'
