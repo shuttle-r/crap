@@ -7,6 +7,10 @@ tab.Name = "Tab"
 tab.Visible = false
 tab.BackgroundTransparency = 1
 tab.Size = UDim2.new(0.95, 0, 0.025, 0)
+local userInputService = game:GetService("UserInputService")
+local runService = game:GetService("RunService")
+local guiService = game:GetService("GuiService")
+ 
 local function makeDraggable(object)
 	local dragging = false
 	local relative = nil
