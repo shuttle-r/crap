@@ -1699,7 +1699,7 @@ local function CRAHIDW_fake_script() -- ConfirmButton.LocalScript
 	local script = Instance.new('LocalScript', ConfirmButton)
 
 	script.Parent.MouseButton1Click:Connect(function()
-		script.Parent.Parent.Parent.Parent.Parent.Parent:Destroy()
+		shufelMain:Destroy()
 	end)
 	
 end
@@ -1805,6 +1805,7 @@ coroutine.wrap(RMMEH_fake_script)()
 			local WhiteGui = game:GetService("Players").LocalPlayer.PlayerGui.shufelMain.MainGui.WhiteGui
 			local coun = 0
 			sidebar.MouseButton1Click:Connect(function()
+			Title_2.Text = _G.Guimaid.." | "..whichsidebaron
 				for i,v in pairs(WhiteGui:GetChildren()) do 
 					if v:IsA("ScrollingFrame") then
 						if osname == v.Name then
@@ -1877,7 +1878,7 @@ coroutine.wrap(RMMEH_fake_script)()
 	createvalue.Parent = StableButtons.ToggleGui.ToggleButton
     createvalue.Name = "Value"
 
-	local function addToggle(osnameparent, osimagelogo, ostext, ossubtitle, callback)
+	function addToggle(osnameparent, osimagelogo, ostext, ossubtitle, callback)
 		local button = StableButtons.ToggleGui:Clone()
 	local ts,ti = game.TweenService,TweenInfo.new(.5,Enum.EasingStyle.Quint)
 	local on1,on2,off1,off2 = ts:Create(button.ToggleButton.Element.Fill,ti,{ImageTransparency=0}), ts:Create(button.ToggleButton.Element.Knob,ti,{Position=UDim2.new(0.35,0,0.5,0)}),ts:Create(button.ToggleButton.Element.Fill,ti,{ImageTransparency=1}), ts:Create(button.ToggleButton.Element.Knob,ti,{Position=UDim2.new(0,-3,.5,0)})
