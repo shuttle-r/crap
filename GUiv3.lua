@@ -2108,7 +2108,7 @@ coroutine.wrap(RMMEH_fake_script)()
 	
 	end
 
-	function addInfo(osnameparent, ostext, ossubtitle,)
+	function addInfo(osnameparent, ostext, ossubtitle)
 		local button = StableButtons.InfoGui:Clone()
 		
 		button.Parent = localplayergui.MainGui.WhiteGui[osnameparent]
