@@ -1684,6 +1684,60 @@ UIListLayout_8.Parent = NotiFrame
 UIListLayout_8.SortOrder = Enum.SortOrder.LayoutOrder
 UIListLayout_8.Padding = UDim.new(0, 3)
 
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local InfoGui = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local Title = Instance.new("TextLabel")
+local SubTitle = Instance.new("TextLabel")
+
+--Properties:
+
+InfoGui.Name = "InfoGui"
+InfoGui.Parent = StableButton
+InfoGui.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+InfoGui.BorderColor3 = Color3.fromRGB(50, 50, 50)
+InfoGui.BorderSizePixel = 0
+InfoGui.Position = UDim2.new(0.000395292969, 0, 0, 0)
+InfoGui.Size = UDim2.new(1.00000322, 0, 0.146725625, 0)
+InfoGui.Visible = false
+
+UICorner.CornerRadius = UDim.new(0, 20)
+UICorner.Parent = InfoGui
+
+Title.Name = "Title"
+Title.Parent = InfoGui
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Title.BorderSizePixel = 0
+Title.Position = UDim2.new(0.400460213, 0, 0.191147089, 0)
+Title.Size = UDim2.new(0.20181112, 0, 0.362318844, 0)
+Title.Font = Enum.Font.Ubuntu
+Title.Text = "Title"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextWrapped = true
+
+SubTitle.Name = "SubTitle"
+SubTitle.Parent = Title
+SubTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SubTitle.BackgroundTransparency = 1.000
+SubTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SubTitle.BorderSizePixel = 0
+SubTitle.Position = UDim2.new(-0.00624612672, 0, 0.961002171, 0)
+SubTitle.Size = UDim2.new(1, 0, 0.600000024, 0)
+SubTitle.Font = Enum.Font.Ubuntu
+SubTitle.Text = "This is a title for this section"
+SubTitle.TextColor3 = Color3.fromRGB(122, 122, 122)
+SubTitle.TextScaled = true
+SubTitle.TextSize = 14.000
+SubTitle.TextWrapped = true
+
 -- Scripts:
 
 local function JDGDRB_fake_script() -- CancelButton.LocalScript 
@@ -2052,5 +2106,27 @@ coroutine.wrap(RMMEH_fake_script)()
 		end)
 		return notification
 	
+	end
+
+	function addInfo(osnameparent, osimagelogo, ostext, ossubtitle,)
+		local button = StableButtons.InfoGui:Clone()
+		
+		button.Parent = localplayergui.MainGui.WhiteGui[osnameparent]
+		button.Name = ostext
+		for i, v in pairs(automaticselectionimage) do
+			if (string.sub(string.lower(i),1,string.len(osimagelogo))) == string.lower(osimagelogo) then
+				button.Logo.Image = v[1]
+				local offset = string.split(v[2], ",")
+				button.Logo.ImageRectOffset = Vector2.new(tonumber(offset[1]), tonumber(offset[2]))
+				local size = string.split(v[3], ",")
+				button.Logo.ImageRectSize = Vector2.new(tonumber(size[1]), tonumber(size[2]))
+			end
+		end
+		
+		button.Title.Text = ostext
+		button.Title.SubTitle.Text = ossubtitle
+		button.Visible = true
+		
+		return button
 	end
 	
