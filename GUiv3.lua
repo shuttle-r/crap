@@ -2108,21 +2108,11 @@ coroutine.wrap(RMMEH_fake_script)()
 	
 	end
 
-	function addInfo(osnameparent, osimagelogo, ostext, ossubtitle,)
+	function addInfo(osnameparent, ostext, ossubtitle,)
 		local button = StableButtons.InfoGui:Clone()
 		
 		button.Parent = localplayergui.MainGui.WhiteGui[osnameparent]
 		button.Name = ostext
-		for i, v in pairs(automaticselectionimage) do
-			if (string.sub(string.lower(i),1,string.len(osimagelogo))) == string.lower(osimagelogo) then
-				button.Logo.Image = v[1]
-				local offset = string.split(v[2], ",")
-				button.Logo.ImageRectOffset = Vector2.new(tonumber(offset[1]), tonumber(offset[2]))
-				local size = string.split(v[3], ",")
-				button.Logo.ImageRectSize = Vector2.new(tonumber(size[1]), tonumber(size[2]))
-			end
-		end
-		
 		button.Title.Text = ostext
 		button.Title.SubTitle.Text = ossubtitle
 		button.Visible = true
