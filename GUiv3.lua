@@ -181,6 +181,7 @@ local UIListLayout_8 = Instance.new("UIListLayout")
 
 shufelMain.Name = "shufelMain"
 shufelMain.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+shufelMain.ResetOnSpawn = false
 
 MainGui.Name = "MainGui"
 MainGui.Parent = shufelMain
