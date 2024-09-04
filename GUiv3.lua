@@ -176,6 +176,9 @@ local ImageLabel_7 = Instance.new("ImageLabel")
 local UIAspectRatioConstraint_30 = Instance.new("UIAspectRatioConstraint")
 local NotiFrame = Instance.new("Frame")
 local UIListLayout_8 = Instance.new("UIListLayout")
+local userInputService = game:GetService('UserInputService')
+local guiService = game:GetService("GuiService")
+local runService = game:GetService("RunService")
 local function makeDraggable(object)
 	local dragging = false
 	local relative = nil
