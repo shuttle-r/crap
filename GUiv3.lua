@@ -176,7 +176,47 @@ local ImageLabel_7 = Instance.new("ImageLabel")
 local UIAspectRatioConstraint_30 = Instance.new("UIAspectRatioConstraint")
 local NotiFrame = Instance.new("Frame")
 local UIListLayout_8 = Instance.new("UIListLayout")
+local function makeDraggable(object)
+	local dragging = false
+	local relative = nil
 
+	local offset = Vector2.zero
+	local screenGui = object:FindFirstAncestorWhichIsA("ScreenGui")
+	if screenGui and screenGui.IgnoreGuiInset then
+		offset += guiService:GetGuiInset()
+	end
+
+	object.InputBegan:Connect(function(input, processed)
+		if processed then return end
+
+		local inputType = input.UserInputType.Name
+		if inputType == "MouseButton1" or inputType == "Touch" then
+			relative = object.AbsolutePosition + object.AbsoluteSize * object.AnchorPoint - userInputService:GetMouseLocation()
+			dragging = true
+		end
+	end)
+
+	local inputEnded = userInputService.InputEnded:Connect(function(input)
+		if not dragging then return end
+
+		local inputType = input.UserInputType.Name
+		if inputType == "MouseButton1" or inputType == "Touch" then
+			dragging = false
+		end
+	end)
+
+	local renderStepped = runService.RenderStepped:Connect(function()
+		if dragging then
+			local position = userInputService:GetMouseLocation() + relative + offset
+			object.Position = UDim2.fromOffset(position.X, position.Y)
+		end
+	end)
+
+	object.Destroying:Connect(function()
+		inputEnded:Disconnect()
+		renderStepped:Disconnect()
+	end)
+end
 --Properties:
 
 shufelMain.Name = "shufelMain"
@@ -191,6 +231,7 @@ MainGui.BorderSizePixel = 0
 MainGui.ClipsDescendants = true
 MainGui.Position = UDim2.new(0.15942052, 0, 0.10865289, 0)
 MainGui.Size = UDim2.new(0.680098712, 0, 0.782336533, 0)
+makeDraggable(MainGui)
 
 UICorner.CornerRadius = UDim.new(0, 20)
 UICorner.Parent = MainGui
@@ -1605,6 +1646,7 @@ OpenMenuMain.BorderSizePixel = 0
 OpenMenuMain.ClipsDescendants = true
 OpenMenuMain.Position = UDim2.new(0.428502262, 0, 0.413793117, 0)
 OpenMenuMain.Size = UDim2.new(0.143000007, 0, 0, 0)
+makeDraggable(OpenMenuMain)
 
 UICorner_20.CornerRadius = UDim.new(0, 20)
 UICorner_20.Parent = OpenMenuMain
