@@ -516,6 +516,7 @@ SelectionLeft.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 SelectionLeft.BackgroundTransparency = 1.000
 SelectionLeft.BorderColor3 = Color3.fromRGB(0, 0, 0)
 SelectionLeft.BorderSizePixel = 0
+SelectionLeft.AutomaticCanvasSize = 2
 SelectionLeft.Position = UDim2.new(0, 0, 0.148888886, 0)
 SelectionLeft.Size = UDim2.new(0.0640870556, 0, 0.715555608, 0)
 SelectionLeft.CanvasSize = UDim2.new(0, 0, 0, 0)
@@ -1632,6 +1633,7 @@ LayoutFrame.Size = UDim2.new(1, 0, 0, 0)
 LayoutFrame.Visible = false
 LayoutFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
 LayoutFrame.HorizontalScrollBarInset = Enum.ScrollBarInset.ScrollBar
+LayoutFrame.AutomaticCanvasSize = 2
 LayoutFrame.ScrollBarThickness = 1
 
 UIListLayout_7.Parent = LayoutFrame
