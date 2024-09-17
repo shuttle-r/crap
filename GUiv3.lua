@@ -234,7 +234,7 @@ MainGui.BorderSizePixel = 0
 MainGui.ClipsDescendants = true
 MainGui.Position = UDim2.new(0.15942052, 0, 0.10865289, 0)
 MainGui.Size = UDim2.new(0.680098712, 0, 0.782336533, 0)
-makeDraggable("MainGui")
+makeDraggable(MainGui)
 UICorner.CornerRadius = UDim.new(0, 20)
 UICorner.Parent = MainGui
 
