@@ -1915,7 +1915,7 @@ coroutine.wrap(RMMEH_fake_script)()
 		local sidebar = StableSidebarButtons.Home:Clone()
 		local layoutsccrollingframe = StableSidebarButtons.LayoutFrame:Clone()
 		
-			local WhiteGui = game:GetService("Players").LocalPlayer.PlayerGui.shufelMain.MainGui.WhiteGui
+			local WhiteGui = shufelMain.MainGui.WhiteGui
 			local coun = 0
 			sidebar.MouseButton1Click:Connect(function()
 			Title_2.Text = _G.Guimaid.." | "..whichsidebaron
