@@ -222,8 +222,20 @@ local function makeDraggable(object)
 end
 --Properties:
 
+local function SystemBlock()
+	local success, parent = pcall(function()
+		return gethui()
+	end)
+
+	if not success then
+		return game:GetService("CoreGui")
+	end
+
+	return parent
+end
+
 shufelMain.Name = "shufelMain"
-shufelMain.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+shufelMain.Parent = SystemBlock()
 shufelMain.ResetOnSpawn = false
 
 MainGui.Name = "MainGui"
