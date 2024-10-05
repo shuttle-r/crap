@@ -1881,7 +1881,7 @@ end
 coroutine.wrap(RMMEH_fake_script)()
 
 
-	local localplayergui = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("shufelMain")
+	local localplayergui = shufelMain
 	local StableSidebarButtons = localplayergui.StableSidebarButtons
 	local StableButtons = localplayergui.StableButton
 	
