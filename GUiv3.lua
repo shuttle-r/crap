@@ -1831,11 +1831,11 @@ local function UVEUZU_fake_script() -- Hide.LocalScript
 	local MainGui = script.Parent.Parent
 	local openmenugui = script.Parent.Parent.Parent.OpenMenuMain
 	script.Parent.MouseButton1Click:Connect(function()
-		local ts, ti = game.TweenService,TweenInfo.new(.5,Enum.EasingStyle.Quint)
+		local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
 		local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0, 0)})
 		off:Play()
 		
-		local ts1, ti1 = game.TweenService,TweenInfo.new(.5,Enum.EasingStyle.Quint)
+		local ts1, ti1 = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
 		local on = ts1:Create(openmenugui, ti1, {Size = UDim2.new(0.143, 0, 0.172, 0)})
 		on:Play()
 	end)
@@ -1849,11 +1849,11 @@ local function VMZQMBM_fake_script() -- SystemAbout_2.LocalScript
 		for i,v in pairs(WhiteGui:GetChildren()) do 
 			if v:IsA("ScrollingFrame") then
 				if script.Parent.Name == v.Name then
-					local ts, ti = game.TweenService,TweenInfo.new(.5,Enum.EasingStyle.Quint)
+					local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
 					local off = ts:Create(v, ti, {Size = UDim2.new(1, 0, 1, 0)})
 					off:Play()
 				elseif script.Parent.Name ~= v.Name then
-					local ts1, ti1 = game.TweenService,TweenInfo.new(.5,Enum.EasingStyle.Quint)
+					local ts1, ti1 = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
 					local off1 = ts1:Create(v, ti1, {Size = UDim2.new(1, 0, 0, 0)})
 					off1:Play()
 				end
@@ -1868,11 +1868,11 @@ local function RMMEH_fake_script() -- ImageButton_7.LocalScript
 	local MainGui = script.Parent.Parent.Parent.MainGui
 	local openmenugui = script.Parent.Parent
 	script.Parent.MouseButton1Click:Connect(function()
-		local ts, ti = game.TweenService,TweenInfo.new(.5,Enum.EasingStyle.Quint)
+		local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
 		local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0.782, 0)})
 		off:Play()
 	
-		local ts1, ti1 = game.TweenService,TweenInfo.new(.5,Enum.EasingStyle.Quint)
+		local ts1, ti1 = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
 		local on = ts1:Create(openmenugui, ti1, {Size = UDim2.new(0.143, 0, 0, 0)})
 		on:Play()
 	
@@ -1927,16 +1927,16 @@ coroutine.wrap(RMMEH_fake_script)()
 								coun = i
 							end
 							if coun <= 1 then
-								local ts, ti = game.TweenService,TweenInfo.new(.5,Enum.EasingStyle.Quint)
+								local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
 								local off = ts:Create(WhiteGui.SystemPageEmpty, ti, {Size = UDim2.new(1, 0, 1, 0)})
 								off:Play()
 							elseif coun >= 1 then
-								local ts, ti = game.TweenService,TweenInfo.new(.5,Enum.EasingStyle.Quint)
+								local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
 								local off = ts:Create(v, ti, {Size = UDim2.new(1, 0, 1, 0)})
 								off:Play()
 							end
 						elseif osname ~= v.Name then
-							local ts1, ti1 = game.TweenService,TweenInfo.new(.5,Enum.EasingStyle.Quint)
+							local ts1, ti1 = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
 							local off1 = ts1:Create(v, ti1, {Size = UDim2.new(1, 0, 0, 0)})
 							off1:Play()
 						end
@@ -1993,7 +1993,7 @@ coroutine.wrap(RMMEH_fake_script)()
 
 	function addToggle(osnameparent, osimagelogo, ostext, ossubtitle, callback)
 		local button = StableButtons.ToggleGui:Clone()
-	local ts,ti = game.TweenService,TweenInfo.new(.5,Enum.EasingStyle.Quint)
+	local ts,ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
 	local on1,on2,off1,off2 = ts:Create(button.ToggleButton.Element.Fill,ti,{ImageTransparency=0}), ts:Create(button.ToggleButton.Element.Knob,ti,{Position=UDim2.new(0.35,0,0.5,0)}),ts:Create(button.ToggleButton.Element.Fill,ti,{ImageTransparency=1}), ts:Create(button.ToggleButton.Element.Knob,ti,{Position=UDim2.new(0,-3,.5,0)})
 	local state = button.ToggleButton.Element:GetAttribute("state")
 
@@ -2071,7 +2071,7 @@ coroutine.wrap(RMMEH_fake_script)()
 		local ImageButton = button.ImageButton
 		local dropmenu = ImageButton.Dropmenu
 		local ImActive = false
-		local ts, ti = game.TweenService,TweenInfo.new(.5,Enum.EasingStyle.Quint)
+		local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
 		local on = ts:Create(ImageButton.Dropmenu, ti, {Size = UDim2.new(6.1, 0, 0, 0)})
 		local off = ts:Create(ImageButton.Dropmenu, ti, {Size = UDim2.new(6.1, 0, 0, 0)})
 		ImageButton.Dropmenu.Size = UDim2.new(6.1, 0, 0, 0)
@@ -2152,19 +2152,18 @@ coroutine.wrap(RMMEH_fake_script)()
 			end
 		end
 		task.spawn(function()
-		local ts, ti = game.TweenService,TweenInfo.new(.5,Enum.EasingStyle.Quint)
+		local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
 		local off = ts:Create(notification, ti, {Size = UDim2.new(0.993, 0, 0.99, 0)})
 		off:Play()
 		off.Completed:Wait(2)
 		task.wait(3)
-		local ts, ti = game.TweenService,TweenInfo.new(.5,Enum.EasingStyle.Quint)
+		local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
 		local off = ts:Create(notification, ti, {Size = UDim2.new(0, 0, 0.99, 0)})
 		off:Play()
 		off.Completed:Wait(2)
 		notification:Destroy()
 		end)
 		return notification
-	
 	end
 
 	function addInfo(osnameparent, ostext, ossubtitle)
