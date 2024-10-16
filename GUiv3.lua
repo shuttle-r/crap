@@ -1696,7 +1696,7 @@ ImageButton_7.ImageRectOffset = Vector2.new(396, 222)
 ImageButton_7.ImageRectSize = Vector2.new(72, 72)
 ImageButton_7.ImageTransparency = 0.750
 ImageButton_7.ScaleType = Enum.ScaleType.Fit
-ImageLabel_7.MouseButton1Click:Connect(function()
+ImageButton_7.MouseButton1Click:Connect(function()
 		local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
 		local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0.782, 0)})
 		off:Play()
