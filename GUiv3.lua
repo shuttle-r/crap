@@ -235,260 +235,6 @@ local function SystemBlock()
 end
 
 
--- Gui to Lua
--- Version: 3.2
-
--- Instances:
-
-local checkerGui = Instance.new("ScreenGui")
-local CheckMainGui = Instance.new("Frame")
-local FunnYUI = Instance.new("UICorner")
-local CheckerOut = Instance.new("ScrollingFrame")
-local randomUILIST = Instance.new("UIListLayout")
-local idkISTHIS = Instance.new("TextLabel")
-local RandomLine = Instance.new("Frame")
-local Checker = Instance.new("Folder")
-local Loading = Instance.new("ImageLabel")
-local CheckIF = Instance.new("TextLabel")
-local Loading2 = Instance.new("ImageLabel")
-local CheckIF_2 = Instance.new("TextLabel")
-
---Properties:
-
-checkerGui.Name = "checkerGui"
-checkerGui.Parent = SystemBlock()
-
-CheckMainGui.Name = "CheckMainGui"
-CheckMainGui.Parent = checkerGui
-CheckMainGui.AnchorPoint = Vector2.new(0.5, 0.5)
-CheckMainGui.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
-CheckMainGui.BorderColor3 = Color3.fromRGB(0, 0, 0)
-CheckMainGui.BorderSizePixel = 0
-CheckMainGui.ClipsDescendants = true
-CheckMainGui.Position = UDim2.new(0.5, 0, 0.498908311, 0)
-CheckMainGui.Size = UDim2.new(0.437000006, 0, 0, 0)
-CheckMainGui.Visible = false
-
-FunnYUI.Name = "FunnYUI"
-FunnYUI.Parent = CheckMainGui
-
-CheckerOut.Name = "CheckerOut"
-CheckerOut.Parent = CheckMainGui
-CheckerOut.Active = true
-CheckerOut.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-CheckerOut.BackgroundTransparency = 1.000
-CheckerOut.BorderColor3 = Color3.fromRGB(0, 0, 0)
-CheckerOut.BorderSizePixel = 0
-CheckerOut.Position = UDim2.new(0.0319779143, 0, 0.150655016, 0)
-CheckerOut.Size = UDim2.new(0.94227016, 0, 0.77729255, 0)
-
-randomUILIST.Name = "randomUILIST"
-randomUILIST.Parent = CheckerOut
-randomUILIST.SortOrder = Enum.SortOrder.LayoutOrder
-randomUILIST.Padding = UDim.new(0, 5)
-
-idkISTHIS.Name = "idkISTHIS"
-idkISTHIS.Parent = CheckMainGui
-idkISTHIS.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-idkISTHIS.BackgroundTransparency = 1.000
-idkISTHIS.BorderColor3 = Color3.fromRGB(0, 0, 0)
-idkISTHIS.BorderSizePixel = 0
-idkISTHIS.Position = UDim2.new(0.0665950477, 0, 0.0327510908, 0)
-idkISTHIS.Size = UDim2.new(0.300930887, 0, 0.109170303, 0)
-idkISTHIS.Font = Enum.Font.SourceSans
-idkISTHIS.Text = "Checking..."
-idkISTHIS.TextColor3 = Color3.fromRGB(255, 255, 255)
-idkISTHIS.TextSize = 14.000
-idkISTHIS.TextXAlignment = Enum.TextXAlignment.Left
-
-RandomLine.Name = "RandomLine"
-RandomLine.Parent = CheckMainGui
-RandomLine.BackgroundColor3 = Color3.fromRGB(104, 104, 104)
-RandomLine.BorderColor3 = Color3.fromRGB(0, 0, 0)
-RandomLine.BorderSizePixel = 0
-RandomLine.Position = UDim2.new(0.0319779143, 0, 0.141921401, 0)
-RandomLine.Size = UDim2.new(0.942268908, 0, 0.00873362459, 0)
-
-Checker.Name = "Checker"
-Checker.Parent = checkerGui
-
-Loading.Name = "Loading"
-Loading.Parent = Checker
-Loading.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Loading.BackgroundTransparency = 1.000
-Loading.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Loading.BorderSizePixel = 0
-Loading.Size = UDim2.new(0.0562995672, 0, 0.0497109815, 0)
-Loading.Image = "rbxassetid://14976970435"
-Loading.ImageRectOffset = Vector2.new(146, 724)
-Loading.ImageRectSize = Vector2.new(144, 144)
-Loading.Visible = false
-
-
-CheckIF.Name = "CheckIF"
-CheckIF.Parent = Loading
-CheckIF.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-CheckIF.BackgroundTransparency = 1.000
-CheckIF.BorderColor3 = Color3.fromRGB(0, 0, 0)
-CheckIF.BorderSizePixel = 0
-CheckIF.Position = UDim2.new(1.27280569, 0, 0.0589519665, 0)
-CheckIF.Size = UDim2.new(16.4893208, 0, 0.941047966, 0)
-CheckIF.Font = Enum.Font.SourceSans
-CheckIF.Text = "Checking..."
-CheckIF.TextColor3 = Color3.fromRGB(255, 255, 255)
-CheckIF.TextScaled = true
-CheckIF.TextSize = 17.000
-CheckIF.TextWrapped = true
-CheckIF.TextXAlignment = Enum.TextXAlignment.Left
-
-Loading2.Name = "Loading2"
-Loading2.Parent = Checker
-Loading2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Loading2.BackgroundTransparency = 1.000
-Loading2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Loading2.BorderSizePixel = 0
-Loading2.Size = UDim2.new(0.0562995672, 0, 0.0497109815, 0)
-Loading2.Image = "rbxassetid://16884179507"
-Loading2.ImageRectOffset = Vector2.new(778, 50)
-Loading2.ImageRectSize = Vector2.new(48, 48)
-Loading2.Visible = false
-
-CheckIF_2.Name = "CheckIF"
-CheckIF_2.Parent = Loading2
-CheckIF_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-CheckIF_2.BackgroundTransparency = 1.000
-CheckIF_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-CheckIF_2.BorderSizePixel = 0
-CheckIF_2.Position = UDim2.new(1.27280569, 0, 0.0589519665, 0)
-CheckIF_2.Size = UDim2.new(16.4893208, 0, 0.941047966, 0)
-CheckIF_2.Font = Enum.Font.SourceSans
-CheckIF_2.Text = "Checking..."
-CheckIF_2.TextColor3 = Color3.fromRGB(255, 255, 255)
-CheckIF_2.TextScaled = true
-CheckIF_2.TextSize = 17.000
-CheckIF_2.TextWrapped = true
-CheckIF_2.TextXAlignment = Enum.TextXAlignment.Left
-
--- Scripts:
-	--rbxassetid://16884179507
-	--578, 50
-	--48, 48
-	
-	--rbxassetid://16884179507
-	--928, 0
-	--48, 48
-	function CheckFunctionOutput(Name, Function, exit)
-		local res = nil
-		CheckMainGui.Visible = true
-		local ts, ti = game:GetService("TweenService"), TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local on = ts:Create(CheckMainGui, ti, {Size = UDim2.new(0.437, 0, 0.5, 0)})
-		on:Play()
-	
-		if exit == true then
-			task.spawn(function()
-				task.wait(1.5)
-				local ts, ti = game:GetService("TweenService"), TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-				local on = ts:Create(CheckMainGui, ti, {Size = UDim2.new(0.437, 0, 0, 0)})
-				on:Play()
-				task.wait(5)
-				CheckMainGui:Destroy()
-			end)
-		end
-	
-		local UIchecker = Checker.Loading:Clone()
-		UIchecker.Parent = CheckMainGui.CheckerOut
-		UIchecker.Name = tostring(Name) .. " | Output: " .. tostring(Function)
-		UIchecker.CheckIF.Text = tostring(Name) .. " | Output: " .. tostring(Function)
-	
-		-- Check if the function is valid and execute it
-		local success, result = pcall(function()
-			if typeof(Function) == "function" then
-				return Function()  -- Execute the function and capture the result
-			end
-		end)
-	
-		task.wait(0.5)
-		if success then
-			UIchecker.Image = "rbxassetid://16884179507"
-			UIchecker.ImageRectOffset = Vector2.new(578, 50)  -- Image for success
-			UIchecker.ImageRectSize = Vector2.new(48, 48)
-			res = result  -- Set result to the return value of the function
-		else
-			UIchecker.Image = "rbxassetid://16884179507"
-			UIchecker.ImageRectOffset = Vector2.new(928, 0)  -- Image for failure
-			UIchecker.ImageRectSize = Vector2.new(48, 48)
-			res = result  -- Set result to the error message
-		end
-	
-		return res  -- Return the function result or the error message
-	end
-
-	function CheckFunction(Name, Function, exit)
-	local res = nil
-	CheckMainGui.Visible = true
-	local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
-	local on = ts:Create(CheckMainGui, ti, {Size = UDim2.new(0.437, 0, 0.5, 0)})
-	on:Play()
-	if exit == true then
-		task.spawn(function()
-			task.wait(1.5)
-			local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
-			local on = ts:Create(CheckMainGui, ti, {Size = UDim2.new(0.437, 0, 0, 0)})
-			on:Play()
-			task.wait(5)
-			CheckMainGui:Destroy()
-		end)
-	end
-
-	local UIchecker = Checker.Loading:Clone()
-	UIchecker.Parent = CheckMainGui.CheckerOut
-	UIchecker.Name = tostring(Name).." | Output: "..tostring(Function)
-	UIchecker.CheckIF.Text = tostring(Name).." | Output: "..tostring(Function)
-
-	-- Check if the function is valid
-	local success, result = pcall(function() 
-		return typeof(Function) == "function"
-	end)
-	task.wait(0.5)
-	if success and result then
-		UIchecker.Image = "rbxassetid://16884179507"
-		UIchecker.ImageRectOffset = Vector2.new(578, 50)  -- Image for success
-		UIchecker.ImageRectSize = Vector2.new(48, 48)
-		res = true
-	else
-		UIchecker.Image = "rbxassetid://16884179507"
-		UIchecker.ImageRectOffset = Vector2.new(928, 0)  -- Image for failure
-		UIchecker.ImageRectSize = Vector2.new(48, 48)
-		res = false
-	end
-	
-	return res
-end
-	
-	function CheckInfo(Name, exit)
-		CheckMainGui.Visible = true
-		local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
-		local on = ts:Create(CheckMainGui, ti, {Size = UDim2.new(0.437, 0, 0.5, 0)})
-		on:Play()
-		if exit == true then
-			task.spawn(function()
-				task.wait(1.5)
-				local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
-				local on = ts:Create(CheckMainGui, ti, {Size = UDim2.new(0.437, 0, 0, 0)})
-				on:Play()
-				task.wait(5)
-				CheckMainGui:Destroy()
-			end)
-		end
-	
-		local UIchecker = Checker.Loading2:Clone()
-		UIchecker.Parent = CheckMainGui.CheckerOut
-		UIchecker.Name = tostring(Name)
-		UIchecker.CheckIF.Text = tostring(Name)
-		task.wait(0.5)
-	end
-
-
 shufelMain.Name = "shufelMain"
 shufelMain.Parent = SystemBlock()
 shufelMain.ResetOnSpawn = false
@@ -2398,3 +2144,277 @@ coroutine.wrap(RMMEH_fake_script)()
 		return button
 	end
 	
+
+    -- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local checkerGui = Instance.new("ScreenGui")
+local CheckMainGui = Instance.new("Frame")
+local FunnYUI = Instance.new("UICorner")
+local CheckerOut = Instance.new("ScrollingFrame")
+local randomUILIST = Instance.new("UIListLayout")
+local idkISTHIS = Instance.new("TextLabel")
+local RandomLine = Instance.new("Frame")
+local Checker = Instance.new("Folder")
+local Loading = Instance.new("ImageLabel")
+local CheckIF = Instance.new("TextLabel")
+local Loading2 = Instance.new("ImageLabel")
+local CheckIF_2 = Instance.new("TextLabel")
+
+--Properties:
+
+checkerGui.Name = "checkerGui"
+checkerGui.Parent = SystemBlock()
+
+CheckMainGui.Name = "CheckMainGui"
+CheckMainGui.Parent = checkerGui
+CheckMainGui.AnchorPoint = Vector2.new(0.5, 0.5)
+CheckMainGui.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+CheckMainGui.BorderColor3 = Color3.fromRGB(0, 0, 0)
+CheckMainGui.BorderSizePixel = 0
+CheckMainGui.ClipsDescendants = true
+CheckMainGui.Position = UDim2.new(0.5, 0, 0.498908311, 0)
+CheckMainGui.Size = UDim2.new(0.437000006, 0, 0, 0)
+CheckMainGui.Visible = false
+
+FunnYUI.Name = "FunnYUI"
+FunnYUI.Parent = CheckMainGui
+
+CheckerOut.Name = "CheckerOut"
+CheckerOut.Parent = CheckMainGui
+CheckerOut.Active = true
+CheckerOut.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+CheckerOut.BackgroundTransparency = 1.000
+CheckerOut.BorderColor3 = Color3.fromRGB(0, 0, 0)
+CheckerOut.BorderSizePixel = 0
+CheckerOut.Position = UDim2.new(0.0319779143, 0, 0.150655016, 0)
+CheckerOut.Size = UDim2.new(0.94227016, 0, 0.77729255, 0)
+
+randomUILIST.Name = "randomUILIST"
+randomUILIST.Parent = CheckerOut
+randomUILIST.SortOrder = Enum.SortOrder.LayoutOrder
+randomUILIST.Padding = UDim.new(0, 5)
+
+idkISTHIS.Name = "idkISTHIS"
+idkISTHIS.Parent = CheckMainGui
+idkISTHIS.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+idkISTHIS.BackgroundTransparency = 1.000
+idkISTHIS.BorderColor3 = Color3.fromRGB(0, 0, 0)
+idkISTHIS.BorderSizePixel = 0
+idkISTHIS.Position = UDim2.new(0.0665950477, 0, 0.0327510908, 0)
+idkISTHIS.Size = UDim2.new(0.300930887, 0, 0.109170303, 0)
+idkISTHIS.Font = Enum.Font.SourceSans
+idkISTHIS.Text = "Checking..."
+idkISTHIS.TextColor3 = Color3.fromRGB(255, 255, 255)
+idkISTHIS.TextSize = 14.000
+idkISTHIS.TextXAlignment = Enum.TextXAlignment.Left
+
+RandomLine.Name = "RandomLine"
+RandomLine.Parent = CheckMainGui
+RandomLine.BackgroundColor3 = Color3.fromRGB(104, 104, 104)
+RandomLine.BorderColor3 = Color3.fromRGB(0, 0, 0)
+RandomLine.BorderSizePixel = 0
+RandomLine.Position = UDim2.new(0.0319779143, 0, 0.141921401, 0)
+RandomLine.Size = UDim2.new(0.942268908, 0, 0.00873362459, 0)
+
+Checker.Name = "Checker"
+Checker.Parent = checkerGui
+
+Loading.Name = "Loading"
+Loading.Parent = Checker
+Loading.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Loading.BackgroundTransparency = 1.000
+Loading.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Loading.BorderSizePixel = 0
+Loading.Size = UDim2.new(0.0562995672, 0, 0.0497109815, 0)
+Loading.Image = "rbxassetid://14976970435"
+Loading.ImageRectOffset = Vector2.new(146, 724)
+Loading.ImageRectSize = Vector2.new(144, 144)
+Loading.Visible = false
+
+
+CheckIF.Name = "CheckIF"
+CheckIF.Parent = Loading
+CheckIF.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+CheckIF.BackgroundTransparency = 1.000
+CheckIF.BorderColor3 = Color3.fromRGB(0, 0, 0)
+CheckIF.BorderSizePixel = 0
+CheckIF.Position = UDim2.new(1.27280569, 0, 0.0589519665, 0)
+CheckIF.Size = UDim2.new(16.4893208, 0, 0.941047966, 0)
+CheckIF.Font = Enum.Font.SourceSans
+CheckIF.Text = "Checking..."
+CheckIF.TextColor3 = Color3.fromRGB(255, 255, 255)
+CheckIF.TextScaled = true
+CheckIF.TextSize = 17.000
+CheckIF.TextWrapped = true
+CheckIF.TextXAlignment = Enum.TextXAlignment.Left
+
+Loading2.Name = "Loading2"
+Loading2.Parent = Checker
+Loading2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Loading2.BackgroundTransparency = 1.000
+Loading2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Loading2.BorderSizePixel = 0
+Loading2.Size = UDim2.new(0.0562995672, 0, 0.0497109815, 0)
+Loading2.Image = "rbxassetid://16884179507"
+Loading2.ImageRectOffset = Vector2.new(778, 50)
+Loading2.ImageRectSize = Vector2.new(48, 48)
+Loading2.Visible = false
+
+CheckIF_2.Name = "CheckIF"
+CheckIF_2.Parent = Loading2
+CheckIF_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+CheckIF_2.BackgroundTransparency = 1.000
+CheckIF_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+CheckIF_2.BorderSizePixel = 0
+CheckIF_2.Position = UDim2.new(1.27280569, 0, 0.0589519665, 0)
+CheckIF_2.Size = UDim2.new(16.4893208, 0, 0.941047966, 0)
+CheckIF_2.Font = Enum.Font.SourceSans
+CheckIF_2.Text = "Checking..."
+CheckIF_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+CheckIF_2.TextScaled = true
+CheckIF_2.TextSize = 17.000
+CheckIF_2.TextWrapped = true
+CheckIF_2.TextXAlignment = Enum.TextXAlignment.Left
+
+-- Scripts:
+	--rbxassetid://16884179507
+	--578, 50
+	--48, 48
+	
+	--rbxassetid://16884179507
+	--928, 0
+	--48, 48
+	function CheckFunctionOutput(Name, Function, exit)
+		local res = nil
+		CheckMainGui.Visible = true
+        local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
+        local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0, 0)})
+        off:Play()
+		local ts, ti = game:GetService("TweenService"), TweenInfo.new(0.5, Enum.EasingStyle.Quint)
+		local on = ts:Create(CheckMainGui, ti, {Size = UDim2.new(0.437, 0, 0.5, 0)})
+		on:Play()
+	
+		if exit == true then
+			task.spawn(function()
+				task.wait(1.5)
+				local ts, ti = game:GetService("TweenService"), TweenInfo.new(0.5, Enum.EasingStyle.Quint)
+				local on = ts:Create(CheckMainGui, ti, {Size = UDim2.new(0.437, 0, 0, 0)})
+				on:Play()
+                local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
+                local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0.782, 0)})
+                off:Play()           
+				task.wait(5)
+				CheckMainGui:Destroy()
+			end)
+		end
+	
+		local UIchecker = Checker.Loading:Clone()
+		UIchecker.Parent = CheckMainGui.CheckerOut
+		UIchecker.Name = tostring(Name) .. " | Output: " .. tostring(Function)
+		UIchecker.CheckIF.Text = tostring(Name) .. " | Output: " .. tostring(Function)
+        UIchecker.Visible = true
+		-- Check if the function is valid and execute it
+		local success, result = pcall(function()
+			if typeof(Function) == "function" then
+				return Function()  -- Execute the function and capture the result
+			end
+		end)
+	
+		task.wait(0.5)
+		if success then
+			UIchecker.Image = "rbxassetid://16884179507"
+			UIchecker.ImageRectOffset = Vector2.new(578, 50)  -- Image for success
+			UIchecker.ImageRectSize = Vector2.new(48, 48)
+			res = result  -- Set result to the return value of the function
+		else
+			UIchecker.Image = "rbxassetid://16884179507"
+			UIchecker.ImageRectOffset = Vector2.new(928, 0)  -- Image for failure
+			UIchecker.ImageRectSize = Vector2.new(48, 48)
+			res = result  -- Set result to the error message
+		end
+	
+		return res  -- Return the function result or the error message
+	end
+
+	function CheckFunction(Name, Function, exit)
+	local res = nil
+	CheckMainGui.Visible = true
+    local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
+    local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0, 0)})
+    off:Play()
+	local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
+	local on = ts:Create(CheckMainGui, ti, {Size = UDim2.new(0.437, 0, 0.5, 0)})
+	on:Play()
+	if exit == true then
+		task.spawn(function()
+			task.wait(1.5)
+			local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
+			local on = ts:Create(CheckMainGui, ti, {Size = UDim2.new(0.437, 0, 0, 0)})
+			on:Play()
+            local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
+            local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0.782, 0)})
+            off:Play()
+        
+			task.wait(5)
+			CheckMainGui:Destroy()
+		end)
+	end
+
+	local UIchecker = Checker.Loading:Clone()
+	UIchecker.Parent = CheckMainGui.CheckerOut
+	UIchecker.Name = tostring(Name).." | Output: "..tostring(Function)
+	UIchecker.CheckIF.Text = tostring(Name).." | Output: "..tostring(Function)
+    UIchecker.Visible = true
+
+	-- Check if the function is valid
+	local success, result = pcall(function() 
+		return typeof(Function) == "function"
+	end)
+	task.wait(0.5)
+	if success and result then
+		UIchecker.Image = "rbxassetid://16884179507"
+		UIchecker.ImageRectOffset = Vector2.new(578, 50)  -- Image for success
+		UIchecker.ImageRectSize = Vector2.new(48, 48)
+		res = true
+	else
+		UIchecker.Image = "rbxassetid://16884179507"
+		UIchecker.ImageRectOffset = Vector2.new(928, 0)  -- Image for failure
+		UIchecker.ImageRectSize = Vector2.new(48, 48)
+		res = false
+	end
+	
+	return res
+end
+	
+	function CheckInfo(Name, exit)
+		CheckMainGui.Visible = true
+        local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
+        local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0, 0)})
+        off:Play()
+		local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
+		local on = ts:Create(CheckMainGui, ti, {Size = UDim2.new(0.437, 0, 0.5, 0)})
+		on:Play()
+		if exit == true then
+			task.spawn(function()
+				task.wait(1.5)
+				local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
+				local on = ts:Create(CheckMainGui, ti, {Size = UDim2.new(0.437, 0, 0, 0)})
+				on:Play()
+                local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
+                local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0.782, 0)})
+                off:Play()           
+				task.wait(5)
+				CheckMainGui:Destroy()
+			end)
+		end
+	
+		local UIchecker = Checker.Loading2:Clone()
+		UIchecker.Parent = CheckMainGui.CheckerOut
+		UIchecker.Name = tostring(Name)
+		UIchecker.CheckIF.Text = tostring(Name)
+        UIchecker.Visible = true
+		task.wait(0.5)
+	end
