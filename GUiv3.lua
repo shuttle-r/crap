@@ -1696,7 +1696,15 @@ ImageButton_7.ImageRectOffset = Vector2.new(396, 222)
 ImageButton_7.ImageRectSize = Vector2.new(72, 72)
 ImageButton_7.ImageTransparency = 0.750
 ImageButton_7.ScaleType = Enum.ScaleType.Fit
-
+ImageLabel_7.MouseButton1Click:Connect(function()
+		local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
+		local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0.782, 0)})
+		off:Play()
+	
+		local ts1, ti1 = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
+		local on = ts1:Create(OpenMenuMain, ti1, {Size = UDim2.new(0.143, 0, 0, 0)})
+		on:Play()
+end)
 UIAspectRatioConstraint_29.Parent = ImageButton_7
 UIAspectRatioConstraint_29.AspectRatio = 1.329
 
@@ -1835,25 +1843,12 @@ local function VMZQMBM_fake_script() -- SystemAbout_2.LocalScript
 	end)
 end
 coroutine.wrap(VMZQMBM_fake_script)()
-local function RMMEH_fake_script() -- ImageButton_7.LocalScript 
-	local script = Instance.new('LocalScript', ImageButton_7)
-
-	local MainGui = script.Parent.Parent.Parent.MainGui
-	local openmenugui = script.Parent.Parent
-	script.Parent.MouseButton1Click:Connect(function()
-		local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
-		local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0.782, 0)})
-		off:Play()
-	
-		local ts1, ti1 = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
-		local on = ts1:Create(openmenugui, ti1, {Size = UDim2.new(0.143, 0, 0, 0)})
-		on:Play()
-	
-	end)
-end
-coroutine.wrap(RMMEH_fake_script)()
+local createvalue = Instance.new("BoolValue")
+createvalue.Parent = shufelMain.StableButton
+createvalue.Name = "Value"
 
 	local StableButtons = shufelMain.StableButton
+	
 	local automaticselectionimage = {
 		Home = {"rbxassetid://16884179038", "220,688", "108,108"},
 		More = {"rbxassetid://16884179038", "908,550", "108,108"},
@@ -1956,9 +1951,7 @@ coroutine.wrap(RMMEH_fake_script)()
 		
 		return button
 	end
-	local createvalue = Instance.new("BoolValue")
-createvalue.Parent = StableButtons.ToggleGui.ToggleButton
-createvalue.Name = "Value"
+
 	function addToggle(osnameparent, osimagelogo, ostext, ossubtitle, callback)
 		local button = StableButtons.ToggleGui:Clone()
 	local ts,ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
