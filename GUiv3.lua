@@ -1852,8 +1852,8 @@ local function RMMEH_fake_script() -- ImageButton_7.LocalScript
 	end)
 end
 coroutine.wrap(RMMEH_fake_script)()
+
 	local StableButtons = shufelMain.StableButton
-	
 	local automaticselectionimage = {
 		Home = {"rbxassetid://16884179038", "220,688", "108,108"},
 		More = {"rbxassetid://16884179038", "908,550", "108,108"},
@@ -1956,7 +1956,9 @@ coroutine.wrap(RMMEH_fake_script)()
 		
 		return button
 	end
-
+	local createvalue = Instance.new("BoolValue")
+createvalue.Parent = StableButtons.ToggleGui.ToggleButton
+createvalue.Name = "Value"
 	function addToggle(osnameparent, osimagelogo, ostext, ossubtitle, callback)
 		local button = StableButtons.ToggleGui:Clone()
 	local ts,ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
