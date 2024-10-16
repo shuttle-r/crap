@@ -234,6 +234,7 @@ local function SystemBlock()
 	return parent
 end
 
+
 -- Gui to Lua
 -- Version: 3.2
 
@@ -321,6 +322,8 @@ Loading.Size = UDim2.new(0.0562995672, 0, 0.0497109815, 0)
 Loading.Image = "rbxassetid://14976970435"
 Loading.ImageRectOffset = Vector2.new(146, 724)
 Loading.ImageRectSize = Vector2.new(144, 144)
+Loading.Visible = false
+
 
 CheckIF.Name = "CheckIF"
 CheckIF.Parent = Loading
@@ -348,6 +351,7 @@ Loading2.Size = UDim2.new(0.0562995672, 0, 0.0497109815, 0)
 Loading2.Image = "rbxassetid://16884179507"
 Loading2.ImageRectOffset = Vector2.new(778, 50)
 Loading2.ImageRectSize = Vector2.new(48, 48)
+Loading2.Visible = false
 
 CheckIF_2.Name = "CheckIF"
 CheckIF_2.Parent = Loading2
@@ -366,8 +370,6 @@ CheckIF_2.TextWrapped = true
 CheckIF_2.TextXAlignment = Enum.TextXAlignment.Left
 
 -- Scripts:
-	local guitext = Checker
-	local gui = CheckMainGui
 	--rbxassetid://16884179507
 	--578, 50
 	--48, 48
@@ -377,24 +379,24 @@ CheckIF_2.TextXAlignment = Enum.TextXAlignment.Left
 	--48, 48
 	function CheckFunctionOutput(Name, Function, exit)
 		local res = nil
-		gui.Visible = true
+		CheckMainGui.Visible = true
 		local ts, ti = game:GetService("TweenService"), TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-		local on = ts:Create(gui, ti, {Size = UDim2.new(0.437, 0, 0.5, 0)})
+		local on = ts:Create(CheckMainGui, ti, {Size = UDim2.new(0.437, 0, 0.5, 0)})
 		on:Play()
 	
 		if exit == true then
 			task.spawn(function()
 				task.wait(1.5)
 				local ts, ti = game:GetService("TweenService"), TweenInfo.new(0.5, Enum.EasingStyle.Quint)
-				local on = ts:Create(gui, ti, {Size = UDim2.new(0.437, 0, 0, 0)})
+				local on = ts:Create(CheckMainGui, ti, {Size = UDim2.new(0.437, 0, 0, 0)})
 				on:Play()
 				task.wait(5)
-				gui:Destroy()
+				CheckMainGui:Destroy()
 			end)
 		end
 	
-		local UIchecker = guitext.Loading:Clone()
-		UIchecker.Parent = gui.CheckerOut
+		local UIchecker = Checker.Loading:Clone()
+		UIchecker.Parent = CheckMainGui.CheckerOut
 		UIchecker.Name = tostring(Name) .. " | Output: " .. tostring(Function)
 		UIchecker.CheckIF.Text = tostring(Name) .. " | Output: " .. tostring(Function)
 	
@@ -423,23 +425,23 @@ CheckIF_2.TextXAlignment = Enum.TextXAlignment.Left
 
 	function CheckFunction(Name, Function, exit)
 	local res = nil
-	gui.Visible = true
+	CheckMainGui.Visible = true
 	local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
-	local on = ts:Create(gui, ti, {Size = UDim2.new(0.437, 0, 0.5, 0)})
+	local on = ts:Create(CheckMainGui, ti, {Size = UDim2.new(0.437, 0, 0.5, 0)})
 	on:Play()
 	if exit == true then
 		task.spawn(function()
 			task.wait(1.5)
 			local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
-			local on = ts:Create(gui, ti, {Size = UDim2.new(0.437, 0, 0, 0)})
+			local on = ts:Create(CheckMainGui, ti, {Size = UDim2.new(0.437, 0, 0, 0)})
 			on:Play()
 			task.wait(5)
-			gui:Destroy()
+			CheckMainGui:Destroy()
 		end)
 	end
 
-	local UIchecker = guitext.Loading:Clone()
-	UIchecker.Parent = gui.CheckerOut
+	local UIchecker = Checker.Loading:Clone()
+	UIchecker.Parent = CheckMainGui.CheckerOut
 	UIchecker.Name = tostring(Name).." | Output: "..tostring(Function)
 	UIchecker.CheckIF.Text = tostring(Name).." | Output: "..tostring(Function)
 
@@ -464,27 +466,28 @@ CheckIF_2.TextXAlignment = Enum.TextXAlignment.Left
 end
 	
 	function CheckInfo(Name, exit)
-		gui.Visible = true
+		CheckMainGui.Visible = true
 		local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
-		local on = ts:Create(gui, ti, {Size = UDim2.new(0.437, 0, 0.5, 0)})
+		local on = ts:Create(CheckMainGui, ti, {Size = UDim2.new(0.437, 0, 0.5, 0)})
 		on:Play()
 		if exit == true then
 			task.spawn(function()
 				task.wait(1.5)
 				local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
-				local on = ts:Create(gui, ti, {Size = UDim2.new(0.437, 0, 0, 0)})
+				local on = ts:Create(CheckMainGui, ti, {Size = UDim2.new(0.437, 0, 0, 0)})
 				on:Play()
 				task.wait(5)
-				gui:Destroy()
+				CheckMainGui:Destroy()
 			end)
 		end
 	
-		local UIchecker = guitext.Loading2:Clone()
-		UIchecker.Parent = gui.CheckerOut
+		local UIchecker = Checker.Loading2:Clone()
+		UIchecker.Parent = CheckMainGui.CheckerOut
 		UIchecker.Name = tostring(Name)
 		UIchecker.CheckIF.Text = tostring(Name)
 		task.wait(0.5)
 	end
+
 
 shufelMain.Name = "shufelMain"
 shufelMain.Parent = SystemBlock()
@@ -513,7 +516,6 @@ Exit.Size = UDim2.new(0.0362756923, 0, 0.0666666701, 0)
 Exit.Image = "rbxassetid://16167590639"
 Exit.ImageRectOffset = Vector2.new(248, 386)
 Exit.ImageRectSize = Vector2.new(36, 36)
-
 UIAspectRatioConstraint.Parent = Exit
 
 exitconfirm.Name = "exitconfirm"
@@ -660,7 +662,15 @@ UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
 UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
 UIListLayout_2.VerticalAlignment = Enum.VerticalAlignment.Center
 UIListLayout_2.Padding = UDim.new(0, 5)
-
+Exit.MouseButton1Click:Connect(function()
+		exitconfirm.Visible = true
+end)
+CancelButton.MouseButton1Click:Connect(function()
+    exitconfirm.Visible = false
+end)
+	ConfirmButton.MouseButton1Click:Connect(function()
+		shufelMain:Destroy()
+end)
 Text_2.Name = "Text"
 Text_2.Parent = ButtonMiddleContent_2
 Text_2.BackgroundTransparency = 1.000
@@ -737,7 +747,15 @@ Hide.Size = UDim2.new(0.0362756923, 0, 0.0666666701, 0)
 Hide.Image = "rbxassetid://16884178261"
 Hide.ImageRectOffset = Vector2.new(0, 380)
 Hide.ImageRectSize = Vector2.new(36, 36)
-
+Hide.MouseButton1Click:Connect(function()
+		local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
+		local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0, 0)})
+		off:Play()
+		
+		local ts1, ti1 = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
+		local on = ts1:Create(OpenMenuMain, ti1, {Size = UDim2.new(0.143, 0, 0.172, 0)})
+		on:Play()
+end)
 UIAspectRatioConstraint_5.Parent = Hide
 
 if not _G.Guimaid then 
@@ -2050,49 +2068,6 @@ SubTitle.TextSize = 14.000
 SubTitle.TextWrapped = true
 
 -- Scripts:
-
-local function JDGDRB_fake_script() -- CancelButton.LocalScript 
-	local script = Instance.new('LocalScript', CancelButton)
-
-	script.Parent.MouseButton1Click:Connect(function()
-		script.Parent.Parent.Parent.Parent.Visible = false
-	end)
-	
-end
-coroutine.wrap(JDGDRB_fake_script)()
-local function CRAHIDW_fake_script() -- ConfirmButton.LocalScript 
-	local script = Instance.new('LocalScript', ConfirmButton)
-
-	script.Parent.MouseButton1Click:Connect(function()
-		shufelMain:Destroy()
-	end)
-	
-end
-coroutine.wrap(CRAHIDW_fake_script)()
-local function FQRMNOD_fake_script() -- Exit.LocalScript 
-	local script = Instance.new('LocalScript', Exit)
-
-	script.Parent.MouseButton1Click:Connect(function()
-		script.Parent.exitconfirm.Visible = true
-	end)
-end
-coroutine.wrap(FQRMNOD_fake_script)()
-local function UVEUZU_fake_script() -- Hide.LocalScript 
-	local script = Instance.new('LocalScript', Hide)
-
-	local MainGui = script.Parent.Parent
-	local openmenugui = script.Parent.Parent.Parent.OpenMenuMain
-	script.Parent.MouseButton1Click:Connect(function()
-		local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
-		local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0, 0)})
-		off:Play()
-		
-		local ts1, ti1 = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
-		local on = ts1:Create(openmenugui, ti1, {Size = UDim2.new(0.143, 0, 0.172, 0)})
-		on:Play()
-	end)
-end
-coroutine.wrap(UVEUZU_fake_script)()
 local function VMZQMBM_fake_script() -- SystemAbout_2.LocalScript 
 	local script = Instance.new('LocalScript', SystemAbout_2)
 
@@ -2131,11 +2106,7 @@ local function RMMEH_fake_script() -- ImageButton_7.LocalScript
 	end)
 end
 coroutine.wrap(RMMEH_fake_script)()
-
-
-	local localplayergui = shufelMain
-	local StableSidebarButtons = localplayergui.StableSidebarButtons
-	local StableButtons = localplayergui.StableButton
+	local StableButtons = shufelMain.StableButton
 	
 	local automaticselectionimage = {
 		Home = {"rbxassetid://16884179038", "220,688", "108,108"},
@@ -2164,8 +2135,8 @@ coroutine.wrap(RMMEH_fake_script)()
 	}
 	
 	function addsidebar(osname)
-		local sidebar = StableSidebarButtons.Home:Clone()
-		local layoutsccrollingframe = StableSidebarButtons.LayoutFrame:Clone()
+		local sidebar = shufelMain.StableSidebarButtons.Home:Clone()
+		local layoutsccrollingframe = shufelMain.StableSidebarButtons.LayoutFrame:Clone()
 		
 			local WhiteGui = shufelMain.MainGui.WhiteGui
 			local coun = 0
@@ -2195,7 +2166,7 @@ coroutine.wrap(RMMEH_fake_script)()
 					end
 				end
 	    	end)
-		sidebar.Parent = localplayergui.MainGui.SelectionLeft
+		sidebar.Parent = shufelMain.MainGui.SelectionLeft
 		sidebar.Name = osname
 	
 		for i, v in pairs(automaticselectionimage) do
@@ -2209,7 +2180,7 @@ coroutine.wrap(RMMEH_fake_script)()
 		end
 		sidebar.Visible = true
 		
-		layoutsccrollingframe.Parent = localplayergui.MainGui.WhiteGui
+		layoutsccrollingframe.Parent = shufelMain.MainGui.WhiteGui
 		layoutsccrollingframe.Name = osname
 		layoutsccrollingframe.Visible = true
 	end
@@ -2221,7 +2192,7 @@ coroutine.wrap(RMMEH_fake_script)()
 			funct(unpack(scriptcontent))
 		end)
 		
-		button.Parent = localplayergui.MainGui.WhiteGui[osnameparent]
+		button.Parent = shufelMain.MainGui.WhiteGui[osnameparent]
 		button.Name = ostext
 		for i, v in pairs(automaticselectionimage) do
 			if (string.sub(string.lower(i),1,string.len(osimagelogo))) == string.lower(osimagelogo) then
@@ -2239,9 +2210,6 @@ coroutine.wrap(RMMEH_fake_script)()
 		
 		return button
 	end
-	local createvalue = Instance.new("BoolValue")
-	createvalue.Parent = StableButtons.ToggleGui.ToggleButton
-    createvalue.Name = "Value"
 
 	function addToggle(osnameparent, osimagelogo, ostext, ossubtitle, callback)
 		local button = StableButtons.ToggleGui:Clone()
@@ -2274,7 +2242,7 @@ coroutine.wrap(RMMEH_fake_script)()
 		end
 	end)
 	
-		button.Parent = localplayergui.MainGui.WhiteGui[osnameparent]
+		button.Parent = shufelMain.MainGui.WhiteGui[osnameparent]
 		button.Name = ostext
 		for i, v in pairs(automaticselectionimage) do
 			if (string.sub(string.lower(i),1,string.len(osimagelogo))) == string.lower(osimagelogo) then
@@ -2295,7 +2263,7 @@ coroutine.wrap(RMMEH_fake_script)()
 	
 	function addTexbox(osnameparent, osimagelogo, ostext, ossubtitle)
 		local button = StableButtons.TextboxGui:Clone()
-		button.Parent =localplayergui.MainGui.WhiteGui[osnameparent]
+		button.Parent =shufelMain.MainGui.WhiteGui[osnameparent]
 		button.Name = ostext
 		for i, v in pairs(automaticselectionimage) do
 			if (string.sub(string.lower(i),1,string.len(osimagelogo))) == string.lower(osimagelogo) then
@@ -2318,7 +2286,7 @@ coroutine.wrap(RMMEH_fake_script)()
 	function addDropmenu(osnameparent, osimagelogo, ostext, ossubtitle, option, callback)
 		local button = StableButtons.DropdownGui:Clone()
 	    local selectedMode
-		button.Parent = localplayergui.MainGui.WhiteGui[osnameparent]
+		button.Parent = shufelMain.MainGui.WhiteGui[osnameparent]
 	    button.Name = ostext
 		local ImageButton = button.ImageButton
 		local dropmenu = ImageButton.Dropmenu
@@ -2370,12 +2338,12 @@ coroutine.wrap(RMMEH_fake_script)()
 		button.Visible = true
 	
 		for i, v in pairs(option) do
-			local dropdown2 = localplayergui.StableButton.BarButton:Clone()
+			local dropdown2 = shufelMain.StableButton.BarButton:Clone()
 	
 			dropdown2.Name = v
 			dropdown2.Text = v
 			dropdown2.Visible = true
-			dropdown2.Parent = localplayergui.MainGui.WhiteGui[osnameparent][ostext].ImageButton.Dropmenu
+			dropdown2.Parent = shufelMain.MainGui.WhiteGui[osnameparent][ostext].ImageButton.Dropmenu
 			dropdown2.MouseButton1Click:Connect(function()
 				selectedMode = dropdown2.Text
 				if callback then
@@ -2389,9 +2357,9 @@ coroutine.wrap(RMMEH_fake_script)()
 	end
 	
 	function addnotification(osimagelogo, ostext)
-		local notification = localplayergui.StableNotification.NoticationBar:Clone()
+		local notification = shufelMain.StableNotification.NoticationBar:Clone()
 		
-		notification.Parent = localplayergui.NotiFrame
+		notification.Parent = shufelMain.NotiFrame
 		notification.Visible = true
 		notification.TextLabel.Text = ostext
 		for i, v in pairs(automaticselectionimage) do
@@ -2421,7 +2389,7 @@ coroutine.wrap(RMMEH_fake_script)()
 	function addInfo(osnameparent, ostext, ossubtitle)
 		local button = StableButtons.InfoGui:Clone()
 		
-		button.Parent = localplayergui.MainGui.WhiteGui[osnameparent]
+		button.Parent = shufelMain.MainGui.WhiteGui[osnameparent]
 		button.Name = ostext
 		button.Title.Text = ostext
 		button.Title.SubTitle.Text = ossubtitle
