@@ -375,7 +375,7 @@ CheckIF_2.TextXAlignment = Enum.TextXAlignment.Left
 	--rbxassetid://16884179507
 	--928, 0
 	--48, 48
-	function CheckFunction(Name, Function, exit)
+	function CheckFunctionOutput(Name, Function, exit)
 		local res = nil
 		gui.Visible = true
 		local ts, ti = game:GetService("TweenService"), TweenInfo.new(0.5, Enum.EasingStyle.Quint)
@@ -420,7 +420,48 @@ CheckIF_2.TextXAlignment = Enum.TextXAlignment.Left
 	
 		return res  -- Return the function result or the error message
 	end
+
+	function CheckFunction(Name, Function, exit)
+	local res = nil
+	gui.Visible = true
+	local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
+	local on = ts:Create(gui, ti, {Size = UDim2.new(0.437, 0, 0.5, 0)})
+	on:Play()
+	if exit == true then
+		task.spawn(function()
+			task.wait(1.5)
+			local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
+			local on = ts:Create(gui, ti, {Size = UDim2.new(0.437, 0, 0, 0)})
+			on:Play()
+			task.wait(5)
+			gui:Destroy()
+		end)
+	end
+
+	local UIchecker = guitext.Loading:Clone()
+	UIchecker.Parent = gui.CheckerOut
+	UIchecker.Name = tostring(Name).." | Output: "..tostring(Function)
+	UIchecker.CheckIF.Text = tostring(Name).." | Output: "..tostring(Function)
+
+	-- Check if the function is valid
+	local success, result = pcall(function() 
+		return typeof(Function) == "function"
+	end)
+	task.wait(0.5)
+	if success and result then
+		UIchecker.Image = "rbxassetid://16884179507"
+		UIchecker.ImageRectOffset = Vector2.new(578, 50)  -- Image for success
+		UIchecker.ImageRectSize = Vector2.new(48, 48)
+		res = true
+	else
+		UIchecker.Image = "rbxassetid://16884179507"
+		UIchecker.ImageRectOffset = Vector2.new(928, 0)  -- Image for failure
+		UIchecker.ImageRectSize = Vector2.new(48, 48)
+		res = false
+	end
 	
+	return res
+end
 	
 	function CheckInfo(Name, exit)
 		gui.Visible = true
