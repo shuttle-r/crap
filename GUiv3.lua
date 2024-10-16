@@ -1844,7 +1844,7 @@ local function VMZQMBM_fake_script() -- SystemAbout_2.LocalScript
 end
 coroutine.wrap(VMZQMBM_fake_script)()
 local createvalue = Instance.new("BoolValue")
-createvalue.Parent = shufelMain.StableButton
+createvalue.Parent = StableButton.ToggleGui.ToggleButton
 createvalue.Name = "Value"
 
 	local StableButtons = shufelMain.StableButton
