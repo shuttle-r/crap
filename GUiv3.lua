@@ -2302,7 +2302,7 @@ CheckIF_2.TextXAlignment = Enum.TextXAlignment.Left
                 local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0.782, 0)})
                 off:Play()           
 				task.wait(5)
-				CheckMainGui:Destroy()
+				checkerGui:Destroy()
 			end)
 		end
 	
@@ -2354,7 +2354,7 @@ CheckIF_2.TextXAlignment = Enum.TextXAlignment.Left
             off:Play()
         
 			task.wait(5)
-			CheckMainGui:Destroy()
+			checkerGui:Destroy()
 		end)
 	end
 
@@ -2402,7 +2402,7 @@ end
                 local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0.782, 0)})
                 off:Play()           
 				task.wait(5)
-				CheckMainGui:Destroy()
+				checkerGui:Destroy()
 			end)
 		end
 	
