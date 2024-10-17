@@ -544,5 +544,7 @@ end)
         threshold = tonumber(stuff4.TextBox.Text)
         movthress = tonumber(stuff5.TextBox.Text)
         togske = tostring(stuff6.TextBox.Text)
-        ToggleKey = Enum.KeyCode[string.upper(togske)] 
+	pcall(function()
+        	ToggleKey = Enum.KeyCode[string.upper(togske)] 
+	end)
      end
