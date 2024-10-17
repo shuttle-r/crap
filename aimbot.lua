@@ -491,7 +491,7 @@ end)
      
     addsidebar("Settings")
     addButton("Settings", "Walk", "Auto exec", "auto execute this script when you teleport through servers", function()
-        queue_on_teleport('loadstring(game:HttpGet("http://127.0.0.1:5500/aimbot.lua"),true )()')
+        queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/shuttle-r/crap/refs/heads/main/aimbot.lua"),true )()')
         addnotification("fuck", "auto exec is now activated")
      end)
      addToggle("Settings", "Esp", "Esp Heads", "esp players", function(ison)
