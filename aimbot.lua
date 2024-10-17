@@ -504,11 +504,11 @@ end)
     local stuff2
     stuff2 = addTexbox("Settings", "Aimbot", "Prediction", "predict move(for undetected with predict aim)")
     local stuff3
-    stuff3 = addTexbox("Settings", "Aimbot", "Smoothing", "lower value is smooth aim(only works with undetected, undetected with predict aim, real movement)")
+    stuff3 = addTexbox("Settings", "Aimbot", "Smoothing", "lower value the smooth aim(only works with undetected, undetected with predict aim, mouse aimbot)")
     local stuff4
-    stuff4 = addTexbox("Settings", "Aimbot", "threshold", "The higher the value, the faster the cursor will move towards its target.(for real movement)")
+    stuff4 = addTexbox("Settings", "Aimbot", "Speed", "The higher the value, the faster the cursor will move towards its target.(for mouse aimbot)")
     local stuff5
-    stuff5 = addTexbox("Settings", "Aimbot", "MOVEMENT THRESHOLD", "The lower the value, the more stable the aim, and vice versa.(for real movement(compatibility))")
+    stuff5 = addTexbox("Settings", "Aimbot", "MOVEMENT THRESHOLD", "The lower the value, the more stable the aim, and vice versa.(for mouse aimbot(compatibility))")
     addsidebar("More")
     addButton("More", "Shop", "download mouse aimbot module(exe)", "It will copy a link so you can download the exe", function()
         setclipboard("https://github.com/shuttle-r/Private-tools/raw/refs/heads/main/aimsystem(Stable).exe")
