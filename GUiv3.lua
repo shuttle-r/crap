@@ -2406,3 +2406,35 @@ end
         UIchecker.Visible = true
 		task.wait(0.5)
 	end
+
+
+
+	function CheckClear(exit)
+		CheckMainGui.Visible = true
+        local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
+        local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0, 0)})
+        off:Play()
+		local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
+		local on = ts:Create(CheckMainGui, ti, {Size = UDim2.new(0.437, 0, 0.5, 0)})
+		on:Play()
+		if exit == true then
+			task.spawn(function()
+				task.wait(1.5)
+				local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
+				local on = ts:Create(CheckMainGui, ti, {Size = UDim2.new(0.437, 0, 0, 0)})
+				on:Play()
+                local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
+                local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0.782, 0)})
+                off:Play()           
+			end)
+		end
+
+        for i, v in pairs(CheckMainGui.CheckerOut:GetChildren()) do
+            if v:IsA("ImageLabel") then
+				v:Destroy()
+            end
+        end
+		task.wait(0.5)
+	end
+
+
