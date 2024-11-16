@@ -399,46 +399,40 @@ end)
                                 
                                 elseif modeaim == "mouse aimbot(compatibility)" then
                                     local headPosition = currentTarget.Character[lockPart].Position
-                                    local direction = (headPosition - cam.CFrame.Position).unit
-                                    game:GetService("Workspace").CurrentCamera.CFrame = game:GetService("Workspace").CurrentCamera.CFrame:Lerp(CFrame.new(cam.CFrame.Position, cam.CFrame.Position + direction), 0.11)
-                                    local worldPoint = game:GetService("Workspace").CurrentCamera.CFrame.Position + direction
                                     local camera = workspace.CurrentCamera
-                                    local screenPoint, onScreen = camera:WorldToScreenPoint(worldPoint)
-                                    local screenX = screenPoint.X 
-                                    local screenY = screenPoint.Y 
+                                    local screenPoint, onScreen = camera:WorldToScreenPoint(headPosition)
+                                    local screenX = screenPoint.X
+                                    local screenY = screenPoint.Y
                                     local Player = game:GetService("Players").LocalPlayer
                                     local Mouse = Player:GetMouse()
-    
-                                    if onScreen then
-    
-                                    local currentMouseX, currentMouseY = Mouse.X, Mouse.Y  -- Example current mouse position, replace with actual values
-    
-                                    -- Target position (calculated using WorldToScreenPoint)
-                                    local targetX = screenX
-                                    local targetY = screenY
+                                    local deadzone = 1 -- Small differences are ignored
                                     
-                                    -- Calculate the difference
-                                    local diffX = targetX - currentMouseX
-                                    local diffY = targetY - currentMouseY
-                     
-                                    -- Check if movement is required (i.e., if the cursor is not already close to the target)
-                                    if math.abs(diffX) > threshold or math.abs(diffY) > threshold then
-                                        -- Limit movement to not exceed the target
-                                        local moveX = math.clamp(diffX, -threshold, threshold) -- - 0.1
-                                        local moveY = math.clamp(diffY, -threshold, threshold) -- + 0.2
-                                        -- Send this data to the Python script to move the cursor
-                                        
-                                        writefile("lmao.txt", tostring(moveX).."\n"..tostring(moveY).."\n"..tostring(movthress))
-                                        -- No movement needed, cursor is close enough to the target
-                                        --print("Cursor is already at the target, stopping movement.")
-                                        
-                                    end
-    
-    
+                                    if onScreen then
+                                        local currentMouseX, currentMouseY = Mouse.X, Mouse.Y  -- Mouse current position
+                                        local targetX = screenX
+                                        local targetY = screenY
+                                    
+                                        -- Calculate the difference
+                                        local diffX = targetX - currentMouseX
+                                        local diffY = targetY - currentMouseY
+                                    
+                                        -- Check if movement is above the deadzone to avoid small flicks
+                                        if math.abs(diffX) > deadzone or math.abs(diffY) > deadzone then
+                                            -- Apply a fraction of the movement to smooth it out
+                                            local moveX = diffX * smoothing -- Apply only 10% of the difference or 9??????????????????????????????????
+                                            local moveY = diffY * smoothing -- Apply only 10% of the difference or 9??????????????????????????????????
+                                            
+                                            -- Clamp the movement to prevent overshooting beacuse rahlolsfasfjdsbndsd
+                                            moveX = math.clamp(moveX, -threshold, threshold)
+                                            moveY = math.clamp(moveY, -threshold, threshold)
+                                    
+                                            -- Move the mouse because RAHHHHHH
+                                    writefile("lmao.txt", tostring(moveX).."\n"..tostring(moveY).."\n"..tostring(movthress))
+                                        end                                
                                     else
                                         addnotification("idk", "The Player is not on the screen.")
-                                return
-                                    end   
+                                        return
+                                    end
 
                         end
                     end--
