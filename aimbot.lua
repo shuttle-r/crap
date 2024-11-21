@@ -94,8 +94,15 @@ end
     local isAUTOSHOOTENAB = false
     local Toggle = false  -- Enable or disable toggle mode
     local togske = "Y"
+	local readjust = 0
     local ToggleKey = Enum.KeyCode[string.upper(togske)] -- Ensure the string is uppercase    
+    local vim = game:GetService("VirtualInputManager")
+                            
+    local function simulateTouchEvent(touchId, state, x, y)
+        vim:SendTouchEvent(touchId, state, x, y)
+    end
     
+    local touchId = 692346
     local RunService = game:GetService("RunService")
     local UserInputService = game:GetService("UserInputService")
     local StarterGui = game:GetService("StarterGui")
@@ -360,7 +367,7 @@ end)
                             local headPosition = currentTarget.Character[lockPart].Position
                             local direction = (headPosition - cam.CFrame.Position).unit
                             game:GetService("Workspace").CurrentCamera.CFrame = CFrame.new(game:GetService("Workspace").CurrentCamera.CFrame.Position, game:GetService("Workspace").CurrentCamera.CFrame.Position + direction)
-                            elseif modeaim == "mouse aimbot" then
+                        elseif modeaim == "mouse aimbot" then
                                 local headPosition = currentTarget.Character[lockPart].Position
                                 local camera = workspace.CurrentCamera
                                 local screenPoint, onScreen = camera:WorldToScreenPoint(headPosition)
@@ -396,8 +403,52 @@ end)
                                     addnotification("idk", "The Player is not on the screen.")
                                     return
                                 end   
-                                
-                                elseif modeaim == "mouse aimbot(compatibility)" then
+                        elseif modeaim == "Touch aimbot(For mobile)" then
+                            local headPosition = currentTarget.Character[lockPart].Position
+                            local camera = workspace.CurrentCamera
+                            local screenPoint, onScreen = camera:WorldToScreenPoint(headPosition)
+                            local screenX = screenPoint.X
+                            local screenY = screenPoint.Y
+                            local Player = game:GetService("Players").LocalPlayer
+                            local viewport = game:GetService("Workspace").CurrentCamera.ViewportSize
+                            local Mouse = Vector2.new(viewport.X / 2, viewport.Y / 2)
+                            local deadzone = 1 -- Small differences are ignored
+                            local smoothing = 0.1 -- Fraction of the movement applied per update
+                            local threshold = 10 -- Max movement per step
+
+                            
+                            if onScreen then
+                                local currentMouseX, currentMouseY = Mouse.X, Mouse.Y -- Mouse current position
+                                local targetX = screenX
+                                local targetY = screenY
+                            
+                                -- Calculate the difference
+                                local diffX = targetX - currentMouseX
+                                local diffY = targetY - currentMouseY
+                            
+                                -- Check if movement is above the deadzone to avoid small flicks
+                                if math.abs(diffX) > deadzone or math.abs(diffY) > deadzone then
+                                    -- Apply a fraction of the movement to smooth it out
+                                    local moveX = diffX * smoothing 
+                                    local moveY = diffY * smoothing
+                            
+                                    -- Clamp the movement to prevent overshooting
+                                    moveX = math.clamp(moveX, -threshold, threshold)
+                                    moveY = math.clamp(moveY, -threshold, threshold) - readjust
+                            
+                                    -- Simulate smooth drag to target position
+                                    simulateTouchEvent(touchId, 0, 0, 0) -- Begin touch
+                                    simulateTouchEvent(touchId, 1, moveX, moveY) -- Move touch
+                                    simulateTouchEvent(touchId, 2, moveX, moveY) -- End touch
+                                end
+                            else
+                                addnotification("idk", "The Player is not on the screen.")
+                                return
+                            end
+                            
+                        elseif modeaim == "mouse aimbot(compatibility)" then
+                                    
+
                                     local headPosition = currentTarget.Character[lockPart].Position
                                     local camera = workspace.CurrentCamera
                                     local screenPoint, onScreen = camera:WorldToScreenPoint(headPosition)
@@ -434,7 +485,9 @@ end)
                                         return
                                     end
 
+
                         end
+
                     end--
                     FOVring.Color = Color3.fromRGB(0, 255, 0)  -- Change FOV ring color to green when locked onto a target
                 else
@@ -455,7 +508,7 @@ end)
     addToggle("Home", "None", "Enable aimbot", "this is not enabled by default", function(ison)
         imenabledbro = ison
      end)
-     addDropmenu("Home", "Selection", "Type of aimbot", "Select variety of modes", {"normal", 'undetected', "undetected with predict aim", "mouse aimbot", "mouse aimbot(compatibility)"}, function(selectedMode)
+     addDropmenu("Home", "Selection", "Type of aimbot", "Select variety of modes", {"normal", 'undetected', "undetected with predict aim", "mouse aimbot", "Touch aimbot(For mobile)", "mouse aimbot(compatibility)"}, function(selectedMode)
 		modeaim = selectedMode
         if selectedMode == "mouse aimbot(compatibility)" then
             addnotification("fuck", "just in case if mouse aimbot dont work")
@@ -503,7 +556,9 @@ end)
     stuff4 = addTexbox("Settings", "Aimbot", "Speed", "The higher the value, the faster the cursor will move towards its target.(for mouse aimbot)")
     local stuff5
     stuff5 = addTexbox("Settings", "Aimbot", "MOVEMENT THRESHOLD", "The lower the value, the more stable the aim, and vice versa.(for mouse aimbot(compatibility))")
-    addsidebar("More")
+    local stuff7
+    stuff7 = addTexbox("Settings", "Aimbot", "adjust Y axis", "ADJUST IF THE Y AXIS IS OFFSETTED MOBILE AIMBOT ONLY")
+	addsidebar("More")
     addButton("More", "Shop", "download mouse aimbot module(exe)", "It will copy a link so you can download the exe", function()
         setclipboard("https://github.com/shuttle-r/Private-tools/raw/refs/heads/main/aimsystem(Stable).exe")
         addnotification("fuck", "the link is on your clipboard")
@@ -530,6 +585,7 @@ end)
      stuff4.TextBox.Text = 9.9
      stuff5.TextBox.Text = 0
      stuff6.TextBox.Text = "Y"
+	 stuff7.TextBox.Text = -5.8
      while true do
         task.wait()
         fov = tonumber(stuff.TextBox.Text)
@@ -538,6 +594,7 @@ end)
         threshold = tonumber(stuff4.TextBox.Text)
         movthress = tonumber(stuff5.TextBox.Text)
         togske = tostring(stuff6.TextBox.Text)
+		readjust = tostring(stuff7.TextBox.Text)
 	pcall(function()
         	ToggleKey = Enum.KeyCode[string.upper(togske)] 
 	end)
