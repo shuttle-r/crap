@@ -2438,3 +2438,13 @@ end
 	end
 
 
+function hidemaingui()
+    local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
+    local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0, 0)})
+    off:Play()
+end
+function openmaingui()
+    local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
+    local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0.782, 0)})
+    off:Play()  
+end
