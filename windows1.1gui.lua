@@ -829,8 +829,7 @@ local script = G2L["3"];
 		end
 	end
 	
-	-- Initial population of the list
-	updateList()
+
 	
 	-- Listen for changes in the ActiveWindows container
 	script.Parent.Parent.ActiveWindows.ChildAdded:Connect(function()
@@ -1072,43 +1071,9 @@ local script = G2L["3"];
 		
 		return button
 	end
-	
-	
-	
-	
-	--[[createwindow("Player", false)
-	addbutton("Player", "Report", UDim2.new(0, 30, 0, 30), function()
-		addMessagebox("Report confirmation", "Are you sure you want to report this person?", {"YES", "NO"}, function(seect)
-			if seect == "YES" then
-				addMessagebox("Report receive", "The person you reported is now banned", {"OK"}, function(seect)
-					return
-				end)
-			else
-				return
-			end
-		end)
-	end)
-	addbutton("Player", "Create window", UDim2.new(0, 50, 0, 0), function()
-		createwindow("Ez")
-	end)
-	addToggle("Player", "Test", UDim2.new(0, 0, 0, 30), function(ison)
-		print(ison)
-	end, false)
-	addtoolbar("Player", "Chill guy", {"Be chill", "Be cold"}, function(selectedMode)
-		print(selectedMode)
-	end)
-	addtoolbar("Player", "Diddys video", {"Be chill", "Be cold"}, function(selectedMode)
-		print(selectedMode)
-	end)
-	addTextbox("Player", "Type im just a chill guy for good reason", UDim2.new(0, 0, 0, 60))
-	addInfo("Player", "May get you ban", UDim2.new(0, 0, 0, 80))
-	addDropdown("Player", "Diddys video", UDim2.new(0, 0, 0, 100),{"Be chill", "Be cold"}, function(selectedMode)
-		print(selectedMode)
-	end)
-	]]
-	
-	
-end;
-task.spawn(C_3);
 
-return G2L["1"], require;
+	
+	updateList()	
+end;
+local guilib = coroutine.create(C_3)
+coroutine.resume(guilib)
