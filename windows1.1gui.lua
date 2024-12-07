@@ -987,8 +987,9 @@ local script = G2L["3"];
 	
 	function addToggle(parent, title, position, callback, optionturnon)
 		local button = script.Parent.CheckButton:Clone()
-		button:SetAttribute("state", optionturnon)
-		button:GetAttributeChangedSignal("state"):Connect(function()
+		local state = button:GetAttribute("state")
+		--button:SetAttribute("state", optionturnon)
+		--[[button:GetAttributeChangedSignal("state"):Connect(function()
 			local state = button:GetAttribute("state")
 			if state then
 				button.Text = "✔"
@@ -997,12 +998,16 @@ local script = G2L["3"];
 				button.Text = ""
 				callback(false)
 			end
-		end)
+		end)]]
 		button.MouseButton1Click:Connect(function()
-			local state = button:GetAttribute("state")
-			warn(state)
-			button:SetAttribute("state", not state)
-			callback(state)		
+			state = button:GetAttribute("state")
+			if state then
+				button:SetAttribute("state", false)
+				callback(button:GetAttribute("state"))
+			else
+				button.ToggleButton.Element:SetAttribute("state",true)
+				callback(button:GetAttribute("state"))
+			end
 		end)
 	
 		button.Name = title
