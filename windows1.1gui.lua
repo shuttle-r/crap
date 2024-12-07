@@ -829,7 +829,9 @@ local script = G2L["3"];
 		end
 	end
 	
-
+	-- Initial population of the list
+	updateList()
+	
 	-- Listen for changes in the ActiveWindows container
 	script.Parent.Parent.ActiveWindows.ChildAdded:Connect(function()
 		updateList()
@@ -979,7 +981,7 @@ local script = G2L["3"];
 		button.Text = title
 		button.Visible = true
 		button.Position = position
-		print(position)
+		
 		
 		return button
 	end
@@ -987,29 +989,29 @@ local script = G2L["3"];
 	function addToggle(parent, title, position, callback, optionturnon)
 		local button = script.Parent.CheckButton:Clone()
 		
-		button.Ison:GetPropertyChangedSignal("Value"):Connect(function()
-			if button.Ison.Value then
+		button:SetAttribute("state", optionturnon)
+		button:GetAttributeChangedSignal("state"):Connect(function()
+			local state = button:GetAttribute("state")
+			if state then
 				button.Text = "✔"
-				callback(button.Ison.Value)
+				callback(state)
 			else
 				button.Text = ""
-				callback(button.Ison.Value)
+				callback(state)
 			end
 		end)
-		button.Ison.Value = optionturnon
+	
 		button.MouseButton1Click:Connect(function()
-			if button.Ison.Value == true then
-				button.Ison.Value = false
-			else
-				button.Ison.Value = true
-			end
+			local state = button:GetAttribute("state")
+			button:SetAttribute("state", not state)
 		end)
+	
 		button.Name = title
 		button.Parent = script.Parent.Parent.ActiveWindows:FindFirstChild(parent).WhiteFrame
 		button.Title.Text = title
 		button.Visible = true
 		button.Position = position
-		print(position)
+		
 		
 		return button
 	end
@@ -1021,7 +1023,7 @@ local script = G2L["3"];
 		button.Text = title..":"
 		button.Name = title
 		button.Position = position
-		print(position)
+		
 	
 		return button
 	end
@@ -1032,7 +1034,7 @@ local script = G2L["3"];
 		button.Text = title
 		button.Name = title
 		button.Position = position
-		print(position)
+		
 	
 		return button
 	end
@@ -1070,38 +1072,43 @@ local script = G2L["3"];
 		
 		return button
 	end
-	-- Initial population of the list
-    updateList()
-end;
-local guilib = coroutine.create(C_3)
-coroutine.resume(guilib)
+	
+	
+	
+	
 	--[[createwindow("Player", false)
-addbutton("Player", "Report", UDim2.new(0, 30, 0, 30), function()
-    addMessagebox("Report confirmation", "Are you sure you want to report this person?", {"YES", "NO"}, function(seect)
-        if seect == "YES" then
-            addMessagebox("Report receive", "The person you reported is now banned", {"OK"}, function(seect)
-                return
-            end)
-        else
-            return
-        end
-    end)
-end)
-addbutton("Player", "Create window", UDim2.new(0, 50, 0, 0), function()
-    createwindow("Ez")
-end)
-addToggle("Player", "Test", UDim2.new(0, 0, 0, 30), function(ison)
-    print(ison)
-end, false)
-addtoolbar("Player", "Chill guy", {"Be chill", "Be cold"}, function(selectedMode)
-    print(selectedMode)
-end)
-addtoolbar("Player", "Diddys video", {"Be chill", "Be cold"}, function(selectedMode)
-    print(selectedMode)
-end)
-addTextbox("Player", "Type im just a chill guy for good reason", UDim2.new(0, 0, 0, 60))
-addInfo("Player", "May get you ban", UDim2.new(0, 0, 0, 80))
-addDropdown("Player", "Diddys video", UDim2.new(0, 0, 0, 100),{"Be chill", "Be cold"}, function(selectedMode)
-    print(selectedMode)
-end)]]
-    
+	addbutton("Player", "Report", UDim2.new(0, 30, 0, 30), function()
+		addMessagebox("Report confirmation", "Are you sure you want to report this person?", {"YES", "NO"}, function(seect)
+			if seect == "YES" then
+				addMessagebox("Report receive", "The person you reported is now banned", {"OK"}, function(seect)
+					return
+				end)
+			else
+				return
+			end
+		end)
+	end)
+	addbutton("Player", "Create window", UDim2.new(0, 50, 0, 0), function()
+		createwindow("Ez")
+	end)
+	addToggle("Player", "Test", UDim2.new(0, 0, 0, 30), function(ison)
+		print(ison)
+	end, false)
+	addtoolbar("Player", "Chill guy", {"Be chill", "Be cold"}, function(selectedMode)
+		print(selectedMode)
+	end)
+	addtoolbar("Player", "Diddys video", {"Be chill", "Be cold"}, function(selectedMode)
+		print(selectedMode)
+	end)
+	addTextbox("Player", "Type im just a chill guy for good reason", UDim2.new(0, 0, 0, 60))
+	addInfo("Player", "May get you ban", UDim2.new(0, 0, 0, 80))
+	addDropdown("Player", "Diddys video", UDim2.new(0, 0, 0, 100),{"Be chill", "Be cold"}, function(selectedMode)
+		print(selectedMode)
+	end)
+	]]
+	
+	
+end;
+task.spawn(C_3);
+
+return G2L["1"], require;
