@@ -992,17 +992,17 @@ local script = G2L["3"];
 			local state = button:GetAttribute("state")
 			if state then
 				button.Text = "✔"
-				callback(state)
+				callback(true)
 			else
 				button.Text = ""
-				callback(state)
+				callback(false)
 			end
 		end)
 		button.MouseButton1Click:Connect(function()
 			local state = button:GetAttribute("state")
-			button:SetAttribute("state", not state)
-			callback(state)
 			warn(state)
+			button:SetAttribute("state", not state)
+			callback(state)		
 		end)
 	
 		button.Name = title
