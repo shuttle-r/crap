@@ -1003,9 +1003,11 @@ local script = G2L["3"];
 			state = button:GetAttribute("state")
 			if state then
 				button:SetAttribute("state", false)
+				button.Text = ""
 				callback(button:GetAttribute("state"))
 			else
-				button.ToggleButton.Element:SetAttribute("state",true)
+				button:SetAttribute("state",true)
+				button.Text = "✔"
 				callback(button:GetAttribute("state"))
 			end
 		end)
