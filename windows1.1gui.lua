@@ -988,7 +988,7 @@ local script = G2L["3"];
 	function addToggle(parent, title, position, callback, optionturnon)
 		local button = script.Parent.CheckButton:Clone()
 		
-		button:SetAttribute("state", optionturnon)
+		--button:SetAttribute("state", optionturnon)
 		button:GetAttributeChangedSignal("state"):Connect(function()
 			local state = button:GetAttribute("state")
 			if state then
@@ -999,7 +999,7 @@ local script = G2L["3"];
 				callback(state)
 			end
 		end)
-	
+
 		button.MouseButton1Click:Connect(function()
 			local state = button:GetAttribute("state")
 			button:SetAttribute("state", not state)
@@ -1072,7 +1072,7 @@ local script = G2L["3"];
 		return button
 	end
 
-	
+
 	updateList()	
 end;
 local guilib = coroutine.create(C_3)
