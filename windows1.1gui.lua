@@ -1122,17 +1122,6 @@ local script = G2L["3"];
 	addDropdown("Player", "Diddys video", UDim2.new(0, 0, 0, 100),{"TEST ! TEST ! TEST ! TEST ! TEST", "Be cold"}, function(selectedMode)
 		print(selectedMode)
 	end)]]
-	
-	
-	addMessagebox("Report confirmation", "Are you sure you want to report this person?", {"YES"}, function(seect)
-		if seect == "YES" then
-			addMessagebox("Report receive", "Ummm", {"OK"}, function(seect)
-				return
-			end)
-		else
-			return
-		end
-	end)
 end;
 local guilib = coroutine.create(C_3)
 coroutine.resume(guilib)
