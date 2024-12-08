@@ -687,441 +687,447 @@ G2L["38"]["Name"] = [[ActiveMessagebox]];
 
 -- StarterGui.XpGui.WindowsFeature.WindowsController
 local function C_3()
-local script = G2L["3"];
-	function makeDraggable(object)
-		local dragging = false
-		local relative = nil
-	
-		local offset = Vector2.zero
-		local screenGui = object:FindFirstAncestorWhichIsA("ScreenGui")
-		if screenGui and screenGui.IgnoreGuiInset then
-			offset += game:GetService("GuiService"):GetGuiInset()
-		end
-	
-		object.InputBegan:Connect(function(input, processed)
-			if processed then return end
-	
-			local inputType = input.UserInputType.Name
-			if inputType == "MouseButton1" or inputType == "Touch" then
-				relative = object.AbsolutePosition + object.AbsoluteSize * object.AnchorPoint - game:GetService('UserInputService'):GetMouseLocation()
-				dragging = true
+	local script = G2L["3"];
+		function makeDraggable(object)
+			local dragging = false
+			local relative = nil
+		
+			local offset = Vector2.zero
+			local screenGui = object:FindFirstAncestorWhichIsA("ScreenGui")
+			if screenGui and screenGui.IgnoreGuiInset then
+				offset += game:GetService("GuiService"):GetGuiInset()
 			end
-		end)
-	
-		local inputEnded = game:GetService('UserInputService').InputEnded:Connect(function(input)
-			if not dragging then return end
-	
-			local inputType = input.UserInputType.Name
-			if inputType == "MouseButton1" or inputType == "Touch" then
-				dragging = false
-			end
-		end)
-	
-		local renderStepped = game:GetService("RunService").RenderStepped:Connect(function()
-			if dragging then
-				local position = game:GetService('UserInputService'):GetMouseLocation() + relative + offset
-				object.Position = UDim2.fromOffset(position.X, position.Y)
-			end
-		end)
-	
-		object.Destroying:Connect(function()
-			inputEnded:Disconnect()
-			renderStepped:Disconnect()
-		end)
-	end
-	function addMessagebox(title, message, option, callback)
-		local button = script.Parent.MessageBox:Clone()
-	
-		button.TitleBar.ExitButton.MouseButton1Click:Connect(function()
-			button:Destroy()
-		end)
-		button.Visible = true
-		button.Name = title
-		button.TitleBar.TitleText.Text = title
-		button.TextBOX.Text = message
-		button.Parent = script.Parent.Parent.ActiveMessagebox
-		makeDraggable(button)
-		for i, v in pairs(option) do
-			local messageboxbutton = script.Parent.MessageBoxButton:Clone()
-	
-			messageboxbutton.Name = v
-			messageboxbutton.Text = v
-			messageboxbutton.Parent = button.options
-			messageboxbutton.Visible = true
-			messageboxbutton.MouseButton1Click:Connect(function()
-				button:Destroy()
-				callback(v)
-			end)
-		end
-	end
-	--SYSYTEM
-	local function SYSTEM_addtoolbar(text, option, callback)
-		local button = script.Parent.ToolbarButton:Clone()
-		local menubar = script.Parent.MenuBar:Clone()
-	
-		button.Text = text
-		button.Name = text
-		button.Visible = true
-		button.Parent = script.Parent.Parent.WindowsOS.ToolbarSection
-		menubar.Parent = script.Parent.Parent.WindowsOS.RendererForMenubar
-		menubar.Name = text
-		button:GetPropertyChangedSignal("AbsolutePosition"):Connect(function()
-			menubar.Position = UDim2.new(
-				0, button.AbsolutePosition.X - menubar.Parent.AbsolutePosition.X,
-				0, button.AbsolutePosition.Y + button.AbsoluteSize.Y - menubar.Parent.AbsolutePosition.Y + 1
-			)
-		end)
-		menubar.Visible = false
-		button.MouseButton1Click:Connect(function()
-			menubar.Visible = not menubar.Visible
-		end)
-	
-		for i, v in pairs(option) do
-			local menubutton = script.Parent.MenuBarButton:Clone()
-	
-			menubutton.Name = v
-			menubutton.Text = v
-			menubutton.Parent = menubar
-			menubutton.Visible = true
-			menubutton.MouseButton1Click:Connect(function()
-				menubar.Visible = false
-				callback(v)
-			end)
-		end
-	
-		return button
-	end
-	
-	local windowsOS = script.Parent.Parent.WindowsOS
-	makeDraggable(windowsOS)
-	
-	SYSTEM_addtoolbar("Start Menu", {"Made by: Shuttle/ShuFel", "------------------------------------------------", "Exit"}, function(selectedMode)
-		if selectedMode == "Exit" then
-			addMessagebox("Confirm action", "Do you want to exit?", {"YES", "NO"}, function(seect)
-				if seect == 'YES' then
-					script.Parent.Parent:Destroy()
-				else
-					return
+		
+			object.InputBegan:Connect(function(input, processed)
+				if processed then return end
+		
+				local inputType = input.UserInputType.Name
+				if inputType == "MouseButton1" or inputType == "Touch" then
+					relative = object.AbsolutePosition + object.AbsoluteSize * object.AnchorPoint - game:GetService('UserInputService'):GetMouseLocation()
+					dragging = true
 				end
-				
 			end)
-			
+		
+			local inputEnded = game:GetService('UserInputService').InputEnded:Connect(function(input)
+				if not dragging then return end
+		
+				local inputType = input.UserInputType.Name
+				if inputType == "MouseButton1" or inputType == "Touch" then
+					dragging = false
+				end
+			end)
+		
+			local renderStepped = game:GetService("RunService").RenderStepped:Connect(function()
+				if dragging then
+					local position = game:GetService('UserInputService'):GetMouseLocation() + relative + offset
+					object.Position = UDim2.fromOffset(position.X, position.Y)
+				end
+			end)
+		
+			object.Destroying:Connect(function()
+				inputEnded:Disconnect()
+				renderStepped:Disconnect()
+			end)
 		end
-	end)
-	
-	
-	local function updateList()
-		-- Clear the existing buttons
-		task.wait(0.001)
-		for _, button in pairs(script.Parent.Parent.WindowsOS.WhiteFrame:GetChildren()) do
-			if button:IsA("GuiButton") then
+		function addMessagebox(title, message, option, callback)
+			local button = script.Parent.MessageBox:Clone()
+		
+			button.TitleBar.ExitButton.MouseButton1Click:Connect(function()
 				button:Destroy()
+			end)
+			button.Visible = true
+			button.Name = title
+			button.TitleBar.TitleText.Text = title
+			button.TextBOX.Text = message
+			button.Parent = script.Parent.Parent.ActiveMessagebox
+			makeDraggable(button)
+			for i, v in pairs(option) do
+				local messageboxbutton = script.Parent.MessageBoxButton:Clone()
+		
+				messageboxbutton.Name = v
+				messageboxbutton.Text = v
+				messageboxbutton.Parent = button.options
+				messageboxbutton.Visible = true
+				messageboxbutton.MouseButton1Click:Connect(function()
+					button:Destroy()
+					callback(v)
+				end)
 			end
 		end
-	
-		-- Rebuild the list based on the current children of ActiveWindows
-		for i, v in pairs(script.Parent.Parent.ActiveWindows:GetChildren()) do
-			local button = script.Parent.Icon:Clone()
-	
-			-- Button click toggles the visibility of the corresponding window
+		--SYSYTEM
+		local function SYSTEM_addtoolbar(text, option, callback)
+			local button = script.Parent.ToolbarButton:Clone()
+			local menubar = script.Parent.MenuBar:Clone()
+		
+			button.Text = text
+			button.Name = text
+			button.Visible = true
+			button.Parent = script.Parent.Parent.WindowsOS.ToolbarSection
+			menubar.Parent = script.Parent.Parent.WindowsOS.RendererForMenubar
+			menubar.Name = text
+			button:GetPropertyChangedSignal("AbsolutePosition"):Connect(function()
+				menubar.Position = UDim2.new(
+					0, button.AbsolutePosition.X - menubar.Parent.AbsolutePosition.X,
+					0, button.AbsolutePosition.Y + button.AbsoluteSize.Y - menubar.Parent.AbsolutePosition.Y + 1
+				)
+			end)
+			menubar.Visible = false
 			button.MouseButton1Click:Connect(function()
-				v.Visible = not v.Visible
+				menubar.Visible = not menubar.Visible
+			end)
+		
+			for i, v in pairs(option) do
+				local menubutton = script.Parent.MenuBarButton:Clone()
+		
+				menubutton.Name = v
+				menubutton.Text = v
+				menubutton.Parent = menubar
+				menubutton.Visible = true
+				menubutton.MouseButton1Click:Connect(function()
+					menubar.Visible = false
+					callback(v)
+				end)
+			end
+		
+			return button
+		end
+		
+		local windowsOS = script.Parent.Parent.WindowsOS
+		makeDraggable(windowsOS)
+		
+		SYSTEM_addtoolbar("Start Menu", {"Made by: Shuttle/ShuFel", "------------------------------------------------", "Exit"}, function(selectedMode)
+			if selectedMode == "Exit" then
+				addMessagebox("Confirm action", "Do you want to exit?", {"YES", "NO"}, function(seect)
+					if seect == 'YES' then
+						script.Parent.Parent:Destroy()
+					else
+						return
+					end
+					
+				end)
+				
+			end
+		end)
+		
+		
+		local function updateList()
+			-- Clear the existing buttons
+			task.wait(0.001)
+			for _, button in pairs(script.Parent.Parent.WindowsOS.WhiteFrame:GetChildren()) do
+				if button:IsA("GuiButton") then
+					button:Destroy()
+				end
+			end
+		
+			-- Rebuild the list based on the current children of ActiveWindows
+			for i, v in pairs(script.Parent.Parent.ActiveWindows:GetChildren()) do
+				local button = script.Parent.Icon:Clone()
+		
+				-- Button click toggles the visibility of the corresponding window
+				button.MouseButton1Click:Connect(function()
+					v.Visible = not v.Visible
+					if v.Visible == true then
+						button.Image = "http://www.roblox.com/asset/?id=138177584362287"
+					else
+						button.Image = "http://www.roblox.com/asset/?id=132692935401176"
+					end
+				end)
+				
 				if v.Visible == true then
 					button.Image = "http://www.roblox.com/asset/?id=138177584362287"
 				else
 					button.Image = "http://www.roblox.com/asset/?id=132692935401176"
 				end
-			end)
-			
-			if v.Visible == true then
-				button.Image = "http://www.roblox.com/asset/?id=138177584362287"
-			else
-				button.Image = "http://www.roblox.com/asset/?id=132692935401176"
+				
+				v:GetPropertyChangedSignal("Visible"):Connect(function()
+					if v.Visible == true then
+						button.Image = "http://www.roblox.com/asset/?id=138177584362287"
+					else
+						button.Image = "http://www.roblox.com/asset/?id=132692935401176"
+					end
+				end)
+		
+				-- Set button properties
+				button.Name = v.Name
+				button.TextLabel.Text = v.Name
+				button.Parent = script.Parent.Parent.WindowsOS.WhiteFrame
+				button.Visible = true
 			end
-	
-			-- Set button properties
-			button.Name = v.Name
-			button.TextLabel.Text = v.Name
-			button.Parent = script.Parent.Parent.WindowsOS.WhiteFrame
-			button.Visible = true
-		end
-	end
-	
-	
-	
-	-- Listen for changes in the ActiveWindows container
-	script.Parent.Parent.ActiveWindows.ChildAdded:Connect(function()
-		updateList()
-	end)
-	
-	script.Parent.Parent.ActiveWindows.ChildRemoved:Connect(function()
-		updateList()
-	end)
-	-- Variables to track key states
-	local isCtrlPressed = false
-	local isAltPressed = false
-	game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
-		if gameProcessed then return end
-	
-		if input.KeyCode == Enum.KeyCode.LeftControl or input.KeyCode == Enum.KeyCode.RightControl then
-			isCtrlPressed = true
-		end
-	
-		if input.KeyCode == Enum.KeyCode.LeftAlt or input.KeyCode == Enum.KeyCode.RightAlt then
-			isAltPressed = true
-		end
-	
-		if isCtrlPressed and isAltPressed then
-			windowsOS.Visible = not windowsOS.Visible
-		end
-	end)
-	
-	game:GetService("UserInputService").InputEnded:Connect(function(input)
-		if input.KeyCode == Enum.KeyCode.LeftControl or input.KeyCode == Enum.KeyCode.RightControl then
-			isCtrlPressed = false
-		end
-		if input.KeyCode == Enum.KeyCode.LeftAlt or input.KeyCode == Enum.KeyCode.RightAlt then
-			isAltPressed = false
-		end
-	end)
-	
-	
-	local ReminderIsAlreadyShown = false
-	windowsOS.TitleBar.MinimizeButton.MouseButton1Click:Connect(function()
-		windowsOS.Visible = false
-		if ReminderIsAlreadyShown == false then
-			ReminderIsAlreadyShown = true
-			addMessagebox("Tips", "Press Ctrl+Alt to show the windows again", {"OK"}, function(seect)
-				if seect == 'OK' then
-					return
-				end
-			end)
 		end
 		
-	end)
-	windowsOS.TitleBar.MaximizeButton.MouseButton1Click:Connect(function()
-		if windowsOS.Size == UDim2.new(0, 400, 0, 300) then
-			windowsOS.Size = UDim2.new(1, 0, 1, 0)
-			windowsOS.ToolbarSection.Size = UDim2.new(0.996, 0, 0.042, 0)
-			windowsOS.Position = UDim2.new(0.5, 0, 0.5, 0)
-		else
-			windowsOS.Size = UDim2.new(0, 400, 0, 300)
-			windowsOS.ToolbarSection.Size = UDim2.new(0.996, 0, 0.073, 0)
-			windowsOS.Position = UDim2.new(0.5, 0, 0.5, 0)
+		
+		
+		-- Listen for changes in the ActiveWindows container
+		script.Parent.Parent.ActiveWindows.ChildAdded:Connect(function()
+			updateList()
+		end)
+		
+		script.Parent.Parent.ActiveWindows.ChildRemoved:Connect(function()
+			updateList()
+		end)
+		-- Variables to track key states
+		local isCtrlPressed = false
+		local isAltPressed = false
+		game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
+			if gameProcessed then return end
+		
+			if input.KeyCode == Enum.KeyCode.LeftControl or input.KeyCode == Enum.KeyCode.RightControl then
+				isCtrlPressed = true
+			end
+		
+			if input.KeyCode == Enum.KeyCode.LeftAlt or input.KeyCode == Enum.KeyCode.RightAlt then
+				isAltPressed = true
+			end
+		
+			if isCtrlPressed and isAltPressed then
+				windowsOS.Visible = not windowsOS.Visible
+			end
+		end)
+		
+		game:GetService("UserInputService").InputEnded:Connect(function(input)
+			if input.KeyCode == Enum.KeyCode.LeftControl or input.KeyCode == Enum.KeyCode.RightControl then
+				isCtrlPressed = false
+			end
+			if input.KeyCode == Enum.KeyCode.LeftAlt or input.KeyCode == Enum.KeyCode.RightAlt then
+				isAltPressed = false
+			end
+		end)
+		
+		
+		local ReminderIsAlreadyShown = false
+		windowsOS.TitleBar.MinimizeButton.MouseButton1Click:Connect(function()
+			windowsOS.Visible = false
+			if ReminderIsAlreadyShown == false then
+				ReminderIsAlreadyShown = true
+				addMessagebox("Tips", "Press Ctrl+Alt to show the windows again", {"OK"}, function(seect)
+					if seect == 'OK' then
+						return
+					end
+				end)
+			end
+			
+		end)
+		windowsOS.TitleBar.MaximizeButton.MouseButton1Click:Connect(function()
+			if windowsOS.Size == UDim2.new(0, 400, 0, 300) then
+				windowsOS.Size = UDim2.new(1, 0, 1, 0)
+				windowsOS.ToolbarSection.Size = UDim2.new(0.996, 0, 0.042, 0)
+				windowsOS.Position = UDim2.new(0.5, 0, 0.5, 0)
+			else
+				windowsOS.Size = UDim2.new(0, 400, 0, 300)
+				windowsOS.ToolbarSection.Size = UDim2.new(0.996, 0, 0.073, 0)
+				windowsOS.Position = UDim2.new(0.5, 0, 0.5, 0)
+			end
+		end)
+		
+		
+		--USER INTERFACE
+		
+		function createwindow(title, isvisible)
+			local window = script.Parent.WindowFrame:Clone()
+			window.Parent = script.Parent.Parent.ActiveWindows
+			window.Visible = isvisible
+			window.TitleBar.TitleText.Text = title
+			window.Name = title
+			window.TitleBar.ExitButton.MouseButton1Click:Connect(function()
+				addMessagebox("Confirm action", 'Do you want to close "'..window.Name..'"?', {"YES", "NO"}, function(seect)
+					if seect == 'YES' then
+						window:Destroy()
+					else
+						return
+					end
+				end)
+			end)
+			window.TitleBar.MinimizeButton.MouseButton1Click:Connect(function()
+				window.Visible = false
+			end)
+			window.TitleBar.MaximizeButton.MouseButton1Click:Connect(function()
+				if window.Size == UDim2.new(0, 400, 0, 300) then
+					window.Size = UDim2.new(1, 0, 1, 0)
+					window.ToolbarSection.Size = UDim2.new(0.996, 0, 0.042, 0)
+					window.Position = UDim2.new(0.5, 0, 0.5, 0)
+				else
+					window.Size = UDim2.new(0, 400, 0, 300)
+					window.ToolbarSection.Size = UDim2.new(0.996, 0, 0.073, 0)
+					window.Position = UDim2.new(0.5, 0, 0.5, 0)
+				end
+			end)
+			makeDraggable(window)
+			return window
 		end
-	end)
-	
-	
-	--USER INTERFACE
-	
-	function createwindow(title, isvisible)
-		local window = script.Parent.WindowFrame:Clone()
-		window.Parent = script.Parent.Parent.ActiveWindows
-		window.Visible = isvisible
-		window.TitleBar.TitleText.Text = title
-		window.Name = title
-		window.TitleBar.ExitButton.MouseButton1Click:Connect(function()
-			addMessagebox("Confirm action", 'Do you want to close "'..window.Name..'"?', {"YES", "NO"}, function(seect)
-				if seect == 'YES' then
-					window:Destroy()
+		
+		
+		
+		function addtoolbar(parent, text, option, callback)
+			local button = script.Parent.ToolbarButton:Clone()
+			local menubar = script.Parent.MenuBar:Clone()
+		
+			button.Text = text
+			button.Name = text
+			button.Visible = true
+			button.Parent = script.Parent.Parent.ActiveWindows:FindFirstChild(parent).ToolbarSection
+			menubar.Parent = script.Parent.Parent.ActiveWindows:FindFirstChild(parent).RendererForMenubar
+			menubar.Name = text
+			button:GetPropertyChangedSignal("AbsolutePosition"):Connect(function()
+				menubar.Position = UDim2.new(
+					0, button.AbsolutePosition.X - menubar.Parent.AbsolutePosition.X,
+					0, button.AbsolutePosition.Y + button.AbsoluteSize.Y - menubar.Parent.AbsolutePosition.Y + 1
+				)
+			end)
+			menubar.Visible = false
+			button.MouseButton1Click:Connect(function()
+				menubar.Visible = not menubar.Visible
+			end)
+			
+			for i, v in pairs(option) do
+				local menubutton = script.Parent.MenuBarButton:Clone()
+				
+				menubutton.Name = v
+				menubutton.Text = v
+				menubutton.Parent = menubar
+				menubutton.Visible = true
+				menubutton.MouseButton1Click:Connect(function()
+					menubar.Visible = false
+					callback(v)
+				end)
+			end
+		
+			return button
+		end
+		function addbutton(parent, title, position, funct, ...)
+			local button = script.Parent.Button:Clone()
+			local scriptcontent = {...}
+			button.MouseButton1Click:Connect(function()
+				funct(unpack(scriptcontent))
+			end)
+			button.Name = title
+			button.Parent = script.Parent.Parent.ActiveWindows:FindFirstChild(parent).WhiteFrame
+			button.Text = title
+			button.Visible = true
+			button.Position = position
+			
+			
+			return button
+		end
+		
+		function addToggle(parent, title, position, callback, optionturnon)
+			local button = script.Parent.CheckButton:Clone()
+			button:SetAttribute("state", optionturnon or false)
+			local state = button:GetAttribute("state")
+			button.Text = state and "✔" or ""
+		
+			button.MouseButton1Click:Connect(function()
+				state = button:GetAttribute("state")
+				if state then
+					button:SetAttribute("state", false)
+					button.Text = ""
+					callback(false)
+				else
+					button:SetAttribute("state", true)
+					button.Text = "✔"
+					callback(true)
+				end
+			end)
+		
+			button.Name = title
+			button.Parent = script.Parent.Parent.ActiveWindows:FindFirstChild(parent).WhiteFrame
+			button.Title.Text = title
+			button.Visible = true
+			button.Position = position
+		
+			return button
+		end
+		
+		function addTextbox(parent, title, position)
+			local button = script.Parent.TextBox:Clone()
+			button.Parent = script.Parent.Parent.ActiveWindows:FindFirstChild(parent).WhiteFrame
+			button.Visible = true
+			button.Text = title..":"
+			button.Name = title
+			button.Position = position
+			
+		
+			return button
+		end
+		function addInfo(parent, title, position)
+			local button = script.Parent.addInfo:Clone()
+			button.Parent = script.Parent.Parent.ActiveWindows:FindFirstChild(parent).WhiteFrame
+			button.Visible = true
+			button.Text = title
+			button.Name = title
+			button.Position = position
+			
+		
+			return button
+		end
+		
+		function addDropdown(parent, title, position, option, callback)
+			local button = script.Parent.TitleInfo:Clone()
+			
+			button.Name = title
+			button.Text = title..":"
+			button.Position = position
+			button.Visible = true
+			button.Parent = script.Parent.Parent.ActiveWindows:FindFirstChild(parent).WhiteFrame
+			
+			button.DropDown.MouseButton1Click:Connect(function()
+				button.DropDown.DropdownBar.Visible = not button.DropDown.DropdownBar.Visible
+			end)
+			for i, v in pairs(option) do
+				local menubutton = script.Parent.DropDownButton:Clone()
+				
+				
+				
+				menubutton.Name = v
+				menubutton.Text = v
+				menubutton.Parent = button.DropDown.DropdownBar
+				menubutton.Visible = true
+				menubutton.MouseButton1Click:Connect(function()
+					button.DropDown.DropdownBar.Visible = false
+					callback(v)
+					button.DropDown.Text = v
+				end)
+				
+				
+			end	
+			button.DropDown.Text = option[1]
+			
+			return button
+		end
+		
+		-- Initial population of the list
+		updateList()
+		
+		--
+		--[[
+		createwindow("Player", false)
+		addbutton("Player", "Report", UDim2.new(0, 30, 0, 30), function()
+			addMessagebox("Report confirmation", "Are you sure you want to report this person?", {"TEST ! TEST ! TEST ! TEST ! TEST", "NO"}, function(seect)
+				if seect == "TEST ! TEST ! TEST ! TEST ! TEST" then
+					addMessagebox("Report receive", "The person you reported is now banned", {"OK"}, function(seect)
+						return
+					end)
 				else
 					return
 				end
 			end)
 		end)
-		window.TitleBar.MinimizeButton.MouseButton1Click:Connect(function()
-			window.Visible = false
+		addbutton("Player", "TEST ! TEST ! TEST ! TEST ! TEST", UDim2.new(0, 50, 0, 0), function()
+			createwindow("TEST ! TEST ! TEST ! TEST ! TEST")
 		end)
-		window.TitleBar.MaximizeButton.MouseButton1Click:Connect(function()
-			if window.Size == UDim2.new(0, 400, 0, 300) then
-				window.Size = UDim2.new(1, 0, 1, 0)
-				window.ToolbarSection.Size = UDim2.new(0.996, 0, 0.042, 0)
-				window.Position = UDim2.new(0.5, 0, 0.5, 0)
-			else
-				window.Size = UDim2.new(0, 400, 0, 300)
-				window.ToolbarSection.Size = UDim2.new(0.996, 0, 0.073, 0)
-				window.Position = UDim2.new(0.5, 0, 0.5, 0)
-			end
+		addToggle("Player", "TEST ! TEST ! TEST ! TEST ! TEST", UDim2.new(0, 0, 0, 30), function(ison)
+			print(ison)
+		end, false)
+		addtoolbar("Player", "TEST ! TEST ! TEST ! TEST ! TEST", {"TEST ! TEST ! TEST ! TEST ! TEST", "Be cold"}, function(selectedMode)
+			print(selectedMode)
 		end)
-		makeDraggable(window)
-		return window
-	end
-	
-	
-	
-	function addtoolbar(parent, text, option, callback)
-		local button = script.Parent.ToolbarButton:Clone()
-		local menubar = script.Parent.MenuBar:Clone()
-	
-		button.Text = text
-		button.Name = text
-		button.Visible = true
-		button.Parent = script.Parent.Parent.ActiveWindows:FindFirstChild(parent).ToolbarSection
-		menubar.Parent = script.Parent.Parent.ActiveWindows:FindFirstChild(parent).RendererForMenubar
-		menubar.Name = text
-		button:GetPropertyChangedSignal("AbsolutePosition"):Connect(function()
-			menubar.Position = UDim2.new(
-				0, button.AbsolutePosition.X - menubar.Parent.AbsolutePosition.X,
-				0, button.AbsolutePosition.Y + button.AbsoluteSize.Y - menubar.Parent.AbsolutePosition.Y + 1
-			)
+		addtoolbar("Player", "Diddys video", {"Be chill", "Be cold"}, function(selectedMode)
+			print(selectedMode)
 		end)
-		menubar.Visible = false
-		button.MouseButton1Click:Connect(function()
-			menubar.Visible = not menubar.Visible
-		end)
-		
-		for i, v in pairs(option) do
-			local menubutton = script.Parent.MenuBarButton:Clone()
-			
-			menubutton.Name = v
-			menubutton.Text = v
-			menubutton.Parent = menubar
-			menubutton.Visible = true
-			menubutton.MouseButton1Click:Connect(function()
-				menubar.Visible = false
-				callback(v)
-			end)
-		end
-	
-		return button
-	end
-	--addtoolbar("Home", "Esp mode", "Select variety of modes", {"Drawing lib", 'Gui'}, function(selectedMode)
-	
-	function addbutton(parent, title, position, funct, ...)
-		local button = script.Parent.Button:Clone()
-		local scriptcontent = {...}
-		button.MouseButton1Click:Connect(function()
-			funct(unpack(scriptcontent))
-		end)
-		button.Name = title
-		button.Parent = script.Parent.Parent.ActiveWindows:FindFirstChild(parent).WhiteFrame
-		button.Text = title
-		button.Visible = true
-		button.Position = position
-		
-		
-		return button
-	end
-	
-	function addToggle(parent, title, position, callback, optionturnon)
-		local button = script.Parent.CheckButton:Clone()
-		button:SetAttribute("state", optionturnon or false)
-		local state = button:GetAttribute("state")
-		button.Text = state and "✔" or ""
-	
-		button.MouseButton1Click:Connect(function()
-			state = button:GetAttribute("state")
-			if state then
-				button:SetAttribute("state", false)
-				button.Text = ""
-				callback(false)
-			else
-				button:SetAttribute("state", true)
-				button.Text = "✔"
-				callback(true)
-			end
-		end)
-	
-		button.Name = title
-		button.Parent = script.Parent.Parent.ActiveWindows:FindFirstChild(parent).WhiteFrame
-		button.Title.Text = title
-		button.Visible = true
-		button.Position = position
-	
-		return button
-	end
-	
-	function addTextbox(parent, title, position)
-		local button = script.Parent.TextBox:Clone()
-		button.Parent = script.Parent.Parent.ActiveWindows:FindFirstChild(parent).WhiteFrame
-		button.Visible = true
-		button.Text = title..":"
-		button.Name = title
-		button.Position = position
-		
-	
-		return button
-	end
-	function addInfo(parent, title, position)
-		local button = script.Parent.addInfo:Clone()
-		button.Parent = script.Parent.Parent.ActiveWindows:FindFirstChild(parent).WhiteFrame
-		button.Visible = true
-		button.Text = title
-		button.Name = title
-		button.Position = position
-		
-	
-		return button
-	end
-	
-	function addDropdown(parent, title, position, option, callback)
-		local button = script.Parent.TitleInfo:Clone()
-		
-		button.Name = title
-		button.Text = title..":"
-		button.Position = position
-		button.Visible = true
-		button.Parent = script.Parent.Parent.ActiveWindows:FindFirstChild(parent).WhiteFrame
-		
-		button.DropDown.MouseButton1Click:Connect(function()
-			button.DropDown.DropdownBar.Visible = not button.DropDown.DropdownBar.Visible
-		end)
-		for i, v in pairs(option) do
-			local menubutton = script.Parent.DropDownButton:Clone()
-			
-			
-			
-			menubutton.Name = v
-			menubutton.Text = v
-			menubutton.Parent = button.DropDown.DropdownBar
-			menubutton.Visible = true
-			menubutton.MouseButton1Click:Connect(function()
-				button.DropDown.DropdownBar.Visible = false
-				callback(v)
-				button.DropDown.Text = v
-			end)
-			
-			
-		end	
-		button.DropDown.Text = option[1]
-		
-		return button
-	end
-	
-	-- Initial population of the list
-	updateList()
-	
-	--
-	--[[
-	createwindow("Player", false)
-	addbutton("Player", "Report", UDim2.new(0, 30, 0, 30), function()
-		addMessagebox("Report confirmation", "Are you sure you want to report this person?", {"TEST ! TEST ! TEST ! TEST ! TEST", "NO"}, function(seect)
-			if seect == "TEST ! TEST ! TEST ! TEST ! TEST" then
-				addMessagebox("Report receive", "The person you reported is now banned", {"OK"}, function(seect)
-					return
-				end)
-			else
-				return
-			end
-		end)
-	end)
-	addbutton("Player", "TEST ! TEST ! TEST ! TEST ! TEST", UDim2.new(0, 50, 0, 0), function()
-		createwindow("TEST ! TEST ! TEST ! TEST ! TEST")
-	end)
-	addToggle("Player", "TEST ! TEST ! TEST ! TEST ! TEST", UDim2.new(0, 0, 0, 30), function(ison)
-		print(ison)
-	end, false)
-	addtoolbar("Player", "TEST ! TEST ! TEST ! TEST ! TEST", {"TEST ! TEST ! TEST ! TEST ! TEST", "Be cold"}, function(selectedMode)
-		print(selectedMode)
-	end)
-	addtoolbar("Player", "Diddys video", {"Be chill", "Be cold"}, function(selectedMode)
-		print(selectedMode)
-	end)
-	addTextbox("Player", "Type im just a chill guy for good reason", UDim2.new(0, 0, 0, 60))
-	addInfo("Player", "TEST ! TEST ! TEST ! TEST ! TEST", UDim2.new(0, 0, 0, 80))
-	addDropdown("Player", "Diddys video", UDim2.new(0, 0, 0, 100),{"TEST ! TEST ! TEST ! TEST ! TEST", "Be cold"}, function(selectedMode)
-		print(selectedMode)
-	end)]]
-end;
+		addTextbox("Player", "Type im just a chill guy for good reason", UDim2.new(0, 0, 0, 60))
+		addInfo("Player", "TEST ! TEST ! TEST ! TEST ! TEST", UDim2.new(0, 0, 0, 80))
+		addDropdown("Player", "Diddys video", UDim2.new(0, 0, 0, 100),{"TEST ! TEST ! TEST ! TEST ! TEST", "Be cold"}, function(selectedMode)
+			print(selectedMode)
+		end)]]
+	end;
 local guilib = coroutine.create(C_3)
 coroutine.resume(guilib)
