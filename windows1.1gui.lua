@@ -8,10 +8,23 @@
 ]=]
 
 -- Instances: 56 | Scripts: 1 | Modules: 0 | Tags: 0
+
+
+local function SystemBlock()
+	local success, parent = pcall(function()
+		return gethui()
+	end)
+
+	if not success then
+		return game:GetService("CoreGui")
+	end
+
+	return parent
+end
 local G2L = {};
 
 -- StarterGui.XpGui
-G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+G2L["1"] = Instance.new("ScreenGui", SystemBlock());
 G2L["1"]["Name"] = [[XpGui]];
 
 
