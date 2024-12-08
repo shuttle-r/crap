@@ -310,7 +310,6 @@ G2L["1a"]["TextYAlignment"] = Enum.TextYAlignment.Top;
 G2L["1a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
 G2L["1a"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 G2L["1a"]["BorderMode"] = Enum.BorderMode.Inset;
-G2L["1a"]["AutomaticSize"] = Enum.AutomaticSize.X;
 G2L["1a"]["ClearTextOnFocus"] = false;
 G2L["1a"]["PlaceholderText"] = [[Type here]];
 G2L["1a"]["Size"] = UDim2.new(0, 100, 0, 19);
