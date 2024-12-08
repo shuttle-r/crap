@@ -436,7 +436,7 @@ G2L["23"] = Instance.new("Frame", G2L["1e"]);
 G2L["23"]["BorderSizePixel"] = 0;
 G2L["23"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
 G2L["23"]["Size"] = UDim2.new(0, 280, 0, 18);
-G2L["23"]["Position"] = UDim2.new(0.06135, 0, 0.70643, 0);
+G2L["23"]["Position"] = UDim2.new(0.07055, 0, 0.70643, 0);
 G2L["23"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 G2L["23"]["Name"] = [[options]];
 G2L["23"]["BackgroundTransparency"] = 1;
@@ -838,13 +838,6 @@ local script = G2L["3"];
 			else
 				button.Image = "http://www.roblox.com/asset/?id=132692935401176"
 			end
-			v:GetPropertyChangedSignal("Visible"):Connect(function()
-				if v.Visible == true then
-					button.Image = "http://www.roblox.com/asset/?id=138177584362287"
-				else
-					button.Image = "http://www.roblox.com/asset/?id=132692935401176"
-				end
-			end)
 	
 			-- Set button properties
 			button.Name = v.Name
@@ -1131,7 +1124,15 @@ local script = G2L["3"];
 	end)]]
 	
 	
-	
+	addMessagebox("Report confirmation", "Are you sure you want to report this person?", {"YES"}, function(seect)
+		if seect == "YES" then
+			addMessagebox("Report receive", "Ummm", {"OK"}, function(seect)
+				return
+			end)
+		else
+			return
+		end
+	end)
 end;
 local guilib = coroutine.create(C_3)
 coroutine.resume(guilib)
