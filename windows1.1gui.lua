@@ -838,6 +838,13 @@ local script = G2L["3"];
 			else
 				button.Image = "http://www.roblox.com/asset/?id=132692935401176"
 			end
+			v:GetPropertyChangedSignal("Visible"):Connect(function()
+				if v.Visible == true then
+					button.Image = "http://www.roblox.com/asset/?id=138177584362287"
+				else
+					button.Image = "http://www.roblox.com/asset/?id=132692935401176"
+				end
+			end)
 	
 			-- Set button properties
 			button.Name = v.Name
