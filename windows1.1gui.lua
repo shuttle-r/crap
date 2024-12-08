@@ -8,23 +8,10 @@
 ]=]
 
 -- Instances: 56 | Scripts: 1 | Modules: 0 | Tags: 0
-
-
-local function SystemBlock()
-	local success, parent = pcall(function()
-		return gethui()
-	end)
-
-	if not success then
-		return game:GetService("CoreGui")
-	end
-
-	return parent
-end
 local G2L = {};
 
 -- StarterGui.XpGui
-G2L["1"] = Instance.new("ScreenGui", SystemBlock());
+G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
 G2L["1"]["Name"] = [[XpGui]];
 
 
@@ -260,6 +247,7 @@ G2L["15"]["Visible"] = false;
 -- StarterGui.XpGui.WindowsFeature.CheckButton.Title
 G2L["16"] = Instance.new("TextLabel", G2L["15"]);
 G2L["16"]["TextWrapped"] = true;
+G2L["16"]["TextTruncate"] = Enum.TextTruncate.AtEnd;
 G2L["16"]["BorderSizePixel"] = 0;
 G2L["16"]["TextXAlignment"] = Enum.TextXAlignment.Left;
 G2L["16"]["TextYAlignment"] = Enum.TextYAlignment.Bottom;
@@ -268,12 +256,11 @@ G2L["16"]["TextSize"] = 14;
 G2L["16"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
 G2L["16"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
 G2L["16"]["BackgroundTransparency"] = 1;
-G2L["16"]["Size"] = UDim2.new(0, 62, 0, 10);
+G2L["16"]["Size"] = UDim2.new(0, 181, 0, 9);
 G2L["16"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 G2L["16"]["Text"] = [[Title here]];
-G2L["16"]["AutomaticSize"] = Enum.AutomaticSize.X;
 G2L["16"]["Name"] = [[Title]];
-G2L["16"]["Position"] = UDim2.new(1.60671, 0, 0.38463, 0);
+G2L["16"]["Position"] = UDim2.new(1.25629, 0, 0.43271, 0);
 
 
 -- StarterGui.XpGui.WindowsFeature.CheckButton.Ison
@@ -289,6 +276,7 @@ G2L["18"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
 G2L["18"]["BackgroundColor3"] = Color3.fromRGB(193, 193, 193);
 G2L["18"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 G2L["18"]["BorderMode"] = Enum.BorderMode.Inset;
+G2L["18"]["AutomaticSize"] = Enum.AutomaticSize.X;
 G2L["18"]["Size"] = UDim2.new(0, 100, 0, 35);
 G2L["18"]["Name"] = [[Button]];
 G2L["18"]["BorderColor3"] = Color3.fromRGB(129, 129, 129);
@@ -335,7 +323,7 @@ G2L["1a"]["Text"] = [[]];
 G2L["1b"] = Instance.new("ImageButton", G2L["2"]);
 G2L["1b"]["BorderSizePixel"] = 0;
 G2L["1b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1b"]["Image"] = [[http://www.roblox.com/asset/?id=138177584362287]];
+G2L["1b"]["Image"] = [[http://www.roblox.com/asset/?id=139028036845663]];
 G2L["1b"]["Size"] = UDim2.new(0, 46, 0, 46);
 G2L["1b"]["BackgroundTransparency"] = 1;
 G2L["1b"]["Name"] = [[Icon]];
@@ -345,17 +333,19 @@ G2L["1b"]["Visible"] = false;
 
 -- StarterGui.XpGui.WindowsFeature.Icon.TextLabel
 G2L["1c"] = Instance.new("TextLabel", G2L["1b"]);
+G2L["1c"]["TextTruncate"] = Enum.TextTruncate.AtEnd;
 G2L["1c"]["BorderSizePixel"] = 0;
+G2L["1c"]["TextXAlignment"] = Enum.TextXAlignment.Left;
 G2L["1c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
 G2L["1c"]["TextSize"] = 14;
 G2L["1c"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
 G2L["1c"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
 G2L["1c"]["BackgroundTransparency"] = 1;
-G2L["1c"]["Size"] = UDim2.new(0, 58, 0, 15);
+G2L["1c"]["Size"] = UDim2.new(0, 97, 0, 15);
 G2L["1c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 G2L["1c"]["Text"] = [[Title here]];
 G2L["1c"]["AutomaticSize"] = Enum.AutomaticSize.X;
-G2L["1c"]["Position"] = UDim2.new(0.96957, 0, 0.27273, 0);
+G2L["1c"]["Position"] = UDim2.new(1.18696, 0, 0.31621, 0);
 
 
 -- StarterGui.XpGui.WindowsFeature.MessageBoxButton
@@ -365,6 +355,7 @@ G2L["1d"]["TextSize"] = 14;
 G2L["1d"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
 G2L["1d"]["BackgroundColor3"] = Color3.fromRGB(193, 193, 193);
 G2L["1d"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["1d"]["AutomaticSize"] = Enum.AutomaticSize.X;
 G2L["1d"]["Size"] = UDim2.new(0, 51, 0, 15);
 G2L["1d"]["Name"] = [[MessageBoxButton]];
 G2L["1d"]["BorderColor3"] = Color3.fromRGB(72, 72, 72);
@@ -451,12 +442,13 @@ G2L["23"]["Name"] = [[options]];
 G2L["23"]["BackgroundTransparency"] = 1;
 
 
--- StarterGui.XpGui.WindowsFeature.MessageBox.options.UIGridLayout
-G2L["24"] = Instance.new("UIGridLayout", G2L["23"]);
+-- StarterGui.XpGui.WindowsFeature.MessageBox.options.UIListLayout
+G2L["24"] = Instance.new("UIListLayout", G2L["23"]);
 G2L["24"]["HorizontalAlignment"] = Enum.HorizontalAlignment.Center;
-G2L["24"]["CellSize"] = UDim2.new(0, 51, 0, 15);
+G2L["24"]["Padding"] = UDim.new(0.06, 0);
 G2L["24"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
-G2L["24"]["CellPadding"] = UDim2.new(0, 20, 0, 5);
+G2L["24"]["ItemLineAlignment"] = Enum.ItemLineAlignment.Center;
+G2L["24"]["FillDirection"] = Enum.FillDirection.Horizontal;
 
 
 -- StarterGui.XpGui.WindowsFeature.TitleInfo
@@ -478,6 +470,7 @@ G2L["25"]["Name"] = [[TitleInfo]];
 
 -- StarterGui.XpGui.WindowsFeature.TitleInfo.DropDown
 G2L["26"] = Instance.new("TextButton", G2L["25"]);
+G2L["26"]["TextTruncate"] = Enum.TextTruncate.SplitWord;
 G2L["26"]["BorderSizePixel"] = 2;
 G2L["26"]["TextXAlignment"] = Enum.TextXAlignment.Left;
 G2L["26"]["TextSize"] = 14;
@@ -529,6 +522,7 @@ G2L["29"]["ItemLineAlignment"] = Enum.ItemLineAlignment.Center;
 
 -- StarterGui.XpGui.WindowsFeature.DropDownButton
 G2L["2a"] = Instance.new("TextButton", G2L["2"]);
+G2L["2a"]["TextTruncate"] = Enum.TextTruncate.SplitWord;
 G2L["2a"]["BorderSizePixel"] = 0;
 G2L["2a"]["TextXAlignment"] = Enum.TextXAlignment.Left;
 G2L["2a"]["TextSize"] = 14;
@@ -832,7 +826,18 @@ local script = G2L["3"];
 			-- Button click toggles the visibility of the corresponding window
 			button.MouseButton1Click:Connect(function()
 				v.Visible = not v.Visible
+				if v.Visible == true then
+					button.Image = "http://www.roblox.com/asset/?id=138177584362287"
+				else
+					button.Image = "http://www.roblox.com/asset/?id=132692935401176"
+				end
 			end)
+			
+			if v.Visible == true then
+				button.Image = "http://www.roblox.com/asset/?id=138177584362287"
+			else
+				button.Image = "http://www.roblox.com/asset/?id=132692935401176"
+			end
 	
 			-- Set button properties
 			button.Name = v.Name
@@ -842,7 +847,7 @@ local script = G2L["3"];
 		end
 	end
 	
-
+	
 	
 	-- Listen for changes in the ActiveWindows container
 	script.Parent.Parent.ActiveWindows.ChildAdded:Connect(function()
@@ -1003,7 +1008,7 @@ local script = G2L["3"];
 		button:SetAttribute("state", optionturnon or false)
 		local state = button:GetAttribute("state")
 		button.Text = state and "✔" or ""
-		
+	
 		button.MouseButton1Click:Connect(function()
 			state = button:GetAttribute("state")
 			if state then
@@ -1022,7 +1027,7 @@ local script = G2L["3"];
 		button.Title.Text = title
 		button.Visible = true
 		button.Position = position
-		
+	
 		return button
 	end
 	
@@ -1082,9 +1087,44 @@ local script = G2L["3"];
 		
 		return button
 	end
-
-
-	updateList()	
+	
+	-- Initial population of the list
+	updateList()
+	
+	--
+	--[[
+	createwindow("Player", false)
+	addbutton("Player", "Report", UDim2.new(0, 30, 0, 30), function()
+		addMessagebox("Report confirmation", "Are you sure you want to report this person?", {"TEST ! TEST ! TEST ! TEST ! TEST", "NO"}, function(seect)
+			if seect == "TEST ! TEST ! TEST ! TEST ! TEST" then
+				addMessagebox("Report receive", "The person you reported is now banned", {"OK"}, function(seect)
+					return
+				end)
+			else
+				return
+			end
+		end)
+	end)
+	addbutton("Player", "TEST ! TEST ! TEST ! TEST ! TEST", UDim2.new(0, 50, 0, 0), function()
+		createwindow("TEST ! TEST ! TEST ! TEST ! TEST")
+	end)
+	addToggle("Player", "TEST ! TEST ! TEST ! TEST ! TEST", UDim2.new(0, 0, 0, 30), function(ison)
+		print(ison)
+	end, false)
+	addtoolbar("Player", "TEST ! TEST ! TEST ! TEST ! TEST", {"TEST ! TEST ! TEST ! TEST ! TEST", "Be cold"}, function(selectedMode)
+		print(selectedMode)
+	end)
+	addtoolbar("Player", "Diddys video", {"Be chill", "Be cold"}, function(selectedMode)
+		print(selectedMode)
+	end)
+	addTextbox("Player", "Type im just a chill guy for good reason", UDim2.new(0, 0, 0, 60))
+	addInfo("Player", "TEST ! TEST ! TEST ! TEST ! TEST", UDim2.new(0, 0, 0, 80))
+	addDropdown("Player", "Diddys video", UDim2.new(0, 0, 0, 100),{"TEST ! TEST ! TEST ! TEST ! TEST", "Be cold"}, function(selectedMode)
+		print(selectedMode)
+	end)]]
+	
+	
+	
 end;
 local guilib = coroutine.create(C_3)
 coroutine.resume(guilib)
