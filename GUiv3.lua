@@ -179,47 +179,57 @@ local UIListLayout_8 = Instance.new("UIListLayout")
 local userInputService = game:GetService('UserInputService')
 local guiService = game:GetService("GuiService")
 local runService = game:GetService("RunService")
-local function makeDraggable(object)
-	local dragging = false
-	local relative = nil
-
-	local offset = Vector2.zero
-	local screenGui = object:FindFirstAncestorWhichIsA("ScreenGui")
-	if screenGui and screenGui.IgnoreGuiInset then
-		offset += guiService:GetGuiInset()
+function makeDraggable(object)
+		local dragging = false
+		local relative = nil
+	
+		local offset = Vector2.zero
+		local screenGui = object:FindFirstAncestorWhichIsA("ScreenGui")
+		if screenGui and screenGui.IgnoreGuiInset then
+			offset += game:GetService("GuiService"):GetGuiInset()
+		end
+	
+		local inputBegan = object.InputBegan:Connect(function(input, processed)
+			if processed then return end
+			local inputType = input.UserInputType.Name
+			if inputType == "MouseButton1" or inputType == "Touch" then
+				if SYSTEM_OnDragging == true then return end
+				relative = object.AbsolutePosition + object.AbsoluteSize * object.AnchorPoint - game:GetService('UserInputService'):GetMouseLocation()
+				dragging = true
+				SYSTEM_OnDragging = true
+			end
+		end)
+	
+		local inputEnded = game:GetService('UserInputService').InputEnded:Connect(function(input)
+			if not dragging then return end
+	
+			local inputType = input.UserInputType.Name
+			if inputType == "MouseButton1" or inputType == "Touch" then
+				dragging = false
+				SYSTEM_OnDragging = false
+			end
+		end)
+	
+		local renderStepped = game:GetService("RunService").RenderStepped:Connect(function()
+			if dragging then
+				local position = game:GetService('UserInputService'):GetMouseLocation() + relative + offset
+				object.Position = UDim2.fromOffset(position.X, position.Y)
+			end
+		end)
+		
+		local DestroyingConnection
+		DestroyingConnection = object.Destroying:Connect(function()
+			inputBegan:Disconnect()
+			inputEnded:Disconnect()
+			renderStepped:Disconnect()
+			DestroyingConnection:Disconnect()
+			
+			inputBegan = nil
+			inputEnded = nil
+			renderStepped = nil
+			DestroyingConnection = nil
+		end)
 	end
-
-	object.InputBegan:Connect(function(input, processed)
-		if processed then return end
-
-		local inputType = input.UserInputType.Name
-		if inputType == "MouseButton1" or inputType == "Touch" then
-			relative = object.AbsolutePosition + object.AbsoluteSize * object.AnchorPoint - userInputService:GetMouseLocation()
-			dragging = true
-		end
-	end)
-
-	local inputEnded = userInputService.InputEnded:Connect(function(input)
-		if not dragging then return end
-
-		local inputType = input.UserInputType.Name
-		if inputType == "MouseButton1" or inputType == "Touch" then
-			dragging = false
-		end
-	end)
-
-	local renderStepped = runService.RenderStepped:Connect(function()
-		if dragging then
-			local position = userInputService:GetMouseLocation() + relative + offset
-			object.Position = UDim2.fromOffset(position.X, position.Y)
-		end
-	end)
-
-	object.Destroying:Connect(function()
-		inputEnded:Disconnect()
-		renderStepped:Disconnect()
-	end)
-end
 --Properties:
 
 local function SystemBlock()
