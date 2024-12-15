@@ -1,6 +1,8 @@
 -- Gui to Lua
 -- Version: 3.2
-
+repeat
+	task.wait()
+until game:IsLoaded()
 -- Instances:
 local whichsidebaron = "None"
 local shufelMain = Instance.new("ScreenGui")
