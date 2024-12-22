@@ -1833,6 +1833,100 @@ SubTitle.TextScaled = true
 SubTitle.TextSize = 14.000
 SubTitle.TextWrapped = true
 
+local G2L = {};
+
+-- StarterGui.ScreenGui
+G2L["1"] = Instance.new("ScreenGui", StableButton);
+
+
+
+-- StarterGui.ScreenGui.KeybindGui
+G2L["2"] = Instance.new("Frame", G2L["1"]);
+G2L["2"]["Visible"] = false;
+G2L["2"]["BorderSizePixel"] = 0;
+G2L["2"]["BackgroundColor3"] = Color3.fromRGB(51, 51, 51);
+G2L["2"]["Size"] = UDim2.new(1, 0, 0.14673, 0);
+G2L["2"]["Position"] = UDim2.new(0.0004, 0, 0.15426, 0);
+G2L["2"]["BorderColor3"] = Color3.fromRGB(51, 51, 51);
+G2L["2"]["Name"] = [[KeybindGui]];
+
+
+-- StarterGui.ScreenGui.KeybindGui.UICorner
+G2L["3"] = Instance.new("UICorner", G2L["2"]);
+G2L["3"]["CornerRadius"] = UDim.new(0, 20);
+
+
+-- StarterGui.ScreenGui.KeybindGui.Title
+G2L["4"] = Instance.new("TextLabel", G2L["2"]);
+G2L["4"]["TextWrapped"] = true;
+G2L["4"]["BorderSizePixel"] = 0;
+G2L["4"]["TextScaled"] = true;
+G2L["4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["4"]["TextSize"] = 14;
+G2L["4"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["4"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["4"]["BackgroundTransparency"] = 1;
+G2L["4"]["Size"] = UDim2.new(0.20181, 0, 0.36232, 0);
+G2L["4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["4"]["Text"] = [[Title]];
+G2L["4"]["Name"] = [[Title]];
+G2L["4"]["Position"] = UDim2.new(0.07838, 0, 0.19115, 0);
+
+
+-- StarterGui.ScreenGui.KeybindGui.Title.SubTitle
+G2L["5"] = Instance.new("TextLabel", G2L["4"]);
+G2L["5"]["TextWrapped"] = true;
+G2L["5"]["BorderSizePixel"] = 0;
+G2L["5"]["TextScaled"] = true;
+G2L["5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["5"]["TextSize"] = 14;
+G2L["5"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["5"]["TextColor3"] = Color3.fromRGB(123, 123, 123);
+G2L["5"]["BackgroundTransparency"] = 1;
+G2L["5"]["Size"] = UDim2.new(1, 0, 0.6, 0);
+G2L["5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["5"]["Text"] = [[This is a title for Textbox section]];
+G2L["5"]["Name"] = [[SubTitle]];
+G2L["5"]["Position"] = UDim2.new(-0.00625, 0, 0.961, 0);
+
+
+-- StarterGui.ScreenGui.KeybindGui.Logo
+G2L["6"] = Instance.new("ImageLabel", G2L["2"]);
+G2L["6"]["BorderSizePixel"] = 0;
+G2L["6"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["6"]["Image"] = [[rbxassetid://16169211403]];
+G2L["6"]["ImageRectSize"] = Vector2.new(72, 72);
+G2L["6"]["Size"] = UDim2.new(0.05175, 0, 0.57971, 0);
+G2L["6"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["6"]["BackgroundTransparency"] = 1;
+G2L["6"]["ImageRectOffset"] = Vector2.new(74, 296);
+G2L["6"]["Name"] = [[Logo]];
+G2L["6"]["Position"] = UDim2.new(0.02435, 0, 0.20332, 0);
+
+
+-- StarterGui.ScreenGui.KeybindGui.Logo.UIAspectRatioConstraint
+G2L["7"] = Instance.new("UIAspectRatioConstraint", G2L["6"]);
+
+
+
+-- StarterGui.ScreenGui.KeybindGui.TextButton
+G2L["8"] = Instance.new("TextButton", G2L["2"]);
+G2L["8"]["TextWrapped"] = true;
+G2L["8"]["BorderSizePixel"] = 0;
+G2L["8"]["TextSize"] = 14;
+G2L["8"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["8"]["TextScaled"] = true;
+G2L["8"]["BackgroundColor3"] = Color3.fromRGB(23, 25, 26);
+G2L["8"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["8"]["Size"] = UDim2.new(0.144, 0, 0.478, 0);
+G2L["8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["8"]["Text"] = [[None]];
+G2L["8"]["Position"] = UDim2.new(0.829, 0, 0.246, 0);
+
+
+-- StarterGui.ScreenGui.KeybindGui.TextButton.UICorner
+G2L["9"] = Instance.new("UICorner", G2L["8"]);
+G2L["9"]["CornerRadius"] = UDim.new(0, 20);
 -- Scripts:
 local function VMZQMBM_fake_script() -- SystemAbout_2.LocalScript 
 	local script = Instance.new('LocalScript', SystemAbout_2)
@@ -1943,6 +2037,51 @@ createvalue.Name = "Value"
 		local scriptcontent = {...}
 		button.ImageButton.MouseButton1Click:Connect(function()
 			funct(unpack(scriptcontent))
+		end)
+		
+		button.Parent = shufelMain.MainGui.WhiteGui[osnameparent]
+		button.Name = ostext
+		for i, v in pairs(automaticselectionimage) do
+			if (string.sub(string.lower(i),1,string.len(osimagelogo))) == string.lower(osimagelogo) then
+				button.Logo.Image = v[1]
+				local offset = string.split(v[2], ",")
+				button.Logo.ImageRectOffset = Vector2.new(tonumber(offset[1]), tonumber(offset[2]))
+				local size = string.split(v[3], ",")
+				button.Logo.ImageRectSize = Vector2.new(tonumber(size[1]), tonumber(size[2]))
+			end
+		end
+		
+		button.Title.Text = ostext
+		button.Title.SubTitle.Text = ossubtitle
+		button.Visible = true
+		
+		return button
+	end
+
+	function addKeybind(osnameparent, osimagelogo, ostext, ossubtitle, funct, ...)
+		local recordedKeyBind = nil
+		local button = StableButtons.KeybindGui:Clone()
+		local scriptcontent = {...}
+		local ProccessKeybind
+		ProccessKeybind = game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
+			if not gameProcessed and recordedKeyBind ~= nil then
+				if input.KeyCode == recordedKeyBind then
+					funct(unpack(scriptcontent))
+				end				
+			end
+		end)
+		button.TextButton.MouseButton1Click:Connect(function()
+			button.TextButton.Text = "Listening."
+			local recorderKeybind
+			recorderKeybind = game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
+				if not gameProcessed then
+					recordedKeyBind = input.KeyCode
+					button.TextButton.Text = tostring(input.KeyCode)
+					addnotification("Fuck", "Key Recorded: "..tostring(input.KeyCode))
+					recorderKeybind:Disconnect()
+					recorderKeybind = nil
+				end
+			end)
 		end)
 		
 		button.Parent = shufelMain.MainGui.WhiteGui[osnameparent]
