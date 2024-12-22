@@ -2075,6 +2075,7 @@ createvalue.Name = "Value"
 				if not gameProcessed then
 					recordedKeyBind = input.KeyCode
 					button.TextButton.Text = tostring(input.KeyCode.Name)
+					task.wait(0.1)
 					alreadyListening = false
 					recorderKeybind:Disconnect()
 					recorderKeybind = nil
