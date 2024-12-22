@@ -2057,22 +2057,25 @@ createvalue.Name = "Value"
 		local recordedKeyBind = nil
 		local button = StableButtons.KeybindGui:Clone()
 		local scriptcontent = {...}
+		local alreadyListening = false
 		local ProccessKeybind
 		ProccessKeybind = game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
-			if not gameProcessed and recordedKeyBind ~= nil then
+			if not gameProcessed and recordedKeyBind ~= nil and alreadyListening == false then
 				if input.KeyCode == recordedKeyBind then
 					funct(unpack(scriptcontent))
 				end				
 			end
 		end)
 		button.TextButton.MouseButton1Click:Connect(function()
+			if alreadyListening == true then return end
+			alreadyListening = true
 			button.TextButton.Text = "Listening."
 			local recorderKeybind
 			recorderKeybind = game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
 				if not gameProcessed then
 					recordedKeyBind = input.KeyCode
-					button.TextButton.Text = tostring(input.KeyCode)
-					addnotification("Fuck", "Key Recorded: "..tostring(input.KeyCode))
+					button.TextButton.Text = tostring(input.KeyCode.Name)
+					alreadyListening = false
 					recorderKeybind:Disconnect()
 					recorderKeybind = nil
 				end
