@@ -1972,11 +1972,24 @@ createvalue.Name = "Value"
 		Jump = {"rbxassetid://16884179279", "690, 590", "54, 54"},
 		Walk = {"rbxassetid://16884179279", "634, 422", "54, 54"},
 		Shop = {"rbxassetid://16167594625", "582, 578", "144, 144"},
-	
+		Delete = {"rbxassetid://16167593004", "0, 578", "108, 108"},
+		Info = {"rbxassetid://16167593004", "220,688", "108,108"},
+		Edit = {"rbxassetid://16167593004", "110, 908", "108,108"},
+		Reset = {"rbxassetid://16167593004", "330, 908", "108,108"},
+		Feedback = {"rbxassetid://16167594319", "0, 898", "108,108"},
+		Copy = {"rbxassetid://16167593004", "110, 688", "108,108"},
+		Refresh = {"rbxassetid://16884179038", "908, 660", "108,108"},
+		Fall = {"rbxassetid://16884179279", "802, 198", "54, 54"},
+		Report = {"rbxassetid://16167594319", "0, 898", "108,108"},
+		Lock = {"rbxassetid://14755021654", "371, 892", "108, 108"},
+		Oof = {"rbxassetid://14755021654", "602, 520", "288, 288"},
+		Face = {"rbxassetid://16884179279", "922, 0", "54, 54"},
+		Bullet = {"rbxassetid://14755021952", "436, 868", "54, 54"},
+
 		None = {"rbxassetid://16884179038", "110, 798", "108, 108"},
 	}
 	
-	function addsidebar(osname)
+	function addsidebar(osname, title)
 		local sidebar = shufelMain.StableSidebarButtons.Home:Clone()
 		local layoutsccrollingframe = shufelMain.StableSidebarButtons.LayoutFrame:Clone()
 		
@@ -1986,7 +1999,12 @@ createvalue.Name = "Value"
 				for i,v in pairs(WhiteGui:GetChildren()) do 
 					if v:IsA("ScrollingFrame") then
 						if osname == v.Name then
-							whichsidebaron = osname
+							if title == nil then
+								whichsidebaron = osname
+							else
+								whichsidebaron = title
+							end
+
 							Title_2.Text = _G.Guimaid.." | "..whichsidebaron
 							for i, v in pairs(v:GetChildren()) do
 								coun = i
