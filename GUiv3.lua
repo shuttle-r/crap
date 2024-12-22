@@ -1835,13 +1835,8 @@ SubTitle.TextWrapped = true
 
 local G2L = {};
 
--- StarterGui.ScreenGui
-G2L["1"] = Instance.new("ScreenGui", StableButton);
-
-
-
 -- StarterGui.ScreenGui.KeybindGui
-G2L["2"] = Instance.new("Frame", G2L["1"]);
+G2L["2"] = Instance.new("Frame", StableButton);
 G2L["2"]["Visible"] = false;
 G2L["2"]["BorderSizePixel"] = 0;
 G2L["2"]["BackgroundColor3"] = Color3.fromRGB(51, 51, 51);
