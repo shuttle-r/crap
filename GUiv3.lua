@@ -2296,7 +2296,7 @@ createvalue.Name = "Value"
 		-- Set the initial dropdown option if available
 		local initialOptions = fetchOptions()
 		if #initialOptions > 0 then
-			button.Title.Text = ostext .. ": " .. initialOptions[1]
+			button.Title.Text = ostext .. " " .. initialOptions[1]
 		end
 	
 		return button
