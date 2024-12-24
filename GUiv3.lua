@@ -2248,22 +2248,34 @@ createvalue.Name = "Value"
 		button.Title.Text = ostext
 		button.Title.SubTitle.Text = ossubtitle
 		button.Visible = true
-	
-		for i, v in pairs(option) do
-			local dropdown2 = shufelMain.StableButton.BarButton:Clone()
-	
-			dropdown2.Name = v
-			dropdown2.Text = v
-			dropdown2.Visible = true
-			dropdown2.Parent = shufelMain.MainGui.WhiteGui[osnameparent][ostext].ImageButton.Dropmenu
-			dropdown2.MouseButton1Click:Connect(function()
-				selectedMode = dropdown2.Text
-				if callback then
-					callback(selectedMode)
-					button.Title.Text = ostext..": "..selectedMode
+		
+		local coroutinetoo = coroutine.create(function()
+			while true do task.wait(1)
+				for i, v in pairs(shufelMain.MainGui.WhiteGui[osnameparent][ostext].ImageButton.Dropmenu:GetChildren) do --delete stage
+					if v:IsA("TextButton") then
+						v:Destroy()
+					end
 				end
-			end)
-		end
+
+				for i, v in pairs(option) do --create stage
+					local dropdown2 = shufelMain.StableButton.BarButton:Clone()
+					dropdown2.Name = v
+					dropdown2.Text = v
+					dropdown2.Visible = true
+					dropdown2.Parent = shufelMain.MainGui.WhiteGui[osnameparent][ostext].ImageButton.Dropmenu
+					dropdown2.MouseButton1Click:Connect(function()
+						selectedMode = dropdown2.Text
+						if callback then
+							callback(selectedMode)
+							button.Title.Text = ostext..": "..selectedMode
+						end
+					end)
+				end
+			end
+		end)
+		coroutine.resume(coroutinetoo)
+		
+
 	button.Title.Text = ostext..": "..option[1]
 		return button
 	end
