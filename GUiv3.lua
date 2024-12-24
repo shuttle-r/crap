@@ -2193,50 +2193,85 @@ createvalue.Name = "Value"
 		
 		return button
 	end
-	
-	
+
+
 	function addDropmenu(osnameparent, osimagelogo, ostext, ossubtitle, option, callback)
 		local button = StableButtons.DropdownGui:Clone()
-	    local selectedMode
+		local selectedMode
 		button.Parent = shufelMain.MainGui.WhiteGui[osnameparent]
-	    button.Name = ostext
+		button.Name = ostext
 		local ImageButton = button.ImageButton
 		local dropmenu = ImageButton.Dropmenu
 		local ImActive = false
-		local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
+		local ts, ti = game:GetService("TweenService"), TweenInfo.new(.5, Enum.EasingStyle.Quint)
 		local on = ts:Create(ImageButton.Dropmenu, ti, {Size = UDim2.new(6.1, 0, 0, 0)})
 		local off = ts:Create(ImageButton.Dropmenu, ti, {Size = UDim2.new(6.1, 0, 0, 0)})
 		ImageButton.Dropmenu.Size = UDim2.new(6.1, 0, 0, 0)
+		
+		-- Utility to fetch options (function or table)
+		local function fetchOptions()
+			if type(option) == "function" then
+				return option() -- Call the function to get options
+			elseif type(option) == "table" then
+				return option -- Use the table directly
+			else
+				error("Invalid type for option. Expected function or table.")
+			end
+		end
+		
 		local function countTextButtons()
 			local count = 0.675
 			for _, child in pairs(dropmenu:GetChildren()) do
 				if child:IsA("TextButton") then
-					-- count += 0.675
 					on = ts:Create(ImageButton.Dropmenu, ti, {Size = UDim2.new(6.1, 0, count, 0)})
 				end
 			end
 		end
+		
+		local function refreshOptions()
+			-- Clear existing dropdown options
+			for _, child in pairs(dropmenu:GetChildren()) do
+				if child:IsA("TextButton") then
+					child:Destroy()
+				end
+			end
+	
+			-- Populate dropdown with updated options
+			for _, v in pairs(fetchOptions()) do
+				local dropdown2 = shufelMain.StableButton.BarButton:Clone()
+				dropdown2.Name = v
+				dropdown2.Text = v
+				dropdown2.Visible = true
+				dropdown2.Parent = dropmenu
+				dropdown2.MouseButton1Click:Connect(function()
+					selectedMode = dropdown2.Text
+					if callback then
+						callback(selectedMode)
+						button.Title.Text = ostext .. ": " .. selectedMode
+					end
+				end)
+			end
+		end
+	
 		ImageButton.MouseButton1Click:Connect(function()
 			countTextButtons()
-			if ImActive == true then
+			refreshOptions()
+			if ImActive then
 				ImActive = false
-			else
-				ImActive = true
-			end
-
-			if ImActive == true then
-				dropmenu.AutomaticSize = Enum.AutomaticSize.Y 
-				on:Play()
-				on.Completed:Wait()
-			else
 				dropmenu.AutomaticSize = Enum.AutomaticSize.None
 				off:Play()
 				off.Completed:Wait()
+			else
+				ImActive = true
+				refreshOptions() -- Refresh options when the dropdown is opened
+				dropmenu.AutomaticSize = Enum.AutomaticSize.Y
+				on:Play()
+				on.Completed:Wait()
 			end
 		end)
 	
 		for i, v in pairs(automaticselectionimage) do
-			if (string.sub(string.lower(i),1,string.len(osimagelogo))) == string.lower(osimagelogo) then
+			if string.sub(string.lower(i), 1, string.len(osimagelogo)) == string.lower(osimagelogo) then
 				button.Logo.Image = v[1]
 				local offset = string.split(v[2], ",")
 				button.Logo.ImageRectOffset = Vector2.new(tonumber(offset[1]), tonumber(offset[2]))
@@ -2248,37 +2283,25 @@ createvalue.Name = "Value"
 		button.Title.Text = ostext
 		button.Title.SubTitle.Text = ossubtitle
 		button.Visible = true
-		
-		local coroutinetoo = coroutine.create(function()
-			while true do task.wait(1)
-				for i, v in pairs(shufelMain.MainGui.WhiteGui[osnameparent][ostext].ImageButton.Dropmenu:GetChildren()) do --delete stage
-					if v:IsA("TextButton") then
-						v:Destroy()
-					end
-				end
-
-				for i, v in pairs(option) do --create stage
-					local dropdown2 = shufelMain.StableButton.BarButton:Clone()
-					dropdown2.Name = v
-					dropdown2.Text = v
-					dropdown2.Visible = true
-					dropdown2.Parent = shufelMain.MainGui.WhiteGui[osnameparent][ostext].ImageButton.Dropmenu
-					dropdown2.MouseButton1Click:Connect(function()
-						selectedMode = dropdown2.Text
-						if callback then
-							callback(selectedMode)
-							button.Title.Text = ostext..": "..selectedMode
-						end
-					end)
-				end
+		countTextButtons()
+		refreshOptions()
+	
+		task.spawn(function()
+			while true do
+				task.wait(1)
+				refreshOptions()
 			end
 		end)
-		coroutine.resume(coroutinetoo)
-		
-
-	button.Title.Text = ostext..": "..option[1]
+	
+		-- Set the initial dropdown option if available
+		local initialOptions = fetchOptions()
+		if #initialOptions > 0 then
+			button.Title.Text = ostext .. ": " .. initialOptions[1]
+		end
+	
 		return button
 	end
+	
 	
 	function addnotification(osimagelogo, ostext)
 		local notification = shufelMain.StableNotification.NoticationBar:Clone()
