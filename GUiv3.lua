@@ -2251,7 +2251,7 @@ createvalue.Name = "Value"
 		
 		local coroutinetoo = coroutine.create(function()
 			while true do task.wait(1)
-				for i, v in pairs(shufelMain.MainGui.WhiteGui[osnameparent][ostext].ImageButton.Dropmenu:GetChildren) do --delete stage
+				for i, v in pairs(shufelMain.MainGui.WhiteGui[osnameparent][ostext].ImageButton.Dropmenu:GetChildren()) do --delete stage
 					if v:IsA("TextButton") then
 						v:Destroy()
 					end
