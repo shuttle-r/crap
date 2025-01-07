@@ -259,7 +259,7 @@ MainGui.BorderSizePixel = 0
 MainGui.ClipsDescendants = true
 MainGui.Position = UDim2.new(0.5, 0, 0.5, 0)
 MainGui.AnchorPoint = Vector2.new(0.5, 0.5)
-MainGui.Size = UDim2.new(0.44032, 0, 0.51136, 0) --UDim2.new(0.680098712, 0, 0.782336533, 0)
+MainGui.Size = UDim2.new(0, 0, 0, 0) --UDim2.new(0.680098712, 0, 0.782336533, 0)
 makeDraggable(MainGui)
 UICorner.CornerRadius = UDim.new(0, 20)
 UICorner.Parent = MainGui
@@ -2655,3 +2655,4 @@ function openmaingui()
     local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.44032, 0, 0.51136, 0)})
     off:Play()  
 end
+openmaingui()
