@@ -257,7 +257,7 @@ MainGui.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 MainGui.BorderColor3 = Color3.fromRGB(0, 0, 0)
 MainGui.BorderSizePixel = 0
 MainGui.ClipsDescendants = true
-MainGui.Position = UDim2.new(0.15942052, 0, 0.10865289, 0)
+MainGui.Position = UDim2.new(0.5, 0, 0.5, 0)
 MainGui.AnchorPoint = Vector2.new(0.5, 0.5)
 MainGui.Size = UDim2.new(0.44032, 0, 0.51136, 0) --UDim2.new(0.680098712, 0, 0.782336533, 0)
 makeDraggable(MainGui)
