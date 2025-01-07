@@ -508,7 +508,7 @@ Hide.ImageRectOffset = Vector2.new(0, 380)
 Hide.ImageRectSize = Vector2.new(36, 36)
 Hide.MouseButton1Click:Connect(function()
 		local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
-		local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.44032, 0, 0, 0)})
+		local off = ts:Create(MainGui, ti, {Size = UDim2.new(0, 0, 0, 0)})
 		off:Play()
 		
 		local ts1, ti1 = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
@@ -2493,7 +2493,7 @@ CheckIF_2.TextXAlignment = Enum.TextXAlignment.Left
 		local res = nil
 		CheckMainGui.Visible = true
         local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
-        local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0, 0)})
+        local off = ts:Create(MainGui, ti, {Size = UDim2.new(0, 0, 0, 0)})
         off:Play()
 		local ts, ti = game:GetService("TweenService"), TweenInfo.new(0.5, Enum.EasingStyle.Quint)
 		local on = ts:Create(CheckMainGui, ti, {Size = UDim2.new(0.437, 0, 0.5, 0)})
@@ -2506,7 +2506,7 @@ CheckIF_2.TextXAlignment = Enum.TextXAlignment.Left
 				local on = ts:Create(CheckMainGui, ti, {Size = UDim2.new(0.437, 0, 0, 0)})
 				on:Play()
                 local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
-                local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0.782, 0)})
+                local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.44032, 0, 0.51136, 0)})
                 off:Play()           
 			end)
 		end
@@ -2543,7 +2543,7 @@ CheckIF_2.TextXAlignment = Enum.TextXAlignment.Left
 	local res = nil
 	CheckMainGui.Visible = true
     local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
-    local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0, 0)})
+    local off = ts:Create(MainGui, ti, {Size = UDim2.new(0, 0, 0, 0)})
     off:Play()
 	local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
 	local on = ts:Create(CheckMainGui, ti, {Size = UDim2.new(0.437, 0, 0.5, 0)})
@@ -2555,7 +2555,7 @@ CheckIF_2.TextXAlignment = Enum.TextXAlignment.Left
 			local on = ts:Create(CheckMainGui, ti, {Size = UDim2.new(0.437, 0, 0, 0)})
 			on:Play()
             local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
-            local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0.782, 0)})
+            local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.44032, 0, 0.51136, 0)})
             off:Play()
 		end)
 	end
@@ -2589,7 +2589,7 @@ end
 	function CheckInfo(Name, exit)
 		CheckMainGui.Visible = true
         local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
-        local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0, 0)})
+        local off = ts:Create(MainGui, ti, {Size = UDim2.new(0, 0, 0, 0)})
         off:Play()
 		local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
 		local on = ts:Create(CheckMainGui, ti, {Size = UDim2.new(0.437, 0, 0.5, 0)})
@@ -2601,7 +2601,7 @@ end
 				local on = ts:Create(CheckMainGui, ti, {Size = UDim2.new(0.437, 0, 0, 0)})
 				on:Play()
                 local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
-                local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0.782, 0)})
+                local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.44032, 0, 0.51136, 0)})
                 off:Play()           
 			end)
 		end
@@ -2619,7 +2619,7 @@ end
 	function CheckClear(exit)
 		CheckMainGui.Visible = true
         local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
-        local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0, 0)})
+        local off = ts:Create(MainGui, ti, {Size = UDim2.new(0, 0, 0, 0)})
         off:Play()
 		local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
 		local on = ts:Create(CheckMainGui, ti, {Size = UDim2.new(0.437, 0, 0.5, 0)})
@@ -2631,7 +2631,7 @@ end
 				local on = ts:Create(CheckMainGui, ti, {Size = UDim2.new(0.437, 0, 0, 0)})
 				on:Play()
                 local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
-                local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0.782, 0)})
+                local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.44032, 0, 0.51136, 0)})
                 off:Play()           
 			end)
 		end
@@ -2647,11 +2647,11 @@ end
 
 function hidemaingui()
     local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
-    local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0, 0)})
+    local off = ts:Create(MainGui, ti, {Size = UDim2.new(0, 0, 0, 0)})
     off:Play()
 end
 function openmaingui()
     local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
-    local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0.782, 0)})
+    local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.44032, 0, 0.51136, 0)})
     off:Play()  
 end
