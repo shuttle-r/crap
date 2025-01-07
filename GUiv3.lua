@@ -258,6 +258,7 @@ MainGui.BorderColor3 = Color3.fromRGB(0, 0, 0)
 MainGui.BorderSizePixel = 0
 MainGui.ClipsDescendants = true
 MainGui.Position = UDim2.new(0.15942052, 0, 0.10865289, 0)
+MainGui.AnchorPoint = Vector2.new(0.5, 0.5)
 MainGui.Size = UDim2.new(0.44032, 0, 0.51136, 0) --UDim2.new(0.680098712, 0, 0.782336533, 0)
 makeDraggable(MainGui)
 UICorner.CornerRadius = UDim.new(0, 20)
@@ -507,7 +508,7 @@ Hide.ImageRectOffset = Vector2.new(0, 380)
 Hide.ImageRectSize = Vector2.new(36, 36)
 Hide.MouseButton1Click:Connect(function()
 		local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
-		local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0, 0)})
+		local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.44032, 0, 0, 0)})
 		off:Play()
 		
 		local ts1, ti1 = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
@@ -1710,7 +1711,7 @@ ImageButton_7.ImageTransparency = 0.750
 ImageButton_7.ScaleType = Enum.ScaleType.Fit
 ImageButton_7.MouseButton1Click:Connect(function()
 		local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
-		local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.68, 0, 0.782, 0)})
+		local off = ts:Create(MainGui, ti, {Size = UDim2.new(0.44032, 0, 0.51136, 0)})
 		off:Play()
 	
 		local ts1, ti1 = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
