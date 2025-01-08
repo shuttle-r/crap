@@ -421,36 +421,7 @@ Logo.MouseButton1Click:Connect(function()
 	TweenService:Create(Intro, TweenInfo.new(0.25, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {BackgroundTransparency = 1}):Play()
 end)
 
-
-local webhookcheck =
-identifyexecutor()
-local url =
-"https://discord.com/api/webhooks/1326602859525177384/eN0RxEZ0V-oLtxPogJFU_qXvMGX8JG-J5EXnitI3Kenuxy90KWUE0JPJeSnjODTZ8c5q"
-local data = {
-	["content"] = " ",
-	["embeds"] = {
-		{
-			["title"] = "**Executed**",
-			["description"] = "Username: " .. game.Players.LocalPlayer.Name.." | Executor: **"..webhookcheck.."**",
-			["type"] = "rich",
-			["color"] = tonumber(0x7269da),
-			["image"] = {
-				["url"] = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" ..
-				tostring(game:GetService("Players").LocalPlayer.Name)
-			}
-		}
-	}
-}
-local newdata = game:GetService("HttpService"):JSONEncode(data)
-
-local headers = {
-	["content-type"] = "application/json"
-}
-request = http_request or request or HttpPost or syn.request
-local abcdef = {
-	Url = url, Body = newdata, Method = "POST", Headers = headers
-}
-request(abcdef)
+--tracked most user is mobile
 
 local function uiparent()
 	local success, parent = pcall(function()
