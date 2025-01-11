@@ -641,7 +641,7 @@ local greenlighg
 greenlighg = addButton("Teleport to the end", function()
 local plr = game:service"Players".LocalPlayer;
 local tween_s = game:service"TweenService";
-local info = TweenInfo.new(16,Enum.EasingStyle.Quad);
+local info = TweenInfo.new(16,Enum.EasingStyle.Linear);
 function tp(...)
    local tic_k = tick(5);
    local params = {...};
@@ -767,7 +767,7 @@ local winglass
 winglass = addButton("Auto win glass", function()
 local plr = game:service"Players".LocalPlayer;
 local tween_s = game:service"TweenService";
-local info = TweenInfo.new(3,Enum.EasingStyle.Quad);
+local info = TweenInfo.new(3,Enum.EasingStyle.Linear);
 function tp(...)
    local tic_k = tick(5);
    local params = {...};
