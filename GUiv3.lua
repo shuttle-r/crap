@@ -1836,6 +1836,70 @@ SubTitle.TextWrapped = true
 
 local G2L = {};
 
+
+-- StarterGui.ScreenGui.SideBarTitle
+G2L["2"] = Instance.new("TextButton", StableSidebarButtons);
+G2L["2"]["TextWrapped"] = true;
+G2L["2"]["BorderSizePixel"] = 0;
+G2L["2"]["TextXAlignment"] = Enum.TextXAlignment.Right;
+G2L["2"]["TextSize"] = 14;
+G2L["2"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["2"]["TextScaled"] = true;
+G2L["2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["2"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["2"]["Size"] = UDim2.new(0.803, 0, 0.055, 0);
+G2L["2"]["BackgroundTransparency"] = 1;
+G2L["2"]["Name"] = [[SideBarTitle]];
+G2L["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2"]["Visible"] = false;
+G2L["2"]["Position"] = UDim2.new(-0.023, 0, 0, 0);
+
+
+-- StarterGui.ScreenGui.SideBarTitle.UICorner
+G2L["3"] = Instance.new("UICorner", G2L["2"]);
+G2L["3"]["CornerRadius"] = UDim.new(0, 20);
+
+
+-- StarterGui.ScreenGui.SelectionLeftName
+G2L["4"] = Instance.new("Frame", shufelMain);
+G2L["4"]["BorderSizePixel"] = 0;
+G2L["4"]["BackgroundColor3"] = Color3.fromRGB(46, 46, 46);
+G2L["4"]["ClipsDescendants"] = true;
+G2L["4"]["Size"] = UDim2.new(0, 0, 0.561, 0);
+G2L["4"]["Position"] = UDim2.new(0.16376, 0, 0.22427, 0);
+G2L["4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["4"]["Name"] = [[SelectionLeftName]];
+
+
+-- StarterGui.ScreenGui.SelectionLeftName.UICorner
+G2L["5"] = Instance.new("UICorner", G2L["4"]);
+G2L["5"]["CornerRadius"] = UDim.new(0, 20);
+
+
+-- StarterGui.ScreenGui.SelectionLeftName.Cover
+G2L["6"] = Instance.new("Frame", G2L["4"]);
+G2L["6"]["ZIndex"] = 0;
+G2L["6"]["BorderSizePixel"] = 0;
+G2L["6"]["BackgroundColor3"] = Color3.fromRGB(46, 46, 46);
+G2L["6"]["Size"] = UDim2.new(0.202, 0, 0.044, 0);
+G2L["6"]["Position"] = UDim2.new(0.79789, 0, -0.00007, 0);
+G2L["6"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["6"]["Name"] = [[Cover]];
+
+
+-- StarterGui.ScreenGui.SelectionLeftName.Cover
+G2L["7"] = Instance.new("Frame", G2L["4"]);
+G2L["7"]["ZIndex"] = 0;
+G2L["7"]["BorderSizePixel"] = 0;
+G2L["7"]["BackgroundColor3"] = Color3.fromRGB(46, 46, 46);
+G2L["7"]["Size"] = UDim2.new(0.2145, 0, 0.04665, 0);
+G2L["7"]["Position"] = UDim2.new(0.78539, 0, 0.95335, 0);
+G2L["7"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["7"]["Name"] = [[Cover]];
+
+
+local G2L = {};
+
 -- StarterGui.ScreenGui.KeybindGui
 G2L["2"] = Instance.new("Frame", StableButton);
 G2L["2"]["Visible"] = false;
@@ -2032,6 +2096,24 @@ createvalue.Name = "Value"
 	    	end)
 		sidebar.Parent = shufelMain.MainGui.SelectionLeft
 		sidebar.Name = osname
+		local sideBarTitle = StableSidebarButtons.SideBarTitle:Clone()
+		sideBarTitle.Parent = shufelMain.SelectionLeftName
+		sideBarTitle.Name = osname
+		sideBarTitle.Text = osname
+		sideBarTitle.Visible = true
+		sidebar:GetPropertyChangedSignal("AbsolutePosition"):Connect(function()
+			local parentPos = shufelMain.SelectionLeftName.AbsolutePosition
+			local targetPos = sidebar.AbsolutePosition
+			local calendarSize = sidebar.AbsoluteSize
+			local titleSize = sideBarTitle.AbsoluteSize
+			
+			-- Position to the left of calendar by subtracting titleSize.X
+			local leftX = targetPos.X - parentPos.X - titleSize.X - 8
+			-- Keep vertical centering
+			local centerY = targetPos.Y - parentPos.Y + (calendarSize.Y - titleSize.Y) / 2
+	
+			sideBarTitle.Position = UDim2.new(0, leftX, 0, centerY)
+		end)
 	
 		for i, v in pairs(automaticselectionimage) do
 			if string.lower(i) == string.lower(osname) then
@@ -2048,6 +2130,51 @@ createvalue.Name = "Value"
 		layoutsccrollingframe.Name = osname
 		layoutsccrollingframe.Visible = true
 	end
+
+	shufelMain.MainGui.Back.MouseButton1Click:Connect(function()
+		if SidebarerHide == true then
+			SidebarerHide = false
+		else
+			SidebarerHide = true
+		end
+		if SidebarerHide == true then
+			local shrinkGoal = {
+				Size = UDim2.new(0.143, 0 ,0.561, 0),
+				Position = UDim2.new(0.02, 0, 0.224, 0) -- Move to center of the parent
+			}
+	
+			-- Create the tween
+			local tween = game:GetService("TweenService"):Create(shufelMain.SelectionLeftName, TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.Out), shrinkGoal)
+			tween:Play()
+		end
+		
+		if SidebarerHide == false then
+			local shrinkGoal = {
+				Size = UDim2.new(0, 0 ,0.561, 0),
+				Position = UDim2.new(0.164, 0, 0.224, 0) -- Move to center of the parent
+			}
+	
+			-- Create the tween
+			local tween = game:GetService("TweenService"):Create(shufelMain.SelectionLeftName, TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.In), shrinkGoal)
+			tween:Play()
+		end
+	end)
+	
+	shufelMain.MainGui.SelectionLeft:GetPropertyChangedSignal("AbsolutePosition"):Connect(function()
+		local calendar = shufelMain.MainGui.SelectionLeft
+		local sideBarTitle = shufelMain.SelectionLeftName
+		-- Get the relative position
+		local parentPos = sideBarTitle.Parent.AbsolutePosition
+		local targetPos = calendar.AbsolutePosition
+		-- Get sizes for calculations
+		local calendarSize = calendar.AbsoluteSize
+		local titleSize = sideBarTitle.AbsoluteSize
+		-- Position to the left of calendar by subtracting titleSize.X
+		local leftX = targetPos.X - parentPos.X - titleSize.X + 2
+		-- Keep vertical centering
+		local centerY = targetPos.Y - parentPos.Y + (calendarSize.Y - titleSize.Y) / 2
+		sideBarTitle.Position = UDim2.new(0, leftX, 0, centerY)
+	end)
 	
 	function addButton(osnameparent, osimagelogo, ostext, ossubtitle, funct, ...)
 		local button = StableButtons.ButtonGui:Clone()
