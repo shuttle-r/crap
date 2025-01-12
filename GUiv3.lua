@@ -2479,18 +2479,18 @@ createvalue.Name = "Value"
 
 -- Instances:
 
-local checkerGui = Instance.new("ScreenGui")
-local CheckMainGui = Instance.new("Frame")
-local FunnYUI = Instance.new("UICorner")
-local CheckerOut = Instance.new("ScrollingFrame")
-local randomUILIST = Instance.new("UIListLayout")
-local idkISTHIS = Instance.new("TextLabel")
-local RandomLine = Instance.new("Frame")
-local Checker = Instance.new("Folder")
-local Loading = Instance.new("ImageLabel")
-local CheckIF = Instance.new("TextLabel")
-local Loading2 = Instance.new("ImageLabel")
-local CheckIF_2 = Instance.new("TextLabel")
+checkerGui = Instance.new("ScreenGui")
+CheckMainGui = Instance.new("Frame")
+FunnYUI = Instance.new("UICorner")
+CheckerOut = Instance.new("ScrollingFrame")
+randomUILIST = Instance.new("UIListLayout")
+idkISTHIS = Instance.new("TextLabel")
+RandomLine = Instance.new("Frame")
+Checker = Instance.new("Folder")
+Loading = Instance.new("ImageLabel")
+CheckIF = Instance.new("TextLabel")
+Loading2 = Instance.new("ImageLabel")
+CheckIF_2 = Instance.new("TextLabel")
 
 --Properties:
 
