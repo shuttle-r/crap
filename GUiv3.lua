@@ -506,15 +506,7 @@ Hide.Size = UDim2.new(0.0362756923, 0, 0.0666666701, 0)
 Hide.Image = "rbxassetid://16884178261"
 Hide.ImageRectOffset = Vector2.new(0, 380)
 Hide.ImageRectSize = Vector2.new(36, 36)
-Hide.MouseButton1Click:Connect(function()
-		local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
-		local off = ts:Create(MainGui, ti, {Size = UDim2.new(0, 0, 0, 0)})
-		off:Play()
-		
-		local ts1, ti1 = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
-		local on = ts1:Create(OpenMenuMain, ti1, {Size = UDim2.new(0.143, 0, 0.172, 0)})
-		on:Play()
-end)
+
 UIAspectRatioConstraint_5.Parent = Hide
 
 if not _G.Guimaid then 
@@ -1863,9 +1855,9 @@ G2L["3"]["CornerRadius"] = UDim.new(0, 20);
 -- StarterGui.ScreenGui.SelectionLeftName
 G2L["4"] = Instance.new("Frame", shufelMain);
 G2L["4"]["BorderSizePixel"] = 0;
-G2L["4"]["BackgroundColor3"] = Color3.fromRGB(46, 46, 46);
+G2L["4"]["BackgroundColor3"] = Color3.fromRGB(45, 45, 45);
 G2L["4"]["ClipsDescendants"] = true;
-G2L["4"]["Size"] = UDim2.new(0, 0, 0.561, 0);
+G2L["4"]["Size"] = UDim2.new(0, 0, 0.381, 0);
 G2L["4"]["Position"] = UDim2.new(0.16376, 0, 0.22427, 0);
 G2L["4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 G2L["4"]["Name"] = [[SelectionLeftName]];
@@ -1988,6 +1980,7 @@ G2L["8"]["Position"] = UDim2.new(0.829, 0, 0.246, 0);
 G2L["9"] = Instance.new("UICorner", G2L["8"]);
 G2L["9"]["CornerRadius"] = UDim.new(0, 20);
 -- Scripts:
+
 local function VMZQMBM_fake_script() -- SystemAbout_2.LocalScript 
 	local script = Instance.new('LocalScript', SystemAbout_2)
 
@@ -2099,8 +2092,13 @@ createvalue.Name = "Value"
 		local sideBarTitle = StableSidebarButtons.SideBarTitle:Clone()
 		sideBarTitle.Parent = shufelMain.SelectionLeftName
 		sideBarTitle.Name = osname
-		sideBarTitle.Text = osname
+		if title == nil then
+			sideBarTitle.Text = osname
+		else
+			sideBarTitle.Text = title
+		end
 		sideBarTitle.Visible = true
+		
 		sidebar:GetPropertyChangedSignal("AbsolutePosition"):Connect(function()
 			local parentPos = shufelMain.SelectionLeftName.AbsolutePosition
 			local targetPos = sidebar.AbsolutePosition
@@ -2114,6 +2112,20 @@ createvalue.Name = "Value"
 	
 			sideBarTitle.Position = UDim2.new(0, leftX, 0, centerY)
 		end)
+		shufelMain.SelectionLeftName:GetPropertyChangedSignal("AbsolutePosition"):Connect(function()
+			local parentPos = shufelMain.SelectionLeftName.AbsolutePosition
+			local targetPos = sidebar.AbsolutePosition
+			local calendarSize = sidebar.AbsoluteSize
+			local titleSize = sideBarTitle.AbsoluteSize
+			
+			-- Position to the left of calendar by subtracting titleSize.X
+			local leftX = targetPos.X - parentPos.X - titleSize.X - 8
+			-- Keep vertical centering
+			local centerY = targetPos.Y - parentPos.Y + (calendarSize.Y - titleSize.Y) / 2
+	
+			sideBarTitle.Position = UDim2.new(0, leftX, 0, centerY)
+		end)
+
 	
 		for i, v in pairs(automaticselectionimage) do
 			if string.lower(i) == string.lower(osname) then
@@ -2132,15 +2144,10 @@ createvalue.Name = "Value"
 	end
 
 	shufelMain.MainGui.Back.MouseButton1Click:Connect(function()
-		if SidebarerHide == true then
-			SidebarerHide = false
-		else
-			SidebarerHide = true
-		end
-		if SidebarerHide == true then
+		if shufelMain.SelectionLeftName.Size == UDim2.new(0, 0 ,0.381, 0) then
 			local shrinkGoal = {
-				Size = UDim2.new(0.143, 0 ,0.561, 0),
-				Position = UDim2.new(0.02, 0, 0.224, 0) -- Move to center of the parent
+				Size = UDim2.new(0.100, 0 , 0.381, 0),
+				--Position = UDim2.new(0.02, 0, 0.224, 0) -- Move to center of the parent
 			}
 	
 			-- Create the tween
@@ -2148,10 +2155,10 @@ createvalue.Name = "Value"
 			tween:Play()
 		end
 		
-		if SidebarerHide == false then
+		if shufelMain.SelectionLeftName.Size == UDim2.new(0.100, 0 , 0.381, 0) then
 			local shrinkGoal = {
-				Size = UDim2.new(0, 0 ,0.561, 0),
-				Position = UDim2.new(0.164, 0, 0.224, 0) -- Move to center of the parent
+				Size = UDim2.new(0, 0 ,0.381, 0),
+				--Position = UDim2.new(0.164, 0, 0.224, 0) -- Move to center of the parent
 			}
 	
 			-- Create the tween
@@ -2159,19 +2166,34 @@ createvalue.Name = "Value"
 			tween:Play()
 		end
 	end)
+	Hide.MouseButton1Click:Connect(function()
+		local ts, ti = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
+		local off = ts:Create(MainGui, ti, {Size = UDim2.new(0, 0, 0, 0)})
+
+		
+		local ts1, ti1 = 	game:GetService("TweenService"),TweenInfo.new(.5,Enum.EasingStyle.Quint)
+		local on = ts1:Create(OpenMenuMain, ti1, {Size = UDim2.new(0.143, 0, 0.172, 0)})
+
+		local shrinkGoal = {
+			Size = UDim2.new(0, 0 ,0.381, 0),
+			--Position = UDim2.new(0.164, 0, 0.224, 0) -- Move to center of the parent
+		}
+
+		-- Create the tween
+		local tween = game:GetService("TweenService"):Create(shufelMain.SelectionLeftName, TweenInfo.new(0.2, Enum.EasingStyle.Sine, Enum.EasingDirection.In), shrinkGoal)
+		tween:Play()
+		off:Play()
+		on:Play()
+	end)
 	
-	shufelMain.MainGui.SelectionLeft:GetPropertyChangedSignal("AbsolutePosition"):Connect(function()
+	game:GetService("RunService").RenderStepped:Connect(function()
 		local calendar = shufelMain.MainGui.SelectionLeft
 		local sideBarTitle = shufelMain.SelectionLeftName
-		-- Get the relative position
 		local parentPos = sideBarTitle.Parent.AbsolutePosition
 		local targetPos = calendar.AbsolutePosition
-		-- Get sizes for calculations
 		local calendarSize = calendar.AbsoluteSize
 		local titleSize = sideBarTitle.AbsoluteSize
-		-- Position to the left of calendar by subtracting titleSize.X
 		local leftX = targetPos.X - parentPos.X - titleSize.X + 2
-		-- Keep vertical centering
 		local centerY = targetPos.Y - parentPos.Y + (calendarSize.Y - titleSize.Y) / 2
 		sideBarTitle.Position = UDim2.new(0, leftX, 0, centerY)
 	end)
