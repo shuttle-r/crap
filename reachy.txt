@@ -19,50 +19,6 @@ end
 _G.alreadyexec = true
 _G.NotificationText = "Getting ready."
 loadstring(game:HttpGet("https://raw.githubusercontent.com/shuttle-r/crap/main/Notification.txt",true))()
-if identifyexecutor() == "Codex" then
-local StarterGui = game:GetService("StarterGui")
-local bindable = Instance.new("BindableFunction")
-function bindable.OnInvoke(response)
-  if response == "Yes" then
-    local fileContent = readfile("codexScriptCache.json")
-
-local existingData = game.HttpService:JSONDecode(fileContent)
-
-local newObject = {
-    title = "Reachy",
-    autoExecute = false,
-    description = "Made by: shuFEL | Codex",
-    content = 'loadstring(game:HttpGet(\"https://raw.githubusercontent.com/shuttle-r/crap/main/reachy.txt\",true))()',
-    index = 1
-}
-
-table.insert(existingData, newObject)
-
-local updatedJsonData = game.HttpService:JSONEncode(existingData)
-writefile("codexScriptCache.json", updatedJsonData) 
-writefile("Agreedthed.txt","UserAgreed")
-wait(1)
-local tpservice = game:GetService("TeleportService")
-local plr = game.Players.LocalPlayer
-
-tpservice:Teleport(game.PlaceId, plr)
-else
-return
-end
-
-end
-
--- Set the notification parameters
-local notification = {
-    Title = "Codex detected", -- The title of the notification
-    Text = "add this script into your CODEX?", -- The text of the notification
-    Duration = 16, -- The duration of the notification in seconds
-    Callback = bindable, -- The function to call when the user clicks a button
-    Button1 = "Yes", -- The text of the first button
-    Button2 = "No" -- The text of the second button
-}
-StarterGui:SetCore("SendNotification", notification)
-end
 local Script_Title = "Error: 404 Script_Title random string not found!"
 -- Instances:
 local Segs = Instance.new("ScreenGui")
@@ -653,7 +609,7 @@ local colorrvalue = 1
 local colorgvalue = 1
 local colorbvalue = 1
 local plr = game.Players.LocalPlayer
---[[local function onHit(hit,handle)
+local function onHit(hit,handle)
 	local victim = hit.Parent:FindFirstChildOfClass("Humanoid")
 	if victim and victim.Parent.Name ~= game.Players.LocalPlayer.Name then
 		if dmgEnabled then
@@ -671,26 +627,7 @@ local plr = game.Players.LocalPlayer
 			firetouchinterest(hit,handle,1)
 		end
 	end
-end]]
-local function onHit(hit,handle)
-	local victim = hit.Parent:FindFirstChildWhichIsA("BasePart")
---	if victim and victim.Parent.Name ~= game.Players.LocalPlayer.Name then
-		if dmgEnabled then
- 
-			for _,v in pairs(hit.Parent:GetChildren()) do
-				if v:IsA("BasePart") then
-					for i = 1, multiplier do
-						firetouchinterest(v,handle,0)
-						firetouchinterest(v,handle,1)
-					end
-				end
-			end
-		else
-			firetouchinterest(hit,handle,0)
-			firetouchinterest(hit,handle,1)
-		end
-	end
---end
+end
 
 local function getWhiteList()
 	local wl = {}
@@ -825,7 +762,7 @@ local s = plr.Character and plr.Character:FindFirstChildOfClass("Tool")
 						visualizer.CastShadow = false
 						visualizer.Name = math.random()
 					end
-					--[[for _,v in pairs(game.Players:GetPlayers()) do
+					for _,v in pairs(game.Players:GetPlayers()) do
 						local hrp = v.Character and v.Character:FindFirstChild("HumanoidRootPart")
 						if hrp and handle then
 							local mag = (hrp.Position-handle.Position).magnitude
@@ -833,14 +770,6 @@ local s = plr.Character and plr.Character:FindFirstChildOfClass("Tool")
 								onHit(hrp,handle)
 							end
 						end
-					end]]
-					for i,v in pairs(game.Workspace:GetDescendants()) do
-					  if v:IsA("Part") then
-					   local mag = (v.Position-handle.Position).Magnitude
-					   if mag <= reach then
-					     onHit(v,handle)
-					   end
-				    end
 					end
 				elseif reachType == "Block" then
 					--[[local origin = (handle.CFrame*CFrame.new(0,0,-2)).p

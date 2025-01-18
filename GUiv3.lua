@@ -869,7 +869,7 @@ TextLabel_11.BorderSizePixel = 0
 TextLabel_11.Position = UDim2.new(0.186046541, 0, 0.348718524, 0)
 TextLabel_11.Size = UDim2.new(0.771802187, 0, 0.266418517, 0)
 TextLabel_11.Font = Enum.Font.Ubuntu
-TextLabel_11.Text = "Compatible with all devices (proven by skidders)"
+TextLabel_11.Text = "Compatible with all devices!"
 TextLabel_11.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel_11.TextScaled = true
 TextLabel_11.TextSize = 19.000
@@ -886,7 +886,6 @@ Frame_5.Size = UDim2.new(0.907550275, 0, 0.172515273, 0)
 
 UICorner_8.CornerRadius = UDim.new(0, 20)
 UICorner_8.Parent = Frame_5
-
 ImageButton_2.Parent = Frame_5
 ImageButton_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ImageButton_2.BackgroundTransparency = 1.000
@@ -894,9 +893,9 @@ ImageButton_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ImageButton_2.BorderSizePixel = 0
 ImageButton_2.Position = UDim2.new(0.0459233671, 0, 0.0920844004, 0)
 ImageButton_2.Size = UDim2.new(0.095930241, 0, 0.795180738, 0)
-ImageButton_2.Image = "rbxassetid://14976970435"
-ImageButton_2.ImageRectOffset = Vector2.new(146, 724)
-ImageButton_2.ImageRectSize = Vector2.new(144, 144)
+ImageButton_2.Image = "rbxassetid://16884179279"
+ImageButton_2.ImageRectOffset = Vector2.new(922, 0)
+ImageButton_2.ImageRectSize = Vector2.new(54, 54)
 
 UIAspectRatioConstraint_12.Parent = ImageButton_2
 
@@ -908,7 +907,7 @@ TextLabel_12.BorderSizePixel = 0
 TextLabel_12.Position = UDim2.new(0.186046541, 0, 0.348718524, 0)
 TextLabel_12.Size = UDim2.new(0.771802187, 0, 0.266418517, 0)
 TextLabel_12.Font = Enum.Font.Ubuntu
-TextLabel_12.Text = "Proffesionally slows down your device!"
+TextLabel_12.Text = "Made by: shuFEL/shuttle"
 TextLabel_12.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel_12.TextScaled = true
 TextLabel_12.TextSize = 19.000
@@ -947,7 +946,7 @@ TextLabel_13.BorderSizePixel = 0
 TextLabel_13.Position = UDim2.new(0.186046541, 0, 0.348718524, 0)
 TextLabel_13.Size = UDim2.new(0.771802187, 0, 0.266418517, 0)
 TextLabel_13.Font = Enum.Font.Ubuntu
-TextLabel_13.Text = "Your information is shared somewhere I don’t even know!"
+TextLabel_13.Text = "Your information is private (trust)"
 TextLabel_13.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel_13.TextScaled = true
 TextLabel_13.TextSize = 19.000
@@ -966,7 +965,12 @@ ImageButton_4.ImageRectOffset = Vector2.new(0, 870)
 ImageButton_4.ImageRectSize = Vector2.new(144, 144)
 
 UIAspectRatioConstraint_14.Parent = ImageButton_4
-
+randomGreet = {
+    "Sup", "Hello", "Helo my pookie", "Yoo", 
+    "Hey", "What’s good?", "Ayy", "Yo", 
+    "Wassup", "How’s it going?", "Heyyy", 
+    "What’s poppin’?", "Yo yo yo", "Hey there"
+}
 TextLabel_14.Parent = SystemWelcome
 TextLabel_14.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel_14.BackgroundTransparency = 1.000
@@ -975,7 +979,7 @@ TextLabel_14.BorderSizePixel = 0
 TextLabel_14.Position = UDim2.new(0.317417592, 0, 0.309139282, 0)
 TextLabel_14.Size = UDim2.new(0.331739455, 0, 0.0666501075, 0)
 TextLabel_14.Font = Enum.Font.Ubuntu
-TextLabel_14.Text = "Sup, proffesional hecker"
+TextLabel_14.Text = randomGreet[math.random(1,#randomGreet)]..", "..game:GetService("Players").LocalPlayer.DisplayName
 TextLabel_14.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel_14.TextScaled = true
 TextLabel_14.TextSize = 21.000
@@ -2185,8 +2189,11 @@ createvalue.Name = "Value"
 		off:Play()
 		on:Play()
 	end)
-	
-	game:GetService("RunService").RenderStepped:Connect(function()
+	local imnobbb
+	imnobbb = game:GetService("RunService").RenderStepped:Connect(function()
+		if not shufelMain or not shufelMain:FindFirstChild("MainGui") then
+			return
+		end
 		local calendar = shufelMain.MainGui.SelectionLeft
 		local sideBarTitle = shufelMain.SelectionLeftName
 		local parentPos = sideBarTitle.Parent.AbsolutePosition
