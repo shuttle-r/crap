@@ -1378,9 +1378,9 @@ local ray = Ray.new(v.Character:FindFirstChild("HumanoidRootPart").Position, Vec
     if Hit and v.Character:FindFirstChild("HumanoidRootPart") then
 
 
-
+				pcall(function()
                 local magnitude = (v.Character.HumanoidRootPart.Position - localPlayer.Character.HumanoidRootPart.Position).magnitude
-
+				end)
                 if magnitude < shortestDistance then
                     closestPlayer = v
                     shortestDistance = magnitude
