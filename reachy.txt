@@ -1375,7 +1375,7 @@ local function getClosestPlayer()
 local ray = Ray.new(v.Character:FindFirstChild("HumanoidRootPart").Position, Vector3.new(0,-100000,0))
     local Hit = game:GetService("Workspace"):FindPartOnRay(ray, v.Character)
 
-    if Hit then
+    if Hit and v.Character:FindFirstChild("HumanoidRootPart") then
 
 
 
